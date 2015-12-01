@@ -157,13 +157,13 @@ $RECYCLE.BIN/
 .DS_Store
 
 #Custom ignore
-WebSite/App_Data/Temp
-WebSite/App_Data/Logs
-WebSite/App_Data/access.config
-WebSite/App_Data/umbraco.config
-WebSite/App_Data/App_Data
-WebSite/App_Data/preview
-WebSite/Media
-WebSite/App_Data/cache
-WebSite/App_Data/NuGetBackup
-WebSite/data/cached
+Web/App_Data/Temp
+Web/App_Data/Logs
+Web/App_Data/access.config
+Web/App_Data/umbraco.config
+Web/App_Data/App_Data
+Web/App_Data/preview
+Web/Media
+Web/App_Data/cache
+Web/App_Data/NuGetBackup
+Web/data/cached
