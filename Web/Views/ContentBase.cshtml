@@ -1,0 +1,59 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    Layout = "LayoutBase.cshtml";
+    var leftSidebarDefined = IsSectionDefined("LeftSidebar");
+    var rightSidebarDefined = IsSectionDefined("RightSidebar");
+    int contentWidth = 24;
+    if (leftSidebarDefined && rightSidebarDefined)
+    {
+        contentWidth = 14;
+    }
+    else if (leftSidebarDefined)
+    {
+        contentWidth = 20;
+    }
+    else if (rightSidebarDefined)
+    {
+        contentWidth = 18;
+    }
+}
+@section Scripts{
+    @if (IsSectionDefined("Scripts"))
+    {
+        @RenderSection("Scripts")
+    }
+}
+@section FeaturedArticlesCarousel
+{
+    @{Html.RenderPartial("FeaturedArticlesCarousel");}
+}
+@*@if (IsSectionDefined("FeaturedArticlesCarousel"))
+{
+    @RenderSection("FeaturedArticlesCarousel")
+}*@
+<section class="main-wrapper">
+    <div class="container">
+        <header class="header-default">
+            <h4>
+                @RenderSection("Header")
+            </h4>
+        </header>
+        <div class="row">
+            @if (leftSidebarDefined)
+            {
+                <div class="col-sm-4">
+                    @RenderSection("LeftSidebar")
+                </div>
+            }
+            <div class="col-sm-@contentWidth">
+                @RenderSection("Body")
+            </div>
+            @if (rightSidebarDefined)
+            {
+                <div class="col-sm-6">
+                    @RenderSection("RightSidebar")
+                </div>
+            }
+        </div>
+    </div>
+</section>

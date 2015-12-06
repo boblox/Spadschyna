@@ -1,0 +1,30 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    var homePage = CurrentPage.AncestorsOrSelf(1).First();
+}
+
+<footer class="footer-wrapper">
+    <div class="container">
+        <div class="footer-inner">
+            <div class="pull-left">
+                @{Html.RenderPartial("Logo");}
+            </div>
+            <div class="pull-right">
+                @Html.Action("Index", "ContactForm", new { emailFrom = "", emailTo = "" })
+            </div>
+            <div class="footer-nav-contacts-container hidden-xs hidden-sm">
+                <nav class="footer-nav text-center">
+                    <ul>
+                        @{
+                            var dict = new ViewDataDictionary(ViewData) { { "menuItem", homePage } };
+                            Html.RenderPartial("TopNavigationList", dict);
+                        }
+                    </ul>
+                </nav>
+                <div class="footer-contacts text-center">
+                    @{Html.RenderPartial("Social");}
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

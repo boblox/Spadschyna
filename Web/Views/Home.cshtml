@@ -1,6 +1,14 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits UmbracoTemplatePage
 @{
-    Layout = "Master.cshtml";
+    Layout = "ContentBase.cshtml";
 }
 
-@CurrentPage.GetGridHtml("content", "fanoe")
+@*@section FeaturedArticlesCarousel
+{
+    @{Html.RenderPartial("FeaturedArticlesCarousel");}
+}*@
+
+@section Body
+{
+
+}

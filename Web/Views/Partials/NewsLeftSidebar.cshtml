@@ -1,0 +1,62 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    // If the editor has not explicitly provided the "Page title" property page
+    // then just show the name of the page otherwise show the provided title
+    var pageTitle = string.IsNullOrWhiteSpace(CurrentPage.Title)
+        ? CurrentPage.Name
+        : CurrentPage.Title;
+
+    // Model.Content is the current page that we're on
+    // AncestorsOrSelf is all of the ancestors this page has in the tree
+    // (1) means: go up to level 1 and stop looking for more ancestors when you get there
+    // First() gets the first ancestor found (the home page, on level 1)
+    var homePage = Model.Content.AncestorOrSelf(1);// CurrentPage.AncestorsOrSelf(1).First();
+
+    // Find all pages with document type alias umbNewsOverview
+    // We do that using the plural, umbNewsOverviews (note the extra "s" in the end)
+    // Then take the first one, as we know there will only be on news overview page
+    var newsOverview = homePage.ChildrenOfDocType(Consts.NewsOverviewDocType.Alias).First();
+
+    var newsYears = newsOverview.ChildrenOfDocType(Consts.NewsByYearDocType.Alias)
+        .OrderByDescending(i => i.Name).Select(i => i.Name).ToList();
+    newsYears.Insert(0, Consts.YearAllInt.ToString());
+
+    var dataTypeService = ApplicationContext.Current.Services.DataTypeService;
+    var newsCategories = Utils.GetDataTypePreValues(dataTypeService, Consts.DataTypes.NewsCategory).ToList();
+    newsCategories.Insert(0, new PreValue(Consts.NewsCategoryAllInt, Consts.NewsCategoryAll));
+
+    // Similar to above: find all pages with document type umbNewsItem under the news overview page
+    // Then order them, first by publishDate (a property the editor can explicitly set on the news item)
+    // and then by createDate, which is set by Umbraco automatically when a page gets created.
+    //var newsItems = newsOverview.NewsItems.OrderBy("publishDate desc, createDate desc").Take(8);
+    var newsItems = newsOverview.ChildrenOfDocType(Consts.NewsItemDocType.Alias)
+        .OrderByDescending(i => i.CreateDate).ToList();
+
+    var weAreOnTheNewsOverview = (newsOverview.Url == CurrentPage.Url).ToString().ToLower();
+}
+
+<div class="news-left-sidebar">
+    <ul class="news-years">
+        @foreach (var year in newsYears)
+        {
+            <li>
+                <a class="news-link @Umbraco.If(year == Consts.YearAllInt.ToString(), "all")"
+                   href="#" year="@year">@Umbraco.If(year == Consts.YearAllInt.ToString(), Consts.YearAll, year)</a>
+            </li>
+        }
+    </ul>
+    <ul class="news-categories">
+        @foreach (var category in newsCategories)
+        {
+            <li>
+                <a class="news-link category-@category.Id" href="#" category="@category.Id">@category.Value</a>
+            </li>
+        }
+    </ul>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        InitNewsLeftSidebar(@Consts.NewsCategoryAllInt, @Consts.YearAllInt, @weAreOnTheNewsOverview, @newsOverview.Url);
+    });
+</script>

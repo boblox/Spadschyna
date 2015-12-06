@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="AutoMapper, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
       <Private>True</Private>
@@ -74,6 +79,14 @@
     </Reference>
     <Reference Include="CookComputing.XmlRpcV2, Version=2.5.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
       <HintPath>..\packages\xmlrpcnet.2.5.0\lib\net20\CookComputing.XmlRpcV2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Examine, Version=0.1.68.0, Culture=neutral, processorArchitecture=MSIL">
@@ -224,6 +237,10 @@
       <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
       <Private>True</Private>
@@ -287,6 +304,10 @@
       <HintPath>..\packages\UmbracoCms.Core.7.3.1\lib\UrlRewritingNet.UrlRewriter.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.3.2.3\lib\net45\WebMatrix.Data.dll</HintPath>
       <Private>True</Private>
@@ -300,13 +321,92 @@
     <Content Include="App_Plugins\Grid\Config\FanoeConfig.txt" />
     <Content Include="App_Plugins\Grid\Editors\Views\media_with_description.html" />
     <Content Include="App_Plugins\Grid\Editors\Views\quote_with_description.html" />
-    <Content Include="css\bootstrap.min.css" />
-    <Content Include="css\fanoe.css" />
+    <Content Include="css\animate.css" />
+    <Content Include="css\bootstrap-n-column.css">
+      <DependentUpon>bootstrap-n-column.less</DependentUpon>
+    </Content>
+    <Content Include="css\bootstrap-n-column.min.css">
+      <DependentUpon>bootstrap-n-column.css</DependentUpon>
+    </Content>
+    <Content Include="css\Fanoe\bootstrap.min.css" />
+    <Content Include="css\Fanoe\fanoe.css" />
+    <Content Include="css\globals.css">
+      <DependentUpon>globals.less</DependentUpon>
+    </Content>
+    <Content Include="css\globals.min.css">
+      <DependentUpon>globals.css</DependentUpon>
+    </Content>
+    <Content Include="css\images\animated-overlay.gif" />
+    <Content Include="css\images\icons-contact.png" />
+    <Content Include="css\images\logo.png" />
+    <Content Include="css\images\magnific-popup-arrow.png" />
+    <Content Include="css\images\magnific-popup-close.png" />
+    <Content Include="css\images\scroll-to-top.png" />
+    <Content Include="css\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="css\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="css\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="css\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="css\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="css\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="css\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="css\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="css\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\jquery-ui.min.css" />
+    <Content Include="css\magnific-popup.css" />
+    <Content Include="css\main.css">
+      <DependentUpon>main.less</DependentUpon>
+    </Content>
+    <Content Include="css\main.min.css">
+      <DependentUpon>main.css</DependentUpon>
+    </Content>
+    <Content Include="css\mixins.css">
+      <DependentUpon>mixins.less</DependentUpon>
+    </Content>
+    <Content Include="css\mixins.min.css">
+      <DependentUpon>mixins.css</DependentUpon>
+    </Content>
+    <Content Include="css\OwlCarousel\owl.carousel.css" />
+    <Content Include="css\OwlCarousel\owl.theme.green.css" />
     <Content Include="css\rte.css" />
-    <Content Include="css\style.css" />
+    <Content Include="css\Fanoe\style.css" />
+    <Content Include="css\styles.css">
+      <DependentUpon>styles.less</DependentUpon>
+    </Content>
+    <Content Include="css\styles.min.css">
+      <DependentUpon>styles.css</DependentUpon>
+    </Content>
+    <Content Include="css\variables.css">
+      <DependentUpon>variables.less</DependentUpon>
+    </Content>
+    <Content Include="css\variables.min.css">
+      <DependentUpon>variables.css</DependentUpon>
+    </Content>
+    <Content Include="favicon.ico" />
+    <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\config.js" />
+    <Content Include="js\director.min.js" />
+    <Content Include="js\Fanoe\bootstrap.min.js" />
+    <Content Include="js\Fanoe\jquery.min.js" />
+    <Content Include="js\imagesloaded.pkgd.min.js" />
+    <Content Include="js\jquery-ui.min.js" />
+    <Content Include="js\jquery.dropotron.min.js" />
     <Content Include="js\jquery.min.js" />
-    <Content Include="packages.config" />
+    <Content Include="js\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="js\jquery.unveil.js" />
+    <Content Include="js\jquery.validate.min.js" />
+    <Content Include="js\jquery.validate.unobtrusive.min.js" />
+    <Content Include="js\magnific.popup.min.js" />
+    <Content Include="js\masonry.pkgd.min.js" />
+    <Content Include="js\owl.carousel.min.js" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="scripts\fanoe.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
@@ -330,23 +430,146 @@
     <Content Include="Config\ExamineIndex.config" />
     <Content Include="Config\EmbeddedMedia.config" />
     <Content Include="Config\Dashboard.config" />
-    <Content Include="Config\ClientDependency.config" />
+    <Content Include="Config\ClientDependency.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\BaseRestExtensions.config" />
     <Content Include="Config\applications.config" />
     <Content Include="Config\404handlers.config" />
     <Content Include="Views\Partials\Grid\Fanoe.cshtml" />
-    <Content Include="Views\BlogOverview.cshtml" />
-    <Content Include="Views\BlogPost.cshtml" />
-    <Content Include="Views\Home.cshtml" />
     <Content Include="Views\Master.cshtml" />
     <Content Include="Views\Partials\BottomNavigation.cshtml" />
     <Content Include="Views\Partials\MainNavigation.cshtml" />
-    <Content Include="Views\TextPage.cshtml" />
     <Content Include="App_Plugins\Grid\Editors\Render\embed_videowrapper.cshtml" />
     <Content Include="App_Plugins\Grid\Editors\Render\media_round.cshtml" />
     <Content Include="App_Plugins\Grid\Editors\Render\media_text_right.cshtml" />
     <Content Include="App_Plugins\Grid\Editors\Render\media_wide.cshtml" />
     <Content Include="App_Plugins\Grid\Editors\Render\quote_with_description.cshtml" />
+    <Content Include="App_Code\CommonHelpers.cshtml" />
+    <None Include="compilerconfig.json" />
+    <Content Include="compilerconfig.json.defaults">
+      <DependentUpon>compilerconfig.json</DependentUpon>
+    </Content>
+    <Content Include="Config\smtp.config" />
+    <Content Include="css\Bootstrap\.csscomb.json" />
+    <Content Include="css\Bootstrap\.csslintrc" />
+    <Content Include="css\Bootstrap\alerts.less" />
+    <Content Include="css\Bootstrap\badges.less" />
+    <Content Include="css\Bootstrap\bootstrap.less" />
+    <Content Include="css\Bootstrap\breadcrumbs.less" />
+    <Content Include="css\Bootstrap\button-groups.less" />
+    <Content Include="css\Bootstrap\buttons.less" />
+    <Content Include="css\Bootstrap\carousel.less" />
+    <Content Include="css\Bootstrap\close.less" />
+    <Content Include="css\Bootstrap\code.less" />
+    <Content Include="css\Bootstrap\component-animations.less" />
+    <Content Include="css\Bootstrap\dropdowns.less" />
+    <Content Include="css\Bootstrap\forms.less" />
+    <Content Include="css\Bootstrap\glyphicons.less" />
+    <Content Include="css\Bootstrap\grid.less" />
+    <Content Include="css\Bootstrap\input-groups.less" />
+    <Content Include="css\Bootstrap\jumbotron.less" />
+    <Content Include="css\Bootstrap\labels.less" />
+    <Content Include="css\Bootstrap\list-group.less" />
+    <Content Include="css\Bootstrap\media.less" />
+    <Content Include="css\Bootstrap\mixins.less" />
+    <Content Include="css\Bootstrap\mixins\alerts.less" />
+    <Content Include="css\Bootstrap\mixins\background-variant.less" />
+    <Content Include="css\Bootstrap\mixins\border-radius.less" />
+    <Content Include="css\Bootstrap\mixins\buttons.less" />
+    <Content Include="css\Bootstrap\mixins\center-block.less" />
+    <Content Include="css\Bootstrap\mixins\clearfix.less" />
+    <Content Include="css\Bootstrap\mixins\forms.less" />
+    <Content Include="css\Bootstrap\mixins\gradients.less" />
+    <Content Include="css\Bootstrap\mixins\grid-framework.less" />
+    <Content Include="css\Bootstrap\mixins\grid.less" />
+    <Content Include="css\Bootstrap\mixins\hide-text.less" />
+    <Content Include="css\Bootstrap\mixins\image.less" />
+    <Content Include="css\Bootstrap\mixins\labels.less" />
+    <Content Include="css\Bootstrap\mixins\list-group.less" />
+    <Content Include="css\Bootstrap\mixins\nav-divider.less" />
+    <Content Include="css\Bootstrap\mixins\nav-vertical-align.less" />
+    <Content Include="css\Bootstrap\mixins\opacity.less" />
+    <Content Include="css\Bootstrap\mixins\pagination.less" />
+    <Content Include="css\Bootstrap\mixins\panels.less" />
+    <Content Include="css\Bootstrap\mixins\progress-bar.less" />
+    <Content Include="css\Bootstrap\mixins\reset-filter.less" />
+    <Content Include="css\Bootstrap\mixins\resize.less" />
+    <Content Include="css\Bootstrap\mixins\responsive-visibility.less" />
+    <Content Include="css\Bootstrap\mixins\size.less" />
+    <Content Include="css\Bootstrap\mixins\tab-focus.less" />
+    <Content Include="css\Bootstrap\mixins\table-row.less" />
+    <Content Include="css\Bootstrap\mixins\text-emphasis.less" />
+    <Content Include="css\Bootstrap\mixins\text-overflow.less" />
+    <Content Include="css\Bootstrap\mixins\vendor-prefixes.less" />
+    <Content Include="css\Bootstrap\modals.less" />
+    <Content Include="css\Bootstrap\navbar.less" />
+    <Content Include="css\Bootstrap\navs.less" />
+    <Content Include="css\Bootstrap\normalize.less" />
+    <Content Include="css\Bootstrap\pager.less" />
+    <Content Include="css\Bootstrap\pagination.less" />
+    <Content Include="css\Bootstrap\panels.less" />
+    <Content Include="css\Bootstrap\popovers.less" />
+    <Content Include="css\Bootstrap\print.less" />
+    <Content Include="css\Bootstrap\progress-bars.less" />
+    <Content Include="css\Bootstrap\responsive-embed.less" />
+    <Content Include="css\Bootstrap\responsive-utilities.less" />
+    <Content Include="css\Bootstrap\scaffolding.less" />
+    <Content Include="css\Bootstrap\tables.less" />
+    <Content Include="css\Bootstrap\theme.less" />
+    <Content Include="css\Bootstrap\thumbnails.less" />
+    <Content Include="css\Bootstrap\tooltip.less" />
+    <Content Include="css\Bootstrap\type.less" />
+    <Content Include="css\Bootstrap\utilities.less" />
+    <Content Include="css\Bootstrap\variables.less" />
+    <Content Include="css\Bootstrap\wells.less" />
+    <Content Include="css\bootstrap-n-column.less" />
+    <Content Include="css\globals.less" />
+    <Content Include="css\main.less" />
+    <Content Include="css\mixins.less" />
+    <Content Include="css\styles.less" />
+    <Content Include="css\variables.less" />
+    <Content Include="Fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Fonts\HattoriHanzo.otf" />
+    <Content Include="Fonts\HelveticaNeueCyr-Roman.otf" />
+    <Content Include="Fonts\ProximaNova-Light.otf" />
+    <Content Include="Views\TextPageFanoe.cshtml" />
+    <Content Include="Views\Partials\Breadcrumb.cshtml" />
+    <Content Include="Views\Partials\Calendar.cshtml" />
+    <Content Include="Views\Partials\Comments.cshtml" />
+    <Content Include="Views\Partials\ContactForm.cshtml" />
+    <Content Include="Views\Partials\FeaturedArticlesCarousel.cshtml" />
+    <Content Include="Views\Partials\Footer.cshtml" />
+    <Content Include="Views\Partials\Header.cshtml" />
+    <Content Include="Views\Partials\HeaderShortInfo.cshtml" />
+    <Content Include="Views\Partials\ImagesCarousel.cshtml" />
+    <Content Include="Views\Partials\Logo.cshtml" />
+    <Content Include="Views\Partials\NewsLeftSidebar.cshtml" />
+    <Content Include="Views\Partials\ScrollToTop.cshtml" />
+    <Content Include="Views\Partials\Social.cshtml" />
+    <Content Include="Views\Partials\TopNavigation.cshtml" />
+    <Content Include="Views\Partials\TopNavigationList.cshtml" />
+    <Content Include="Views\BlogOverviewFanoe.cshtml" />
+    <Content Include="Views\BlogPostFanoe.cshtml" />
+    <Content Include="Views\HomeFanoe.cshtml" />
+    <Content Include="Views\ContentBase.cshtml" />
+    <Content Include="Views\Home.cshtml" />
+    <Content Include="Views\LayoutBase.cshtml" />
+    <Content Include="Views\LayoutCustom.cshtml" />
+    <Content Include="Views\NewsItem.cshtml" />
+    <Content Include="Views\NewsOverview.cshtml" />
+    <Content Include="Views\Sitemap.cshtml" />
+    <Content Include="Views\TextPage.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Boolean.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Decimal.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\EmailAddress.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\HtmlInput.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Int32.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\MultilineText.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\PhoneNumber.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -376,10 +599,28 @@
     <Content Include="Config\Lang\zh-CN.user.xml" />
     <Content Include="default.aspx" />
     <Content Include="Global.asax" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\ContactFormController.cs" />
+    <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Helpers\BundleConfig.cs" />
+    <Compile Include="Helpers\Consts.cs" />
+    <Compile Include="Helpers\DateTimeModelBinder.cs" />
+    <Compile Include="Helpers\Global.cs" />
+    <Compile Include="Helpers\HtmlHelperExtensions.cs" />
+    <Compile Include="Helpers\LanguageHelper.cs" />
+    <Compile Include="Helpers\NonOrderingBundleOrderer.cs" />
+    <Compile Include="Helpers\Utils.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Localization.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Localization.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\MacroPartials\" />
@@ -389,6 +630,12 @@
       <Project>{4343a3d5-872a-4c7e-ad22-053bd97b80dd}</Project>
       <Name>Logic</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Localization.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Localization.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

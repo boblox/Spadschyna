@@ -1,0 +1,51 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    var items = ((dynamic)ViewData["menuItem"]).Children.Where("UmbracoNaviHide == false");
+}
+
+@foreach (var item in items)
+{
+    var itemTitle = string.IsNullOrWhiteSpace(item.Title) ? item.Name : item.Title;
+    var children = item.Children.Where("UmbracoNaviHide == false");
+    if (children.Count() > 0)
+    {
+        <li class="dropdown @(CurrentPage.Id == item.Id ? "active" : null)">
+            <a href="@item.Url">
+                @*class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"*@
+                @itemTitle
+            </a>
+            <!--Don't show second level-->
+            @*<ul class="dropdown-menu" role="menu">
+                @{
+                    var dict = new ViewDataDictionary(ViewData);
+                    dict["menuItem"] = item;
+                    Html.RenderPartial("TopNavigationList", dict);
+                }
+            </ul>*@
+        </li>
+    }
+    else
+    {
+        @CommonHelpers.SimpleMenuItem(item, CurrentPage)
+    }
+}
+
+
+@*@if (items.Count() > 0)
+{
+    <ul>
+        @foreach (var item in items)
+        {
+            var itemTitle = string.IsNullOrWhiteSpace(item.Title) ? item.Name : item.Title;
+
+            <li class="@(CurrentPage.Id == item.Id ? "current_page_item" : null)">
+                <a href="@item.Url">@itemTitle</a>
+                @{
+            var dict = new ViewDataDictionary(ViewData);
+            dict["menuItem"] = item;
+            Html.RenderPartial("TopNavigationList", dict);
+                }
+            </li>
+        }
+    </ul>
+}*@

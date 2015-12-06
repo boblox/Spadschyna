@@ -1,0 +1,11 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    var homePage = CurrentPage.AncestorsOrSelf(1).First();
+}
+
+<header class="header-wrapper">
+    <div class="container">
+        @{Html.RenderPartial("TopNavigation");}
+        @{Html.RenderPartial("HeaderShortInfo");}
+    </div>
+</header>

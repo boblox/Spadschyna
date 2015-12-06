@@ -1,0 +1,276 @@
+﻿/*!Globals - styling for JS plugins and global things which don't directly
+   belong to site design*/
+@import (reference) "Bootstrap/mixins.less";
+@import (reference) "Bootstrap/variables.less";
+/*@import (reference) "Bootstrap/labels.less";*/
+@import (reference) "variables.less";
+@import (reference) "mixins.less";
+
+/*Buttons**********************************************************/
+.btn {
+    .transition(all 0.4s);
+    border-radius: 0;
+}
+
+.btn-default {
+    color: white;
+    background-color: @orange-color;
+    border-color: @orange-color;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default.focus,
+.btn-default:active,
+.btn-default.active,
+.open > .dropdown-toggle.btn-default {
+    color: white;
+    background-color: @orange-active-color;
+    border-color: @orange-active-color;
+}
+
+/*Headers*/
+.header-default {
+    color: white;
+    background-color: @orange-color;
+    padding: 5px 20px 5px 20px;
+}
+
+/*Form-controls*****************************************************/
+
+/*Form validation***************************************************/
+.field-validation-error {
+    color: @state-danger-text;
+    display: inline-block;
+
+    @media(min-width:@screen-sm-min) {
+        margin-left: 10px;
+    }
+}
+
+/*Owl Carousel *******************************************************/
+
+.owl-carousel {
+    &.owl-theme {
+        .owl-dots .owl-dot {
+            & span {
+                background-color: @orange-active-color;
+            }
+
+            &.active span,
+            &:hover span {
+                background-color: @orange-color;
+            }
+        }
+    }
+}
+
+/*Magnific PopUp******************************************************/
+
+.mfp-container {
+    @close-button-height: 44px;
+    @share-button-width: 30px;
+
+    .mfp-close {
+        right: 0;
+        background: transparent url('images/magnific-popup-close.png') no-repeat right center;
+    }
+
+    .mfp-figure {
+        &:after {
+            top: @close-button-height;
+            right: @share-button-width;
+        }
+
+        ul.mfp-share-buttons {
+            width: @share-button-width;
+            padding: 0;
+            padding-top: @close-button-height+10px;
+            margin: 0;
+            float: right;
+
+            li {
+                .social-icons(black);
+                margin: 0 0 10px 6px;
+            }
+        }
+
+        figure {
+            overflow: hidden;
+
+            img.mfp-img {
+                padding-top: @close-button-height;
+            }
+        }
+
+        .mfp-counter {
+            right: @share-button-width;
+        }
+    }
+
+    &.mfp-s-loading .mfp-custom-arrow {
+        display: none;
+    }
+
+    .mfp-custom-arrow {
+        position: absolute;
+        z-index: 1000;
+        top: 10%;
+        width: 50%;
+        height: 80%;
+        opacity: 0;
+        cursor: pointer;
+        outline: none;
+        border: none;
+        background: transparent;
+        .transition(opacity 0.2s);
+
+        &:hover {
+            opacity: 1;
+        }
+
+        div {
+            background: url('images/magnific-popup-arrow.png') transparent no-repeat;
+            height: 103px;
+        }
+
+        &.arrow-left {
+            left: 0;
+            padding-left: 35px;
+
+            div {
+                background-position: right center; /*right because of scaleX*/
+                .scaleX(-1);
+            }
+        }
+
+        &.arrow-right {
+            right: 0;
+            padding-right: 35px;
+            margin-right: @share-button-width;
+
+            div {
+                background-position: right center;
+            }
+        }
+    }
+}
+
+/*Loading spinner for images*********************/
+.mfp-preloader {
+    width: 40px;
+    height: 40px;
+    margin: 100px auto;
+    background-color: #fff;
+    border-radius: 100%;
+    .animation(scaleout 1.0s infinite ease-in-out);
+}
+
+@-webkit-keyframes scaleout {
+    0% {
+        .scale(0.0);
+    }
+
+    100% {
+        .scale(1.0);
+        opacity: 0;
+    }
+}
+
+@keyframes scaleout {
+    0% {
+        .scale(0.0);
+    }
+
+    100% {
+        .scale(1.0);
+        opacity: 0;
+    }
+}
+
+/*Animation at open*************************/
+
+/* overlay at start */
+.mfp-fade {
+    &.mfp-bg {
+        opacity: 0;
+        .transition(all 0.3s ease-out);
+
+        &.mfp-ready {
+            /* overlay animate in */
+            opacity: 0.8;
+        }
+
+        &.mfp-removing {
+            /* overlay animate out */
+            opacity: 0;
+        }
+    }
+
+    &.mfp-wrap {
+        & .mfp-content {
+            /* content at start */
+            opacity: 0;
+            .transition(all 0.3s ease-out);
+        }
+
+        &.mfp-ready .mfp-content {
+            /* content animate it */
+            opacity: 1;
+        }
+
+        &.mfp-removing .mfp-content {
+            /* content animate out */
+            opacity: 0;
+        }
+    }
+}
+
+/*Animation when switching images*************/
+@-webkit-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.mfp-figure {
+    .animation-name(fadeIn);
+    .animation-duration(.7s);
+    .animation-timing-function(ease-in-out);
+    .animation-fill-mode(both);
+    .backface-visibility(hidden);
+}

@@ -1,0 +1,52 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    Layout = "ContentBase.cshtml";
+
+    var newsOverviewTitle = Model.Content.Ancestor(Consts.NewsOverviewDocType.Alias)
+        .GetPropertyValue<string>(Consts.NewsOverviewDocType.TitleProperty);
+
+    // If the editor has not explicitly provided the "Page title" property page
+    // then just show the name of the page otherwise show the provided title
+    var pageTitle = string.IsNullOrWhiteSpace(CurrentPage.Title)
+        ? CurrentPage.Name
+        : CurrentPage.Title;
+
+    // If the editor has not explicitly set the publishDate property then show the create date
+    var dateTime = CurrentPage.PublishDate == default(DateTime)
+        ? CurrentPage.CreateDate
+        : CurrentPage.PublishDate;
+}
+
+@section Header
+{
+    @newsOverviewTitle
+}
+
+@*@section Scripts
+    {
+        @Styles.Render("~/css/OwlCarousel/carousel-css")
+        @Scripts.Render("~/js/carousel-js")
+    }*@
+
+@section LeftSidebar
+{
+    @{Html.RenderPartial("NewsLeftSidebar");}
+}
+
+@section RightSidebar
+{
+    @{Html.RenderPartial("Calendar");}
+}
+
+@section Body
+{
+    <div class="content-wrapper">
+        <header>
+            <h3>@pageTitle</h3>
+        </header>
+        <div class="text-content">
+            @CurrentPage.BodyText
+        </div>
+        @{Html.RenderPartial("Comments");}
+    </div>
+}

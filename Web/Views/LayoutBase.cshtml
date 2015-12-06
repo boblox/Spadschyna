@@ -1,0 +1,36 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@Umbraco.Field("siteName", recursive: true) - @Umbraco.Field("title", altFieldAlias: "pageName")</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    @*<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">*@
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="@Umbraco.Field("siteDescription")" />
+    <meta name="keywords" content="" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    @Styles.Render("~/css/basic-css")
+    @Scripts.Render("~/js/basic-js")
+    @Styles.Render("~/css/OwlCarousel/carousel-css")
+    @Scripts.Render("~/js/carousel-js")
+    @if (IsSectionDefined("Scripts"))
+    {
+        @RenderSection("Scripts")
+    }
+</head>
+<body>
+    <!-- /Header -->
+    @{ Html.RenderPartial("ScrollToTop"); }
+    @{ Html.RenderPartial("Header"); }
+    @if (IsSectionDefined("FeaturedArticlesCarousel"))
+    {
+        @RenderSection("FeaturedArticlesCarousel")
+    }
+    @RenderBody()
+    @{ Html.RenderPartial("Footer"); }
+</body>
+</html>

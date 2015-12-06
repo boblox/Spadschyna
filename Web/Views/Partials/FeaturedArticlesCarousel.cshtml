@@ -1,0 +1,56 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    var homePage = Model.Content.AncestorOrSelf(1);
+    var overview = homePage.ChildrenOfDocType(Consts.FeaturedArticlesOverviewDocType.Alias).First();
+    var articles = overview.ChildrenOfDocType(Consts.FeaturedArticleDocType.Alias).ToList();
+
+    var id = Utils.GenerateId("featuredArticles");
+}
+
+@helper ArticleItem(string imageUrl, string title, string subtitle)
+{
+    <article>
+        <img class="owl-lazy img-responsive" data-src="@imageUrl" />
+        <div class="featured-article-info">
+            <h4>@title</h4>
+        </div>
+    </article>
+}
+
+@if (articles.Count > 0)
+{
+    <section class="featured-articles-wrapper">
+        <div class="container">
+            <div id="@id" class="carousel-wrapper">
+                <div class="owl-carousel-prev not-mobile"></div>
+                <div class="owl-carousel">
+                    @foreach (var article in articles)
+                    {
+                        var imageUrl = article.GetCropUrl(Consts.FeaturedArticleDocType.ImageProperty, "Proper size");
+                        var redirectPageId = article.GetPropertyValue<int>(Consts.FeaturedArticleDocType.PageToOpenProperty);
+                        var redirectLink = redirectPageId != 0 ? Umbraco.NiceUrl(redirectPageId) : string.Empty;
+                        var title = article.GetPropertyValue<string>(Consts.FeaturedArticleDocType.TitleProperty);
+                        var subTitle = article.GetPropertyValue<string>(Consts.FeaturedArticleDocType.SubtitleProperty);
+                        if (!string.IsNullOrEmpty(redirectLink))
+                        {
+                            <a href="@redirectLink">
+                                @ArticleItem(imageUrl, title, subTitle)
+                            </a>
+                        }
+                        else
+                        {
+                            @ArticleItem(imageUrl, title, subTitle)
+                        }
+                    }
+                </div>
+                <div class="owl-carousel-next not-mobile"></div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+        $(function () {
+            InitImagesCarousel('@id');
+        });
+    </script>
+}

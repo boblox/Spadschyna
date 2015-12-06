@@ -1,0 +1,79 @@
+﻿@model ContactForm
+
+<div id="ContactFormContainer">
+    @using (Ajax.BeginForm("Send", "ContactForm", null, new AjaxOptions
+    {
+        HttpMethod = "POST",
+        InsertionMode = InsertionMode.Replace,
+        //UpdateTargetId = "ContactFormContainer",
+        OnFailure = "contactForm.showError",
+        OnSuccess = "contactForm.showSuccess",
+    },
+        new { @class = "contact-form", role = "form" }))
+    {
+        <p>Зворотній зв*язок</p>
+        @CommonHelpers.ContactFormEditor(Html, model => model.NameSurname, Html.EditorFor)
+        @CommonHelpers.ContactFormEditor(Html, model => model.ClientEmail, Html.EditorFor)
+        @CommonHelpers.ContactFormEditor(Html, model => model.Description, Html.EditorFor)
+        @Html.HiddenFor(model => model.EmailFrom)
+        @Html.HiddenFor(model => model.EmailTo)
+
+        <div class="form-group">
+            <input type="submit" class="btn btn-default pull-right" value="@Localization.ContactFormSend" />
+        </div>
+    }
+</div>
+
+<script type="text/javascript">
+    var contactForm = function () {
+        function showDialog(content) {
+            var dialog = $("<p>").text(content);
+            $(dialog).dialog({
+                buttons: {
+                    "Згода": function () {
+                        $(this).dialog("close");
+                    }
+                }
+            });
+        }
+
+        return {
+            showError: function () {
+                showDialog("All is bad");
+            },
+            showSuccess: function (result) {
+                if (result.success) {
+                    $("#ContactFormContainer").css('visibility', 'hidden');
+                    showDialog("All is good");
+                } else {
+                    showDialog("All is bad");
+                }
+            }
+        }
+    }();
+
+    //jQuery.validator.setDefaults({
+    //    highlight: function (element, errorClass, validClass) {
+    //        if (element.type === 'radio') {
+    //            this.findByName(element.name).addClass(errorClass).removeClass(validClass);
+    //        } else {
+    //            $(element).addClass(errorClass).removeClass(validClass);
+    //            $(element).closest('.form-group').removeClass('has-success').addClass('has-error');
+    //        }
+    //    },
+    //    unhighlight: function (element, errorClass, validClass) {
+    //        if (element.type === 'radio') {
+    //            this.findByName(element.name).removeClass(errorClass).addClass(validClass);
+    //        } else {
+    //            $(element).removeClass(errorClass).addClass(validClass);
+    //            $(element).closest('.form-group').removeClass('has-error').addClass('has-success');
+    //        }
+    //    }
+    //});
+
+    //$(function () {
+    //    $("span.field-validation-valid, span.field-validation-error").addClass('help-block');
+    //    $("div.form-group").has("span.field-validation-error").addClass('has-error');
+    //    $("div.validation-summary-errors").has("li:visible").addClass("alert alert-block alert-danger");
+    //});
+</script>

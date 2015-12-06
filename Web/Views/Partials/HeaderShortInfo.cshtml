@@ -1,0 +1,18 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    var joinOrganizationLink = Umbraco.NiceUrl(Model.Content.GetPropertyValue<int>("joinOrganizationLink", true));
+}
+
+<div class="header-short-info">
+    <div class="pull-left">
+        @{Html.RenderPartial("Logo");}
+    </div>
+    <div class="pull-right join-organization-container">
+        <a class="btn btn-default" href="@joinOrganizationLink" role="button">
+            Вступити в організацію
+        </a>
+    </div>
+    <div class="spadshchyna-description hidden-xs hidden-sm">
+        <span>@Umbraco.Field("spadshchynaDescription", recursive: true)</span>
+    </div>
+</div>

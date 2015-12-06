@@ -1,6 +1,30 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits UmbracoTemplatePage
 @{
-    Layout = "Master.cshtml";
+    Layout = "ContentBase.cshtml";
+
+    // If the editor has not explicitly provided the "Page title" property page
+    // then just show the name of the page otherwise show the provided title
+    var pageTitle = string.IsNullOrWhiteSpace(CurrentPage.Title)
+        ? CurrentPage.Name
+        : CurrentPage.Title;
 }
 
-@CurrentPage.GetGridHtml("content", "fanoe")
+@*@section Scripts
+{
+    @Styles.Render("~/css/OwlCarousel/carousel-css")
+    @Scripts.Render("~/js/carousel-js")
+}*@
+
+@section Header
+{
+    @CurrentPage.Title
+}
+
+@section Body
+{
+    <div class="content-wrapper">
+        <div class="text-content">
+            @CurrentPage.BodyText
+        </div>
+    </div>
+}

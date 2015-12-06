@@ -1,0 +1,36 @@
+﻿@using System
+@using System.Linq.Expressions
+@using System.Web.Mvc
+@using System.Web.Mvc.Html
+@using System.Web.WebPages
+
+@functions
+{
+    public delegate MvcHtmlString EditorDelegate<TModel, TValue>(Expression<Func<TModel, TValue>> expression, object additionalViewData);
+
+    public static HelperResult ContactFormEditor<TModel, TValue>(HtmlHelper<TModel> html, Expression<Func<TModel, TValue>> expression, EditorDelegate<TModel, TValue> editor)
+    {
+        var metadata = ModelMetadata.FromLambdaExpression(expression, html.ViewData);
+        var labelString = metadata.DisplayName ?? metadata.PropertyName ?? string.Empty;
+        //var labelString = html.LabelFor(expression, new { @class = "col-sm-9 control-label" });
+        var editorString = editor(expression, new { placeholder = labelString, @class = "form-control" });
+        var validationString = html.ValidationMessageFor(expression, null, new { @class = "form-control-static" });
+        return ContactFormEditorHelper(editorString, validationString);
+    }
+}
+
+@helper ContactFormEditorHelper(MvcHtmlString editorString, MvcHtmlString validationString)
+{
+    <div class="form-group">
+        @editorString
+        @validationString
+    </div>
+}
+
+@helper SimpleMenuItem(dynamic menuPage, dynamic currentPage)
+{
+var itemTitle = string.IsNullOrWhiteSpace(menuPage.Title) ? menuPage.Name : menuPage.Title;
+    <li class="@(currentPage.Id == menuPage.Id ? "active" : null)">
+        <a href="@menuPage.Url">@itemTitle</a>
+    </li>
+}

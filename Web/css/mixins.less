@@ -1,0 +1,82 @@
+﻿/*!Mixins.css*/
+@import (reference) "Bootstrap/variables.less";
+@import (reference) "Bootstrap/mixins.less";
+@import (reference) "variables.less";
+@import (reference) "bootstrap-n-column.less";
+
+.social-icon(@x, @background-color) {
+    @height: 22px;
+    @width: 22px;
+    display: block;
+    background-image: url('images/icons-contact.png');
+    width: @width;
+    height: @height;
+    border-radius: 50%;
+    background-position: @x 0;
+    opacity: 1;
+
+    &:hover {
+        background-color: lighten(@background-color, 20%);
+    }
+}
+
+.social-icons(@background-color: black) {
+    ul.contacts {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+            float: left;
+            vertical-align: middle;
+
+            a {
+                .transition(all 0.4s);
+
+                &.vkontakte {
+                    .social-icon(0, @background-color);
+                }
+
+                &.facebook {
+                    .social-icon(-22px, @background-color);
+                }
+            }
+        }
+    }
+}
+
+.header-font() {
+    font-family: @font-family-header;
+    letter-spacing: 1px;
+}
+
+.news-category-color(@color) {
+    color: @color;
+    background-color: white;
+
+    &.active, &:hover {
+        color: white;
+        background-color: @color;
+    }
+}
+
+.vertical-align-middle {
+    position: relative;
+    top: 50%;
+    .translate(0, -50%);
+}
+
+.no-gutters {
+    &.row {
+        margin-right: 0;
+        margin-left: 0;
+
+        > [class*="col-"] {
+            padding-right: 0;
+            padding-left: 0;
+        }
+    }
+}
+
+/*Create custom 5 column layout for bootstrap*/
+/*.col-set(15);*/
