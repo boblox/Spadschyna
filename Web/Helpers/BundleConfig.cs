@@ -1,4 +1,5 @@
 ﻿using System.Web.Optimization;
+using BundleTransformer.Core.Transformers;
 
 namespace Web.Helpers
 {
@@ -12,7 +13,10 @@ namespace Web.Helpers
             var styleBundle = new StyleBundle("~/css/basic-css")
                 .Include("~/css/jquery-ui.min.css")
                 .Include("~/css/magnific-popup.css")
-                .Include("~/css/styles.min.css");
+                .Include("~/css/styles.less");
+            //.Include("~/css/styles.min.css");
+            styleBundle.Transforms.Add(new StyleTransformer());
+            //styleBundle.Transforms.Add(new CssMinify());
             styleBundle.Orderer = orderer;
             bundles.Add(styleBundle);
 
