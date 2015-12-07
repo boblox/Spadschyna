@@ -388,6 +388,7 @@
     </Content>
     <Content Include="favicon.ico" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="gruntfile.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\config.js" />
     <Content Include="js\director.min.js" />
@@ -570,6 +571,7 @@
     <Content Include="Views\Shared\EditorTemplates\MultilineText.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\PhoneNumber.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="package.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
