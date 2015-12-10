@@ -1,0 +1,15 @@
+﻿@*@inherits UmbracoTemplatePage*@
+@model IPublishedContent
+@{
+    var tagsStr = Model.GetPropertyValue<string>(Consts.NewsItemDocType.TagsProperty);
+    var tags = !string.IsNullOrEmpty(tagsStr) ? tagsStr.Split(',') : new string[] { };
+}
+@if (tags.Length > 0)
+{
+    <div class="news-item-tags">
+        @foreach (var tag in tags)
+        {
+            <a href="#">@tag</a>
+        }
+    </div>
+}

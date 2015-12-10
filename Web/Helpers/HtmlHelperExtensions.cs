@@ -60,10 +60,11 @@ namespace Web.Helpers
             return new MvcHtmlString(string.Format(format, args));
         }
 
-        public static MvcHtmlString GetThumbnailUrl(this HtmlHelper html, string url)
+        public static MvcHtmlString GetThumbnailUrl(this HtmlHelper html, string url, int width)
         {
-            return new MvcHtmlString(string.Format("/ImageGen.ashx?image={0}&Width={1}",
-                HttpUtility.UrlEncode(url), 400));
+            return new MvcHtmlString(url.GetCropUrl(width));
+            //return new MvcHtmlString($"{url}?width={width}");
+            //return new MvcHtmlString($"/ImageGen.ashx?image={HttpUtility.UrlEncode(url)}&Width={400}");
         }
     }
 }

@@ -129,6 +129,9 @@
   <data name="False" xml:space="preserve">
     <value>Ні</value>
   </data>
+  <data name="NewsReadMore" xml:space="preserve">
+    <value>Читати</value>
+  </data>
   <data name="True" xml:space="preserve">
     <value>Так</value>
   </data>

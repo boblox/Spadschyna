@@ -45,6 +45,32 @@
     }
 }
 
+.calendar-icon {
+    .news-icon(0, 14px);
+}
+
+.comments-icon {
+    .news-icon(-14px, 15px);
+}
+
+.share-icon {
+    .news-icon(-29px, 14px);
+}
+
+.category-icon {
+    .news-icon(-43px, 12px);
+}
+
+.news-icon(@x, @width) {
+    @height: 14px;
+    display: inline-block;
+    background-image: url('images/news-icons.png');
+    width: @width;
+    height: @height;
+    background-position: @x 0;
+    opacity: 1;
+}
+
 .header-font() {
     font-family: @font-family-header;
     letter-spacing: 1px;
@@ -78,5 +104,5 @@
     }
 }
 
-/*Create custom 5 column layout for bootstrap*/
+/*Create custom 15 column layout for bootstrap*/
 /*.col-set(15);*/

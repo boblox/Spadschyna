@@ -97,6 +97,15 @@ namespace Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Читати.
+        /// </summary>
+        public static string NewsReadMore {
+            get {
+                return ResourceManager.GetString("NewsReadMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Так.
         /// </summary>
         public static string True {

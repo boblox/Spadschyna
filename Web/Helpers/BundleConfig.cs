@@ -28,7 +28,8 @@ namespace Web.Helpers
                 .Include("~/js/jquery.unveil.js")
                 .Include("~/js/magnific.popup.min.js")
                 .Include("~/js/director.min.js")
-                .Include("~/js/config.js");
+                .Include("~/scripts/utils.js")
+                .Include("~/scripts/config.js");
             scriptBundle.Orderer = orderer;
             bundles.Add(scriptBundle);
 

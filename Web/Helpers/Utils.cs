@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Mail;
 using System.Text;
+using Umbraco.Core;
 using Umbraco.Core.Models;
-using Umbraco.Core.Services;
 
 namespace Web.Helpers
 {
@@ -15,8 +15,9 @@ namespace Web.Helpers
             return $"{prefix}_{Guid.NewGuid().ToString("N")}";
         }
 
-        public static IEnumerable<PreValue> GetDataTypePreValues(IDataTypeService service, string dataTypeName)
+        public static IEnumerable<PreValue> GetDataTypePreValues(string dataTypeName)
         {
+            var service = ApplicationContext.Current.Services.DataTypeService;
             var dataType = service.GetDataTypeDefinitionByName(dataTypeName);
             return service.GetPreValuesCollectionByDataTypeId(dataType.Id)
                 .FormatAsDictionary()

@@ -4,6 +4,7 @@
     {
         value = Convert.ToBoolean(ViewData.Model, System.Globalization.CultureInfo.InvariantCulture);
     }
+    var @class = "form-control " + ViewData["class"];
 }
 
 @if (ViewData.ModelMetadata.IsNullableValueType)
@@ -14,7 +15,7 @@
                 new SelectListItem { Text = "True", Value = "true",  Selected = value.HasValue && value.Value },
                 new SelectListItem { Text = "False", Value = "false", Selected = value.HasValue && !value.Value }
     };
-    @Html.DropDownList(string.Empty, triStateValues, new { @class = "form-control" })
+    @Html.DropDownList(string.Empty, triStateValues, new { @class })
 }
 else
 {

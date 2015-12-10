@@ -4,68 +4,84 @@
     {
         public static class HomeDocType
         {
-            public static string Alias = "Home";
+            public const string Alias = "Home";
         }
 
         public static class NewsOverviewDocType
         {
-            public static string Alias = "NewsOverview";
-            public static string TitleProperty = "Title";
+            public const string Alias = "NewsOverview";
+            public const string TitleProperty = "Title";
         }
 
         public static class NewsByYearDocType
         {
-            public static string Alias = "NewsByYear";
+            public const string Alias = "NewsByYear";
         }
 
         public static class NewsItemDocType
         {
-            public static string Alias = "NewsItem";
-            public static string TitleProperty = "Title";
-            public static string ImageProperty = "Image";
+            public const string Alias = "NewsItem";
+            public const string SubHeaderProperty = "SubHeader";
+            public const string ContentProperty = "BodyText";
+            public const string TitleProperty = "Title";
+            public const string ImageProperty = "Image";
+            public const string CategoryProperty = "Category";
+            public const string TagsProperty = "Tags";
+            public const string PublishDateProperty = "ReleaseDate";
         }
 
         public static class GalleryCategoryDocType
         {
-            public static string Alias = "GalleryCategory";
+            public const string Alias = "GalleryCategory";
         }
 
         public static class GalleryDocType
         {
-            public static string Alias = "Gallery";
-            public static string CategoryProperty = "Category";
-            public static string ImagesProperty = "Images";
+            public const string Alias = "Gallery";
+            public const string CategoryProperty = "Category";
+            public const string ImagesProperty = "Images";
         }
 
         public static class FeaturedArticlesOverviewDocType
         {
-            public static string Alias = "FeaturedArticlesOverview";
+            public const string Alias = "FeaturedArticlesOverview";
         }
 
         public static class FeaturedArticleDocType
         {
-            public static string Alias = "FeaturedArticle";
-            public static string ImageProperty = "Image";
-            public static string TitleProperty = "Title";
-            public static string SubtitleProperty = "Subtitle";
-            public static string PageToOpenProperty = "PageToOpen";
+            public const string Alias = "FeaturedArticle";
+            public const string ImageProperty = "Image";
+            public const string TitleProperty = "Title";
+            public const string SubtitleProperty = "Subtitle";
+            public const string PageToOpenProperty = "PageToOpen";
         }
 
         public static class DataTypes
         {
-            public static string NewsCategory = "News Category";
+            public const string NewsCategory = "News Category";
         }
 
         public static class MediaTypes
         {
-            public static string Image = "Image";
-            public static string Folder = "Folder";
-            public static string File = "File";
+            public const string Image = "Image";
+            public const string Folder = "Folder";
+            public const string File = "File";
         }
 
-        public static string NewsCategoryAll = "Всі";
-        public static int NewsCategoryAllInt = 0;
-        public static string YearAll = "Всі";
-        public static int YearAllInt = 0;
+        public static class NewsConfig
+        {
+            /// <summary>
+            /// How many pages to show on the pager on the left and right side from the current page
+            /// </summary>
+            public const int PagerInterval = 3; 
+            public const int NewsPerPage = 3;
+
+            public const string NewsCategoryAll = "Всі";
+            public const int NewsCategoryAllInt = 0;
+            public const string YearAll = "Всі";
+            public const int YearAllInt = 0;
+            public const int PageAllInt = 0;
+        }
+
     }
 }

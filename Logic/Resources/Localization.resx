@@ -121,7 +121,7 @@
     <value>E-mail</value>
   </data>
   <data name="ContactFormClientEmailInvalid" xml:space="preserve">
-    <value>Неправильний формат email-у</value>
+    <value>Неправильний формат електронної пошти</value>
   </data>
   <data name="ContactFormClientPhone" xml:space="preserve">
     <value>Номер телефону</value>

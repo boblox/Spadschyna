@@ -1,0 +1,45 @@
+﻿@inherits UmbracoViewPage<NewsResult>
+@{
+    var newsItems = Model.News;
+}
+
+@for (var i = 0; i < newsItems.Count; i++)
+{
+    var item = newsItems[i];
+
+    var title = item.GetPropertyValue<string>(Consts.NewsItemDocType.TitleProperty);
+    title = string.IsNullOrWhiteSpace(title) ? item.Name : title;
+    var image = item.GetPropertyValue<string>(Consts.NewsItemDocType.ImageProperty);
+    var subHeader = item.GetPropertyValue<string>(Consts.NewsItemDocType.SubHeaderProperty);
+    var content = item.GetPropertyValue<HtmlString>(Consts.NewsItemDocType.ContentProperty);
+
+    <div class="news-item">
+        <header class="news-item-title">
+            <a href="@item.Url">
+                <h3>@title</h3>
+            </a>
+        </header>
+        @{ Html.RenderPartial("NewsItemInfo", newsItems[i]);}
+        @{ Html.RenderPartial("NewsItemTags", newsItems[i]);}
+        @if (!string.IsNullOrWhiteSpace(image))
+        {
+            <a href="@item.Url" class="news-item-image">
+                <img src="@Html.GetThumbnailUrl(image, 700)" alt="" />
+            </a>
+        }
+        <div class="news-item-byline">
+            @Html.GetInnerText(string.IsNullOrWhiteSpace(subHeader) ?
+                content : new HtmlString(subHeader), 200)
+        </div>
+        <a href="@item.Url" class="news-item-button btn btn-default center-block">@Localization.NewsReadMore</a>
+
+        @if (i != newsItems.Count - 1)
+        {
+            <hr />
+        }
+    </div>
+}
+
+@{
+    Html.RenderPartial("Pager");
+}

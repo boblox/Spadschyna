@@ -1,29 +1,23 @@
 ﻿/*!Variables*/
 
 @font-face {
-    font-family: "Proxima Nova Light";
-    font-style: normal;
-    font-weight: 400;
-    src: url("../Fonts/ProximaNova-Light.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "Hattori Hanzo";
-    font-style: normal;
-    font-weight: 400;
-    src: url("../Fonts/HattoriHanzo.otf") format("opentype");
-}
-
-@font-face {
     font-family: "HelveticaNeueCyr-Roman";
     font-style: normal;
     font-weight: 400;
     src: url("../Fonts/HelveticaNeueCyr-Roman.otf") format("opentype");
 }
 
+@font-face {
+    font-family: "HelveticaNeueCyr-Medium";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../Fonts/HelveticaNeueCyr-Medium.otf") format("opentype");
+}
+
 //basic
 @icon-font-path: "../../fonts/";
 @font-family-base: "HelveticaNeueCyr-Roman", Helvetica, sans-serif;
+@font-family-alternate: "HelveticaNeueCyr-Medium", Helvetica, sans-serif;
 @font-family-header: "HelveticaNeueCyr-Roman", Arial;
 @font-size-base: 14px;
 @font-size-h3: ceil((@font-size-base * 1.57)); // ~22px
@@ -67,6 +61,9 @@
 //form-controls
 @input-border: transparent;
 @input-border-radius: 0;
+@input-border-radius-small: 0;
+@input-border-radius-large: 0;
 @input-border-focus: @orange-active-color;
 
-/*@input-height-small: 20px;*/
+//form-validation
+@state-danger-text: @orange-color;

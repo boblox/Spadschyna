@@ -6,14 +6,11 @@
 <footer class="footer-wrapper">
     <div class="container">
         <div class="footer-inner">
-            <div class="pull-left">
+            <div class="">
                 @{Html.RenderPartial("Logo");}
             </div>
-            <div class="pull-right">
-                @Html.Action("Index", "ContactForm", new { emailFrom = "", emailTo = "" })
-            </div>
             <div class="footer-nav-contacts-container hidden-xs hidden-sm">
-                <nav class="footer-nav text-center">
+                <nav class="footer-nav text-right">
                     <ul>
                         @{
                             var dict = new ViewDataDictionary(ViewData) { { "menuItem", homePage } };
@@ -21,9 +18,12 @@
                         }
                     </ul>
                 </nav>
-                <div class="footer-contacts text-center">
+                <div class="footer-contacts text-right">
                     @{Html.RenderPartial("Social");}
                 </div>
+            </div>
+            <div class="">
+                @Html.Action("Index", "ContactForm", new { emailFrom = "", emailTo = "" })
             </div>
         </div>
     </div>

@@ -10,11 +10,6 @@
     var pageTitle = string.IsNullOrWhiteSpace(CurrentPage.Title)
         ? CurrentPage.Name
         : CurrentPage.Title;
-
-    // If the editor has not explicitly set the publishDate property then show the create date
-    var dateTime = CurrentPage.PublishDate == default(DateTime)
-        ? CurrentPage.CreateDate
-        : CurrentPage.PublishDate;
 }
 
 @section Header
@@ -33,17 +28,19 @@
     @{Html.RenderPartial("NewsLeftSidebar");}
 }
 
-@section RightSidebar
+@*@section RightSidebar
 {
     @{Html.RenderPartial("Calendar");}
-}
+}*@
 
 @section Body
 {
     <div class="content-wrapper">
-        <header>
+        <header class="title">
             <h3>@pageTitle</h3>
         </header>
+        @{ Html.RenderPartial("/Views/Partials/NewsItemInfo.cshtml", Model.Content);}
+        @{ Html.RenderPartial("/Views/Partials/NewsItemTags.cshtml", Model.Content);}
         <div class="text-content">
             @CurrentPage.BodyText
         </div>

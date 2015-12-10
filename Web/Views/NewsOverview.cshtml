@@ -15,37 +15,10 @@
 
 @section RightSidebar
 {
-    @{Html.RenderPartial("Calendar");}
+    @*@{Html.RenderPartial("Calendar");}*@
 }
 
 @section Body
 {
-    @*<div class="row col-15 no-gutters">
-            @for (int i = 0; i < newsItems.Count(); i++)
-            {
-                var item = newsItems[i];
-
-                var title = item.GetPropertyValue<string>(Consts.NewsItemDocType.TitleProperty);
-                var image = item.GetPropertyValue<string>(Consts.NewsItemDocType.ImageProperty);
-                title = string.IsNullOrWhiteSpace(title) ? item.Name : title;
-                <div class="col-md-3 col-sm-5">
-                    <a class="news-item" href="@item.Url">
-                        @if (!string.IsNullOrWhiteSpace(image))
-                        {
-                            <img src="@Html.GetThumbnailUrl(image)" alt="" />
-                        }
-                        <div class="news-item-title">@title</div>
-                    </a>
-                </div>
-
-                if ((i + 1) % mdColsCount == 0 && i > 0)
-                {
-                    <div class="clearfix hidden-xs hidden-sm"></div>
-                }
-                if ((i + 1) % smColsCount == 0 && i > 0)
-                {
-                    <div class="clearfix visible-sm-block"></div>
-                }
-            }
-        </div>*@
+    <div id="news-list" class="news-list"></div>
 }

@@ -62,13 +62,15 @@
     <Compile Include="Models\ContactForm.cs" />
     <Compile Include="Models\Gallery.cs" />
     <Compile Include="Models\LanguageData.cs" />
+    <Compile Include="Models\NewsResult.cs" />
+    <Compile Include="Models\NewsPager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Localization.Designer.cs" />
-    <Compile Include="Resources\Localization.uk-ua.Designer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Resources\Localization.resx" />
-    <EmbeddedResource Include="Resources\Localization.uk-ua.resx" />
+    <EmbeddedResource Include="Resources\Localization.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

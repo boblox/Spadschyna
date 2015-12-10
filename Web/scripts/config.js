@@ -1,4 +1,4 @@
-/*********************************************=ImagesCarousel=****************************************************************/
+﻿/*********************************************=ImagesCarousel=****************************************************************/
 
 function InitImagesCarousel(carouselWrapperId) {
     var carouselWrapper = $("#" + carouselWrapperId);
@@ -24,14 +24,14 @@ function InitImagesCarousel(carouselWrapperId) {
 
 /*********************************************=Featured Articles Carousel=***************************************************/
 
-function InitImagesCarousel(carouselWrapperId) {
+function InitFeaturedArticlesCarousel(carouselWrapperId) {
     var carouselWrapper = $("#" + carouselWrapperId);
     var carousel = carouselWrapper.find('.owl-carousel');
     carousel.owlCarousel({
         items: 1,
         lazyLoad: true,
-        //autoplay: true,
-        autoplayTimeout: 1800,
+        autoplay: true,
+        autoplayTimeout: 4500,
         autoplayHoverPause: true,
         loop: true,
         dotsSpeed: 800,
@@ -53,65 +53,100 @@ function InitImagesCarousel(carouselWrapperId) {
 /*********************************************=News Left Sidebar=***************************************************/
 
 function InitNewsLeftSidebar(newsCategoryAllInt, yearAllInt, weAreOnTheNewsOverview, newsOverviewUrl) {
-    var currentRoute = {};
+    function updateRoute(route, el) {
+        var year = $(el).attr('year');
+        var category = $(el).attr('category');
+        var page = $(el).attr('page');
+        route.year = year === undefined ? route.year : year;
+        route.category = category === undefined ? route.category : category;
+        route.page = page === undefined ? route.page : page;
+    }
 
-    function dealWithRoute(year, category, page) {
-        currentRoute = {
-            year: decodeURIComponent(year),
-            category: decodeURIComponent(category),
-            page: decodeURIComponent(page)
+    function getInitRoute() {
+        var route = {
+            year: yearAllInt,
+            category: newsCategoryAllInt,
+            page: 1
         };
-        //alert(currentRoute.year + " " + currentRoute.category + " " + currentRoute.page);
+        $("a.news-link.active").each(function () {
+            updateRoute(route, $(this));
+        });
+        return route;
+    }
 
-        $("a.news-link").removeClass('active');
-        $("a.news-link[year=" + currentRoute.year + "]").addClass('active');
-        $("a.news-link[category=" + currentRoute.category + "]").addClass('active');
-        $("a.news-link[page=" + currentRoute.page + "]").addClass('active');
+    function bindControllers(route, router) {
+        $("a.news-link").off('click');
 
-        $.ajax({
-            url: '/umbraco/surface/News/Index/',
-            type: 'POST',
-            dataType: 'json',
-            data: JSON.stringify(currentRoute),
-            contentType: 'application/json; charset=utf-8',
-            success: function (data) {
-                //alert(data.category);
+        $("a.news-link").on('click', function (e) {
+            e.preventDefault();
+            updateRoute(route, this);
+
+            var hash = 'year/' + encodeURIComponent(route.year) +
+                '/category/' + encodeURIComponent(route.category) +
+                '/page/' + encodeURIComponent(route.page);
+            if (weAreOnTheNewsOverview) {
+                router.setRoute(hash);
+            } else {
+                location.href = newsOverviewUrl + "#/" + hash;
             }
         });
     }
 
+    function dealWithRoute(route, router) {
+        //If it's NewsItem page then it is set on server side
+        if (weAreOnTheNewsOverview) {
+            $("a.news-link").removeClass('active');
+            $("a.news-link[year=" + route.year + "]").addClass('active');
+            $("a.news-link[category=" + route.category + "]").addClass('active');
+            $("a.news-link[page=" + route.page + "]").addClass('active');
+
+            $.ajax({
+                url: '/umbraco/surface/News/Index/',
+                type: 'POST',
+                dataType: 'html',
+                data: JSON.stringify(route),
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    $("#news-list").html(data);
+                    bindControllers(route, router);
+                    //alert(data.category);
+                },
+                error: function (request, status) {
+                    showDialog("Вибачте, не можливо завантажити новини");
+                }
+            });
+        }
+    }
+
     var routes = {
-        '/year/:year/category/:category/page/:page': dealWithRoute,
+        '/year/:year/category/:category/page/:page':
+            function (year, category, page) {
+                currentRoute = {
+                    year: decodeURIComponent(year),
+                    category: decodeURIComponent(category),
+                    page: decodeURIComponent(page)
+                };
+                dealWithRoute(currentRoute, router);
+            },
         '/': function () {
-            dealWithRoute(yearAllInt, newsCategoryAllInt, 1);
+            currentRoute = getInitRoute();
+            dealWithRoute(currentRoute, router);
         }
     };
+    var currentRoute = getInitRoute();
     var router = Router(routes);
-    router.init('/');
+
+    //Routing should work only on NewsOverview page
+    if (weAreOnTheNewsOverview) {
+        router.init('/');
+    }
+
     //var hash = window.location.hash.slice(2);
     //router.setRoute('/');
     //router.setRoute(hash);
 
-    $("a.news-link").on('click', function (e) {
-        e.preventDefault();
-        var year = $(this).attr('year');
-        var category = $(this).attr('category');
-        var page = $(this).attr('page');
-        year = year === undefined ? currentRoute.year : year;
-        category = category === undefined ? currentRoute.category : category;
-        page = page === undefined ? currentRoute.page : page;
-
-        var hash = 'year/' + encodeURIComponent(year) +
-            '/category/' + encodeURIComponent(category) +
-            '/page/' + encodeURIComponent(page);
-        if (weAreOnTheNewsOverview) {
-            router.setRoute(hash);
-        } else {
-            location.href = newsOverviewUrl + "#/" + hash;
-        }
-    });
+    bindControllers(currentRoute, router);
 }
-
 
 /***************************************************=Disqus=******************************************************************/
 
