@@ -330,12 +330,6 @@
     </Content>
     <Content Include="css\Fanoe\bootstrap.min.css" />
     <Content Include="css\Fanoe\fanoe.css" />
-    <Content Include="css\globals.css">
-      <DependentUpon>globals.less</DependentUpon>
-    </Content>
-    <Content Include="css\globals.min.css">
-      <DependentUpon>globals.css</DependentUpon>
-    </Content>
     <Content Include="css\images\animated-overlay.gif" />
     <Content Include="css\images\icons-contact.png" />
     <Content Include="css\images\logo.png" />
@@ -359,18 +353,6 @@
     <Content Include="css\images\ui-icons_ffffff_256x240.png" />
     <Content Include="css\jquery-ui.min.css" />
     <Content Include="css\magnific-popup.css" />
-    <Content Include="css\main.css">
-      <DependentUpon>main.less</DependentUpon>
-    </Content>
-    <Content Include="css\main.min.css">
-      <DependentUpon>main.css</DependentUpon>
-    </Content>
-    <Content Include="css\mixins.css">
-      <DependentUpon>mixins.less</DependentUpon>
-    </Content>
-    <Content Include="css\mixins.min.css">
-      <DependentUpon>mixins.css</DependentUpon>
-    </Content>
     <Content Include="css\OwlCarousel\owl.carousel.css" />
     <Content Include="css\OwlCarousel\owl.theme.green.css" />
     <Content Include="css\rte.css" />
@@ -380,12 +362,6 @@
     </Content>
     <Content Include="css\styles.min.css">
       <DependentUpon>styles.css</DependentUpon>
-    </Content>
-    <Content Include="css\variables.css">
-      <DependentUpon>variables.less</DependentUpon>
-    </Content>
-    <Content Include="css\variables.min.css">
-      <DependentUpon>variables.css</DependentUpon>
     </Content>
     <Content Include="Email\ContactForm.html" />
     <Content Include="favicon.ico" />
