@@ -8,3 +8,12 @@
         }
     });
 }
+
+function reloadDisqusCommentsCounter() {
+    window.DISQUSWIDGETS = undefined;
+    $.getScript("http://" + disqus_shortname + ".disqus.com/count.js");
+}
+
+var config = {
+    disqusShortName: "spadschyna"
+}

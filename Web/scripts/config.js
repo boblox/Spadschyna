@@ -109,10 +109,11 @@ function InitNewsLeftSidebar(newsCategoryAllInt, yearAllInt, weAreOnTheNewsOverv
                 success: function (data) {
                     $("#news-list").html(data);
                     bindControllers(route, router);
+                    reloadDisqusCommentsCounter();
                     //alert(data.category);
                 },
                 error: function (request, status) {
-                    showDialog("Вибачте, не можливо завантажити новини");
+                    showDialog("Вибачте, неможливо завантажити новини");
                 }
             });
         }
@@ -152,7 +153,7 @@ function InitNewsLeftSidebar(newsCategoryAllInt, yearAllInt, weAreOnTheNewsOverv
 
 function InitDisqus(identifier) {
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    window.disqus_shortname = 'helenbozhko'; // required: replace example with your forum shortname
+    window.disqus_shortname = config.disqusShortName; // required: replace example with your forum shortname
     window.disqus_identifier = identifier;
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function () {

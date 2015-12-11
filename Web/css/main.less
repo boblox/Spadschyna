@@ -432,8 +432,14 @@ ul.news-item-info {
             vertical-align: top;
         }
 
-        a:hover {
-            text-decoration: none;
+        a {
+            &:not(.news-link) {
+                color: @orange-active-color;
+            }
+
+            &:hover {
+                text-decoration: none;
+            }
         }
     }
 }

@@ -7344,6 +7344,9 @@ ul.news-item-info li span {
   display: inline-block;
   vertical-align: top;
 }
+ul.news-item-info li a:not(.news-link) {
+  color: #fe8435;
+}
 ul.news-item-info li a:hover {
   text-decoration: none;
 }

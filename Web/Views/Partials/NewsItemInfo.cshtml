@@ -6,11 +6,16 @@
     var category = Model.GetPropertyValue<string>(Consts.NewsItemDocType.CategoryProperty);
     var categoryId = Utils.GetDataTypePreValues(Consts.DataTypes.NewsCategory)
         .First(i => i.Value.Equals(category, StringComparison.InvariantCultureIgnoreCase)).Id;
+    var disqusUrl = Model.Url + "#disqus_thread";
 }
 <ul class="news-item-info">
     <li>
         <span class="calendar-icon"></span>
         <span>@date</span>
+    </li>
+    <li>
+        <span class="comments-icon"></span>
+        <a href="@disqusUrl" data-disqus-identifier="@Model.Id"></a>
     </li>
     <li>
         <span class="category-icon"></span>
