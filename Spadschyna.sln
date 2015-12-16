@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web", "Web\Web.csproj", "{F2E66765-F3A1-4644-97F3-BDF027829ECF}"
 EndProject
@@ -16,6 +16,16 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{563002AD-B215-46E9-933B-75DE9E7BAED0}"
 	ProjectSection(SolutionItems) = preProject
 		libs\Diplo.TraceLogViewer.dll = libs\Diplo.TraceLogViewer.dll
+		libs\Fanoe.dll = libs\Fanoe.dll
+		libs\Umbraco.Forms.Core.dll = libs\Umbraco.Forms.Core.dll
+		libs\Umbraco.Forms.Core.dll.config = libs\Umbraco.Forms.Core.dll.config
+		libs\Umbraco.Forms.Core.Providers.dll = libs\Umbraco.Forms.Core.Providers.dll
+		libs\Umbraco.Forms.Core.Providers.dll.config = libs\Umbraco.Forms.Core.Providers.dll.config
+		libs\Umbraco.Forms.Web.dll = libs\Umbraco.Forms.Web.dll
+		libs\Umbraco.Forms.Web.dll.config = libs\Umbraco.Forms.Web.dll.config
+		libs\Umbraco.Forms.Web.XmlSerializers.dll = libs\Umbraco.Forms.Web.XmlSerializers.dll
+		libs\Umbraco.Licensing.dll = libs\Umbraco.Licensing.dll
+		libs\umbracoForms.lic = libs\umbracoForms.lic
 	EndProjectSection
 EndProject
 Global
