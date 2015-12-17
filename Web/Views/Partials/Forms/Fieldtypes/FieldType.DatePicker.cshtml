@@ -1,13 +1,11 @@
-@model Umbraco.Forms.Mvc.Models.FieldViewModel        
+@model Umbraco.Forms.Mvc.Models.FieldViewModel
 @{
     string val = string.Empty;
     if (Model.ValueAsObject != null && Model.ValueAsObject != "")
     {
-        DateTime d;
-        d = (DateTime) Model.ValueAsObject;
+        var d = Convert.ToDateTime(Model.ValueAsObject);
         val = d.ToShortDateString();
     }
 }
 <input type="text" name="@Model.Name" id="@Model.Id" class="datepickerfield" value="@val"
-@{if (Model.Mandatory) {<text> data-val="true" data-val-required="@Model.RequiredErrorMessage"</text>}}
-/>
+       @{if (Model.Mandatory) { <text> data-val="true" data-val-required="@Model.RequiredErrorMessage" </text> }} />

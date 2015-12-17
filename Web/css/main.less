@@ -238,47 +238,67 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*Contact Form*******************************************************/
-.contact-form {
-    width: 190px;
-    margin-top: 40px;
+.contact-form-container {
+    .contact-form {
+        width: 190px;
+        margin-top: 40px;
 
-    & > .form-group {
-        display: flex;
-        flex-wrap: wrap;
-        margin-bottom: 10px;
-
-        &:last-child {
-            justify-content: flex-end;
-
-            input {
-                width: auto;
+        & > .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+            /*button send*/
+            &:last-child {
+                justify-content: flex-end;
             }
+        }
+
+        .btn-send-form {
+            margin-right: 10px;
+            width: auto;
+        }
+
+        .field-validation-error {
+            margin-left: 3px;
+            font-size: @font-size-small;
+        }
+
+        textarea {
+            resize: vertical;
+            height: auto;
+        }
+
+        input, textarea {
+            width: 95%;
         }
     }
 
-    .btn-send-form {
-        margin-right: 10px;
-    }
+    @media(max-width:@screen-xs-max) {
+        flex-basis: 100%;
 
-    .field-validation-error {
-        margin-left: 3px;
-        font-size: @font-size-small;
-    }
+        .contact-form {
+            width: auto;
+            /*button send*/
+            & > .form-group:last-child {
+                justify-content: unset;
+            }
 
-    textarea {
-        resize: vertical;
-        height: auto;
-    }
-
-    input, textarea {
-        width: 95%;
+            .btn-send-form {
+                margin-right: unset;
+                width: 95%;
+            }
+        }
     }
 }
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAIN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 .main-wrapper {
-    padding-bottom: 350px;
+    padding-bottom: 455px;
+
+    @media(min-width:@screen-sm-min) {
+        padding-bottom: 350px;
+    }
 }
 
 /*News Overview*****************************************************/
@@ -437,7 +457,7 @@ ul.news-item-info {
                 color: @orange-active-color;
             }
 
-            &:hover {
+            &.news-link:hover {
                 text-decoration: none;
             }
         }

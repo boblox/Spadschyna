@@ -10,26 +10,22 @@
 .btn {
     .transition(all 0.4s);
     border-radius: 0;
+
+    &.btn-default, &.primary {
+        color: white;
+        background-color: @orange-color;
+        border-color: @orange-color;
+
+        &:focus, &:hover, &:active,
+        &:focus, &.hover, &.active {
+            color: white;
+            background-color: @orange-active-color;
+            border-color: @orange-active-color;
+        }
+    }
 }
 
-.btn-default {
-    color: white;
-    background-color: @orange-color;
-    border-color: @orange-color;
-}
-
-.btn-default:hover,
-.btn-default:focus,
-.btn-default.focus,
-.btn-default:active,
-.btn-default.active,
-.open > .dropdown-toggle.btn-default {
-    color: white;
-    background-color: @orange-active-color;
-    border-color: @orange-active-color;
-}
-
-/*Headers*/
+/*Headers************************************************************/
 .header-default {
     color: white;
     background-color: @orange-color;
@@ -42,13 +38,51 @@
 
 /*Form-controls*****************************************************/
 
-/*Form validation***************************************************/
+/*Contour forms*/
+.contour, #contour {
+    padding: 0 !important;
+
+    .contourPage {
+        input, textarea {
+            &.contourError, &.input-validation-error {
+                background: white;
+                border: 1px solid @orange-color;
+            }
+        }
+
+        input.text, input.title, input.datepickerfield, textarea, select {
+            border: 1px solid #bbb;
+            padding: 5px;
+            margin: 0.5em 0;
+
+            &:focus {
+                border: 1px solid @orange-active-color;
+            }
+        }
+
+        .contourIndicator {
+            color: @orange-color;
+        }
+
+        #recaptcha_widget_div {
+            margin-left: 0;
+        }
+    }
+}
+
+/*Default form validation*/
 .field-validation-error {
     color: @state-danger-text;
     display: inline-block;
 
     @media(min-width:@screen-sm-min) {
         margin-left: 10px;
+    }
+}
+
+textarea, input {
+    &.input-validation-error {
+        border-color: @state-danger-border;
     }
 }
 

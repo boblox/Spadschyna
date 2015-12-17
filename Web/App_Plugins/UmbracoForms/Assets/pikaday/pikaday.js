@@ -165,7 +165,7 @@
         position: 'bottom left',
 
         // the default output format for `.toString()` and `field` value
-        format: 'YYYY-MM-DD',
+        format: contourDateFormat,
 
         // the initial date to view when first opened
         defaultDate: null,
@@ -182,7 +182,7 @@
         maxDate: null,
 
         // number of years either side, or array of upper/lower range
-        yearRange: 10,
+        yearRange: 30,
 
         // show week numbers at head of row
         showWeekNumber: false,

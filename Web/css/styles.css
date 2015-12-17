@@ -5302,11 +5302,11 @@ a.thumbnail.active {
 }
 .alert-danger {
   background-color: #f2dede;
-  border-color: #ebccd1;
+  border-color: #e25900;
   color: #e25900;
 }
 .alert-danger hr {
-  border-top-color: #e4b9c0;
+  border-top-color: #c94f00;
 }
 .alert-danger .alert-link {
   color: #af4500;
@@ -5918,22 +5918,22 @@ a.list-group-item-danger.active:focus {
   border-bottom-color: #faebcc;
 }
 .panel-danger {
-  border-color: #ebccd1;
+  border-color: #e25900;
 }
 .panel-danger > .panel-heading {
   color: #e25900;
   background-color: #f2dede;
-  border-color: #ebccd1;
+  border-color: #e25900;
 }
 .panel-danger > .panel-heading + .panel-collapse > .panel-body {
-  border-top-color: #ebccd1;
+  border-top-color: #e25900;
 }
 .panel-danger > .panel-heading .badge {
   color: #f2dede;
   background-color: #e25900;
 }
 .panel-danger > .panel-footer + .panel-collapse > .panel-body {
-  border-bottom-color: #ebccd1;
+  border-bottom-color: #e25900;
 }
 .embed-responsive {
   position: relative;
@@ -7165,39 +7165,59 @@ h6 {
   margin: 10px;
 }
 /*Contact Form*******************************************************/
-.contact-form {
+.contact-form-container .contact-form {
   width: 190px;
   margin-top: 40px;
 }
-.contact-form > .form-group {
+.contact-form-container .contact-form > .form-group {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 10px;
+  /*button send*/
 }
-.contact-form > .form-group:last-child {
+.contact-form-container .contact-form > .form-group:last-child {
   justify-content: flex-end;
 }
-.contact-form > .form-group:last-child input {
+.contact-form-container .contact-form .btn-send-form {
+  margin-right: 10px;
   width: auto;
 }
-.contact-form .btn-send-form {
-  margin-right: 10px;
-}
-.contact-form .field-validation-error {
+.contact-form-container .contact-form .field-validation-error {
   margin-left: 3px;
   font-size: 12px;
 }
-.contact-form textarea {
+.contact-form-container .contact-form textarea {
   resize: vertical;
   height: auto;
 }
-.contact-form input,
-.contact-form textarea {
+.contact-form-container .contact-form input,
+.contact-form-container .contact-form textarea {
   width: 95%;
+}
+@media (max-width: 767px) {
+  .contact-form-container {
+    flex-basis: 100%;
+  }
+  .contact-form-container .contact-form {
+    width: auto;
+    /*button send*/
+  }
+  .contact-form-container .contact-form > .form-group:last-child {
+    justify-content: unset;
+  }
+  .contact-form-container .contact-form .btn-send-form {
+    margin-right: unset;
+    width: 95%;
+  }
 }
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAIN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 .main-wrapper {
-  padding-bottom: 350px;
+  padding-bottom: 455px;
+}
+@media (min-width: 768px) {
+  .main-wrapper {
+    padding-bottom: 350px;
+  }
 }
 /*News Overview*****************************************************/
 .news-left-sidebar ul {
@@ -7347,7 +7367,7 @@ ul.news-item-info li span {
 ul.news-item-info li a:not(.news-link) {
   color: #fe8435;
 }
-ul.news-item-info li a:hover {
+ul.news-item-info li a.news-link:hover {
   text-decoration: none;
 }
 /*News item tags****************************************************/
@@ -7445,22 +7465,29 @@ ul.news-item-info li a:hover {
   transition: all 0.4s;
   border-radius: 0;
 }
-.btn-default {
+.btn.btn-default,
+.btn.primary {
   color: white;
   background-color: #e25900;
   border-color: #e25900;
 }
-.btn-default:hover,
-.btn-default:focus,
-.btn-default.focus,
-.btn-default:active,
-.btn-default.active,
-.open > .dropdown-toggle.btn-default {
+.btn.btn-default:focus,
+.btn.primary:focus,
+.btn.btn-default:hover,
+.btn.primary:hover,
+.btn.btn-default:active,
+.btn.primary:active,
+.btn.btn-default:focus,
+.btn.primary:focus,
+.btn.btn-default.hover,
+.btn.primary.hover,
+.btn.btn-default.active,
+.btn.primary.active {
   color: white;
   background-color: #fe8435;
   border-color: #fe8435;
 }
-/*Headers*/
+/*Headers************************************************************/
 .header-default {
   color: white;
   background-color: #e25900;
@@ -7470,7 +7497,57 @@ ul.news-item-info li a:hover {
   margin-top: 10px;
 }
 /*Form-controls*****************************************************/
-/*Form validation***************************************************/
+/*Contour forms*/
+.contour,
+#contour {
+  padding: 0 !important;
+}
+.contour .contourPage input.contourError,
+#contour .contourPage input.contourError,
+.contour .contourPage textarea.contourError,
+#contour .contourPage textarea.contourError,
+.contour .contourPage input.input-validation-error,
+#contour .contourPage input.input-validation-error,
+.contour .contourPage textarea.input-validation-error,
+#contour .contourPage textarea.input-validation-error {
+  background: white;
+  border: 1px solid #e25900;
+}
+.contour .contourPage input.text,
+#contour .contourPage input.text,
+.contour .contourPage input.title,
+#contour .contourPage input.title,
+.contour .contourPage input.datepickerfield,
+#contour .contourPage input.datepickerfield,
+.contour .contourPage textarea,
+#contour .contourPage textarea,
+.contour .contourPage select,
+#contour .contourPage select {
+  border: 1px solid #bbb;
+  padding: 5px;
+  margin: 0.5em 0;
+}
+.contour .contourPage input.text:focus,
+#contour .contourPage input.text:focus,
+.contour .contourPage input.title:focus,
+#contour .contourPage input.title:focus,
+.contour .contourPage input.datepickerfield:focus,
+#contour .contourPage input.datepickerfield:focus,
+.contour .contourPage textarea:focus,
+#contour .contourPage textarea:focus,
+.contour .contourPage select:focus,
+#contour .contourPage select:focus {
+  border: 1px solid #fe8435;
+}
+.contour .contourPage .contourIndicator,
+#contour .contourPage .contourIndicator {
+  color: #e25900;
+}
+.contour .contourPage #recaptcha_widget_div,
+#contour .contourPage #recaptcha_widget_div {
+  margin-left: 0;
+}
+/*Default form validation*/
 .field-validation-error {
   color: #e25900;
   display: inline-block;
@@ -7479,6 +7556,10 @@ ul.news-item-info li a:hover {
   .field-validation-error {
     margin-left: 10px;
   }
+}
+textarea.input-validation-error,
+input.input-validation-error {
+  border-color: #e25900;
 }
 /*Owl Carousel *******************************************************/
 .owl-carousel.owl-theme .owl-dots .owl-dot span {

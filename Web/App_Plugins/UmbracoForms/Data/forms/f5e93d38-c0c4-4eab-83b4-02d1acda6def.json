@@ -71,6 +71,72 @@
                   "condition": null,
                   "settings": {},
                   "preValues": []
+                },
+                {
+                  "caption": "Електронна адреса",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "електроннаАдреса",
+                  "id": "10717af2-d038-4939-b799-10069b14b5d9",
+                  "fieldTypeId": "3f92e01b-29e2-4a30-bf33-9df5580ed52c",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "mandatory": false,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {
+                    "DefaultValue": ""
+                  },
+                  "preValues": []
+                },
+                {
+                  "caption": "Телефон",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "телефон",
+                  "id": "5f365991-497d-423f-9830-fd93d1e16727",
+                  "fieldTypeId": "3f92e01b-29e2-4a30-bf33-9df5580ed52c",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "mandatory": false,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": null,
+                  "settings": {
+                    "DefaultValue": ""
+                  },
+                  "preValues": []
+                },
+                {
+                  "caption": "Будь ласка введіть текст зображений нижче:",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "будьЛаскаВведітьТекстЗображенийНижче",
+                  "id": "aebd417a-1588-4110-e5f8-11e8eb2b334a",
+                  "fieldTypeId": "4a2e8e12-9613-4720-9bcd-f9871262d6ac",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "mandatory": false,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": null,
+                  "settings": {
+                    "Theme": "white"
+                  },
+                  "preValues": []
                 }
               ]
             }
@@ -89,8 +155,8 @@
   "indicator": "*",
   "showValidationSummary": false,
   "hideFieldValidation": false,
-  "requiredErrorMessage": "Please provide a value for {0}",
-  "invalidErrorMessage": "Please provide a valid value for {0}",
+  "requiredErrorMessage": "Будь ласка, введіть значення для {0}",
+  "invalidErrorMessage": "Будь ласка, введіть правильне значення для {0}",
   "messageOnSubmit": "Thank you",
   "goToPageOnSubmit": 0,
   "xPathOnSubmit": null,
