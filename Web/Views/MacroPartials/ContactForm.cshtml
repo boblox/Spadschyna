@@ -4,4 +4,4 @@
     var emailTo = (string)Model.MacroParameters["EmailTo"];
 }
 
-@Html.Action("Index", "ContactForm", new { emailFrom = emailFrom, emailTo = emailTo })
+@Html.Action("Index", "ContactForm", new { emailFrom, emailTo })

@@ -123,23 +123,11 @@
   <data name="ContactFormClientEmailInvalid" xml:space="preserve">
     <value>Неправильний формат електронної пошти</value>
   </data>
-  <data name="ContactFormClientPhone" xml:space="preserve">
-    <value>Номер телефону</value>
-  </data>
   <data name="ContactFormDescription" xml:space="preserve">
     <value>Ваше запитання...</value>
   </data>
   <data name="ContactFormEmailSubject" xml:space="preserve">
-    <value>Заказ фотосессії</value>
-  </data>
-  <data name="ContactFormHours" xml:space="preserve">
-    <value>Кількість годин</value>
-  </data>
-  <data name="ContactFormIsPostProcessingNeeded" xml:space="preserve">
-    <value>Нужна пост обработка</value>
-  </data>
-  <data name="ContactFormIsStudioBookingNeeded" xml:space="preserve">
-    <value>Нужно заказывать студию</value>
+    <value>Зворотній зв'язок</value>
   </data>
   <data name="ContactFormNameSurname" xml:space="preserve">
     <value>Ім'я</value>

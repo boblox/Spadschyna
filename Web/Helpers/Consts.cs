@@ -2,9 +2,25 @@
 {
     public static class Consts
     {
+        public static class MasterDocType
+        {
+            public const string Alias = "Master";
+            public const string TitleProperty = "Title";
+        }
+
         public static class HomeDocType
         {
             public const string Alias = "Home";
+        }
+
+        public static class SiteDocType
+        {
+            public const string Alias = "Site";
+            public const string SiteNameProperty = "SiteName";
+            public const string SpadshchynaDescriptionProperty = "SpadshchynaDescription";
+            public const string SiteDescriptionProperty = "SiteDescription";
+            public const string EmailProperty = "Email";
+            public const string JoinOrganizationLinkProperty = "JoinOrganizationLink";
         }
 
         public static class NewsOverviewDocType

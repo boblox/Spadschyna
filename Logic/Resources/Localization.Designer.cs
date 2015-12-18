@@ -70,20 +70,11 @@ namespace Logic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Неправильний формат email-у.
+        ///   Looks up a localized string similar to Неправильний формат електронної пошти.
         /// </summary>
         public static string ContactFormClientEmailInvalid {
             get {
                 return ResourceManager.GetString("ContactFormClientEmailInvalid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Номер телефону.
-        /// </summary>
-        public static string ContactFormClientPhone {
-            get {
-                return ResourceManager.GetString("ContactFormClientPhone", resourceCulture);
             }
         }
         
@@ -97,38 +88,11 @@ namespace Logic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Заказ фотосессії.
+        ///   Looks up a localized string similar to Зворотній зв&apos;язок.
         /// </summary>
         public static string ContactFormEmailSubject {
             get {
                 return ResourceManager.GetString("ContactFormEmailSubject", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Кількість годин.
-        /// </summary>
-        public static string ContactFormHours {
-            get {
-                return ResourceManager.GetString("ContactFormHours", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Нужна пост обработка.
-        /// </summary>
-        public static string ContactFormIsPostProcessingNeeded {
-            get {
-                return ResourceManager.GetString("ContactFormIsPostProcessingNeeded", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Нужно заказывать студию.
-        /// </summary>
-        public static string ContactFormIsStudioBookingNeeded {
-            get {
-                return ResourceManager.GetString("ContactFormIsStudioBookingNeeded", resourceCulture);
             }
         }
         

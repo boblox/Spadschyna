@@ -1,6 +1,8 @@
 ﻿@inherits UmbracoTemplatePage
 @{
-    var joinOrganizationLink = Umbraco.NiceUrl(Model.Content.GetPropertyValue<int>("joinOrganizationLink", true));
+    var joinOrganizationLink = Umbraco.NiceUrl(
+        Model.Content.GetPropertyValue<int>(Consts.SiteDocType.JoinOrganizationLinkProperty, true));
+    var spadshchynaDescription = Model.Content.GetPropertyValue<string>(Consts.SiteDocType.SpadshchynaDescriptionProperty, true);
 }
 
 <div class="header-short-info">
@@ -13,6 +15,6 @@
         </a>
     </div>
     <div class="spadshchyna-description hidden-xs hidden-sm">
-        <span>@Umbraco.Field("spadshchynaDescription", recursive: true)</span>
+        <span>@spadshchynaDescription</span>
     </div>
 </div>
