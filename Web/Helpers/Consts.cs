@@ -34,11 +34,17 @@
             public const string Alias = "NewsByYear";
         }
 
+        public static class TextPageDocType
+        {
+            public const string Alias = "TextPage";
+            public const string ContentProperty = "Content";
+        }
+
         public static class NewsItemDocType
         {
             public const string Alias = "NewsItem";
             public const string SubHeaderProperty = "SubHeader";
-            public const string ContentProperty = "BodyText";
+            public const string ContentProperty = "Content";
             public const string TitleProperty = "Title";
             public const string ImageProperty = "Image";
             public const string CategoryProperty = "Category";

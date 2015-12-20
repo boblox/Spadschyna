@@ -36,13 +36,13 @@
 @section Body
 {
     <div class="content-wrapper">
-        <header class="title">
+        <header class="content-title">
             <h3>@pageTitle</h3>
         </header>
         @{ Html.RenderPartial("/Views/Partials/NewsItemInfo.cshtml", Model.Content);}
         @{ Html.RenderPartial("/Views/Partials/NewsItemTags.cshtml", Model.Content);}
-        <div class="text-content">
-            @CurrentPage.BodyText
+        <div class="grid-content">
+            @CurrentPage.GetGridHtml(Consts.NewsItemDocType.ContentProperty, "Custom")
         </div>
         @{Html.RenderPartial("Comments");}
     </div>

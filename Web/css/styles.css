@@ -7379,20 +7379,23 @@ ul.news-item-info li a.news-link:hover {
 .content-wrapper {
   /*border-top: 1px solid @gray-color;*/
 }
-.content-wrapper .title h3,
-.content-wrapper .title h4 {
+.content-wrapper .content-title h3,
+.content-wrapper .content-title h4 {
   font-weight: bold;
 }
-.content-wrapper .text-content {
-  margin-top: 25px;
+.content-wrapper .text-content,
+.content-wrapper .grid-content {
   font-size: 1em;
+  margin-top: 25px;
 }
-.content-wrapper .text-content img {
+.content-wrapper .text-content img,
+.content-wrapper .grid-content img {
   display: block;
   max-width: 100%;
   height: auto;
 }
-.content-wrapper .text-content iframe {
+.content-wrapper .text-content iframe,
+.content-wrapper .grid-content iframe {
   max-width: 100%;
 }
 /*Disqus************************************************************/
@@ -7488,13 +7491,27 @@ ul.news-item-info li a.news-link:hover {
   border-color: #fe8435;
 }
 /*Headers************************************************************/
-.header-default {
+.header-coloured {
   color: white;
-  background-color: #e25900;
   padding: 5px 20px 5px 20px;
 }
-.header-default h3 {
+.header-coloured.with-margin {
+  margin-bottom: 20px;
+}
+.header-coloured h3 {
   margin-top: 10px;
+}
+.header-coloured.orange {
+  background-color: #e25900;
+}
+.header-coloured.orange-light {
+  background-color: #fe8435;
+}
+.header-coloured.ochre {
+  background-color: #ef9f05;
+}
+.header-coloured.yellow {
+  background-color: #efb005;
 }
 /*Form-controls*****************************************************/
 /*Contour forms*/

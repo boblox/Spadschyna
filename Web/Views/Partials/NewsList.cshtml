@@ -11,7 +11,8 @@
     title = string.IsNullOrWhiteSpace(title) ? item.Name : title;
     var image = item.GetPropertyValue<string>(Consts.NewsItemDocType.ImageProperty);
     var subHeader = item.GetPropertyValue<string>(Consts.NewsItemDocType.SubHeaderProperty);
-    var content = item.GetPropertyValue<HtmlString>(Consts.NewsItemDocType.ContentProperty);
+    var content = new HtmlString(string.Empty); // can't parse content as we are now using Grid Layout
+        //item.GetPropertyValue<HtmlString>(Consts.NewsItemDocType.ContentProperty);
 
     <div class="news-item">
         <header class="news-item-title">

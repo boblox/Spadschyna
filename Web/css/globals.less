@@ -26,13 +26,32 @@
 }
 
 /*Headers************************************************************/
-.header-default {
+.header-coloured {
     color: white;
-    background-color: @orange-color;
     padding: 5px 20px 5px 20px;
+
+    &.with-margin {
+        margin-bottom: 20px;
+    }
 
     h3 {
         margin-top: (@line-height-computed / 2);
+    }
+
+    &.orange {
+        background-color: @orange-color;
+    }
+
+    &.orange-light {
+        background-color: @orange-active-color;
+    }
+
+    &.ochre {
+        background-color: @category-camps-color;
+    }
+
+    &.yellow {
+        background-color: @category-other-color;
     }
 }
 

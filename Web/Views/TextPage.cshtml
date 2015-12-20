@@ -23,8 +23,8 @@
 @section Body
 {
     <div class="content-wrapper">
-        <div class="text-content">
-            @CurrentPage.BodyText
+        <div class="grid-content">
+            @CurrentPage.GetGridHtml(Consts.TextPageDocType.ContentProperty, "Custom")
         </div>
     </div>
 }
