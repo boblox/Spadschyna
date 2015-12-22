@@ -16,7 +16,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "libs", "libs", "{563002AD-B215-46E9-933B-75DE9E7BAED0}"
 	ProjectSection(SolutionItems) = preProject
 		libs\Diplo.TraceLogViewer.dll = libs\Diplo.TraceLogViewer.dll
-		libs\Fanoe.dll = libs\Fanoe.dll
 		libs\Umbraco.Forms.Core.dll = libs\Umbraco.Forms.Core.dll
 		libs\Umbraco.Forms.Core.dll.config = libs\Umbraco.Forms.Core.dll.config
 		libs\Umbraco.Forms.Core.Providers.dll = libs\Umbraco.Forms.Core.Providers.dll
