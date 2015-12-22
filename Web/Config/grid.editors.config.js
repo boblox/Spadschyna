@@ -1,40 +1,40 @@
-[
+﻿[
 	{
-	    "name": "Rich text editor",
+	    "name": "Редактор тексту",
 	    "alias": "rte",
 	    "view": "rte",
 	    "icon": "icon-article"
 	},
 	{
-	    "name": "Image",
+	    "name": "Світлина",
 	    "alias": "media",
 	    "view": "media",
 	    "icon": "icon-picture"
 	},
 	{
-	    "name": "Macro",
+	    "name": "Макро",
 	    "alias": "macro",
 	    "view": "macro",
 	    "icon": "icon-settings-alt"
 	},
 	{
-	    "name": "Embed",
+	    "name": "Відео",
 	    "alias": "embed",
 	    "view": "embed",
 	    "icon": "icon-movie-alt"
 	},
     {
-        "name": "Headline",
-        "alias": "headline",
+        "name": "Великий заголовок",
+        "alias": "headline-big",
         "view": "textstring",
         "icon": "icon-coin",
         "config": {
-            "style": "font-size: 36px; line-height: 45px; font-weight: bold",
-            "markup": "<h1>#value#</h1>"
+            "style": "font-size: 30px; line-height: 37px; font-weight:bold;",
+            "markup": "<h2>#value#</h2>"
         }
     },
 	{
-	    "name": "Quote",
+	    "name": "Цитата",
 	    "alias": "quote",
 	    "view": "textstring",
 	    "icon": "icon-quote",
