@@ -1,7 +1,7 @@
 ﻿{
   "gridEditors": [
     {
-      "name": "Coloured header",
+      "name": "Кольоровий заголовок",
       "alias": "coloured_header",
       "render": "/App_Plugins/Grid/Editors/Render/coloured_header.cshtml",
       "view": "/App_Plugins/Grid/Editors/Views/coloured_header.html",
