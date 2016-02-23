@@ -157,6 +157,7 @@ $RECYCLE.BIN/
 .DS_Store
 
 #Custom ignore
+Web/App_Data/Models/*.flag
 Web/App_Data/Temp
 Web/App_Data/Logs
 Web/App_Data/access.config
