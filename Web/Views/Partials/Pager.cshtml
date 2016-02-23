@@ -13,34 +13,37 @@
     </li>
 }
 
-<div class="text-center">
-    <ul class="news-pager">
-        @if (page != 1)
-        {
-            @RenderPage(page, page - 1, "<")
-        }
-        @RenderPage(page, 1, "1")
+@if (totalPages > 0)
+{
+    <div class="text-center">
+        <ul class="news-pager">
+            @if (page != 1)
+            {
+                @RenderPage(page, page - 1, "<")
+            }
+            @RenderPage(page, 1, "1")
 
-        @if (page - Consts.NewsConfig.PagerInterval > 2)
-        {
-            <li>...</li>
-        }
-        @for (var i = Math.Max(2, page - Consts.NewsConfig.PagerInterval); i <= Math.Min(totalPages - 1, page + Consts.NewsConfig.PagerInterval); i++)
-        {
-            @RenderPage(page, i, i.ToString())
-        }
-        @if (page + Consts.NewsConfig.PagerInterval < totalPages - 1)
-        {
-            <li>...</li>
-        }
+            @if (page - Consts.NewsConfig.PagerInterval > 2)
+            {
+                <li>...</li>
+            }
+            @for (var i = Math.Max(2, page - Consts.NewsConfig.PagerInterval); i <= Math.Min(totalPages - 1, page + Consts.NewsConfig.PagerInterval); i++)
+            {
+                @RenderPage(page, i, i.ToString())
+            }
+            @if (page + Consts.NewsConfig.PagerInterval < totalPages - 1)
+            {
+                <li>...</li>
+            }
 
-        @if (totalPages > 1)
-        {
-            @RenderPage(page, totalPages, totalPages.ToString())
-        }
-        @if (page != totalPages)
-        {
-            @RenderPage(page, page + 1, ">")
-        }
-    </ul>
-</div>
+            @if (totalPages > 1)
+            {
+                @RenderPage(page, totalPages, totalPages.ToString())
+            }
+            @if (page != totalPages)
+            {
+                @RenderPage(page, page + 1, ">")
+            }
+        </ul>
+    </div>
+}

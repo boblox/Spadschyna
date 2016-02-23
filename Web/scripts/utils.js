@@ -15,5 +15,6 @@ function reloadDisqusCommentsCounter() {
 }
 
 var config = {
-    disqusShortName: "spadschyna"
+    disqusShortName: "spadschyna",
+    newsStartPage: 1
 }

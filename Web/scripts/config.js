@@ -59,14 +59,21 @@ function InitNewsLeftSidebar(newsCategoryAllInt, yearAllInt, weAreOnTheNewsOverv
         var page = $(el).attr('page');
         route.year = year === undefined ? route.year : year;
         route.category = category === undefined ? route.category : category;
-        route.page = page === undefined ? route.page : page;
+
+        if (year !== undefined || category != undefined) {
+            //reset news feed page if we clicked on category or year
+            route.page = config.newsStartPage;
+        }
+        else {
+            route.page = page === undefined ? route.page : page;
+        }
     }
 
     function getInitRoute() {
         var route = {
             year: yearAllInt,
             category: newsCategoryAllInt,
-            page: 1
+            page: config.newsStartPage
         };
         $("a.news-link.active").each(function () {
             updateRoute(route, $(this));
