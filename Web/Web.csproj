@@ -304,6 +304,26 @@
       <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\umbraco.editorControls.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Umbraco.Forms.Core, Version=4.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoForms.Core.4.1.5\lib\Umbraco.Forms.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Umbraco.Forms.Core.Providers, Version=4.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoForms.Core.4.1.5\lib\Umbraco.Forms.Core.Providers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Umbraco.Forms.Web, Version=4.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoForms.Core.4.1.5\lib\Umbraco.Forms.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Umbraco.Forms.Web.XmlSerializers, Version=4.1.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoForms.Core.4.1.5\lib\Umbraco.Forms.Web.XmlSerializers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Umbraco.Licensing, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoForms.Core.4.1.5\lib\Umbraco.Licensing.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="umbraco.MacroEngines, Version=1.0.5891.23246, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\umbraco.MacroEngines.dll</HintPath>
       <Private>True</Private>
@@ -406,6 +426,8 @@
     <Content Include="App_Plugins\UmbracoForms\Backoffice\DataSource\delete.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\DataSource\dialogs\wizard.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\DataSource\edit.html" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\FormsSecurity\controllers\edit.controller.js" />
+    <Content Include="App_Plugins\UmbracoForms\Backoffice\FormsSecurity\edit.html" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\controllers\create.controller.js" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\controllers\delete.controller.js" />
     <Content Include="App_Plugins\UmbracoForms\Backoffice\Form\controllers\edit.controller.js" />
@@ -550,14 +572,17 @@
     <Content Include="App_Plugins\UmbracoForms\Styles\umbraco.forms.less" />
     <Content Include="App_Plugins\UmbracoForms\Styles\umbraco.forms.workflows.less" />
     <Content Include="App_Plugins\UmbracoForms\Styles\umbraco.gridview.less" />
-    <Content Include="App_Plugins\UmbracoForms\UmbracoForms.config" />
-    <Content Include="App_Plugins\UmbracoForms\version" />
+    <Content Include="App_Plugins\UmbracoForms\UmbracoForms.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="App_Plugins\Grid\package.manifest">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Plugins\Grid\Css\umbraco.grid.css" />
     <Content Include="App_Plugins\Grid\Editors\Render\coloured_header.cshtml" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
+    <Content Include="App_Plugins\UmbracoForms\Data\Templates\contactform.json" />
+    <Content Include="App_Plugins\UmbracoForms\Data\Templates\commentform.json" />
     <None Include="compilerconfig.json" />
     <Content Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -726,7 +751,9 @@
     <Content Include="Config\BaseRestExtensions.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Config\applications.config" />
+    <Content Include="Config\applications.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\404handlers.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -793,6 +820,7 @@
       <LastGenOutput>Localization.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
