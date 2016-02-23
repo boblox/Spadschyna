@@ -1,25 +1,36 @@
 ﻿@inherits UmbracoTemplatePage
 @{
-    var carouselImages = (dynamic)ViewData["carouselImages"];
+    var carouselImagesData = ViewData["carouselImages"];
+    var carouselImages = carouselImagesData.IfNotNull(
+        d => ((IEnumerable<dynamic>)d).ToList(),
+        new List<dynamic>());
     var id = Utils.GenerateId("carouselItems");
 }
 
-@if (carouselImages.Count() > 0)
+@if (Request.RawUrl.Contains("GetMacroResultAsHtmlForEditor"))
 {
-    <div id="@id" class="carousel-wrapper">
-        <div class="owl-carousel-prev not-mobile"></div>
-        <div class="owl-carousel">
-            @foreach (var image in carouselImages)
-            {
-                <img class="owl-lazy" data-src="@image.Url" />
-            }
+    /*Render differently in backoffice*/
+    <span>Images carousel with @carouselImages.Count images</span>
+}
+else
+{
+    if (carouselImages.Count > 0)
+    {
+        <div id="@id" class="carousel-wrapper">
+            <div class="owl-carousel-prev not-mobile"></div>
+            <div class="owl-carousel">
+                @foreach (var image in carouselImages)
+                {
+                    <img class="owl-lazy" data-src="@image.Url" />
+                }
+            </div>
+            <div class="owl-carousel-next not-mobile"></div>
         </div>
-        <div class="owl-carousel-next not-mobile"></div>
-    </div>
 
-    <script type="text/javascript">
-        $(function () {
-            InitImagesCarousel('@id');
-        });
-    </script>
+        <script type="text/javascript">
+            $(function () {
+                InitImagesCarousel('@id');
+            });
+        </script>
+    }
 }
