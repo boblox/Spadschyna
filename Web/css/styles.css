@@ -7226,11 +7226,11 @@ h6 {
 }
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!MAIN!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 .main-wrapper {
-  padding-bottom: 455px;
+  padding-bottom: 150px;
 }
 @media (min-width: 768px) {
   .main-wrapper {
-    padding-bottom: 350px;
+    padding-bottom: 162px;
   }
 }
 /*News Overview*****************************************************/
@@ -7250,11 +7250,12 @@ h6 {
   text-decoration: none;
 }
 .news-left-sidebar ul.news-years {
-  margin-top: 15px;
+  margin-top: 21px;
 }
 .news-left-sidebar ul.news-years li a {
-  padding: 6px 20px 6px 13px;
+  padding: 8px 13px;
   color: #35a7fe;
+  font-size: 18px;
   background-color: white;
 }
 .news-left-sidebar ul.news-years li a.active,
@@ -7263,11 +7264,11 @@ h6 {
   background-color: #35a7fe;
 }
 .news-left-sidebar ul.news-categories {
-  margin-top: 15px;
+  margin-top: 10px;
 }
 .news-left-sidebar ul.news-categories li a {
   font-size: 18px;
-  padding: 10px 13px;
+  padding: 8px 13px;
 }
 .news-item .news-item-title a {
   display: inline-block;
@@ -7298,6 +7299,7 @@ h6 {
 }
 .news-item hr {
   border-top-color: #e25900;
+  margin: 20px 0 10px 0;
 }
 /*News-categories links******************************************/
 .category-0 {

@@ -1,7 +1,7 @@
 ﻿@inherits UmbracoTemplatePage
 @{
     var homePage = CurrentPage.AncestorsOrSelf(1).First();
-    var email = Model.Content.GetPropertyValue<string>(Consts.SiteDocType.EmailProperty, true);
+    //var email = Model.Content.GetPropertyValue<string>(Consts.SiteDocType.EmailProperty, true);
 }
 
 <footer class="footer-wrapper">
@@ -23,9 +23,9 @@
                     @{Html.RenderPartial("Social");}
                 </div>
             </div>
-            <div class="contact-form-container">
+            @*<div class="contact-form-container">
                 @Html.Action("Index", "ContactForm", new { emailFrom = email, emailTo = email })
-            </div>
+            </div>*@
         </div>
     </div>
 </footer>
