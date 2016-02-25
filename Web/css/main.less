@@ -75,14 +75,25 @@ h1, h2, h3, h4, h5, h6 {
                     padding: 15px 20px;
                     .transition(all 0.4s);
                 }
+                //Multi-level menu
+                &.dropdown {
+                    @media(min-width:@screen-sm-min) {
+                        &:hover > ul.dropdown-menu {
+                            display: block;
+                        }
+                    }
+
+                    @media(max-width:@screen-xs-max) {
+                        & > ul.dropdown-menu {
+                            display: block;
+                            float: none;
+                            position: relative;
+                            margin-left: 20px;
+                        }
+                    }
+                }
             }
         }
-        //Multi-level menu
-        /*@media(min-width:@screen-sm) {
-                li.dropdown:hover > ul.dropdown-menu {
-                    display: block;
-                }
-        }*/
     }
 }
 
@@ -211,12 +222,20 @@ h1, h2, h3, h4, h5, h6 {
             > li {
                 float: left;
 
+                &.active a {
+                    text-decoration: underline;
+                }
+
                 a {
                     display: block;
                     color: @white-color;
                     padding: 15px 20px;
                     .transition(all 0.4s);
                 }
+            }
+            //Multi-level menu
+            .dropdown-menu {
+                display: none;
             }
         }
     }

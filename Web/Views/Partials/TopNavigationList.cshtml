@@ -15,13 +15,13 @@
                 @itemTitle
             </a>
             <!--Don't show second level-->
-            @*<ul class="dropdown-menu" role="menu">
+            <ul class="dropdown-menu" role="menu">
                 @{
                     var dict = new ViewDataDictionary(ViewData);
                     dict["menuItem"] = item;
                     Html.RenderPartial("TopNavigationList", dict);
                 }
-            </ul>*@
+            </ul>
         </li>
     }
     else
