@@ -46,6 +46,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// redirectUrl
+		///</summary>
+		[ImplementPropertyType("redirectUrl")]
+		public string RedirectUrl
+		{
+			get { return this.GetPropertyValue<string>("redirectUrl"); }
+		}
+
+		///<summary>
 		/// umbracoInternalRedirectId
 		///</summary>
 		[ImplementPropertyType("umbracoInternalRedirectId")]

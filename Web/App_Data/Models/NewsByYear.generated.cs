@@ -44,14 +44,5 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
-
-		///<summary>
-		/// Pages
-		///</summary>
-		[ImplementPropertyType("pages")]
-		public object Pages
-		{
-			get { return this.GetPropertyValue("pages"); }
-		}
 	}
 }

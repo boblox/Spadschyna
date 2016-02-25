@@ -7,10 +7,10 @@
     public delegate MvcHtmlString EditorDelegate<TModel, TValue>(Expression<Func<TModel, TValue>> expression, object additionalViewData);
 
     public static HelperResult ContactFormEditor<TModel, TValue>(
-        HtmlHelper<TModel> html, 
-        Expression<Func<TModel, TValue>> expression, 
-        EditorDelegate<TModel, TValue> editor, 
-        string formGroupClass=null, 
+        HtmlHelper<TModel> html,
+        Expression<Func<TModel, TValue>> expression,
+        EditorDelegate<TModel, TValue> editor,
+        string formGroupClass = null,
         string cssClass = null)
     {
         var metadata = ModelMetadata.FromLambdaExpression(expression, html.ViewData);

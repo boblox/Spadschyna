@@ -587,7 +587,9 @@
     <Content Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
     </Content>
-    <Content Include="Config\smtp.config" />
+    <Content Include="Config\smtp.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="css\Bootstrap\.csscomb.json" />
     <Content Include="css\Bootstrap\.csslintrc" />
     <Content Include="css\Bootstrap\alerts.less" />
@@ -755,6 +757,7 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\404handlers.config" />
+    <Content Include="Views\RedirectPage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
