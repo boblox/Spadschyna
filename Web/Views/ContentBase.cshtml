@@ -23,14 +23,11 @@
         @RenderSection("Scripts")
     }
 }
-@section FeaturedArticlesCarousel
-{
-    @{Html.RenderPartial("FeaturedArticlesCarousel");}
-}
-@*@if (IsSectionDefined("FeaturedArticlesCarousel"))
+
+@if (IsSectionDefined("FeaturedArticlesCarousel"))
 {
     @RenderSection("FeaturedArticlesCarousel")
-}*@
+}
 <section class="main-wrapper">
     <div class="container">
         <header class="header-coloured orange">
