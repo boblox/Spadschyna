@@ -53,6 +53,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="DAL\DataContext.cs" />
     <Compile Include="Helpers\DbCsvReader.cs" />
     <Compile Include="Helpers\RequiredTrueAttribute.cs" />

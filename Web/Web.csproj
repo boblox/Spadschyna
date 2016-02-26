@@ -821,6 +821,9 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\SharedAssemblyInfo.cs">
+      <Link>Properties\SharedAssemblyInfo.cs</Link>
+    </Compile>
     <Compile Include="App_Data\Models\Data.generated.cs" />
     <Compile Include="App_Data\Models\FeaturedArticle.generated.cs" />
     <Compile Include="App_Data\Models\FeaturedArticlesOverview.generated.cs" />
