@@ -190,6 +190,18 @@ function InitScrollToTop() {
     });
 }
 
+/**********************************************=Collapsible header=***********************************************************/
+
+function InitCollapsibleHeader(linkId, rteId) {
+    var rte = $("#" + rteId);
+    var link = $("#" + linkId);
+    link.on("click", function () {
+        rte.slideToggle();
+        link.find("span.glyphicon").toggleClass("glyphicon-arrow-right glyphicon-arrow-down");
+    });
+    rte.hide();
+}
+
 /*****************************************Google analytics******************************************************************/
 (function (i, s, o, g, r, a, m) {
     i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {

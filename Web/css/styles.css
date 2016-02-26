@@ -7529,6 +7529,10 @@ ul.news-item-info li a.news-link:hover {
 .header-coloured.yellow {
   background-color: #efb005;
 }
+.header-coloured-link:focus,
+.header-coloured-link:hover {
+  text-decoration: none;
+}
 /*Form-controls*****************************************************/
 /*Contour forms*/
 .contour,

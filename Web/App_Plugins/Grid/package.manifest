@@ -1,40 +1,8 @@
 ﻿{
-  "gridEditors": [
-    {
-      "name": "Кольоровий заголовок",
-      "alias": "coloured_header",
-      "render": "/App_Plugins/Grid/Editors/Render/coloured_header.cshtml",
-      "view": "/App_Plugins/Grid/Editors/Views/coloured_header.html",
-      "icon": "icon-coin",
-      "config": {
-        "style": "font-size: 25px; line-height: 35px; font-weight: normal; color: white;"
-      }
-    },
-    {
-      "name": "Нормальний заголовок",
-      "alias": "headline-normal",
-      "view": "textstring",
-      "icon": "icon-coin",
-      "config": {
-          "style": "font-size: 22px; line-height: 27px; font-weight:bold;",
-          "markup": "<h3>#value#</h3>"
-      }
-    },
-    {
-      "name": "Маленький заголовок",
-      "alias": "headline-small",
-      "view": "textstring",
-      "icon": "icon-coin",
-      "config": {
-          "style": "font-size: 18px; line-height: 22px; font-weight:bold;",
-          "markup": "<h4>#value#</h4>"
-      }
-    },
-  ],
   "css": [
     "/App_Plugins/Grid/Css/umbraco.grid.css"
   ],
   "javascript": [
-    "/App_Plugins/Grid/Controllers/grid.coloured_header.controller.js",
+    "/App_Plugins/Grid/Controllers/grid.coloured-header.controller.js",
   ]
 }

@@ -117,6 +117,10 @@
       <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Lecoati.LeBlender.Extension, Version=1.0.8.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Lecoati.LeBlender.1.0.8.3\lib\Lecoati.LeBlender.Extension.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\UmbracoCms.Core.7.4.1\lib\log4net.dll</HintPath>
       <Private>True</Private>
@@ -372,8 +376,31 @@
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\ng-table\ng-table.min.js" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\tracelog.css" />
     <Content Include="App_Plugins\DiploTraceLogViewer\readme.txt" />
-    <Content Include="App_Plugins\Grid\Controllers\grid.coloured_header.controller.js" />
-    <Content Include="App_Plugins\Grid\Editors\Views\coloured_header.html" />
+    <Content Include="App_Plugins\Grid\Controllers\grid.coloured-header.controller.js" />
+    <Content Include="App_Plugins\Grid\Editors\Views\collapsible-rte.html" />
+    <Content Include="App_Plugins\Grid\Editors\Views\coloured-header.html" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\delete.html" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\delete.js" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\edit.html" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\edit.js" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\sort.html" />
+    <Content Include="App_Plugins\LeBlender\backoffice\GridEditorManager\sort.js" />
+    <Content Include="App_Plugins\LeBlender\common\directive\blendereditorwrapper.js" />
+    <Content Include="App_Plugins\LeBlender\common\directive\layersresizabledraggable.js" />
+    <Content Include="App_Plugins\LeBlender\common\directive\propertygrideditorwrapper.js" />
+    <Content Include="App_Plugins\LeBlender\common\filter\orderobjectby.filter.js" />
+    <Content Include="App_Plugins\LeBlender\common\services\requesthelper.service.js" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\assets\parameterconfig.css" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\dialogs\parameterconfig.controller.js" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\dialogs\parameterconfig.html" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\dialogs\parameterconfig.prevalues.controller.js" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\dialogs\parameterconfig.prevalues.html" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\leblendereditor.controller.js" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\leblendereditor.html" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\leblenderproperties.controller.js" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\leblenderproperties.html" />
+    <Content Include="App_Plugins\LeBlender\editors\textstring\textstringconfig.html" />
+    <Content Include="App_Plugins\LeBlender\views_samples\sample_styles.css" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.controller.js" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.htm" />
     <Content Include="App_Plugins\ModelsBuilder\modelsbuilder.resource.js" />
@@ -589,12 +616,20 @@
       <SubType>Designer</SubType>
     </Content>
     <Content Include="App_Plugins\Grid\Css\umbraco.grid.css" />
-    <Content Include="App_Plugins\Grid\Editors\Render\coloured_header.cshtml" />
+    <Content Include="App_Plugins\Grid\Editors\Render\coloured-header.cshtml" />
     <Content Include="App_Plugins\ModelsBuilder\package.manifest" />
     <Content Include="App_Plugins\UmbracoForms\Data\Templates\contactform.json" />
     <Content Include="App_Plugins\UmbracoForms\Data\Templates\commentform.json" />
     <Content Include="App_Plugins\DiploTraceLogViewer\package.manifest" />
     <Content Include="App_Plugins\DiploTraceLogViewer\backoffice\diplotracelog\ng-table\ng-table.map" />
+    <Content Include="App_Plugins\LeBlender\Web.config" />
+    <Content Include="App_Plugins\LeBlender\views_samples\Tabs.cshtml" />
+    <Content Include="App_Plugins\LeBlender\views_samples\Highlight.cshtml" />
+    <Content Include="App_Plugins\LeBlender\views_samples\Carousel.cshtml" />
+    <Content Include="App_Plugins\LeBlender\package.manifest" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\views\LeBlender.cshtml" />
+    <Content Include="App_Plugins\LeBlender\editors\leblendereditor\views\Base.cshtml" />
+    <Content Include="App_Plugins\Grid\Editors\Render\collapsible-rte.cshtml" />
     <None Include="compilerconfig.json" />
     <Content Include="compilerconfig.json.defaults">
       <DependentUpon>compilerconfig.json</DependentUpon>
@@ -770,6 +805,7 @@
     </Content>
     <Content Include="Config\404handlers.config" />
     <Content Include="Views\RedirectPage.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Carousel.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

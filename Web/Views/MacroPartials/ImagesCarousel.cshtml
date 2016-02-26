@@ -5,7 +5,13 @@
     var carouselImages = Umbraco.Media(imageIds);
 }
 
-@{
+@if (Request.RawUrl.Contains("GetMacroResultAsHtmlForEditor"))
+{
+    /*Render differently in backoffice*/
+    <span>Images carousel with @carouselImages.Count() images</span>
+}
+else
+{
     var dict = new ViewDataDictionary { { "carouselImages", carouselImages } };
     Html.RenderPartial("/Views/Partials/ImagesCarousel.cshtml", dict);
 }
