@@ -391,6 +391,27 @@
     <Content Include="Config\Lang\ru-RU.user.xml" />
     <Content Include="Config\Lang\sv-SE.user.xml" />
     <Content Include="Config\Lang\zh-CN.user.xml" />
+    <Content Include="css\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="css\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="css\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="css\jquery-ui\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="css\jquery-ui\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="css\jquery-ui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="css\jquery-ui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="css\jquery-ui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="css\jquery-ui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="css\jquery-ui\images\ui-icons_222222_256x240.png" />
+    <Content Include="css\jquery-ui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="css\jquery-ui\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="css\jquery-ui\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="css\jquery-ui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\jquery-ui\jquery-ui.css" />
+    <Content Include="css\jquery-ui\jquery-ui.min.css" />
+    <Content Include="css\jquery-ui\theme.css" />
+    <Content Include="css\owl carousel\AjaxLoader.gif" />
+    <Content Include="css\owl carousel\grabbing.png" />
+    <Content Include="css\owl carousel\owl.theme.css" />
+    <Content Include="css\owl carousel\owl.transitions.css" />
     <Content Include="css\animate.css" />
     <Content Include="css\images\animated-overlay.gif" />
     <Content Include="css\images\icons-contact.png" />
@@ -399,24 +420,8 @@
     <Content Include="css\images\magnific-popup-close.png" />
     <Content Include="css\images\news-icons.png" />
     <Content Include="css\images\scroll-to-top.png" />
-    <Content Include="css\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
-    <Content Include="css\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
-    <Content Include="css\images\ui-bg_flat_10_000000_40x100.png" />
-    <Content Include="css\images\ui-bg_glass_100_f6f6f6_1x400.png" />
-    <Content Include="css\images\ui-bg_glass_100_fdf5ce_1x400.png" />
-    <Content Include="css\images\ui-bg_glass_65_ffffff_1x400.png" />
-    <Content Include="css\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
-    <Content Include="css\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
-    <Content Include="css\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
-    <Content Include="css\images\ui-icons_222222_256x240.png" />
-    <Content Include="css\images\ui-icons_228ef1_256x240.png" />
-    <Content Include="css\images\ui-icons_ef8c08_256x240.png" />
-    <Content Include="css\images\ui-icons_ffd27a_256x240.png" />
-    <Content Include="css\images\ui-icons_ffffff_256x240.png" />
-    <Content Include="css\jquery-ui.min.css" />
     <Content Include="css\magnific-popup.css" />
-    <Content Include="css\OwlCarousel\owl.carousel.css" />
-    <Content Include="css\OwlCarousel\owl.theme.green.css" />
+    <Content Include="css\owl carousel\owl.carousel.css" />
     <Content Include="css\rte.css" />
     <Content Include="css\styles.css">
       <DependentUpon>styles.less</DependentUpon>
@@ -432,18 +437,25 @@
     <Content Include="scripts\config.js" />
     <Content Include="js\director.min.js" />
     <Content Include="js\imagesloaded.pkgd.min.js" />
-    <Content Include="js\jquery-ui.min.js" />
-    <Content Include="js\jquery.min.js" />
-    <Content Include="js\jquery.unobtrusive-ajax.min.js" />
     <Content Include="js\jquery.unveil.js" />
-    <Content Include="js\jquery.validate.min.js" />
-    <Content Include="js\jquery.validate.unobtrusive.min.js" />
     <Content Include="js\magnific.popup.min.js" />
     <Content Include="js\masonry.pkgd.min.js" />
-    <Content Include="js\owl.carousel.min.js" />
     <Content Include="packages.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="js\jquery\jquery-2.2.1.js" />
+    <Content Include="js\jquery\jquery-2.2.1.min.js" />
+    <None Include="js\jquery\jquery.validate-vsdoc.js" />
+    <Content Include="js\jquery\jquery.validate.js" />
+    <Content Include="js\jquery\jquery.validate.min.js" />
+    <Content Include="js\jquery\jquery-ui-1.11.4.js" />
+    <Content Include="js\jquery\jquery-ui-1.11.4.min.js" />
+    <Content Include="js\owl carousel\owl.carousel.js" />
+    <Content Include="js\owl carousel\owl.carousel.min.js" />
+    <Content Include="js\jquery\jquery.unobtrusive-ajax.js" />
+    <Content Include="js\jquery\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="js\jquery\jquery.validate.unobtrusive.js" />
+    <Content Include="js\jquery\jquery.validate.unobtrusive.min.js" />
     <Content Include="scripts\utils.js" />
     <Content Include="Views\Web.config">
       <SubType>Designer</SubType>
@@ -640,6 +652,7 @@
     <Content Include="Config\404handlers.config" />
     <Content Include="Views\RedirectPage.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Carousel.cshtml" />
+    <Content Include="js\jquery\jquery-2.2.1.min.map" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

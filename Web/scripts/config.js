@@ -6,11 +6,8 @@ function InitImagesCarousel(carouselWrapperId) {
     carousel.owlCarousel({
         items: 1,
         lazyLoad: true,
-        dotsSpeed: 800,
-        //smartSpeed:3000,
-        animateOut: 'fadeOut',
-        //nav: true,
-        //animateIn: 'fadeIn'
+        singleItem: true,
+        transitionStyle: "fade",
     });
 
     //new next-prev buttons
@@ -30,15 +27,9 @@ function InitFeaturedArticlesCarousel(carouselWrapperId) {
     carousel.owlCarousel({
         items: 1,
         lazyLoad: true,
-        autoplay: true,
-        autoplayTimeout: 4500,
-        autoplayHoverPause: true,
-        loop: true,
-        dotsSpeed: 800,
-        //smartSpeed:3000,
-        animateOut: 'fadeOut',
-        //nav: true,
-        //animateIn: 'fadeIn'
+        autoPlay: 4500,
+        stopOnHover: true,
+        transitionStyle: "fade",
     });
 
     //new next-prev buttons

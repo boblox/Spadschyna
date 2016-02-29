@@ -7603,11 +7603,11 @@ input.input-validation-error {
   border-color: #e25900;
 }
 /*Owl Carousel *******************************************************/
-.owl-carousel.owl-theme .owl-dots .owl-dot span {
+.owl-carousel.owl-theme .owl-pagination .owl-page span {
   background-color: #fe8435;
 }
-.owl-carousel.owl-theme .owl-dots .owl-dot.active span,
-.owl-carousel.owl-theme .owl-dots .owl-dot:hover span {
+.owl-carousel.owl-theme .owl-pagination .owl-page.active span,
+.owl-carousel.owl-theme .owl-pagination .owl-page:hover span {
   background-color: #e25900;
 }
 /*Magnific PopUp******************************************************/
