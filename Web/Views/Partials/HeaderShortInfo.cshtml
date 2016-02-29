@@ -2,7 +2,9 @@
 @{
     var joinOrganizationLink = Umbraco.NiceUrl(
         Model.Content.GetPropertyValue<int>(Consts.SiteDocType.JoinOrganizationLinkProperty, true));
+    var joinOrganizationText = Model.Content.GetPropertyValue<string>(Consts.SiteDocType.JoinOrganizationTextProperty, true);
     var spadshchynaDescription = Model.Content.GetPropertyValue<string>(Consts.SiteDocType.SpadshchynaDescriptionProperty, true);
+
 }
 
 <div class="header-short-info">
@@ -11,7 +13,7 @@
     </div>
     <div class="pull-right join-organization-container">
         <a class="btn btn-default" href="@joinOrganizationLink" role="button">
-            Вступити в організацію
+            @joinOrganizationText
         </a>
     </div>
     <div class="spadshchyna-description hidden-xs hidden-sm">

@@ -21,6 +21,7 @@
             public const string SiteDescriptionProperty = "SiteDescription";
             public const string EmailProperty = "Email";
             public const string JoinOrganizationLinkProperty = "JoinOrganizationLink";
+            public const string JoinOrganizationTextProperty = "JoinOrganizationText";
         }
 
         public static class NewsOverviewDocType
