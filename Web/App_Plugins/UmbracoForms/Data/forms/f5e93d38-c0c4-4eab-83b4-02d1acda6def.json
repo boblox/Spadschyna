@@ -1,5 +1,5 @@
 {
-  "name": "Join organization",
+  "name": "Вступити в організацію",
   "created": "2015-12-15T04:50:10.31048+02:00",
   "pages": [
     {
@@ -14,6 +14,27 @@
               "caption": null,
               "width": 12,
               "fields": [
+                {
+                  "caption": "Text field",
+                  "tooltip": null,
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "textField",
+                  "id": "f84ed33c-b738-4be5-a40d-6b126aa605e3",
+                  "fieldTypeId": "e3fbf6c4-f46c-495e-aff8-4b3c227b4a98",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "mandatory": false,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": null,
+                  "settings": {
+                    "Caption": "",
+                    "BodyText": "Заповніть, будь ласка, анкету для того, щоб вступити в організацію. Ми з вами зв'яжемось"
+                  },
+                  "preValues": []
+                },
                 {
                   "caption": "Ім'я",
                   "tooltip": null,
@@ -73,12 +94,58 @@
                   "preValues": []
                 },
                 {
+                  "caption": "Місто",
+                  "tooltip": "",
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "місто",
+                  "id": "6b7fa3fb-7889-47ae-f22c-3178f20b4476",
+                  "fieldTypeId": "3f92e01b-29e2-4a30-bf33-9df5580ed52c",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "mandatory": false,
+                  "regex": null,
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": null,
+                  "condition": null,
+                  "settings": {
+                    "DefaultValue": ""
+                  },
+                  "preValues": []
+                },
+                {
                   "caption": "Електронна адреса",
                   "tooltip": null,
                   "placeholder": null,
                   "cssClass": null,
                   "alias": "електроннаАдреса",
                   "id": "10717af2-d038-4939-b799-10069b14b5d9",
+                  "fieldTypeId": "3f92e01b-29e2-4a30-bf33-9df5580ed52c",
+                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
+                  "dataSourceFieldKey": null,
+                  "mandatory": false,
+                  "regex": "^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}$",
+                  "requiredErrorMessage": null,
+                  "invalidErrorMessage": "Неправильний формат електронної адреси",
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
+                  "settings": {
+                    "DefaultValue": ""
+                  },
+                  "preValues": []
+                },
+                {
+                  "caption": "Телефон",
+                  "tooltip": "Якщо не має, то вкажіть телефон батьків",
+                  "placeholder": null,
+                  "cssClass": null,
+                  "alias": "телефон",
+                  "id": "5f365991-497d-423f-9830-fd93d1e16727",
                   "fieldTypeId": "3f92e01b-29e2-4a30-bf33-9df5580ed52c",
                   "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
                   "dataSourceFieldKey": null,
@@ -99,27 +166,7 @@
                   "preValues": []
                 },
                 {
-                  "caption": "Телефон",
-                  "tooltip": null,
-                  "placeholder": null,
-                  "cssClass": null,
-                  "alias": "телефон",
-                  "id": "5f365991-497d-423f-9830-fd93d1e16727",
-                  "fieldTypeId": "3f92e01b-29e2-4a30-bf33-9df5580ed52c",
-                  "prevalueSourceId": "00000000-0000-0000-0000-000000000000",
-                  "dataSourceFieldKey": null,
-                  "mandatory": false,
-                  "regex": null,
-                  "requiredErrorMessage": null,
-                  "invalidErrorMessage": null,
-                  "condition": null,
-                  "settings": {
-                    "DefaultValue": ""
-                  },
-                  "preValues": []
-                },
-                {
-                  "caption": "Будь ласка введіть текст зображений нижче:",
+                  "caption": "Введіть текст зображений нижче:",
                   "tooltip": null,
                   "placeholder": null,
                   "cssClass": null,
@@ -144,7 +191,7 @@
           "condition": null
         }
       ],
-      "caption": null,
+      "caption": "",
       "sortOrder": 0,
       "id": "00000000-0000-0000-0000-000000000000",
       "form": "00000000-0000-0000-0000-000000000000"
@@ -157,7 +204,7 @@
   "hideFieldValidation": false,
   "requiredErrorMessage": "Будь ласка, введіть значення для {0}",
   "invalidErrorMessage": "Будь ласка, введіть правильне значення для {0}",
-  "messageOnSubmit": "Thank you",
+  "messageOnSubmit": "Дякуємо за вашу заявку! З вами зв'яжуться найближчим часом",
   "goToPageOnSubmit": 0,
   "xPathOnSubmit": null,
   "manualApproval": false,
@@ -165,7 +212,9 @@
   "cssClass": null,
   "disableDefaultStylesheet": false,
   "useClientDependency": false,
-  "workflows": [],
+  "workflows": [
+    "80cb19fc-7940-47a3-ad0a-844b428d6cbe"
+  ],
   "datasource": null,
   "submitLabel": "Відправити",
   "nextLabel": "Next",
