@@ -117,16 +117,98 @@ textarea, input {
 
 /*Owl Carousel *******************************************************/
 
-.owl-carousel {
-    &.owl-theme {
-        .owl-pagination .owl-page {
-            & span {
-                background-color: @orange-active-color;
+.carousel-wrapper {
+    //Carousel with paging dots
+    &.pagination-carousel {
+        .owl-carousel.owl-theme {
+            .owl-pagination .owl-page {
+                & span {
+                    background-color: @orange-active-color;
+                }
+
+                &.active span,
+                &:hover span {
+                    background-color: @orange-color;
+                }
             }
 
-            &.active span,
-            &:hover span {
-                background-color: @orange-color;
+            .owl-item {
+                img {
+                    margin: 0 auto;
+                    max-height: 700px;
+                }
+            }
+        }
+    }
+    //Carousel with preview. Slide part
+    &.slide {
+        .owl-carousel {
+            border: 6px solid @orange-active-color;
+            .owl-item {
+                img {
+                    margin: 0 auto;
+                    max-height: 700px;
+                }
+            }
+        }
+    }
+    //Carousel with preview. Preview-list part
+    &.preview-list {
+        position: relative;
+
+        .owl-carousel-prev, .owl-carousel-next {
+            width: 35px;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            z-index: 10;
+            cursor: pointer;
+            background-color: white;
+            opacity: 0.5;
+            .transition(all 0.4s);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            span {
+                color: @orange-active-color;
+            }
+        }
+
+        .owl-carousel-prev {
+            left: 0;
+        }
+
+        .owl-carousel-next {
+            right: 0;
+        }
+
+        .owl-carousel {
+            margin-top: 10px;
+
+            .owl-wrapper-outer {
+                .owl-item {
+                    height: 150px;
+                    border: solid @orange-active-color;
+                    border-width: 6px 3px;
+                    overflow: hidden;
+                    cursor: pointer;
+                    &.selected {
+                        border-color: @light-blue-color;
+                    }
+
+                    img {
+                        height: auto;
+                        width: auto;
+                        max-width: none;
+                        max-height: 100%;
+                        margin: 0 auto;
+                    }
+                }
             }
         }
     }

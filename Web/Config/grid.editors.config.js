@@ -102,5 +102,25 @@
             "frontView": "",
             "max": null
         }
+    },
+    {
+        "name": "Галерея світлин",
+        "alias": "Gallery",
+        "view": "/App_Plugins/LeBlender/editors/leblendereditor/LeBlendereditor.html",
+        "icon": "icon-layers-alt",
+        "render": "/App_Plugins/LeBlender/editors/leblendereditor/views/Base.cshtml",
+        "config": {
+            "editors": [
+                {
+                    "name": "Images",
+                    "alias": "images",
+                    "propretyType": {},
+                    "dataType": "7e3962cc-ce20-4ffc-b661-5897a894ba7e"
+                }
+            ],
+            "renderInGrid": "1",
+            "frontView": "",
+            "max": null
+        }
     }
 ]

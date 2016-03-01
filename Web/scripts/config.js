@@ -19,6 +19,91 @@ function InitImagesCarousel(carouselWrapperId) {
     //});
 }
 
+/*********************************************=ImagesGallery=****************************************************************/
+
+function InitImagesGallery(carouselWrapperId1, carouselWrapperId2) {
+    var carouselWrapper1 = $("#" + carouselWrapperId1);
+    var carouselWrapper2 = $("#" + carouselWrapperId2);
+    var carousel1 = carouselWrapper1.find(".owl-carousel");
+    var carousel2 = carouselWrapper2.find(".owl-carousel");
+    carousel1.owlCarousel({
+        items: 1,
+        lazyLoad: true,
+        singleItem: true,
+        pagination: false,
+        transitionStyle: "fade",
+        autoHeight: true,
+        //theme: '',
+        afterAction: syncPosition,
+    });
+
+    carousel2.owlCarousel({
+        items: 5,
+        lazyLoad: true,
+        pagination: false,
+        //navigation: true,
+        transitionStyle: "fade",
+        responsiveRefreshRate: 100,
+        //theme: '',
+        afterInit: function (el) {
+            setSelected(0);
+        }
+    });
+
+    function setSelected(number) {
+        carousel2.find(".owl-item").removeClass("selected")
+            .eq(number).addClass("selected");
+    }
+
+    function syncPosition(el) {
+        var current = this.currentItem;
+        setSelected(current);
+        if (carousel2.data("owlCarousel") !== undefined) {
+            center(current);
+        }
+    }
+
+    carousel2.on("click", ".owl-item", function (e) {
+        e.preventDefault();
+        var number = $(this).data("owlItem");
+        carousel1.trigger("owl.goTo", number);
+    });
+
+    function center(number) {
+        var sync2Visible = carousel2.data("owlCarousel").owl.visibleItems;
+        var num = number;
+        var found = false;
+        for (var i in sync2Visible) {
+            if (num === sync2Visible[i]) {
+                found = true;
+            }
+        }
+
+        if (found === false) {
+            if (num > sync2Visible[sync2Visible.length - 1]) {
+                carousel2.trigger("owl.goTo", num - sync2Visible.length + 2);
+            } else {
+                if (num - 1 === -1) {
+                    num = 0;
+                }
+                carousel2.trigger("owl.goTo", num);
+            }
+        } else if (num === sync2Visible[sync2Visible.length - 1]) {
+            carousel2.trigger("owl.goTo", sync2Visible[1]);
+        } else if (num === sync2Visible[0]) {
+            carousel2.trigger("owl.goTo", num - 1);
+        }
+    }
+
+    //new next-prev buttons
+    carouselWrapper2.find('.owl-carousel-prev').click(function () {
+        carousel2.trigger('owl.prev', [800]);
+    });
+    carouselWrapper2.find('.owl-carousel-next').click(function () {
+        carousel2.trigger('owl.next', [800]);
+    });
+}
+
 /*********************************************=Featured Articles Carousel=***************************************************/
 
 function InitFeaturedArticlesCarousel(carouselWrapperId) {

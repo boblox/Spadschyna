@@ -653,6 +653,8 @@
     <Content Include="Views\RedirectPage.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Carousel.cshtml" />
     <Content Include="js\jquery\jquery-2.2.1.min.map" />
+    <None Include="Views\Partials\ImagesGallery.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Gallery.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
