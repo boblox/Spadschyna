@@ -22,6 +22,11 @@
             public const string EmailProperty = "Email";
             public const string JoinOrganizationLinkProperty = "JoinOrganizationLink";
             public const string JoinOrganizationTextProperty = "JoinOrganizationText";
+
+            public const string FacebookLinkProperty = "FacebookLink";
+            public const string InstagramLinkProperty = "InstagramLink";
+            public const string RssLinkProperty = "RssLink";
+            public const string DonateLinkProperty = "DonateLink";
         }
 
         public static class NewsOverviewDocType

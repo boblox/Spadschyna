@@ -49,7 +49,9 @@
                         <a class="news-link
                                    category-@category.Id
                                    @Umbraco.If(category.Value.Equals(currentCategory, StringComparison.InvariantCultureIgnoreCase), "active")"
-                           href="#" category="@category.Id">@category.Value</a>
+                           href="#" category="@category.Id">
+                            <span>@category.Value</span>
+                        </a>
                     </li>
                 }
             </ul>

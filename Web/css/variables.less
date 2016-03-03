@@ -1,47 +1,38 @@
 ﻿/*!Variables*/
 
-@font-face {
-    font-family: "HelveticaNeueCyr-Roman";
-    font-style: normal;
-    font-weight: 400;
-    src: url("../Fonts/HelveticaNeueCyr-Roman.otf") format("opentype");
-}
-
-@font-face {
-    font-family: "HelveticaNeueCyr-Medium";
-    font-style: normal;
-    font-weight: 400;
-    src: url("../Fonts/HelveticaNeueCyr-Medium.otf") format("opentype");
-}
-
 //basic
 @icon-font-path: "../../fonts/";
-@font-family-base: "HelveticaNeueCyr-Roman", Helvetica, sans-serif;
-@font-family-alternate: "HelveticaNeueCyr-Medium", Helvetica, sans-serif;
-@font-family-header: "HelveticaNeueCyr-Roman", Arial;
+@font-family-base: "Arimo", Helvetica, sans-serif;
+@font-family-alternate: "Arimo", Helvetica, sans-serif;
+@font-family-header: "Arimo", Arial;
 @font-size-base: 14px;
-@font-size-h3: ceil((@font-size-base * 1.57)); // ~22px
+@font-size-h3-alternate: ceil((@font-size-base * 1.57)); // ~22px
 
-@white-color: #f2f2f2;
-@gray-color: #969696;
-@black-color: black;
+@light-gray-color: #f2f2f2;
+@black-color: #000000;
 @orange-color: #e25900;
+@orange-color-2: #fe8435;
+@orange-color-3: #ff5a00;
+@ochre-color: #ecca29;
+
+@category-all-color: @orange-color;
+@category-announce-color: white;
+@category-events-color: #ff7200;
 @category-camps-color: #ef9f05;
 @category-other-color: #efb005;
-@ochre-color: #ecca29;
-@orange-active-color: #fe8435;
+
 @blue-color: #027cd9;
 @light-blue-color: #35a7fe;
 
 //global link colors
-@link-color: black;
-@link-hover-color: black;
+@link-color: @black-color;
+@link-hover-color: @black-color;
 
 @grid-columns: 24;
 
 //navigation styles
-@navbar-height: 50px;
-@navbar-default-color: @white-color;
+@navbar-height: 45px;
+@navbar-default-color: @light-gray-color;
 @navbar-default-bg: @orange-color;
 
 @navbar-padding-vertical: 0;
@@ -49,21 +40,20 @@
 @navbar-margin-bottom: 0;
 @navbar-border-radius: 0;
 
-@navbar-default-link-color: @white-color;
-@navbar-default-link-hover-bg: @orange-active-color;
+@navbar-default-link-color: @light-gray-color;
+@navbar-default-link-hover-bg: @orange-color-2;
 @navbar-default-link-hover-color: @navbar-default-color;
-@navbar-default-link-active-bg: @orange-active-color;
+@navbar-default-link-active-bg: @orange-color-2;
 @navbar-default-link-active-color: @navbar-default-color;
-
-//header-logo
-@logo-height: 104px;
+@navbar-default-toggle-hover-bg: @light-blue-color;
+@navbar-default-toggle-icon-bar-bg: @orange-color-2;
 
 //form-controls
 @input-border: transparent;
 @input-border-radius: 0;
 @input-border-radius-small: 0;
 @input-border-radius-large: 0;
-@input-border-focus: @orange-active-color;
+@input-border-focus: @orange-color-2;
 
 //form-validation
 @state-danger-text: @orange-color;

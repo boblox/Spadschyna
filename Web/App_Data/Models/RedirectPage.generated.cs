@@ -20,12 +20,12 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>Redirect page</summary>
-	[PublishedContentModel("RedirectPage")]
-	public partial class RedirectPage : PublishedContentModel
+	/// <summary>Redirect Page</summary>
+	[PublishedContentModel("redirectPage")]
+	public partial class RedirectPage : Master
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "RedirectPage";
+		public new const string ModelTypeAlias = "redirectPage";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
@@ -46,7 +46,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// redirectUrl
+		/// redirectUrl: Redirects to the url
 		///</summary>
 		[ImplementPropertyType("redirectUrl")]
 		public string RedirectUrl
@@ -55,7 +55,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// umbracoInternalRedirectId
+		/// umbracoInternalRedirectId: Will load the selected page content transparently; no url redirection
 		///</summary>
 		[ImplementPropertyType("umbracoInternalRedirectId")]
 		public object UmbracoInternalRedirectId
@@ -64,16 +64,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Hide in navigation?
-		///</summary>
-		[ImplementPropertyType("umbracoNaviHide")]
-		public bool UmbracoNaviHide
-		{
-			get { return this.GetPropertyValue<bool>("umbracoNaviHide"); }
-		}
-
-		///<summary>
-		/// umbracoRedirect 
+		/// umbracoRedirect: Redirects to the selected page
 		///</summary>
 		[ImplementPropertyType("umbracoRedirect")]
 		public object UmbracoRedirect

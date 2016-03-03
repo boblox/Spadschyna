@@ -46,6 +46,15 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Donate link
+		///</summary>
+		[ImplementPropertyType("donateLink")]
+		public string DonateLink
+		{
+			get { return this.GetPropertyValue<string>("donateLink"); }
+		}
+
+		///<summary>
 		/// Email
 		///</summary>
 		[ImplementPropertyType("email")]
@@ -64,12 +73,39 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Instagram link
+		///</summary>
+		[ImplementPropertyType("instagramLink")]
+		public string InstagramLink
+		{
+			get { return this.GetPropertyValue<string>("instagramLink"); }
+		}
+
+		///<summary>
 		/// Join organization link
 		///</summary>
 		[ImplementPropertyType("joinOrganizationLink")]
 		public object JoinOrganizationLink
 		{
 			get { return this.GetPropertyValue("joinOrganizationLink"); }
+		}
+
+		///<summary>
+		/// Join organization text
+		///</summary>
+		[ImplementPropertyType("joinOrganizationText")]
+		public string JoinOrganizationText
+		{
+			get { return this.GetPropertyValue<string>("joinOrganizationText"); }
+		}
+
+		///<summary>
+		/// Rss link
+		///</summary>
+		[ImplementPropertyType("rssLink")]
+		public string RssLink
+		{
+			get { return this.GetPropertyValue<string>("rssLink"); }
 		}
 
 		///<summary>
@@ -106,15 +142,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public object UmbracoInternalRedirectId
 		{
 			get { return this.GetPropertyValue("umbracoInternalRedirectId"); }
-		}
-
-		///<summary>
-		/// Vk link
-		///</summary>
-		[ImplementPropertyType("vkLink")]
-		public string VkLink
-		{
-			get { return this.GetPropertyValue<string>("vkLink"); }
 		}
 	}
 }

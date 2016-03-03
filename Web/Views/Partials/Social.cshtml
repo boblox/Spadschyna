@@ -4,24 +4,32 @@
     // AncestorsOrSelf is all of the ancestors this page has in the tree
     // (1) means: go up to level 1 and stop looking for more ancestors when you get there
     // First() gets the first ancestor found (the home page, on level 1)
-    var homePage = CurrentPage.AncestorsOrSelf(1).First();
+    var homePage = Model.Content.AncestorsOrSelf(1).First();
+    var rssLink = homePage.GetPropertyValue<string>(Consts.SiteDocType.RssLinkProperty);
+    var facebookLink = homePage.GetPropertyValue<string>(Consts.SiteDocType.FacebookLinkProperty);
+    var instagramLink = homePage.GetPropertyValue<string>(Consts.SiteDocType.InstagramLinkProperty);
+    var donateLink = homePage.GetPropertyValue<string>(Consts.SiteDocType.DonateLinkProperty);
 }
 
 <!-- Contact -->
 <ul class="contacts">
-    @RenderLinkIfNotEmpty(homePage.InstagramLink, "instagram", "Instagram")
-    @RenderLinkIfNotEmpty(homePage.FacebookLink, "facebook", "Facebook")
-    @RenderLinkIfNotEmpty(homePage.SkypeLink, "skype", "Skype")
-    @RenderLinkIfNotEmpty(homePage.VkLink, "vkontakte", "Vkontakte")
+    @RenderLinkIfNotEmpty(rssLink, "rss", "Підписатись на новини")
+    @RenderLinkIfNotEmpty(facebookLink, "facebook", "Facebook")
+    @RenderLinkIfNotEmpty(instagramLink, "instagram", "Instagram")
+    @RenderLinkIfNotEmpty(donateLink, "donate", "Долучитись коштами")
     @*@RenderLinkIfNotEmpty(homePage.GoogleLink, "googleplus", "Google+")
-    @RenderLinkIfNotEmpty(homePage.DribbbleLink, "dribbble", "Dribbble")
-    @RenderLinkIfNotEmpty(homePage.LinkedinLink, "linkedin", "Linked In")*@
+        @RenderLinkIfNotEmpty(homePage.DribbbleLink, "dribbble", "Dribbble")
+        @RenderLinkIfNotEmpty(homePage.LinkedinLink, "linkedin", "Linked In")*@
 </ul>
 <!-- /Contact -->
 @helper RenderLinkIfNotEmpty(dynamic link, string cssClass, string linkName, string title = "")
 {
     if (string.IsNullOrEmpty(link) == false)
     {
-        <li><a href="@link" class="@cssClass" title="@title"></a></li>
+        <li>
+            <a href="@link" class="@cssClass" title="@title">
+                <span></span>
+            </a>
+        </li>
     }
 }

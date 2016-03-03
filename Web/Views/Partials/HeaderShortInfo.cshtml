@@ -8,15 +8,15 @@
 }
 
 <div class="header-short-info">
-    <div class="pull-left">
+    <div class="">
         @{Html.RenderPartial("Logo");}
-    </div>
-    <div class="pull-right join-organization-container">
-        <a class="btn btn-default" href="@joinOrganizationLink" role="button">
-            @joinOrganizationText
-        </a>
     </div>
     <div class="spadshchyna-description hidden-xs hidden-sm">
         <span>@spadshchynaDescription</span>
+    </div>
+    <div class="join-organization-container">
+        <a class="btn btn-default" href="@joinOrganizationLink" role="button">
+            @joinOrganizationText
+        </a>
     </div>
 </div>

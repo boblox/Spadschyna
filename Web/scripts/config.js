@@ -5,8 +5,8 @@ function InitImagesCarousel(carouselWrapperId) {
     var carousel = carouselWrapper.find('.owl-carousel');
     carousel.owlCarousel({
         items: 1,
-        lazyLoad: true,
         singleItem: true,
+        lazyLoad: true,
         transitionStyle: "fade",
     });
 
@@ -28,8 +28,8 @@ function InitImagesGallery(carouselWrapperId1, carouselWrapperId2) {
     var carousel2 = carouselWrapper2.find(".owl-carousel");
     carousel1.owlCarousel({
         items: 1,
-        lazyLoad: true,
         singleItem: true,
+        lazyLoad: true,
         pagination: false,
         transitionStyle: "fade",
         autoHeight: true,
@@ -111,6 +111,7 @@ function InitFeaturedArticlesCarousel(carouselWrapperId) {
     var carousel = carouselWrapper.find('.owl-carousel');
     carousel.owlCarousel({
         items: 1,
+        singleItem: true,
         lazyLoad: true,
         autoPlay: 4500,
         stopOnHover: true,
@@ -287,6 +288,6 @@ function InitCollapsibleHeader(linkId, rteId) {
     m.parentNode.insertBefore(a, m);
 })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-ga('create', 'UA-54105375-4', 'auto');
+ga('create', 'UA-54105375-5', 'auto');
 ga('send', 'pageview');
 /*End of Google analytics*/

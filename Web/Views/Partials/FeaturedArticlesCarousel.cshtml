@@ -13,6 +13,7 @@
         <img class="lazyOwl img-responsive" data-src="@imageUrl" />
         <div class="featured-article-info">
             <h4>@title</h4>
+            <span>@subtitle</span>
         </div>
     </article>
 }
@@ -21,8 +22,8 @@
 {
     <section class="featured-articles-wrapper">
         <div class="container">
-            <div id="@id" class="carousel-wrapper pagination-carousel featured-articles">
-                <div class="owl-carousel-prev not-mobile"></div>
+            <div id="@id" class="pagination-carousel featured-articles">
+                @*<div class="owl-carousel-prev not-mobile"></div>*@
                 <div class="owl-carousel">
                     @foreach (var article in articles)
                     {
@@ -43,7 +44,7 @@
                         }
                     }
                 </div>
-                <div class="owl-carousel-next not-mobile"></div>
+                @*<div class="owl-carousel-next not-mobile"></div>*@
             </div>
         </div>
     </section>

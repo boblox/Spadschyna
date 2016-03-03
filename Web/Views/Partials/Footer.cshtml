@@ -1,7 +1,6 @@
 ﻿@inherits UmbracoTemplatePage
 @{
     var homePage = CurrentPage.AncestorsOrSelf(1).First();
-    //var email = Model.Content.GetPropertyValue<string>(Consts.SiteDocType.EmailProperty, true);
 }
 
 <footer class="footer-wrapper">
@@ -10,19 +9,18 @@
             <div class="">
                 @{Html.RenderPartial("Logo");}
             </div>
-            <div class="footer-nav-contacts-container hidden-xs hidden-sm">
-                <nav class="footer-nav text-right">
-                    <ul>
-                        @{
-                            var dict = new ViewDataDictionary(ViewData) { { "menuItem", homePage } };
-                            Html.RenderPartial("TopNavigationList", dict);
-                        }
-                    </ul>
-                </nav>
-                <div class="footer-contacts text-right">
-                    @{Html.RenderPartial("Social");}
-                </div>
+            <nav class="footer-nav hidden-xs">
+                <ul>
+                    @{
+                        var dict = new ViewDataDictionary(ViewData) { { "menuItem", homePage } };
+                        Html.RenderPartial("TopNavigationList", dict);
+                    }
+                </ul>
+            </nav>
+            <div class="footer-contacts hidden-xs">
+                @{Html.RenderPartial("Social");}
             </div>
+
             @*<div class="contact-form-container">
                 @Html.Action("Index", "ContactForm", new { emailFrom = email, emailTo = email })
             </div>*@

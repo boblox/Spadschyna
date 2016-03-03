@@ -11,7 +11,7 @@
     .transition(all 0.4s);
     border-radius: 0;
 
-    &.btn-default, &.primary {
+    &.btn-default {
         color: white;
         background-color: @orange-color;
         border-color: @orange-color;
@@ -19,8 +19,21 @@
         &:focus, &:hover, &:active,
         &:focus, &.hover, &.active {
             color: white;
-            background-color: @orange-active-color;
-            border-color: @orange-active-color;
+            background-color: @orange-color-2;
+            border-color: @orange-color-2;
+        }
+    }
+
+    &.btn-primary {
+        color: white;
+        background-color: @orange-color-3;
+        border-color: @orange-color-3;
+
+        &:focus, &:hover, &:active,
+        &:focus, &.hover, &.active {
+            color: white;
+            background-color: @orange-color-2;
+            border-color: @orange-color-2;
         }
     }
 }
@@ -35,6 +48,7 @@
     }
 
     h3 {
+        font-size: @font-size-h3-alternate;
         margin-top: (@line-height-computed / 2);
     }
 
@@ -43,7 +57,7 @@
     }
 
     &.orange-light {
-        background-color: @orange-active-color;
+        background-color: @orange-color-2;
     }
 
     &.ochre {
@@ -58,6 +72,7 @@
 .header-coloured-link {
     &:focus, &:hover {
         text-decoration: none;
+        outline: none;
     }
 }
 
@@ -85,7 +100,7 @@
             margin: 0.5em 0;
 
             &:focus {
-                border: 1px solid @orange-active-color;
+                border: 1px solid @orange-color-2;
             }
         }
 
@@ -117,33 +132,41 @@ textarea, input {
 
 /*Owl Carousel *******************************************************/
 
-.carousel-wrapper {
-    //Carousel with paging dots
-    &.pagination-carousel {
-        .owl-carousel.owl-theme {
-            .owl-pagination .owl-page {
-                & span {
-                    background-color: @orange-active-color;
-                }
-
-                &.active span,
-                &:hover span {
-                    background-color: @orange-color;
-                }
+//Carousel with paging dots
+.pagination-carousel {
+    .owl-carousel.owl-theme {
+        .owl-pagination .owl-page {
+            & span {
+                background-color: @orange-color-2;
             }
 
-            .owl-item {
-                img {
-                    margin: 0 auto;
-                    max-height: 700px;
-                }
+            &.active span,
+            &:hover span {
+                background-color: @orange-color;
+            }
+        }
+
+        .owl-item {
+            img {
+                margin: 0 auto;
+                max-height: 700px;
             }
         }
     }
-    //Carousel with preview. Slide part
-    &.slide {
+}
+//Carousel with paging dots. "Carousel" grid editor (and also macro)
+.pagination-carousel.carousel-widget {
+    margin-bottom: 20px;
+}
+
+//Carousel with preview. "Gallery" grid editor
+.gallery-widget {
+    margin-bottom: 20px;
+    // Used in gallery. Slide part
+    & .slide {
         .owl-carousel {
-            border: 6px solid @orange-active-color;
+            border: 6px solid @orange-color-2;
+
             .owl-item {
                 img {
                     margin: 0 auto;
@@ -152,8 +175,8 @@ textarea, input {
             }
         }
     }
-    //Carousel with preview. Preview-list part
-    &.preview-list {
+    //Carousel with preview. Used in gallery. Preview-list part
+    & .preview-list {
         position: relative;
 
         .owl-carousel-prev, .owl-carousel-next {
@@ -175,7 +198,7 @@ textarea, input {
             }
 
             span {
-                color: @orange-active-color;
+                color: @orange-color-2;
             }
         }
 
@@ -193,10 +216,11 @@ textarea, input {
             .owl-wrapper-outer {
                 .owl-item {
                     height: 150px;
-                    border: solid @orange-active-color;
+                    border: solid @orange-color-2;
                     border-width: 6px 3px;
                     overflow: hidden;
                     cursor: pointer;
+
                     &.selected {
                         border-color: @light-blue-color;
                     }

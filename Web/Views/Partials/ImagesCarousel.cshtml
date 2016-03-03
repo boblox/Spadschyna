@@ -9,15 +9,15 @@
 
 @if (carouselImages.Count > 0)
 {
-    <div id="@id" class="carousel-wrapper pagination-carousel">
-        <div class="owl-carousel-prev not-mobile"></div>
+    <div id="@id" class="pagination-carousel carousel-widget">
+        @*<div class="owl-carousel-prev not-mobile"></div>*@
         <div class="owl-carousel">
             @foreach (var image in carouselImages)
             {
                 <img class="lazyOwl" data-src="@image.Url" />
             }
         </div>
-        <div class="owl-carousel-next not-mobile"></div>
+        @*<div class="owl-carousel-next not-mobile"></div>*@
     </div>
 
     <script type="text/javascript">

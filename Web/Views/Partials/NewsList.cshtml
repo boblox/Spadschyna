@@ -20,19 +20,19 @@
                 <h3>@title</h3>
             </a>
         </header>
-        @{ Html.RenderPartial("NewsItemInfo", newsItems[i]);}
-        @{ Html.RenderPartial("NewsItemTags", newsItems[i]);}
         @if (!string.IsNullOrWhiteSpace(image))
         {
             <a href="@item.Url" class="news-item-image">
                 <img src="@Html.GetThumbnailUrl(image, 700)" alt="" />
             </a>
         }
+        @{ Html.RenderPartial("NewsItemInfo", newsItems[i]);}
+        @{ Html.RenderPartial("NewsItemTags", newsItems[i]);}
         <div class="news-item-byline">
             @Html.GetInnerText(string.IsNullOrWhiteSpace(subHeader) ?
                 content : new HtmlString(subHeader), 200)
         </div>
-        <a href="@item.Url" class="news-item-button btn btn-default center-block">@Localization.NewsReadMore</a>
+        <a href="@item.Url" class="news-item-button btn btn-primary center-block">@Localization.NewsReadMore</a>
 
         @if (i != newsItems.Count - 1)
         {

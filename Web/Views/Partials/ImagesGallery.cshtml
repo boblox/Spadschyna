@@ -11,29 +11,31 @@
 @if (carouselImages.Count > 0)
 {
     //Gallery which consists of 2 synchronized carousel parts - slide and preview-list
-    <div id="@id1" class="carousel-wrapper slide">
-        <div class="owl-carousel-prev not-mobile"></div>
-        <div class="owl-carousel">
-            @foreach (var image in carouselImages)
-            {
-                <img class="lazyOwl" data-src="@image.Url" />
-            }
+    <div class="gallery-widget">
+        <div id="@id1" class="slide">
+            @*<div class="owl-carousel-prev not-mobile"></div>*@
+            <div class="owl-carousel">
+                @foreach (var image in carouselImages)
+                {
+                    <img class="lazyOwl" data-src="@image.Url" />
+                }
+            </div>
+            @*<div class="owl-carousel-next not-mobile"></div>*@
         </div>
-        <div class="owl-carousel-next not-mobile"></div>
-    </div>
 
-    <div id="@id2" class="carousel-wrapper preview-list">
-        <div class="owl-carousel-prev not-mobile">
-            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
-        </div>
-        <div class="owl-carousel">
-            @foreach (var image in carouselImages)
-            {
-                <img class="lazyOwl" data-src="@Html.GetThumbnailUrl((string) image.Url, 300)" />
-            }
-        </div>
-        <div class="owl-carousel-next not-mobile">
-            <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+        <div id="@id2" class="preview-list">
+            <div class="owl-carousel-prev not-mobile">
+                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>
+            </div>
+            <div class="owl-carousel">
+                @foreach (var image in carouselImages)
+                {
+                    <img class="lazyOwl" data-src="@Html.GetThumbnailUrl((string) image.Url, 300)" />
+                }
+            </div>
+            <div class="owl-carousel-next not-mobile">
+                <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span>
+            </div>
         </div>
     </div>
 
