@@ -23,7 +23,7 @@ namespace Web.Helpers
 
             var scriptBundle = new ScriptBundle("~/js/basic-js")
                 .Include("~/js/jquery/jquery-2.2.1.min.js")
-                .Include("~/js/bootstrap.min.js")
+                .Include("~/js/bootstrap/bootstrap.min.js")
                 .Include("~/js/jquery/jquery-ui-1.11.4.min.js")
                 .Include("~/js/jquery/jquery.validate.min.js")//JQuery validation
                 .Include("~/js/jquery/jquery.validate.unobtrusive.min.js")//MVC client validation with html attributes
