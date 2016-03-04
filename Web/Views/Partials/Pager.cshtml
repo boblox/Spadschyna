@@ -2,13 +2,15 @@
 @{
     var page = Model.Page;
     var totalPages = Model.TotalPages;
+    Func<dynamic, HelperResult> leftTriangle = @<span class="glyphicon glyphicon-triangle-left"></span>;
+    Func<dynamic, HelperResult> rightTriangle = @<span class="glyphicon glyphicon-triangle-right"></span>;
 }
 
-@helper RenderPage(int currentPageNumber, int renderPageNumber, string text)
+@helper RenderPage(int currentPageNumber, int renderPageNumber, IHtmlString template)
 {
     <li>
         <a class="news-link @Umbraco.If(currentPageNumber == renderPageNumber, "active")" page="@renderPageNumber" href="#">
-            @text
+            @template
         </a>
     </li>
 }
@@ -19,9 +21,9 @@
         <ul class="news-pager">
             @if (page != 1)
             {
-                @RenderPage(page, page - 1, "<")
+                @RenderPage(page, page - 1, leftTriangle(null))
             }
-            @RenderPage(page, 1, "1")
+            @RenderPage(page, 1, Html.Raw(1.ToString()))
 
             @if (page - Consts.NewsConfig.PagerInterval > 2)
             {
@@ -29,7 +31,7 @@
             }
             @for (var i = Math.Max(2, page - Consts.NewsConfig.PagerInterval); i <= Math.Min(totalPages - 1, page + Consts.NewsConfig.PagerInterval); i++)
             {
-                @RenderPage(page, i, i.ToString())
+                @RenderPage(page, i, Html.Raw(i.ToString()))
             }
             @if (page + Consts.NewsConfig.PagerInterval < totalPages - 1)
             {
@@ -38,11 +40,11 @@
 
             @if (totalPages > 1)
             {
-                @RenderPage(page, totalPages, totalPages.ToString())
+                @RenderPage(page, totalPages, Html.Raw(totalPages.ToString()))
             }
             @if (page != totalPages)
             {
-                @RenderPage(page, page + 1, ">")
+                @RenderPage(page, page + 1, rightTriangle(null))
             }
         </ul>
     </div>

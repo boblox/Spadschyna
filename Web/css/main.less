@@ -526,18 +526,22 @@ h1, h2, h3, h4, h5, h6 {
 
 /*News pager******************************************************/
 ul.news-pager {
-    display: inline-block;
+    display: inline-flex;
     list-style: none;
     padding: 0;
 
     > li {
-        display: inline-block;
         color: @orange-color;
         font-size: @font-size-large;
 
         a {
             color: @orange-color;
             padding: 0 5px 0 5px;
+            display: block;
+
+            & span {
+                font-size: @font-size-base;
+            }
 
             &.active {
                 text-decoration: underline;

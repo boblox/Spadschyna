@@ -7870,18 +7870,21 @@ h6 {
 }
 /*News pager******************************************************/
 ul.news-pager {
-  display: inline-block;
+  display: inline-flex;
   list-style: none;
   padding: 0;
 }
 ul.news-pager > li {
-  display: inline-block;
   color: #e25900;
   font-size: 18px;
 }
 ul.news-pager > li a {
   color: #e25900;
   padding: 0 5px 0 5px;
+  display: block;
+}
+ul.news-pager > li a span {
+  font-size: 14px;
 }
 ul.news-pager > li a.active {
   text-decoration: underline;
@@ -8075,6 +8078,9 @@ ul.news-item-info li a.news-link:hover {
 .header-coloured h3 {
   font-size: 22px;
   margin-top: 10px;
+}
+.header-coloured span.glyphicon {
+  vertical-align: top;
 }
 .header-coloured.orange {
   background-color: #e25900;
