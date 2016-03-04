@@ -125,6 +125,10 @@ h1, h2, h3, h4, h5, h6 {
         @media(max-width:@screen-md-max) {
             margin-right: 0;
         }
+
+        @media(max-width:@screen-xs-max) {
+            margin-left: 10px;
+        }
     }
 
     .spadshchyna-description {
@@ -179,7 +183,7 @@ h1, h2, h3, h4, h5, h6 {
     .transition(all 0.4s);
 
     .form-control.input-xs {
-        height: 22px;
+        height: 24px;
         padding: 2px 5px;
         font-size: @font-size-small;
         line-height: 1.5;
@@ -187,7 +191,7 @@ h1, h2, h3, h4, h5, h6 {
 
         @media(min-width:@screen-sm-min) {
             width: 134px;
-            /*height: 22px;*/
+            /*height: 24px;*/
         }
 
         @media(min-width:@screen-md-min) {
@@ -334,8 +338,7 @@ h1, h2, h3, h4, h5, h6 {
 /*Contact Form*******************************************************/
 .contact-form-container {
     .contact-form {
-        width: 190px;
-        margin-top: 40px;
+        width: 265px;
 
         & > .form-group {
             display: flex;
@@ -343,7 +346,7 @@ h1, h2, h3, h4, h5, h6 {
             margin-bottom: 10px;
             /*button send*/
             &:last-child {
-                justify-content: flex-end;
+                justify-content: flex-start;
             }
         }
 
@@ -372,7 +375,7 @@ h1, h2, h3, h4, h5, h6 {
 
         .contact-form {
             width: auto;
-            /*button send*/
+            //button send
             & > .form-group:last-child {
                 justify-content: unset;
             }

@@ -4,7 +4,7 @@
     var cssClass = "input-sm";
 }
 
-<div id="ContactFormContainer">
+<div id="ContactFormContainer" class="contact-form-container">
     @using (Ajax.BeginForm("Send", "ContactForm", null,
                         new AjaxOptions
                         {
@@ -16,7 +16,7 @@
                         },
                         new { @class = "contact-form", role = "form" }))
     {
-        <p>Зворотній зв'язок</p>
+        @*<p>Зворотній зв'язок</p>*@
         @CommonHelpers.ContactFormEditor(Html, model => model.NameSurname, Html.EditorFor, formGroupClass, cssClass)
         @CommonHelpers.ContactFormEditor(Html, model => model.ClientEmail, Html.EditorFor, formGroupClass, cssClass)
         @CommonHelpers.ContactFormEditor(Html, model => model.Description, Html.EditorFor, formGroupClass, cssClass)
