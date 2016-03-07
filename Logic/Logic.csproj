@@ -63,10 +63,7 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\CategorizedMedia.cs" />
     <Compile Include="Models\ContactForm.cs" />
-    <Compile Include="Models\Gallery.cs" />
     <Compile Include="Models\LanguageData.cs" />
-    <Compile Include="Models\NewsResult.cs" />
-    <Compile Include="Models\NewsPager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Localization.Designer.cs">
       <AutoGen>True</AutoGen>

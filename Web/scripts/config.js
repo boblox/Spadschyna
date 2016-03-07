@@ -233,6 +233,106 @@ function InitNewsLeftSidebar(newsCategoryAllInt, yearAllInt, weAreOnTheNewsOverv
     bindControllers(currentRoute, router);
 }
 
+/*********************************************=Gallery Left Sidebar=***************************************************/
+
+function InitGalleryLeftSidebar(yearAllInt, weAreOnTheGalleryOverview, galleryOverviewUrl) {
+    function updateRoute(route, el) {
+        var year = $(el).attr('year');
+        var page = $(el).attr('page');
+        route.year = year === undefined ? route.year : year;
+
+        if (year !== undefined) {
+            //reset news feed page if we clicked on category or year
+            route.page = config.newsStartPage;
+        }
+        else {
+            route.page = page === undefined ? route.page : page;
+        }
+    }
+
+    function getInitRoute() {
+        var route = {
+            year: yearAllInt,
+            page: config.newsStartPage
+        };
+        $("a.gallery-link.active").each(function () {
+            updateRoute(route, $(this));
+        });
+        return route;
+    }
+
+    function bindControllers(route, router) {
+        $("a.gallery-link").off('click');
+
+        $("a.gallery-link").on('click', function (e) {
+            e.preventDefault();
+            updateRoute(route, this);
+
+            var hash = 'year/' + encodeURIComponent(route.year) +
+                '/page/' + encodeURIComponent(route.page);
+            if (weAreOnTheGalleryOverview) {
+                router.setRoute(hash);
+            } else {
+                location.href = galleryOverviewUrl + "#/" + hash;
+            }
+        });
+    }
+
+    function dealWithRoute(route, router) {
+        //If it's NewsItem page then it is set on server side
+        if (weAreOnTheGalleryOverview) {
+            $("a.gallery-link").removeClass('active');
+            $("a.gallery-link[year=" + route.year + "]").addClass('active');
+            $("a.gallery-link[page=" + route.page + "]").addClass('active');
+
+            $.ajax({
+                url: '/umbraco/surface/Gallery/Index/',
+                type: 'POST',
+                dataType: 'html',
+                data: JSON.stringify(route),
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    $("#gallery-list").html(data);
+                    bindControllers(route, router);
+                    reloadDisqusCommentsCounter();
+                    //alert(data.category);
+                },
+                error: function (request, status) {
+                    showDialog("Вибачте, неможливо завантажити галерею");
+                }
+            });
+        }
+    }
+
+    var routes = {
+        '/year/:year/page/:page':
+            function (year, page) {
+                currentRoute = {
+                    year: decodeURIComponent(year),
+                    page: decodeURIComponent(page)
+                };
+                dealWithRoute(currentRoute, router);
+            },
+        '/': function () {
+            currentRoute = getInitRoute();
+            dealWithRoute(currentRoute, router);
+        }
+    };
+    var currentRoute = getInitRoute();
+    var router = Router(routes);
+
+    //Routing should work only on NewsOverview page
+    if (weAreOnTheGalleryOverview) {
+        router.init('/');
+    }
+
+    //var hash = window.location.hash.slice(2);
+    //router.setRoute('/');
+    //router.setRoute(hash);
+
+    bindControllers(currentRoute, router);
+}
+
 /***************************************************=Disqus=******************************************************************/
 
 function InitDisqus(identifier) {

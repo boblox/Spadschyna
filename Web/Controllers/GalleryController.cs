@@ -1,41 +1,60 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Logic.Models;
-using umbraco;
 using Umbraco.Web;
-using Umbraco.Web.Models;
 using Umbraco.Web.Mvc;
+using Umbraco.Web.PublishedContentModels;
 using Web.Helpers;
+using GalleryResult = Web.Models.GalleryResult;
 
 namespace Web.Controllers
 {
-    public class GalleryController : RenderMvcController
+    public class GalleryController : SurfaceController
     {
-        public override ActionResult Index(RenderModel model)
+        [HttpPost]
+        public ActionResult Index(int year, int page)
         {
-            var subGalleries = CurrentPage.Children.Where(i => i.DocumentTypeAlias == Consts.GalleryCategoryDocType.Alias);
-            var gallery = new Gallery();
-            foreach (var subGallery in subGalleries)
+            var home = Umbraco.TypedContentAtRoot().First();
+            var overview = home.FirstChild<GalleryOverview>();
+            var items = new List<GalleryItem>();
+            var totalPagesCount = 0;
+            if (overview != null)
             {
-                var category = subGallery.GetPropertyValue<string>(Consts.GalleryDocType.CategoryProperty);
-                var mediaStr = subGallery.GetPropertyValue<string>(Consts.GalleryDocType.ImagesProperty);
-                var mediaIds = mediaStr.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries);
-                var media = Umbraco.TypedMedia(mediaIds).ToList();
-                //check for folders
-                var folders = media.Where(i => i.DocumentTypeAlias == Consts.MediaTypes.Folder).ToList();
-                folders.ForEach(i => media.Remove(i));
-                media.AddRange(folders.SelectMany(i => i.Children.Where(j => j.DocumentTypeAlias == Consts.MediaTypes.Image)));
-
-                gallery.Media.AddRange(media.Select(i => new CategorizedMedia
+                //Filter by year
+                if (year == Consts.GalleryConfig.YearAllInt)
                 {
-                    Media = i,
-                    Category = category.ToLower()
-                }));
-            }
-            gallery.Media = gallery.Media.RandomOrder().ToList(); //chaoticly order images
+                    items = overview.Children.SelectMany(i => i.Children<GalleryItem>()).ToList();
+                }
+                else
+                {
+                    var galleryByYear = overview.Children.FirstOrDefault(i => i.Name == year.ToString());
+                    if (galleryByYear != null)
+                    {
+                        items = galleryByYear.Children<GalleryItem>().ToList();
+                    }
+                }
 
-            return CurrentTemplate(gallery);
+                //Order by GalleryByYear node, then by create date
+                items = items.OrderByDescending(i => i.Parent<GalleryByYear>().Name)
+                    .ThenByDescending(i => i.CreateDate)
+                    .ToList();
+
+                //Filter by page 
+                totalPagesCount = (int)Math.Ceiling(((double)items.Count / Consts.GalleryConfig.ItemsPerPage));
+                if (page != Consts.GalleryConfig.PageAllInt)
+                {
+                    items = items.Skip((page - 1) * Consts.GalleryConfig.ItemsPerPage).Take(Consts.GalleryConfig.ItemsPerPage).ToList();
+                }
+            }
+
+            var model = new GalleryResult
+            {
+                Items = items,
+                Page = page,
+                TotalPages = totalPagesCount
+            };
+            return PartialView("GalleryList", model);
         }
     }
 }

@@ -600,7 +600,7 @@
     <Content Include="Views\MacroPartials\ContactForm.cshtml" />
     <Content Include="Views\MacroPartials\ImagesCarousel.cshtml" />
     <Content Include="Views\Partials\NewsList.cshtml" />
-    <Content Include="Views\Partials\Pager.cshtml" />
+    <Content Include="Views\Partials\NewsPager.cshtml" />
     <Content Include="Views\Partials\NewsItemInfo.cshtml" />
     <Content Include="Views\Partials\NewsItemTags.cshtml" />
     <Content Include="Views\Partials\Forms\Export\csv.cshtml" />
@@ -653,8 +653,13 @@
     <Content Include="Views\RedirectPage.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Carousel.cshtml" />
     <Content Include="js\jquery\jquery-2.2.1.min.map" />
+    <Content Include="Views\GalleryItem.cshtml" />
+    <Content Include="Views\GalleryOverview.cshtml" />
     <None Include="Views\Partials\ImagesGallery.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Gallery.cshtml" />
+    <Content Include="Views\Partials\GalleryLeftSidebar.cshtml" />
+    <Content Include="Views\Partials\GalleryList.cshtml" />
+    <Content Include="Views\Partials\GalleryPager.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -678,6 +683,9 @@
     <Compile Include="App_Data\Models\FeaturedArticlesOverview.generated.cs" />
     <Compile Include="App_Data\Models\File.generated.cs" />
     <Compile Include="App_Data\Models\Folder.generated.cs" />
+    <Compile Include="App_Data\Models\GalleryByYear.generated.cs" />
+    <Compile Include="App_Data\Models\GalleryItem.generated.cs" />
+    <Compile Include="App_Data\Models\GalleryOverview.generated.cs" />
     <Compile Include="App_Data\Models\Home.generated.cs" />
     <Compile Include="App_Data\Models\Image.generated.cs" />
     <Compile Include="App_Data\Models\Master.generated.cs" />
@@ -700,6 +708,9 @@
     <Compile Include="Helpers\LanguageHelper.cs" />
     <Compile Include="Helpers\NonOrderingBundleOrderer.cs" />
     <Compile Include="Helpers\Utils.cs" />
+    <Compile Include="Models\GalleryResult.cs" />
+    <Compile Include="Models\NewsResult.cs" />
+    <Compile Include="Models\Pager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Localization.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -721,6 +732,7 @@
     <EmbeddedResource Include="Resources\Localization.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Localization.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

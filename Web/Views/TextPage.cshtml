@@ -1,30 +1,26 @@
-﻿@inherits UmbracoTemplatePage
+﻿@inherits UmbracoTemplatePage<TextPage>
 @{
     Layout = "ContentBase.cshtml";
 
+    var item = Model.Content;
+
     // If the editor has not explicitly provided the "Page title" property page
     // then just show the name of the page otherwise show the provided title
-    var pageTitle = string.IsNullOrWhiteSpace(CurrentPage.Title)
-        ? CurrentPage.Name
-        : CurrentPage.Title;
+    var pageTitle = string.IsNullOrWhiteSpace(item.Title)
+        ? item.Name
+        : item.Title;
 }
-
-@*@section Scripts
-{
-    @Styles.Render("~/css/OwlCarousel/carousel-css")
-    @Scripts.Render("~/js/carousel-js")
-}*@
 
 @section Header
 {
-    @CurrentPage.Title
+    @pageTitle
 }
 
 @section Body
 {
     <div class="content-wrapper">
         <div class="grid-content">
-            @CurrentPage.GetGridHtml(Consts.TextPageDocType.ContentProperty, "Custom")
+            @Html.GetGridHtml(item, TextPage.GetModelPropertyType(i => i.Content).PropertyTypeAlias, "Custom")
         </div>
     </div>
 }

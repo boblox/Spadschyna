@@ -1,0 +1,33 @@
+﻿@inherits UmbracoTemplatePage<GalleryItem>
+@{
+    Layout = "ContentBase.cshtml";
+
+    var item = Model.Content;
+    var newsOverviewTitle = ((GalleryOverview)Model.Content.Parent.Parent).Title;
+
+    // If the editor has not explicitly provided the "Page title" property page
+    // then just show the name of the page otherwise show the provided title
+    var pageTitle = string.IsNullOrWhiteSpace(item.Title) ? item.Name : item.Title;
+}
+@section Header
+{
+    @newsOverviewTitle
+}
+
+@section LeftSidebar
+{
+    @{Html.RenderPartial("GalleryLeftSidebar");}
+}
+
+@section Body
+{
+    <div class="content-wrapper">
+        <header class="content-title">
+            <h3>@pageTitle</h3>
+        </header>
+        <div class="grid-content">
+            @Html.GetGridHtml(item, GalleryItem.GetModelPropertyType(i => i.Content).PropertyTypeAlias, "Custom")
+        </div>
+        @{Html.RenderPartial("Comments");}
+    </div>
+}

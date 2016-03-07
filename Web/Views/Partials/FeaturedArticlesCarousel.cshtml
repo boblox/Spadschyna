@@ -1,8 +1,8 @@
 ﻿@inherits UmbracoTemplatePage
 @{
     var homePage = Model.Content.AncestorOrSelf(1);
-    var overview = homePage.ChildrenOfDocType(Consts.FeaturedArticlesOverviewDocType.Alias).First();
-    var articles = overview.ChildrenOfDocType(Consts.FeaturedArticleDocType.Alias).ToList();
+    var overview = homePage.FirstChild<FeaturedArticlesOverview>();
+    var articles = overview.Children<FeaturedArticle>().ToList();
 
     var id = Utils.GenerateId("featuredArticles");
 }
@@ -27,20 +27,24 @@
                 <div class="owl-carousel">
                     @foreach (var article in articles)
                     {
-                        var imageUrl = article.GetCropUrl(Consts.FeaturedArticleDocType.ImageProperty, "Proper size");
-                        var redirectPageId = article.GetPropertyValue<int>(Consts.FeaturedArticleDocType.PageToOpenProperty);
-                        var redirectLink = redirectPageId != 0 ? Umbraco.NiceUrl(redirectPageId) : string.Empty;
-                        var title = article.GetPropertyValue<string>(Consts.FeaturedArticleDocType.TitleProperty);
-                        var subTitle = article.GetPropertyValue<string>(Consts.FeaturedArticleDocType.SubtitleProperty);
-                        if (!string.IsNullOrEmpty(redirectLink))
+                        var image = article.Image;
+                        if (image != null)
                         {
-                            <a href="@redirectLink">
+                            var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
+                            var redirectPageId = ((int?)article.PageToOpen).GetValueOrDefault();
+                            var redirectLink = redirectPageId != 0 ? Umbraco.NiceUrl(redirectPageId) : string.Empty;
+                            var title = article.Title;
+                            var subTitle = article.Subtitle;
+                            if (!string.IsNullOrEmpty(redirectLink))
+                            {
+                                <a href="@redirectLink">
+                                    @ArticleItem(imageUrl, title, subTitle)
+                                </a>
+                            }
+                            else
+                            {
                                 @ArticleItem(imageUrl, title, subTitle)
-                            </a>
-                        }
-                        else
-                        {
-                            @ArticleItem(imageUrl, title, subTitle)
+                            }
                         }
                     }
                 </div>

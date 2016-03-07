@@ -27,8 +27,8 @@ h1, h2, h3, h4, h5, h6 {
 .scroll-to-top {
     z-index: 10;
     position: fixed;
-    bottom: 160px;
-    right: 280px;
+    bottom: 17%;
+    right: 20%;
     display: none;
     border-bottom: 37px solid;
     border-left: 25px solid transparent;
@@ -598,6 +598,123 @@ ul.news-item-info {
     a {
         color: @light-blue-color;
         font-size: @font-size-small;
+    }
+}
+
+/*Gallery Overview*****************************************************/
+.gallery-left-sidebar {
+    @media(min-width:@screen-md-min) {
+        margin-left: 18px;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            display: block;
+
+            a {
+                display: inline-block;
+
+                &:hover, &:focus {
+                    text-decoration: none;
+                }
+            }
+        }
+
+        &.gallery-years {
+            margin-top: 25px;
+
+            li {
+                margin-bottom: 9px;
+
+                a {
+                    padding: 0px 13px;
+                    color: @light-blue-color;
+                    font-size: @font-size-large;
+                    background-color: white;
+
+                    &.active, &:hover {
+                        color: white;
+                        background-color: @light-blue-color;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.gallery-list {
+    margin-top: 10px;
+}
+
+.gallery-item {
+    .gallery-item-title {
+        a {
+            display: inline-block;
+        }
+
+        h3, h4 {
+            font-weight: normal;
+        }
+    }
+
+    .gallery-item-image {
+        margin: 8px 0 14px;
+        display: block;
+
+        img {
+            .img-responsive();
+            margin: 0 auto;
+            border: 4px solid @orange-color-3;
+        }
+    }
+
+    .gallery-item-byline {
+        /*letter-spacing: 0;*/
+        margin: 15px 5px;
+    }
+
+    .gallery-item-button {
+        max-width: 120px;
+        margin-top: 24px;
+        margin-bottom: 24px;
+    }
+
+    hr {
+        border-top-color: @orange-color-2;
+        margin: 24px 0 5px 0;
+    }
+}
+
+/*Gallery pager******************************************************/
+ul.gallery-pager {
+    display: inline-flex;
+    list-style: none;
+    padding: 0;
+
+    > li {
+        color: @orange-color;
+        font-size: @font-size-large;
+
+        a {
+            color: @orange-color;
+            padding: 0 5px 0 5px;
+            display: block;
+
+            & span {
+                font-size: @font-size-base;
+            }
+
+            &.active {
+                text-decoration: underline;
+                cursor: default;
+                pointer-events: none;
+                font-weight: bold;
+            }
+        }
     }
 }
 

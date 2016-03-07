@@ -1,0 +1,26 @@
+﻿@inherits UmbracoTemplatePage<GalleryOverview>
+@{
+	Layout = "ContentBase.cshtml";
+}
+
+@section FeaturedArticlesCarousel
+{
+    @{Html.RenderPartial("FeaturedArticlesCarousel");}
+}
+@section Header
+{
+    @CurrentPage.Title
+}
+@section LeftSidebar
+{
+    @{Html.RenderPartial("GalleryLeftSidebar");}
+}
+@section RightSidebar
+{
+    @*@{Html.RenderPartial("Calendar");}*@
+}
+
+@section Body
+{
+    <div id="gallery-list" class="gallery-list"></div>
+}

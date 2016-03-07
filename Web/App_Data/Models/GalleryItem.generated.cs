@@ -20,16 +20,16 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>News Overview</summary>
-	[PublishedContentModel("NewsOverview")]
-	public partial class NewsOverview : Master
+	/// <summary>Gallery Item</summary>
+	[PublishedContentModel("GalleryItem")]
+	public partial class GalleryItem : Master
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "NewsOverview";
+		public new const string ModelTypeAlias = "GalleryItem";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
-		public NewsOverview(IPublishedContent content)
+		public GalleryItem(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -40,18 +40,36 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 #pragma warning restore 0109
 
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<NewsOverview, TValue>> selector)
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<GalleryItem, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
 
 		///<summary>
-		/// News list
+		/// Content
 		///</summary>
-		[ImplementPropertyType("newsList")]
-		public object NewsList
+		[ImplementPropertyType("content")]
+		public Newtonsoft.Json.Linq.JToken Content
 		{
-			get { return this.GetPropertyValue("newsList"); }
+			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("content"); }
+		}
+
+		///<summary>
+		/// Image
+		///</summary>
+		[ImplementPropertyType("image")]
+		public object Image
+		{
+			get { return this.GetPropertyValue("image"); }
+		}
+
+		///<summary>
+		/// Sub header
+		///</summary>
+		[ImplementPropertyType("subHeader")]
+		public string SubHeader
+		{
+			get { return this.GetPropertyValue<string>("subHeader"); }
 		}
 	}
 }

@@ -1,39 +1,37 @@
-﻿@inherits UmbracoViewPage<NewsResult>
+﻿@inherits UmbracoViewPage<GalleryResult>
 @{
-    var newsItems = Model.Items;
+    var items = Model.Items;
 }
 
-@for (var i = 0; i < newsItems.Count; i++)
+@for (var i = 0; i < items.Count; i++)
 {
-    var item = newsItems[i];
+    var item = items[i];
 
     var title = item.Title;
     title = string.IsNullOrWhiteSpace(title) ? item.Name : title;
     var image = (string)item.Image;
-    var subHeader = item.Subheader;
+    var subHeader = item.SubHeader;
     var content = new HtmlString(string.Empty); // can't parse content as we are now using Grid Layout
 
-    <div class="news-item">
-        <header class="news-item-title">
+    <div class="gallery-item">
+        <header class="gallery-item-title">
             <a href="@item.Url">
                 <h3>@title</h3>
             </a>
         </header>
         @if (!string.IsNullOrWhiteSpace(image))
         {
-            <a href="@item.Url" class="news-item-image">
+            <a href="@item.Url" class="gallery-item-image">
                 <img src="@Html.GetThumbnailUrl(image, 700)" alt="" />
             </a>
         }
-        @{ Html.RenderPartial("NewsItemInfo", newsItems[i]);}
-        @{ Html.RenderPartial("NewsItemTags", newsItems[i]);}
-        <div class="news-item-byline">
+        <div class="gallery-item-byline">
             @Html.GetInnerText(string.IsNullOrWhiteSpace(subHeader) ?
                 content : new HtmlString(subHeader), 200)
         </div>
-        <a href="@item.Url" class="news-item-button btn btn-primary center-block">@Localization.NewsReadMore</a>
+        <a href="@item.Url" class="gallery-item-button btn btn-primary center-block">@Localization.GalleryReadMore</a>
 
-        @if (i != newsItems.Count - 1)
+        @if (i != items.Count - 1)
         {
             <hr />
         }
@@ -41,5 +39,5 @@
 }
 
 @{
-    Html.RenderPartial("NewsPager");
+    Html.RenderPartial("GalleryPager");
 }

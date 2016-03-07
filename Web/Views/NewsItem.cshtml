@@ -1,27 +1,21 @@
-﻿@inherits UmbracoTemplatePage
+﻿@inherits UmbracoTemplatePage<NewsItem>
 @{
     Layout = "ContentBase.cshtml";
 
-    var newsOverviewTitle = Model.Content.Ancestor(Consts.NewsOverviewDocType.Alias)
-        .GetPropertyValue<string>(Consts.NewsOverviewDocType.TitleProperty);
+    var item = Model.Content;
+    var newsOverviewTitle = Model.Content.Ancestor<NewsOverview>().Title;
 
     // If the editor has not explicitly provided the "Page title" property page
     // then just show the name of the page otherwise show the provided title
-    var pageTitle = string.IsNullOrWhiteSpace(CurrentPage.Title)
-        ? CurrentPage.Name
-        : CurrentPage.Title;
+    var pageTitle = string.IsNullOrWhiteSpace(item.Title)
+        ? item.Name
+        : item.Title;
 }
 
 @section Header
 {
     @newsOverviewTitle
 }
-
-@*@section Scripts
-    {
-        @Styles.Render("~/css/OwlCarousel/carousel-css")
-        @Scripts.Render("~/js/carousel-js")
-    }*@
 
 @section LeftSidebar
 {
@@ -39,10 +33,10 @@
         <header class="content-title">
             <h3>@pageTitle</h3>
         </header>
-        @{ Html.RenderPartial("/Views/Partials/NewsItemInfo.cshtml", Model.Content);}
-        @{ Html.RenderPartial("/Views/Partials/NewsItemTags.cshtml", Model.Content);}
+        @{ Html.RenderPartial("/Views/Partials/NewsItemInfo.cshtml", item);}
+        @{ Html.RenderPartial("/Views/Partials/NewsItemTags.cshtml", item);}
         <div class="grid-content">
-            @CurrentPage.GetGridHtml(Consts.NewsItemDocType.ContentProperty, "Custom")
+            @Html.GetGridHtml(item, NewsItem.GetModelPropertyType(i => i.Content).PropertyTypeAlias, "Custom")
         </div>
         @{Html.RenderPartial("Comments");}
     </div>

@@ -4,11 +4,11 @@
     // AncestorsOrSelf is all of the ancestors this page has in the tree
     // (1) means: go up to level 1 and stop looking for more ancestors when you get there
     // First() gets the first ancestor found (the home page, on level 1)
-    var homePage = Model.Content.AncestorsOrSelf(1).First();
-    var rssLink = homePage.GetPropertyValue<string>(Consts.SiteDocType.RssLinkProperty);
-    var facebookLink = homePage.GetPropertyValue<string>(Consts.SiteDocType.FacebookLinkProperty);
-    var instagramLink = homePage.GetPropertyValue<string>(Consts.SiteDocType.InstagramLinkProperty);
-    var donateLink = homePage.GetPropertyValue<string>(Consts.SiteDocType.DonateLinkProperty);
+    var homePage = Model.Content.AncestorOrSelf<Site>();
+    var rssLink = homePage.RssLink; 
+    var facebookLink = homePage.FacebookLink;
+    var instagramLink = homePage.InstagramLink;
+    var donateLink = homePage.DonateLink;
 }
 
 <!-- Contact -->

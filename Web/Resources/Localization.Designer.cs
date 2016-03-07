@@ -99,6 +99,24 @@ namespace Web.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Читати.
         /// </summary>
+        public static string GalleryReadMore {
+            get {
+                return ResourceManager.GetString("GalleryReadMore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Всі.
+        /// </summary>
+        public static string NewsCategoryAll {
+            get {
+                return ResourceManager.GetString("NewsCategoryAll", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Читати.
+        /// </summary>
         public static string NewsReadMore {
             get {
                 return ResourceManager.GetString("NewsReadMore", resourceCulture);
@@ -111,6 +129,15 @@ namespace Web.Resources {
         public static string True {
             get {
                 return ResourceManager.GetString("True", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Всі.
+        /// </summary>
+        public static string YearAll {
+            get {
+                return ResourceManager.GetString("YearAll", resourceCulture);
             }
         }
     }

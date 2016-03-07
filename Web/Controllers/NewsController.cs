@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Logic.Models;
-using Umbraco.Core;
-using Umbraco.Core.Models;
 using Umbraco.Web;
 using Umbraco.Web.Mvc;
+using Umbraco.Web.PublishedContentModels;
 using Web.Helpers;
+using NewsResult = Web.Models.NewsResult;
 
 namespace Web.Controllers
 {
@@ -21,50 +20,51 @@ namespace Web.Controllers
         public ActionResult Index(int year, int category, int page)
         {
             var home = Umbraco.TypedContentAtRoot().First();
-            var newsOverview = home.Children
-                .FirstOrDefault(i => i.DocumentTypeAlias == Consts.NewsOverviewDocType.Alias);
-            var news = new List<IPublishedContent>();
+            var overview = home.FirstChild<NewsOverview>();
+            var items = new List<NewsItem>();
             int totalPagesCount = 0;
-            if (newsOverview != null)
+            if (overview != null)
             {
                 //Filter by year
                 if (year == Consts.NewsConfig.YearAllInt)
                 {
-                    news = newsOverview.Children.SelectMany(i => i.Children).ToList();
+                    items = overview.Children.SelectMany(i => i.Children<NewsItem>()).ToList();
                 }
                 else
                 {
-                    var newsByYear = newsOverview.Children.FirstOrDefault(i => i.Name == year.ToString());
+                    var newsByYear = overview.Children.FirstOrDefault(i => i.Name == year.ToString());
                     if (newsByYear != null)
                     {
-                        news = newsByYear.Children.ToList();
+                        items = newsByYear.Children<NewsItem>().ToList();
                     }
                 }
 
-                //Order by create date
-                news = news.OrderBy("createDate desc").ToList();
+                //Order by NewsByYear node, then by create date
+                items = items.OrderByDescending(i => i.Parent<NewsByYear>().Name)
+                    .ThenByDescending(i=>i.CreateDate)
+                    .ToList();
 
                 //Filter by category
                 if (category != Consts.NewsConfig.NewsCategoryAllInt)
                 {
-                    var newsCategories = Utils.GetDataTypePreValues(Consts.DataTypes.NewsCategory).ToList();
+                    var newsCategories = Utils.GetDataTypePreValues(NewsItem.GetModelPropertyType(i => i.Category).DataTypeId).ToList();
                     var categoryStr = newsCategories.First(i => i.Id == category).Value;
-                    news = news.Where(i => 
-                        i.GetPropertyValue<string>(Consts.NewsItemDocType.CategoryProperty).Equals(categoryStr, StringComparison.InvariantCultureIgnoreCase))
+                    items = items.Where(i =>
+                        ((string)i.Category).Equals(categoryStr, StringComparison.InvariantCultureIgnoreCase))
                         .ToList();
                 }
 
                 //Filter by page 
-                totalPagesCount = (int)Math.Ceiling(((double)news.Count / Consts.NewsConfig.NewsPerPage));
-                if (page != 0)
+                totalPagesCount = (int)Math.Ceiling(((double)items.Count / Consts.NewsConfig.NewsPerPage));
+                if (page != Consts.NewsConfig.PageAllInt)
                 {
-                    news = news.Skip((page - 1) * Consts.NewsConfig.NewsPerPage).Take(Consts.NewsConfig.NewsPerPage).ToList();
+                    items = items.Skip((page - 1) * Consts.NewsConfig.NewsPerPage).Take(Consts.NewsConfig.NewsPerPage).ToList();
                 }
             }
 
             var model = new NewsResult
             {
-                News = news,
+                Items = items,
                 Page = page,
                 TotalPages = totalPagesCount
             };

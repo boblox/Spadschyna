@@ -15,18 +15,12 @@ namespace Web.Helpers
             return $"{prefix}_{Guid.NewGuid().ToString("N")}";
         }
 
-        public static IEnumerable<PreValue> GetDataTypePreValues(string dataTypeName)
+        public static IEnumerable<PreValue> GetDataTypePreValues(int dataTypeId)
         {
             var service = ApplicationContext.Current.Services.DataTypeService;
-            var dataType = service.GetDataTypeDefinitionByName(dataTypeName);
-            return service.GetPreValuesCollectionByDataTypeId(dataType.Id)
+            return service.GetPreValuesCollectionByDataTypeId(dataTypeId)
                 .FormatAsDictionary()
                 .Values;
-        }
-
-        public static IEnumerable<IPublishedContent> ChildrenOfDocType(this IPublishedContent content, string docTypeAlias)
-        {
-            return content.Children.Where(i => i.DocumentTypeAlias == docTypeAlias);
         }
 
         public static void SendEmail(string emailFrom, string emailTo, string subject, string body)

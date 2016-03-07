@@ -1,9 +1,6 @@
-﻿using Umbraco.Web;
-using Umbraco.Web.Models;
-
-namespace Logic.Models
+﻿namespace Web.Models
 {
-    public class NewsPager //: RenderModel
+    public class Pager //: RenderModel
     {
         //public NewsPager()
         //    : base(UmbracoContext.Current.PublishedContentRequest.PublishedContent)

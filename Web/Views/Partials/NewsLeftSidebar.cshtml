@@ -1,41 +1,35 @@
 ﻿@inherits UmbracoTemplatePage
 @{
-    // If the editor has not explicitly provided the "Page title" property page
-    // then just show the name of the page otherwise show the provided title
-    //var pageTitle = string.IsNullOrWhiteSpace(CurrentPage.Title)
-    //    ? CurrentPage.Name
-    //    : CurrentPage.Title;
-
     var typedCurrPage = Model.Content;
 
     // Model.Content is the current page that we're on
     // AncestorsOrSelf is all of the ancestors this page has in the tree
     // (1) means: go up to level 1 and stop looking for more ancestors when you get there
     // First() gets the first ancestor found (the home page, on level 1)
-    var homePage = typedCurrPage.AncestorOrSelf(1);// CurrentPage.AncestorsOrSelf(1).First();
+    var homePage = typedCurrPage.AncestorOrSelf(1);
 
     // Find all pages with document type alias umbNewsOverview
     // We do that using the plural, umbNewsOverviews (note the extra "s" in the end)
     // Then take the first one, as we know there will only be on news overview page
-    var newsOverview = homePage.ChildrenOfDocType(Consts.NewsOverviewDocType.Alias).First();
+    var newsOverview = homePage.Children<NewsOverview>().First();
 
-    var newsYears = newsOverview.ChildrenOfDocType(Consts.NewsByYearDocType.Alias)
+    var newsYears = newsOverview.Children<NewsByYear>()
         .OrderByDescending(i => i.Name).Select(i => i.Name).ToList();
     newsYears.Insert(0, Consts.NewsConfig.YearAllInt.ToString());
 
-    var newsCategories = Utils.GetDataTypePreValues(Consts.DataTypes.NewsCategory).ToList();
-    newsCategories.Insert(0, new PreValue(Consts.NewsConfig.NewsCategoryAllInt, Consts.NewsConfig.NewsCategoryAll));
+    var newsCategories = Utils.GetDataTypePreValues(NewsItem.GetModelPropertyType(i => i.Category).DataTypeId).ToList();
+    newsCategories.Insert(0, new PreValue(Consts.NewsConfig.NewsCategoryAllInt, Localization.NewsCategoryAll));
 
     //We are on the NewsOverview page
     var weAreOnTheNewsOverview = (newsOverview.Url == CurrentPage.Url).ToString().ToLower();
 
-    var currentYear = "0";
-    var currentCategory = Consts.NewsConfig.NewsCategoryAll;
-    //We are on NewsItem page
-    if (typedCurrPage.DocumentTypeAlias == Consts.NewsItemDocType.Alias)
+    var currentYear = Consts.NewsConfig.YearAllInt.ToString();
+    var currentCategory = Localization.NewsCategoryAll;
+    //If we are on NewsItem page
+    if (typedCurrPage is NewsItem)
     {
         currentYear = typedCurrPage.Parent.Name;
-        currentCategory = typedCurrPage.GetPropertyValue<string>(Consts.NewsItemDocType.CategoryProperty);
+        currentCategory = (string)((NewsItem)typedCurrPage).Category;
     }
 }
 
@@ -64,7 +58,7 @@
                         <a class="news-link
                                    @Umbraco.If(year == Consts.NewsConfig.YearAllInt.ToString(), "all")
                                    @Umbraco.If(year == currentYear, "active")"
-                           href="#" year="@year">@Umbraco.If(year == Consts.NewsConfig.YearAllInt.ToString(), Consts.NewsConfig.YearAll, year)</a>
+                           href="#" year="@year">@Umbraco.If(year == Consts.NewsConfig.YearAllInt.ToString(), Localization.YearAll, year)</a>
                     </li>
                 }
             </ul>

@@ -1,0 +1,50 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    var typedCurrPage = Model.Content;
+
+    // Model.Content is the current page that we're on
+    // AncestorsOrSelf is all of the ancestors this page has in the tree
+    // (1) means: go up to level 1 and stop looking for more ancestors when you get there
+    // First() gets the first ancestor found (the home page, on level 1)
+    var homePage = typedCurrPage.AncestorOrSelf(1);
+
+    var galleryOverview = homePage.FirstChild<GalleryOverview>();
+
+    var galleryYears = galleryOverview.Children<GalleryByYear>()
+        .OrderByDescending(i => i.Name).Select(i => i.Name).ToList();
+    galleryYears.Insert(0, Consts.GalleryConfig.YearAllInt.ToString());
+
+    //We are on the GalleryOverview page
+    var weAreOnTheGalleryOverview = (galleryOverview.Url == CurrentPage.Url).ToString().ToLower();
+
+    var currentYear = Consts.GalleryConfig.YearAllInt.ToString();
+    //If we are on GalleryItem page
+    if (typedCurrPage is GalleryItem)
+    {
+        currentYear = typedCurrPage.Parent.Name;
+    }
+}
+
+<div class="gallery-left-sidebar">
+    <div class="row">
+        <div class="col-xs-24">
+            <ul class="gallery-years">
+                @foreach (var year in galleryYears)
+                {
+                    <li>
+                        <a class="gallery-link
+                                   @Umbraco.If(year == Consts.GalleryConfig.YearAllInt.ToString(), "all")
+                                   @Umbraco.If(year == currentYear, "active")"
+                           href="#" year="@year">@Umbraco.If(year == Consts.GalleryConfig.YearAllInt.ToString(), Localization.YearAll, year)</a>
+                    </li>
+                }
+            </ul>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        InitGalleryLeftSidebar(@Consts.GalleryConfig.YearAllInt, @weAreOnTheGalleryOverview, @galleryOverview.Url);
+    });
+</script>

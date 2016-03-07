@@ -1,10 +1,9 @@
 ﻿@inherits UmbracoTemplatePage
 @{
-    var joinOrganizationLink = Umbraco.NiceUrl(
-        Model.Content.GetPropertyValue<int>(Consts.SiteDocType.JoinOrganizationLinkProperty, true));
-    var joinOrganizationText = Model.Content.GetPropertyValue<string>(Consts.SiteDocType.JoinOrganizationTextProperty, true);
-    var spadshchynaDescription = Model.Content.GetPropertyValue<string>(Consts.SiteDocType.SpadshchynaDescriptionProperty, true);
-
+    var site = Model.Content.AncestorOrSelf<Site>();
+    var joinOrganizationLink = Umbraco.NiceUrl(((int?)site.JoinOrganizationLink).GetValueOrDefault());
+    var joinOrganizationText = site.JoinOrganizationText;
+    var spadshchynaDescription = site.SpadshchynaDescription;
 }
 
 <div class="header-short-info">

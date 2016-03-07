@@ -20,16 +20,16 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>News Overview</summary>
-	[PublishedContentModel("NewsOverview")]
-	public partial class NewsOverview : Master
+	/// <summary>Gallery By Year</summary>
+	[PublishedContentModel("GalleryByYear")]
+	public partial class GalleryByYear : Master
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "NewsOverview";
+		public new const string ModelTypeAlias = "GalleryByYear";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
-		public NewsOverview(IPublishedContent content)
+		public GalleryByYear(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -40,18 +40,9 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 #pragma warning restore 0109
 
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<NewsOverview, TValue>> selector)
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<GalleryByYear, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-		}
-
-		///<summary>
-		/// News list
-		///</summary>
-		[ImplementPropertyType("newsList")]
-		public object NewsList
-		{
-			get { return this.GetPropertyValue("newsList"); }
 		}
 	}
 }
