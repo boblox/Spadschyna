@@ -115,6 +115,15 @@ namespace Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Актуальні події.
+        /// </summary>
+        public static string NewsCategoryAnnounce {
+            get {
+                return ResourceManager.GetString("NewsCategoryAnnounce", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Читати.
         /// </summary>
         public static string NewsReadMore {

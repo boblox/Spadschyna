@@ -11,6 +11,7 @@
             public const int NewsPerPage = 3;
 
             public const int NewsCategoryAllInt = 0;
+            public const int NewsCategoryAnnounceInt = 1;
             public const int YearAllInt = 0;
             public const int PageAllInt = 0;
         }

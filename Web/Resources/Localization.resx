@@ -135,6 +135,9 @@
   <data name="NewsCategoryAll" xml:space="preserve">
     <value>Всі</value>
   </data>
+  <data name="NewsCategoryAnnounce" xml:space="preserve">
+    <value>Актуальні події</value>
+  </data>
   <data name="NewsReadMore" xml:space="preserve">
     <value>Читати</value>
   </data>

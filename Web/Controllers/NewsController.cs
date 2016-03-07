@@ -41,11 +41,15 @@ namespace Web.Controllers
 
                 //Order by NewsByYear node, then by create date
                 items = items.OrderByDescending(i => i.Parent<NewsByYear>().Name)
-                    .ThenByDescending(i=>i.CreateDate)
+                    .ThenByDescending(i => i.PublishDate != default(DateTime) ? i.PublishDate : i.CreateDate)
                     .ToList();
 
                 //Filter by category
-                if (category != Consts.NewsConfig.NewsCategoryAllInt)
+                if (category == Consts.NewsConfig.NewsCategoryAnnounceInt)
+                {
+                    items = items.Where(i => i.IsAnnounce).ToList();
+                }
+                else if (category != Consts.NewsConfig.NewsCategoryAllInt)
                 {
                     var newsCategories = Utils.GetDataTypePreValues(NewsItem.GetModelPropertyType(i => i.Category).DataTypeId).ToList();
                     var categoryStr = newsCategories.First(i => i.Id == category).Value;

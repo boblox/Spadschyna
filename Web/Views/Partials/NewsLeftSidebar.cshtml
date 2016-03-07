@@ -19,6 +19,7 @@
 
     var newsCategories = Utils.GetDataTypePreValues(NewsItem.GetModelPropertyType(i => i.Category).DataTypeId).ToList();
     newsCategories.Insert(0, new PreValue(Consts.NewsConfig.NewsCategoryAllInt, Localization.NewsCategoryAll));
+    newsCategories.Insert(1, new PreValue(Consts.NewsConfig.NewsCategoryAnnounceInt, Localization.NewsCategoryAnnounce));
 
     //We are on the NewsOverview page
     var weAreOnTheNewsOverview = (newsOverview.Url == CurrentPage.Url).ToString().ToLower();

@@ -7832,6 +7832,18 @@ h6 {
   color: white;
   background-color: #e25900;
 }
+.category-1 {
+  background-color: white;
+  color: #ff5a00;
+}
+.category-1 span {
+  border-left: 2px solid #ff5a00;
+}
+.category-1.active,
+.category-1:hover {
+  color: white;
+  background-color: #ff5a00;
+}
 .category-21 {
   background-color: white;
   color: #ff7200;
