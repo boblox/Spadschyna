@@ -133,6 +133,24 @@ namespace Web.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Наступна стаття.
+        /// </summary>
+        public static string RelatedNewsNext {
+            get {
+                return ResourceManager.GetString("RelatedNewsNext", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Попередня стаття.
+        /// </summary>
+        public static string RelatedNewsPrev {
+            get {
+                return ResourceManager.GetString("RelatedNewsPrev", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Так.
         /// </summary>
         public static string True {

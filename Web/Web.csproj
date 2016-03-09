@@ -655,6 +655,7 @@
     <Content Include="js\jquery\jquery-2.2.1.min.map" />
     <Content Include="Views\GalleryItem.cshtml" />
     <Content Include="Views\GalleryOverview.cshtml" />
+    <Content Include="Views\Partials\RelatedNews.cshtml" />
     <None Include="Views\Partials\ImagesGallery.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Gallery.cshtml" />
     <Content Include="Views\Partials\GalleryLeftSidebar.cshtml" />

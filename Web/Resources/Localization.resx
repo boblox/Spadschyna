@@ -141,6 +141,12 @@
   <data name="NewsReadMore" xml:space="preserve">
     <value>Читати</value>
   </data>
+  <data name="RelatedNewsNext" xml:space="preserve">
+    <value>Наступна стаття</value>
+  </data>
+  <data name="RelatedNewsPrev" xml:space="preserve">
+    <value>Попередня стаття</value>
+  </data>
   <data name="True" xml:space="preserve">
     <value>Так</value>
   </data>

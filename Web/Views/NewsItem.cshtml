@@ -23,9 +23,9 @@
 }
 
 @*@section RightSidebar
-{
-    @{Html.RenderPartial("Calendar");}
-}*@
+    {
+        @{Html.RenderPartial("Calendar");}
+    }*@
 
 @section Body
 {
@@ -39,5 +39,6 @@
             @Html.GetGridHtml(item, NewsItem.GetModelPropertyType(i => i.Content).PropertyTypeAlias, "Custom")
         </div>
         @{Html.RenderPartial("Comments");}
+        @Html.Action("GetRelatedNews", "News", new { item.Id})
     </div>
 }
