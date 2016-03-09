@@ -7,17 +7,18 @@ namespace Web.Helpers
         public static void RegisterBundles(BundleCollection bundles)
         {
             var orderer = new NonOrderingBundleOrderer();
+            var cssRewriteUrl = new CssRewriteUrlTransform();
 
             //Basic Js&Css============================================================
             var styleBundle = new StyleBundle("~/css/basic-css")
-                .Include("~/css/jquery-ui/jquery-ui.min.css")
+                .Include("~/css/jquery-ui/jquery-ui.min.css", cssRewriteUrl)
 
                 .Include("~/css/magnific-popup.css")
                 .Include("~/css/owl carousel/owl.carousel.css")
                 .Include("~/css/owl carousel/owl.transitions.css")
-                .Include("~/css/owl carousel/owl.theme.css")
+                .Include("~/css/owl carousel/owl.theme.css", cssRewriteUrl)
 
-                .Include("~/css/styles.min.css");
+                .Include("~/css/styles.min.css", cssRewriteUrl);
             styleBundle.Orderer = orderer;
             bundles.Add(styleBundle);
 
@@ -42,29 +43,6 @@ namespace Web.Helpers
                 .Include("~/scripts/config.js");
             scriptBundle.Orderer = orderer;
             bundles.Add(scriptBundle);
-
-            //Magnific Pop-Up=========================================================
-            //styleBundle = new StyleBundle("~/css/magnific-popup-css")
-            //    .Include("~/css/magnific-popup.css");
-            //styleBundle.Orderer = orderer;
-            //bundles.Add(styleBundle);
-
-            //scriptBundle = new ScriptBundle("~/js/magnific-popup-js")
-            //    .Include("~/js/magnific.popup.min.js");
-            //scriptBundle.Orderer = orderer;
-            //bundles.Add(scriptBundle);
-
-            //Owl Carousel ===========================================================
-            ////styleBundle = new StyleBundle("~/css/OwlCarousel/carousel-css")
-            ////    .Include("~/css/OwlCarousel/owl.carousel.css")
-            ////    .Include("~/css/OwlCarousel/owl.theme.green.css");
-            ////styleBundle.Orderer = orderer;
-            ////bundles.Add(styleBundle);
-
-            ////scriptBundle = new ScriptBundle("~/js/carousel-js")
-            ////    .Include("~/js/owl.carousel.min.js");
-            ////scriptBundle.Orderer = orderer;
-            ////bundles.Add(scriptBundle);
 
             //BundleTable.EnableOptimizations = false;
         }
