@@ -24,7 +24,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*Scroll to top****************************************************/
-.scroll-to-top {
+#scroll-to-top {
     z-index: 10;
     position: fixed;
     bottom: 17%;
@@ -55,6 +55,29 @@ h1, h2, h3, h4, h5, h6 {
         border-right: 30px solid transparent;
         .transition(border-color .4s);
     }
+}
+
+/*Loading spinner****************************************************/
+#loading-spinner {
+    z-index: 10;
+    position: fixed;
+    left: 50%;
+    top: 30%;
+    width: 64px;
+    height: 64px;
+    background: url('images/loading-spinner.gif');
+}
+
+/*Loading overlay****************************************************/
+#loading-overlay {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.5);
+    content: "";
 }
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!HEADER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
@@ -414,6 +437,7 @@ h1, h2, h3, h4, h5, h6 {
 
             a {
                 display: inline-block;
+                .transition(all .2s);
 
                 &:hover, &:focus {
                     text-decoration: none;
@@ -450,6 +474,7 @@ h1, h2, h3, h4, h5, h6 {
 
                 span {
                     padding-left: 11px;
+                    display: inline-block;
                 }
             }
         }
@@ -621,6 +646,7 @@ ul.news-item-info {
 
             a {
                 display: inline-block;
+                .transition(all .2s);
 
                 &:hover, &:focus {
                     text-decoration: none;

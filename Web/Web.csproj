@@ -391,6 +391,7 @@
     <Content Include="Config\Lang\ru-RU.user.xml" />
     <Content Include="Config\Lang\sv-SE.user.xml" />
     <Content Include="Config\Lang\zh-CN.user.xml" />
+    <Content Include="css\images\loading-spinner.gif" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="css\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="css\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -661,6 +662,7 @@
     <Content Include="Views\Partials\GalleryLeftSidebar.cshtml" />
     <Content Include="Views\Partials\GalleryList.cshtml" />
     <Content Include="Views\Partials\GalleryPager.cshtml" />
+    <Content Include="Views\Partials\LoadingSpinner.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

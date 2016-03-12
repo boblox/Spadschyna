@@ -28,6 +28,7 @@
 <body>
     <!-- /Header -->
     @{ Html.RenderPartial("ScrollToTop"); }
+    @{ Html.RenderPartial("LoadingSpinner"); }
     @{ Html.RenderPartial("Header"); }
     @if (IsSectionDefined("FeaturedArticlesCarousel"))
     {

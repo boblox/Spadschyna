@@ -7322,7 +7322,7 @@ h6 {
   /*letter-spacing: 1px;*/
 }
 /*Scroll to top****************************************************/
-.scroll-to-top {
+#scroll-to-top {
   z-index: 10;
   position: fixed;
   bottom: 17%;
@@ -7333,13 +7333,13 @@ h6 {
   border-right: 25px solid transparent;
   border-image: url('images/scroll-to-top.png') 0 50% 100% 50%;
 }
-.scroll-to-top:focus {
+#scroll-to-top:focus {
   outline: none;
 }
-.scroll-to-top:hover:before {
+#scroll-to-top:hover:before {
   border-bottom-color: rgba(255, 255, 255, 0);
 }
-.scroll-to-top:before {
+#scroll-to-top:before {
   top: 0px;
   left: -30px;
   position: absolute;
@@ -7350,6 +7350,27 @@ h6 {
   -webkit-transition: border-color 0.4s;
   -o-transition: border-color 0.4s;
   transition: border-color 0.4s;
+}
+/*Loading spinner****************************************************/
+#loading-spinner {
+  z-index: 10;
+  position: fixed;
+  left: 50%;
+  top: 30%;
+  width: 64px;
+  height: 64px;
+  background: url('images/loading-spinner.gif');
+}
+/*Loading overlay****************************************************/
+#loading-overlay {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  content: "";
 }
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!HEADER!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*Navigation********************************************************/
@@ -7747,6 +7768,9 @@ h6 {
 }
 .news-left-sidebar ul li a {
   display: inline-block;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
 }
 .news-left-sidebar ul li a:hover,
 .news-left-sidebar ul li a:focus {
@@ -7778,6 +7802,7 @@ h6 {
 }
 .news-left-sidebar ul.news-categories li a span {
   padding-left: 11px;
+  display: inline-block;
 }
 .news-list {
   margin-top: 10px;
@@ -7956,6 +7981,9 @@ ul.news-item-info li a.news-link:hover {
 }
 .gallery-left-sidebar ul li a {
   display: inline-block;
+  -webkit-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
 }
 .gallery-left-sidebar ul li a:hover,
 .gallery-left-sidebar ul li a:focus {

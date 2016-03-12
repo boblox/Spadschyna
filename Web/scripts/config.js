@@ -184,6 +184,9 @@ function InitNewsLeftSidebar(newsCategoryAllInt, yearAllInt, weAreOnTheNewsOverv
             $("a.news-link[category=" + route.category + "]").addClass('active');
             $("a.news-link[page=" + route.page + "]").addClass('active');
 
+            var list = $("#news-list");
+            //overlay shown over list of items when news are loaded
+            var loadingOverlay = list.siblings("#loading-overlay").show();
             $.ajax({
                 url: '/umbraco/surface/News/Index/',
                 type: 'POST',
@@ -191,12 +194,15 @@ function InitNewsLeftSidebar(newsCategoryAllInt, yearAllInt, weAreOnTheNewsOverv
                 data: JSON.stringify(route),
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
-                    $("#news-list").html(data);
-                    bindControllers(route, router);
-                    reloadDisqusCommentsCounter();
-                    //alert(data.category);
+                    list.fadeOut("fast", function () {
+                        loadingOverlay.hide();
+                        list.html(data).fadeIn("fast");
+                        bindControllers(route, router);
+                        reloadDisqusCommentsCounter();
+                    });
                 },
                 error: function (request, status) {
+                    loadingOverlay.hide();
                     showDialog("Вибачте, неможливо завантажити новини");
                 }
             });
@@ -285,6 +291,9 @@ function InitGalleryLeftSidebar(yearAllInt, weAreOnTheGalleryOverview, galleryOv
             $("a.gallery-link[year=" + route.year + "]").addClass('active');
             $("a.gallery-link[page=" + route.page + "]").addClass('active');
 
+            var list = $("#gallery-list");
+            //overlay shown over list of items when news are loaded
+            var loadingOverlay = list.siblings("#loading-overlay").show();
             $.ajax({
                 url: '/umbraco/surface/Gallery/Index/',
                 type: 'POST',
@@ -292,12 +301,15 @@ function InitGalleryLeftSidebar(yearAllInt, weAreOnTheGalleryOverview, galleryOv
                 data: JSON.stringify(route),
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
-                    $("#gallery-list").html(data);
-                    bindControllers(route, router);
-                    reloadDisqusCommentsCounter();
-                    //alert(data.category);
+                    list.fadeOut("fast", function () {
+                        loadingOverlay.hide();
+                        list.html(data).fadeIn("fast");
+                        bindControllers(route, router);
+                        reloadDisqusCommentsCounter();
+                    });
                 },
                 error: function (request, status) {
+                    loadingOverlay.hide();
                     showDialog("Вибачте, неможливо завантажити галерею");
                 }
             });
@@ -349,9 +361,7 @@ function InitDisqus(identifier) {
 
 /**********************************************=Scroll to top=***************************************************************/
 
-function InitScrollToTop() {
-    var identifier = ".scroll-to-top";
-
+function InitScrollToTop(identifier) {
     $(window).scroll(function () {
         if ($(this).scrollTop() > 150) {
             $(identifier).fadeIn("slow");
@@ -365,6 +375,19 @@ function InitScrollToTop() {
         $('html, body').animate({ scrollTop: 0 }, 800);
         return false;
     });
+}
+
+/**********************************************=Loading spinner=***************************************************************/
+
+function InitLoadingSpinner(identifier) {
+    var $loading = $(identifier).hide();
+    $(document)
+      .ajaxStart(function () {
+          $loading.fadeIn();
+      })
+      .ajaxStop(function () {
+          $loading.fadeOut();
+      });
 }
 
 /**********************************************=Collapsible header=***********************************************************/

@@ -13,6 +13,7 @@
                             //UpdateTargetId = "ContactFormContainer",
                             OnFailure = "contactForm.showError",
                             OnSuccess = "contactForm.showSuccess",
+                            OnBegin = "contactForm.onBegin"
                         },
                         new { @class = "contact-form", role = "form" }))
     {
@@ -32,12 +33,14 @@
 <script type="text/javascript">
     var contactForm = function () {
         return {
+            onBegin:function() {
+                $("#ContactFormContainer").fadeOut();
+            },
             showError: function () {
                 showDialog("Нажаль сталась помилка і ми не змогли відправити форму:(");
             },
             showSuccess: function (result) {
                 if (result.success) {
-                    $("#ContactFormContainer").css('visibility', 'hidden');
                     showDialog("Дякуємо. Ваше запитання було відправлено.");
                 } else {
                     showDialog("Нажаль сталась помилка і ми не змогли відправити форму:(");
