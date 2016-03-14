@@ -6,7 +6,7 @@
     int contentWidth = 24;
     if (leftSidebarDefined && rightSidebarDefined)
     {
-        contentWidth = 13;
+        contentWidth = 14;
     }
     else if (leftSidebarDefined)
     {
@@ -14,7 +14,7 @@
     }
     else if (rightSidebarDefined)
     {
-        contentWidth = 18;
+        contentWidth = 19;
     }
 }
 @section Scripts{
@@ -47,7 +47,7 @@
             </div>
             @if (rightSidebarDefined)
             {
-                <div class="col-sm-6">
+                <div class="col-sm-5">
                     @RenderSection("RightSidebar")
                 </div>
             }
