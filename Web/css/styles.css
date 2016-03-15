@@ -8346,6 +8346,10 @@ input.input-validation-error {
 .pagination-carousel.carousel-widget {
   margin-bottom: 20px;
 }
+.pagination-carousel.carousel-widget .owl-carousel.owl-theme .owl-item img {
+  padding: 1px;
+  /*fix for intersection of neighbor images!*/
+}
 .gallery-widget {
   margin-bottom: 20px;
 }
@@ -8358,6 +8362,8 @@ input.input-validation-error {
 .gallery-widget .slide .owl-carousel .owl-item img {
   margin: 0 auto;
   max-height: 100%;
+  padding: 1px;
+  /*fix for intersection of neighbor images!*/
 }
 .gallery-widget .preview-list {
   position: relative;

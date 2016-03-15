@@ -7,7 +7,7 @@ function InitImagesCarousel(carouselWrapperId) {
         items: 1,
         singleItem: true,
         lazyLoad: true,
-        transitionStyle: "fade",
+        transitionStyle: "fade"
     });
 
     //new next-prev buttons
@@ -34,7 +34,7 @@ function InitImagesGallery(carouselWrapperId1, carouselWrapperId2) {
         transitionStyle: "fade",
         autoHeight: true,
         //theme: '',
-        afterAction: syncPosition,
+        afterAction: syncPosition
     });
 
     carousel2.owlCarousel({
@@ -115,7 +115,7 @@ function InitFeaturedArticlesCarousel(carouselWrapperId) {
         lazyLoad: true,
         autoPlay: 4500,
         stopOnHover: true,
-        transitionStyle: "fade",
+        transitionStyle: "fade"
     });
 
     //new next-prev buttons
