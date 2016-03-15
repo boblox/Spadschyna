@@ -67,9 +67,9 @@ namespace Umbraco.Web.PublishedContentModels
 		/// Image
 		///</summary>
 		[ImplementPropertyType("image")]
-		public object Image
+		public Umbraco.Web.Models.ImageCropDataSet Image
 		{
-			get { return this.GetPropertyValue("image"); }
+			get { return this.GetPropertyValue<Umbraco.Web.Models.ImageCropDataSet>("image"); }
 		}
 
 		///<summary>
