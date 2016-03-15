@@ -10,13 +10,14 @@
         @if (item != null)
         {
             var title = string.IsNullOrWhiteSpace(item.Title) ? item.Name : item.Title;
-            var image = (string)item.Image;
+            var image = item.Image;
             <span>@header</span>
             <a href="@item.Url">@title</a>
-            if (!string.IsNullOrWhiteSpace(image))
+            if (image != null)
             {
+                var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
                 <a href="@item.Url">
-                    <img src="@Html.GetThumbnailUrl(image, 200)" alt="" />
+                    <img src="@imageUrl" alt="" />
                 </a>
             }
         }
