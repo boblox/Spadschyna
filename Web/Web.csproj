@@ -530,6 +530,7 @@
     <Content Include="css\bootstrap\badges.less" />
     <Content Include="css\bootstrap\alerts.less" />
     <Content Include="css\rte.less" />
+    <Content Include="css\rte-base.less" />
     <None Include="js\jquery\jquery.validate-vsdoc.js" />
     <Content Include="js\jquery\jquery.validate.js" />
     <Content Include="js\jquery\jquery.validate.min.js" />

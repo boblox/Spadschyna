@@ -4,7 +4,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-@import url('fonts.css');
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -8649,7 +8648,6 @@ input.input-validation-error {
   backface-visibility: hidden;
 }
 /*!Styling for Rich text editor*/
-/*Should be before any other stylesheet*/
 /*Back office styling*/
 body.mce-content-body {
   font-family: "Arimo", Helvetica, sans-serif;
