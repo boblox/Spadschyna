@@ -3,11 +3,13 @@
 //basic
 @icon-font-path: "../../fonts/";
 @font-family-base: "Arimo", Helvetica, sans-serif;
-@font-family-alternate: "Arimo", Helvetica, sans-serif;
-@font-family-header: "Arimo", Arial;
+@headings-font-family: @font-family-base;
 @font-size-base: 14px;
 @font-size-h3-alternate: ceil((@font-size-base * 1.57)); // ~22px
 @font-size-h2-alternate: ceil((@font-size-base * 2)); // ~28px
+@headings-font-weight: bold;
+
+@list-default-padding: 40px;
 
 @light-gray-color: #f2f2f2;
 @black-color: #000000;
@@ -25,10 +27,14 @@
 @blue-color: #027cd9;
 @light-blue-color: #35a7fe;
 
+//font-color
+@text-color: @black-color;
+
 //global link colors
 @link-color: @black-color;
 @link-hover-color: @black-color;
 
+//grid
 @grid-columns: 24;
 
 //navigation styles

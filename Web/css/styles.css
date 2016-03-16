@@ -4,6 +4,7 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
+@import url('fonts.css');
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -1074,7 +1075,7 @@ body {
   font-family: "Arimo", Helvetica, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
-  color: #333333;
+  color: #000000;
   background-color: #fff;
 }
 input,
@@ -1173,8 +1174,8 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: inherit;
-  font-weight: 500;
+  font-family: "Arimo", Helvetica, sans-serif;
+  font-weight: bold;
   line-height: 1.1;
   color: inherit;
 }
@@ -3475,7 +3476,7 @@ select[multiple].input-lg {
   display: block;
   margin-top: 5px;
   margin-bottom: 10px;
-  color: #737373;
+  color: #404040;
 }
 @media (min-width: 768px) {
   .form-inline .form-group {
@@ -5580,7 +5581,7 @@ a.thumbnail.active {
 }
 .thumbnail .caption {
   padding: 9px;
-  color: #333333;
+  color: #000000;
 }
 .alert {
   padding: 15px;
@@ -7311,15 +7312,9 @@ body {
   position: relative;
   min-height: 100%;
 }
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Arimo", Arial;
-  font-weight: bold;
-  /*letter-spacing: 1px;*/
+ul,
+ol {
+  padding-left: 40px;
 }
 /*Scroll to top****************************************************/
 #scroll-to-top {
@@ -7381,9 +7376,7 @@ h6 {
   margin-left: 8px;
 }
 .navbar #navigation.navbar-collapse {
-  font-family: "Arimo", Arial;
   font-weight: bold;
-  /*letter-spacing: 1px;*/
   font-size: 1em;
 }
 .navbar #navigation.navbar-collapse .navbar-nav > li a {
@@ -8130,6 +8123,7 @@ ul.gallery-pager > li a.active {
   min-height: 200px;
 }
 /*!Mixins.css*/
+/*@import (reference) "bootstrap-n-column.less";*/
 .calendar-icon {
   display: inline-block;
   background-image: url('images/news-icons.png');
@@ -8654,3 +8648,154 @@ input.input-validation-error {
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 }
+/*!Styling for Rich text editor*/
+/*Should be before any other stylesheet*/
+/*Back office styling*/
+body.mce-content-body {
+  font-family: "Arimo", Helvetica, sans-serif;
+  font-size: 14px;
+}
+.mce-content-body ul,
+.mce-content-body ol {
+  padding-left: 40px;
+}
+.mce-content-body img,
+.mce-content-body iframe {
+  max-width: 100%;
+}
+/*Styling for both back-office and front-end*/
+.rte-button a {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  touch-action: manipulation;
+  cursor: pointer;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-transition: all 0.4s;
+  -o-transition: all 0.4s;
+  transition: all 0.4s;
+  border-radius: 0;
+  color: white;
+  background-color: #e25900;
+  border-color: #e25900;
+}
+.rte-button a:focus,
+.rte-button a:active:focus,
+.rte-button a.active:focus,
+.rte-button a.focus,
+.rte-button a:active.focus,
+.rte-button a.active.focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+.rte-button a:hover,
+.rte-button a:focus,
+.rte-button a.focus {
+  color: #333;
+  text-decoration: none;
+}
+.rte-button a:active,
+.rte-button a.active {
+  outline: 0;
+  background-image: none;
+  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+}
+.rte-button a.disabled,
+.rte-button a[disabled],
+fieldset[disabled] .rte-button a {
+  cursor: not-allowed;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+a.rte-button a.disabled,
+fieldset[disabled] a.rte-button a {
+  pointer-events: none;
+}
+.rte-button a.btn-default {
+  color: white;
+  background-color: #e25900;
+  border-color: #e25900;
+}
+.rte-button a.btn-default:focus,
+.rte-button a.btn-default:hover,
+.rte-button a.btn-default:active,
+.rte-button a.btn-default:focus,
+.rte-button a.btn-default.hover,
+.rte-button a.btn-default.active {
+  color: white;
+  background-color: #fe8435;
+  border-color: #fe8435;
+}
+.rte-button a.btn-primary,
+.rte-button a.primary {
+  color: white;
+  background-color: #ff5a00;
+  border-color: #ff5a00;
+}
+.rte-button a.btn-primary:focus,
+.rte-button a.primary:focus,
+.rte-button a.btn-primary:hover,
+.rte-button a.primary:hover,
+.rte-button a.btn-primary:active,
+.rte-button a.primary:active,
+.rte-button a.btn-primary:focus,
+.rte-button a.primary:focus,
+.rte-button a.btn-primary.hover,
+.rte-button a.primary.hover,
+.rte-button a.btn-primary.active,
+.rte-button a.primary.active {
+  color: white;
+  background-color: #fe8435;
+  border-color: #fe8435;
+}
+.rte-button a:focus,
+.rte-button a:hover,
+.rte-button a:active,
+.rte-button a:focus,
+.rte-button a.hover,
+.rte-button a.active {
+  color: white;
+  background-color: #fe8435;
+  border-color: #fe8435;
+}
+.rte-big-text {
+  font-size: 18px;
+}
+/* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
+/**umb_name:Нормальний заголовок*/
+h3 {
+  /**/
+}
+/**umb_name:Маленький заголовок*/
+h4 {
+  /**/
+}
+/**umb_name:Цитата*/
+blockquote {
+  /**/
+}
+/**umb_name:Кнопка(діє на посилання!)*/
+.rte-button {
+  /**/
+}
+/**umb_name:Більший текст*/
+.rte-big-text {
+  /**/
+}
+/*@import "bootstrap-n-column.less";*/

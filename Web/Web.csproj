@@ -391,7 +391,15 @@
     <Content Include="Config\Lang\ru-RU.user.xml" />
     <Content Include="Config\Lang\sv-SE.user.xml" />
     <Content Include="Config\Lang\zh-CN.user.xml" />
+    <Content Include="css\fonts.css" />
     <Content Include="css\images\loading-spinner.gif" />
+    <Content Include="css\owl-carousel\owl.theme.css" />
+    <Content Include="css\rte.css">
+      <DependentUpon>rte.less</DependentUpon>
+    </Content>
+    <Content Include="css\rte.min.css">
+      <DependentUpon>rte.css</DependentUpon>
+    </Content>
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
     <Content Include="css\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="css\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
@@ -410,10 +418,9 @@
     <Content Include="css\jquery-ui\jquery-ui.css" />
     <Content Include="css\jquery-ui\jquery-ui.min.css" />
     <Content Include="css\jquery-ui\theme.css" />
-    <Content Include="css\owl carousel\AjaxLoader.gif" />
-    <Content Include="css\owl carousel\grabbing.png" />
-    <Content Include="css\owl carousel\owl.theme.css" />
-    <Content Include="css\owl carousel\owl.transitions.css" />
+    <Content Include="css\owl-carousel\AjaxLoader.gif" />
+    <Content Include="css\owl-carousel\grabbing.png" />
+    <Content Include="css\owl-carousel\owl.transitions.css" />
     <Content Include="css\animate.css" />
     <Content Include="css\images\animated-overlay.gif" />
     <Content Include="css\images\icons-contact.png" />
@@ -423,8 +430,7 @@
     <Content Include="css\images\news-icons.png" />
     <Content Include="css\images\scroll-to-top.png" />
     <Content Include="css\magnific-popup.css" />
-    <Content Include="css\owl carousel\owl.carousel.css" />
-    <Content Include="css\rte.css" />
+    <Content Include="css\owl-carousel\owl.carousel.css" />
     <Content Include="css\styles.css">
       <DependentUpon>styles.less</DependentUpon>
     </Content>
@@ -523,13 +529,14 @@
     <Content Include="css\bootstrap\bootstrap.less" />
     <Content Include="css\bootstrap\badges.less" />
     <Content Include="css\bootstrap\alerts.less" />
+    <Content Include="css\rte.less" />
     <None Include="js\jquery\jquery.validate-vsdoc.js" />
     <Content Include="js\jquery\jquery.validate.js" />
     <Content Include="js\jquery\jquery.validate.min.js" />
     <Content Include="js\jquery\jquery-ui-1.11.4.js" />
     <Content Include="js\jquery\jquery-ui-1.11.4.min.js" />
-    <Content Include="js\owl carousel\owl.carousel.js" />
-    <Content Include="js\owl carousel\owl.carousel.min.js" />
+    <Content Include="js\owl-carousel\owl.carousel.js" />
+    <Content Include="js\owl-carousel\owl.carousel.min.js" />
     <Content Include="js\jquery\jquery.unobtrusive-ajax.js" />
     <Content Include="js\jquery\jquery.unobtrusive-ajax.min.js" />
     <Content Include="js\jquery\jquery.validate.unobtrusive.js" />

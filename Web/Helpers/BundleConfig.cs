@@ -11,12 +11,13 @@ namespace Web.Helpers
 
             //Basic Js&Css============================================================
             var styleBundle = new StyleBundle("~/css/basic-css")
+                .Include("~/css/fonts.css") //should be before any other stylesheet!
                 .Include("~/css/jquery-ui/jquery-ui.min.css", cssRewriteUrl)
 
                 .Include("~/css/magnific-popup.css")
-                .Include("~/css/owl carousel/owl.carousel.css")
-                .Include("~/css/owl carousel/owl.transitions.css")
-                .Include("~/css/owl carousel/owl.theme.css", cssRewriteUrl)
+                .Include("~/css/owl-carousel/owl.carousel.css")
+                .Include("~/css/owl-carousel/owl.transitions.css")
+                .Include("~/css/owl-carousel/owl.theme.css", cssRewriteUrl)
 
                 .Include("~/css/styles.min.css", cssRewriteUrl);
             styleBundle.Orderer = orderer;
@@ -34,7 +35,7 @@ namespace Web.Helpers
                 .Include("~/js/masonry.pkgd.min.js")
                 .Include("~/js/jquery.unveil.js")
                 .Include("~/js/magnific.popup.min.js")
-                .Include("~/js/owl carousel/owl.carousel.min.js")
+                .Include("~/js/owl-carousel/owl.carousel.min.js")
                 .Include("~/js/director.min.js")
 
                 .Include("~/App_Plugins/UmbracoForms/Assets/moment/moment.min.js")
