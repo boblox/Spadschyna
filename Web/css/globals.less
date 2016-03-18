@@ -155,6 +155,7 @@ textarea, input {
         }
     }
 }
+
 //Carousel with paging dots. "Carousel" grid editor (and also macro)
 .pagination-carousel.carousel-widget {
     margin-bottom: 20px;
@@ -171,13 +172,16 @@ textarea, input {
 //Carousel with preview. "Gallery" grid editor
 .gallery-widget {
     margin-bottom: 20px;
+    background-color: @black-color;
     // Used in gallery. Slide part
     & .slide {
         .owl-carousel {
-            border: 6px solid @orange-color-2;
+            border: solid @orange-color-3;
+            /*background-color: @black-color;*/
+            border-width: 8px 8px 0 8px;
 
             .owl-item {
-                height: 700px;
+                height: 600px;
 
                 img {
                     margin: 0 auto;
@@ -192,13 +196,13 @@ textarea, input {
         position: relative;
 
         .owl-carousel-prev, .owl-carousel-next {
-            width: 35px;
+            width: 60px;
             height: 100%;
             position: absolute;
             top: 0;
             z-index: 10;
             cursor: pointer;
-            background-color: white;
+            background-color: @orange-color-3;
             opacity: 0.5;
             .transition(all 0.4s);
             display: flex;
@@ -210,7 +214,8 @@ textarea, input {
             }
 
             span {
-                color: @orange-color-2;
+                color: @white-color;
+                font-size: 30px;
             }
         }
 
@@ -223,19 +228,20 @@ textarea, input {
         }
 
         .owl-carousel {
-            margin-top: 10px;
+            border: solid @orange-color-3;
+            border-width: 8px 3px 8px 3px;
 
             .owl-wrapper-outer {
                 .owl-item {
                     height: 150px;
-                    background-color: @black-color;
-                    border: solid @orange-color-2;
-                    border-width: 6px 3px;
+                    /*background-color: @black-color;*/
+                    border: solid @orange-color-3;
+                    border-width: 5px;
                     overflow: hidden;
                     cursor: pointer;
 
                     &.selected {
-                        border-color: @light-blue-color;
+                        border-color: @orange-color-2;
                     }
 
                     img {

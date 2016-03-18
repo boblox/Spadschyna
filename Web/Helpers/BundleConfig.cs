@@ -15,7 +15,7 @@ namespace Web.Helpers
                 .Include("~/css/jquery-ui/jquery-ui.min.css", cssRewriteUrl)
 
                 .Include("~/css/magnific-popup.css")
-                .Include("~/css/owl-carousel/owl.carousel.css")
+                .Include("~/css/owl-carousel/owl.carousel.css", cssRewriteUrl)
                 .Include("~/css/owl-carousel/owl.transitions.css")
                 .Include("~/css/owl-carousel/owl.theme.css", cssRewriteUrl)
 

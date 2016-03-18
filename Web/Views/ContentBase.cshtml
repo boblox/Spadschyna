@@ -3,18 +3,26 @@
     Layout = "LayoutBase.cshtml";
     var leftSidebarDefined = IsSectionDefined("LeftSidebar");
     var rightSidebarDefined = IsSectionDefined("RightSidebar");
-    int contentWidth = 24;
+
+    var leftSidebarWidth = 5;
+    var rightSidebarWidth = 5;
+    var allWidth = 24;
+    var contentWidth = allWidth;
+    string cssClass = "no-sidebars-defined";
     if (leftSidebarDefined && rightSidebarDefined)
     {
-        contentWidth = 14;
+        contentWidth = allWidth - leftSidebarWidth - rightSidebarWidth;
+        cssClass = "left-sidebar-defined right-sidebar-defined";
     }
     else if (leftSidebarDefined)
     {
-        contentWidth = 19;
+        contentWidth = allWidth - leftSidebarWidth;
+        cssClass = "left-sidebar-defined";
     }
     else if (rightSidebarDefined)
     {
-        contentWidth = 19;
+        contentWidth = allWidth - rightSidebarWidth;
+        cssClass = "right-sidebar-defined";
     }
 }
 @section Scripts{
@@ -38,16 +46,16 @@
         <div class="row">
             @if (leftSidebarDefined)
             {
-                <div class="col-sm-5">
+                <div class="col-sm-@leftSidebarWidth">
                     @RenderSection("LeftSidebar")
                 </div>
             }
-            <div class="col-sm-@contentWidth">
+            <div class="col-sm-@contentWidth @cssClass">
                 @RenderSection("Body")
             </div>
             @if (rightSidebarDefined)
             {
-                <div class="col-sm-5">
+                <div class="col-sm-@rightSidebarWidth">
                     @RenderSection("RightSidebar")
                 </div>
             }
