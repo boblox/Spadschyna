@@ -1,6 +1,6 @@
 ﻿@inherits UmbracoTemplatePage
 @{
-    var homePage = CurrentPage.AncestorsOrSelf(1).First();
+    var homePage = Model.Content.AncestorOrSelf(1);
 }
 
 <footer class="footer-wrapper">

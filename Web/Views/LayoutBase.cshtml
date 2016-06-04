@@ -2,14 +2,20 @@
 @{
     Layout = null;
     var site = Model.Content.AncestorOrSelf<Site>();
+    var page = Model.Content;
     var siteName = site.SiteName;
     var siteDescription = site.SiteDescription;
-    var title = site.Title;
+    var pageTitle = page.Name;
+    if (page is ITitleComponent)
+    {
+        var title = ((ITitleComponent)page).Title;
+        pageTitle = !string.IsNullOrEmpty(title) ? title : pageTitle;
+    }
 }
 <!DOCTYPE html>
 <html>
 <head>
-    <title>@siteName - @title</title>
+    <title>@pageTitle - @siteName</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     @*<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">*@
