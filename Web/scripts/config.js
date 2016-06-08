@@ -248,8 +248,8 @@ function InitGalleryLeftSidebar(yearAllInt, weAreOnTheGalleryOverview, galleryOv
         route.year = year === undefined ? route.year : year;
 
         if (year !== undefined) {
-            //reset news feed page if we clicked on category or year
-            route.page = config.newsStartPage;
+            //reset gallery feed page if we clicked on category or year
+            route.page = config.galleryStartPage;
         }
         else {
             route.page = page === undefined ? route.page : page;
@@ -259,7 +259,7 @@ function InitGalleryLeftSidebar(yearAllInt, weAreOnTheGalleryOverview, galleryOv
     function getInitRoute() {
         var route = {
             year: yearAllInt,
-            page: config.newsStartPage
+            page: config.galleryStartPage
         };
         $("a.gallery-link.active").each(function () {
             updateRoute(route, $(this));

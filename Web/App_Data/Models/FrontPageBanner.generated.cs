@@ -20,16 +20,16 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>Featured Article</summary>
-	[PublishedContentModel("FeaturedArticle")]
-	public partial class FeaturedArticle : PublishedContentModel, ITitleComponent
+	/// <summary>Front page banner</summary>
+	[PublishedContentModel("frontPageBanner")]
+	public partial class FrontPageBanner : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "FeaturedArticle";
+		public new const string ModelTypeAlias = "frontPageBanner";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
-		public FeaturedArticle(IPublishedContent content)
+		public FrontPageBanner(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -40,9 +40,18 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 #pragma warning restore 0109
 
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FeaturedArticle, TValue>> selector)
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FrontPageBanner, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Button text
+		///</summary>
+		[ImplementPropertyType("buttonText")]
+		public string ButtonText
+		{
+			get { return this.GetPropertyValue<string>("buttonText"); }
 		}
 
 		///<summary>
@@ -70,15 +79,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public string Subtitle
 		{
 			get { return this.GetPropertyValue<string>("subtitle"); }
-		}
-
-		///<summary>
-		/// #PropertyTitle: #PropertyTitleDesc
-		///</summary>
-		[ImplementPropertyType("title")]
-		public string Title
-		{
-			get { return TitleComponent.GetTitle(this); }
 		}
 	}
 }

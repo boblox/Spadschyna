@@ -20,16 +20,16 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>Featured Articles Overview</summary>
-	[PublishedContentModel("FeaturedArticlesOverview")]
-	public partial class FeaturedArticlesOverview : PublishedContentModel
+	/// <summary>Front page banner container</summary>
+	[PublishedContentModel("frontPageBannerContainer")]
+	public partial class FrontPageBannerContainer : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "FeaturedArticlesOverview";
+		public new const string ModelTypeAlias = "frontPageBannerContainer";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
-		public FeaturedArticlesOverview(IPublishedContent content)
+		public FrontPageBannerContainer(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -40,18 +40,9 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 #pragma warning restore 0109
 
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FeaturedArticlesOverview, TValue>> selector)
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<FrontPageBannerContainer, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-		}
-
-		///<summary>
-		/// Hide in navigation?
-		///</summary>
-		[ImplementPropertyType("umbracoNaviHide")]
-		public bool UmbracoNaviHide
-		{
-			get { return this.GetPropertyValue<bool>("umbracoNaviHide"); }
 		}
 	}
 }

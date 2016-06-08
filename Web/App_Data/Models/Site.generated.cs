@@ -82,24 +82,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Join organization link
-		///</summary>
-		[ImplementPropertyType("joinOrganizationLink")]
-		public object JoinOrganizationLink
-		{
-			get { return this.GetPropertyValue("joinOrganizationLink"); }
-		}
-
-		///<summary>
-		/// Join organization text
-		///</summary>
-		[ImplementPropertyType("joinOrganizationText")]
-		public string JoinOrganizationText
-		{
-			get { return this.GetPropertyValue<string>("joinOrganizationText"); }
-		}
-
-		///<summary>
 		/// Rss link
 		///</summary>
 		[ImplementPropertyType("rssLink")]
@@ -124,15 +106,6 @@ namespace Umbraco.Web.PublishedContentModels
 		public string SiteName
 		{
 			get { return this.GetPropertyValue<string>("siteName"); }
-		}
-
-		///<summary>
-		/// Spadshchyna description
-		///</summary>
-		[ImplementPropertyType("spadshchynaDescription")]
-		public string SpadshchynaDescription
-		{
-			get { return this.GetPropertyValue<string>("spadshchynaDescription"); }
 		}
 
 		///<summary>

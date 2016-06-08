@@ -20,16 +20,16 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>News by year</summary>
-	[PublishedContentModel("NewsByYear")]
-	public partial class NewsByYear : PublishedContentModel
+	/// <summary>Point of interest</summary>
+	[PublishedContentModel("pointOfInterest")]
+	public partial class PointOfInterest : PublishedContentModel
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "NewsByYear";
+		public new const string ModelTypeAlias = "pointOfInterest";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
-		public NewsByYear(IPublishedContent content)
+		public PointOfInterest(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -40,9 +40,18 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 #pragma warning restore 0109
 
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<NewsByYear, TValue>> selector)
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<PointOfInterest, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Image
+		///</summary>
+		[ImplementPropertyType("image")]
+		public Umbraco.Web.Models.ImageCropDataSet Image
+		{
+			get { return this.GetPropertyValue<Umbraco.Web.Models.ImageCropDataSet>("image"); }
 		}
 	}
 }

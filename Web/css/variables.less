@@ -1,13 +1,24 @@
 ﻿/*!Variables*/
 
-//basic=============================
+//fonts=============================
 @icon-font-path: "../../fonts/";
-@font-family-base: "Arimo", Helvetica, sans-serif;
+@font-family-base: "Kelson Sans", Helvetica, sans-serif;
 @headings-font-family: @font-family-base;
 @font-size-base: 14px;
 @font-size-h3-alternate: ceil((@font-size-base * 1.57)); // ~22px
 @font-size-h2-alternate: ceil((@font-size-base * 2)); // ~28px
 @headings-font-weight: bold;
+
+@font-size-h1: floor((@font-size-base * 4.29)); // 60px
+@font-size-h2: ceil((@font-size-base * 2.85)); // 40px;
+@font-size-h3: floor((@font-size-base * 1.43)); // 20px
+@font-size-h4: ceil((@font-size-base * 1.25)); // 18px
+
+@font-size-1: ceil((@font-size-base * 1.07)); // 15px
+@font-size-2: ceil((@font-size-base * 1.14)); // 16px
+@font-size-3: ceil((@font-size-base * 1.25)); // 18px
+@font-size-4: floor((@font-size-base * 1.43)); // 20px
+@font-size-5: ceil((@font-size-base * 1.76)); // 25px
 
 //padding
 @list-default-padding: 40px;
@@ -23,6 +34,15 @@
 @blue-color: #027cd9;
 @light-blue-color: #35a7fe;
 
+@orange-color-a: #f6ab32;
+@orange-color-b: #ffb235;
+@gray-color-1: #464646;
+@gray-color-2: #555;
+@gray-color-3: #888;
+@gray-color-4: #c8c8c8;
+@gray-color-5: #ededed;
+@gray-color-6: #f9f9f9;
+
 //category colors
 @category-all-color: @orange-color;
 @category-announce-color: @orange-color-3;
@@ -31,35 +51,36 @@
 @category-other-color: #efb005;
 
 //font-color
-@text-color: @black-color;
+@text-color: @gray-color-3;
 
 //global link colors
-@link-color: @black-color;
-@link-hover-color: @black-color;
+@link-color: @orange-color-a;
+@link-hover-color: @orange-color-a;
 
 //hr-color
-@hr-border: @orange-color-2;
+@hr-border: @orange-color-a;
 
 //grid==============================
 @grid-columns: 24;
 
 //navigation styles=================
-@navbar-height: 45px;
-@navbar-default-color: @light-gray-color;
-@navbar-default-bg: @orange-color;
+@navbar-height: 70px;
+@navbar-default-color: @white-color;
+@navbar-default-bg: @orange-color-a;
 
 @navbar-padding-vertical: 0;
 @navbar-padding-horizontal: 0;
 @navbar-margin-bottom: 0;
 @navbar-border-radius: 0;
 
-@navbar-default-link-color: @light-gray-color;
-@navbar-default-link-hover-bg: @orange-color-2;
-@navbar-default-link-hover-color: @navbar-default-color;
-@navbar-default-link-active-bg: @orange-color-2;
-@navbar-default-link-active-color: @navbar-default-color;
-@navbar-default-toggle-hover-bg: @light-blue-color;
-@navbar-default-toggle-icon-bar-bg: @orange-color-2;
+@navbar-default-link-color: @white-color;
+@navbar-default-link-hover-bg: @orange-color-b;
+@navbar-default-link-hover-color: @white-color;
+@navbar-default-link-active-bg: @orange-color-b;
+@navbar-default-link-active-color: @white-color;
+@navbar-default-toggle-hover-bg: @orange-color-b;
+@navbar-default-toggle-icon-bar-bg: @gray-color-5;
+@navbar-default-toggle-border-color: @gray-color-5;
 
 //form-controls====================
 @input-border: @orange-color;
@@ -82,3 +103,7 @@
 //content=======================
 @content-left-margin: 20px;
 @content-right-margin: 40px;
+
+//footer
+@footer-opacity: 0.7;
+@footer-opacity-hover: 1;

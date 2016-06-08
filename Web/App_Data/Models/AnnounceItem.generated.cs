@@ -20,16 +20,16 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>News overview</summary>
-	[PublishedContentModel("NewsOverview")]
-	public partial class NewsOverview : PublishedContentModel, INavigationComponent, ITitleComponent
+	/// <summary>Announce item</summary>
+	[PublishedContentModel("announceItem")]
+	public partial class AnnounceItem : PublishedContentModel, ITitleComponent
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "NewsOverview";
+		public new const string ModelTypeAlias = "announceItem";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
-		public NewsOverview(IPublishedContent content)
+		public AnnounceItem(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -40,27 +40,54 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 #pragma warning restore 0109
 
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<NewsOverview, TValue>> selector)
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<AnnounceItem, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
 		}
 
 		///<summary>
-		/// News
+		/// Content
 		///</summary>
-		[ImplementPropertyType("newsList")]
-		public object NewsList
+		[ImplementPropertyType("content")]
+		public Newtonsoft.Json.Linq.JToken Content
 		{
-			get { return this.GetPropertyValue("newsList"); }
+			get { return this.GetPropertyValue<Newtonsoft.Json.Linq.JToken>("content"); }
 		}
 
 		///<summary>
-		/// #PropertyHideInNavigation: #PropertyHideInNavigationDesc
+		/// Date of happening
 		///</summary>
-		[ImplementPropertyType("umbracoNaviHide")]
-		public bool UmbracoNaviHide
+		[ImplementPropertyType("dateOfHappening")]
+		public DateTime DateOfHappening
 		{
-			get { return NavigationComponent.GetUmbracoNaviHide(this); }
+			get { return this.GetPropertyValue<DateTime>("dateOfHappening"); }
+		}
+
+		///<summary>
+		/// Image
+		///</summary>
+		[ImplementPropertyType("image")]
+		public Umbraco.Web.Models.ImageCropDataSet Image
+		{
+			get { return this.GetPropertyValue<Umbraco.Web.Models.ImageCropDataSet>("image"); }
+		}
+
+		///<summary>
+		/// Place
+		///</summary>
+		[ImplementPropertyType("place")]
+		public string Place
+		{
+			get { return this.GetPropertyValue<string>("place"); }
+		}
+
+		///<summary>
+		/// Subheader
+		///</summary>
+		[ImplementPropertyType("subheader")]
+		public string Subheader
+		{
+			get { return this.GetPropertyValue<string>("subheader"); }
 		}
 
 		///<summary>

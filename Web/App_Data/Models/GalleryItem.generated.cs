@@ -20,7 +20,7 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>Gallery Item</summary>
+	/// <summary>Gallery item</summary>
 	[PublishedContentModel("GalleryItem")]
 	public partial class GalleryItem : PublishedContentModel, ITitleComponent
 	{

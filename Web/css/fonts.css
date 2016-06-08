@@ -1,1 +1,24 @@
-﻿@import url('https://fonts.googleapis.com/css?family=Arimo:700,400&subset=latin,cyrillic');
+﻿/*@import url('https://fonts.googleapis.com/css?family=Arimo:700,400&subset=latin,cyrillic');*/
+@font-face {
+    font-family: 'Kelson Sans';
+    font-style: normal;
+    font-weight: 400;
+    /*src: url('../fonts/kelson-sans-regular-ru.woff') format('woff');*/
+    src: url('../fonts/KelsonSansRegular.woff') format('woff');
+    /*src: url('../fonts/Kelson Sans RU Regular.ttf') format('truetype');*/
+    /*src: url('../fonts/Kelson Sans Regular RU.otf') format('opentype');*/
+
+    /*src: url('../fonts/KELSON-SANS-REGULAR-RU.otf') format('opentype');*/
+}
+
+@font-face {
+    font-family: 'Kelson Sans';
+    font-style: normal;
+    font-weight: 700;
+    /*src: url('../fonts/kelson-sans-bold-ru.woff') format('woff');*/
+    /*src: url('../fonts/KelsonSansBold.woff') format('woff');*/ /*Use regular font*/
+    /*src: url('../fonts/Kelson Sans RU Bold.ttf') format('truetype');*/
+    /*src: url('../fonts/Kelson Sans Bold RU.otf') format('opentype');*/
+
+    /*src: url('../fonts/KELSON-SANS-BOLD-RU.otf') format('opentype');*/
+}

@@ -20,7 +20,7 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>Text Page</summary>
+	/// <summary>Text page</summary>
 	[PublishedContentModel("TextPage")]
 	public partial class TextPage : PublishedContentModel, INavigationComponent, ITitleComponent
 	{

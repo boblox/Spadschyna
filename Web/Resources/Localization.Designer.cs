@@ -97,11 +97,11 @@ namespace Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Читати.
+        ///   Looks up a localized string similar to Далі.
         /// </summary>
-        public static string GalleryReadMore {
+        public static string ItemReadMore {
             get {
-                return ResourceManager.GetString("GalleryReadMore", resourceCulture);
+                return ResourceManager.GetString("ItemReadMore", resourceCulture);
             }
         }
         
@@ -120,15 +120,6 @@ namespace Web.Resources {
         public static string NewsCategoryAnnounce {
             get {
                 return ResourceManager.GetString("NewsCategoryAnnounce", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Читати.
-        /// </summary>
-        public static string NewsReadMore {
-            get {
-                return ResourceManager.GetString("NewsReadMore", resourceCulture);
             }
         }
         

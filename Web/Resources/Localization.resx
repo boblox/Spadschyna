@@ -129,17 +129,14 @@
   <data name="False" xml:space="preserve">
     <value>Ні</value>
   </data>
-  <data name="GalleryReadMore" xml:space="preserve">
-    <value>Читати</value>
+  <data name="ItemReadMore" xml:space="preserve">
+    <value>Далі</value>
   </data>
   <data name="NewsCategoryAll" xml:space="preserve">
     <value>Всі</value>
   </data>
   <data name="NewsCategoryAnnounce" xml:space="preserve">
     <value>Актуальні події</value>
-  </data>
-  <data name="NewsReadMore" xml:space="preserve">
-    <value>Читати</value>
   </data>
   <data name="RelatedNewsNext" xml:space="preserve">
     <value>Наступна стаття</value>

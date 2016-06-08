@@ -1,0 +1,40 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    var items = Model.Content.Descendants<PointOfInterest>().ToList();
+    var page = (Home)Model.Content;
+    var aboutLink = Umbraco.NiceUrl(((int?)page.AboutLink).GetValueOrDefault());
+}
+
+<article class="home-info-wrapper">
+    <div class="container">
+        <article class="home-info-about">
+            <div class="row">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <img src="/Css/images/logo-2.png" alt="" />
+                </div>
+                <div class="col-sm-offset-2 col-sm-12">
+                    <header>
+                        <h2>@page.AboutTitle</h2>
+                    </header>
+                    <span>
+                        @page.AboutDescription
+                        <a href="@aboutLink">@page.AboutReadMore</a>
+                    </span>
+                </div>
+            </div>
+        </article>
+        <article class="home-info-points-of-interest">
+            @foreach (var item in items)
+            {
+                var image = item.Image;
+                var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
+                <article class="home-info-point-of-interest">
+                    <img src="@imageUrl" alt="" />
+                    <header>
+                        <h3>@item.Name</h3>
+                    </header>
+                </article>
+            }
+        </article>
+    </div>
+</article>

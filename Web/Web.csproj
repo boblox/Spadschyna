@@ -393,6 +393,7 @@
     <Content Include="Config\Lang\zh-CN.user.xml" />
     <Content Include="css\fonts.css" />
     <Content Include="css\images\loading-spinner.gif" />
+    <Content Include="css\images\logo-2.png" />
     <Content Include="css\owl-carousel\owl.theme.css" />
     <Content Include="css\rte.css">
       <DependentUpon>rte.less</DependentUpon>
@@ -546,6 +547,8 @@
     <Content Include="Config\EmbeddedMedia.config" />
     <Content Include="Config\BaseRestExtensions.config" />
     <Content Include="Config\404handlers.config" />
+    <Content Include="Fonts\KelsonSansBold.woff" />
+    <Content Include="Fonts\KelsonSansRegular.woff" />
     <None Include="js\jquery\jquery.validate-vsdoc.js" />
     <Content Include="js\jquery\jquery.validate.js" />
     <Content Include="js\jquery\jquery.validate.min.js" />
@@ -594,17 +597,16 @@
     <Content Include="Views\Partials\Calendar.cshtml" />
     <Content Include="Views\Partials\Comments.cshtml" />
     <Content Include="Views\Partials\ContactForm.cshtml" />
-    <Content Include="Views\Partials\FeaturedArticlesCarousel.cshtml" />
-    <Content Include="Views\Partials\Footer.cshtml" />
-    <Content Include="Views\Partials\Header.cshtml" />
-    <Content Include="Views\Partials\HeaderShortInfo.cshtml" />
+    <Content Include="Views\Partials\Home\BannerCarousel.cshtml" />
+    <Content Include="Views\Partials\Common\Footer.cshtml" />
+    <Content Include="Views\Partials\Common\Header.cshtml" />
     <Content Include="Views\Partials\ImagesCarousel.cshtml" />
-    <Content Include="Views\Partials\Logo.cshtml" />
+    <Content Include="Views\Partials\Common\Logo.cshtml" />
     <Content Include="Views\Partials\NewsLeftSidebar.cshtml" />
-    <Content Include="Views\Partials\ScrollToTop.cshtml" />
-    <Content Include="Views\Partials\Social.cshtml" />
-    <Content Include="Views\Partials\TopNavigation.cshtml" />
-    <Content Include="Views\Partials\TopNavigationList.cshtml" />
+    <Content Include="Views\Partials\Common\ScrollToTop.cshtml" />
+    <Content Include="Views\Partials\Common\Social.cshtml" />
+    <Content Include="Views\Partials\Navigation\TopNavigation.cshtml" />
+    <Content Include="Views\Partials\Navigation\TopNavigationList.cshtml" />
     <Content Include="Views\ContentBase.cshtml" />
     <Content Include="Views\Home.cshtml" />
     <Content Include="Views\LayoutBase.cshtml" />
@@ -663,12 +665,20 @@
     <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
+    <Content Include="Views\Partials\Home\Info.cshtml" />
+    <Content Include="Views\Partials\Home\Announces.cshtml" />
+    <Content Include="Views\Announce.cshtml" />
+    <Content Include="Views\AnnounceOverview.cshtml" />
+    <Content Include="Views\AnnounceItem.cshtml" />
+    <Content Include="Views\Partials\Home\News.cshtml" />
+    <Content Include="Views\Partials\Home\Gallery.cshtml" />
     <None Include="Views\Partials\ImagesGallery.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Gallery.cshtml" />
     <Content Include="Views\Partials\GalleryLeftSidebar.cshtml" />
     <Content Include="Views\Partials\GalleryList.cshtml" />
     <Content Include="Views\Partials\GalleryPager.cshtml" />
-    <Content Include="Views\Partials\LoadingSpinner.cshtml" />
+    <Content Include="Views\Partials\Common\LoadingSpinner.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -687,10 +697,12 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="App_Data\Models\FeaturedArticle.generated.cs" />
-    <Compile Include="App_Data\Models\FeaturedArticlesOverview.generated.cs" />
+    <Compile Include="App_Data\Models\AnnounceItem.generated.cs" />
+    <Compile Include="App_Data\Models\AnnouncesOverview.generated.cs" />
     <Compile Include="App_Data\Models\File.generated.cs" />
     <Compile Include="App_Data\Models\Folder.generated.cs" />
+    <Compile Include="App_Data\Models\FrontPageBanner.generated.cs" />
+    <Compile Include="App_Data\Models\FrontPageBannerContainer.generated.cs" />
     <Compile Include="App_Data\Models\GalleryByYear.generated.cs" />
     <Compile Include="App_Data\Models\GalleryItem.generated.cs" />
     <Compile Include="App_Data\Models\GalleryOverview.generated.cs" />
@@ -701,6 +713,8 @@
     <Compile Include="App_Data\Models\NewsByYear.generated.cs" />
     <Compile Include="App_Data\Models\NewsItem.generated.cs" />
     <Compile Include="App_Data\Models\NewsOverview.generated.cs" />
+    <Compile Include="App_Data\Models\PointOfInterest.generated.cs" />
+    <Compile Include="App_Data\Models\PointsOfInterestContainer.generated.cs" />
     <Compile Include="App_Data\Models\RedirectPage.generated.cs" />
     <Compile Include="App_Data\Models\Site.generated.cs" />
     <Compile Include="App_Data\Models\Sitemap.generated.cs" />
@@ -708,9 +722,11 @@
     <Compile Include="App_Data\Models\TitleComponent.generated.cs" />
     <Compile Include="Controllers\ContactFormController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
+    <Compile Include="Controllers\AnnounceController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Helpers\BundleConfig.cs" />
     <Compile Include="Helpers\Consts.cs" />
+    <Compile Include="Helpers\ContentManager.cs" />
     <Compile Include="Helpers\DateTimeModelBinder.cs" />
     <Compile Include="Helpers\Global.cs" />
     <Compile Include="Helpers\HtmlHelperExtensions.cs" />
@@ -718,6 +734,7 @@
     <Compile Include="Helpers\NonOrderingBundleOrderer.cs" />
     <Compile Include="Helpers\Utils.cs" />
     <Compile Include="Models\GalleryResult.cs" />
+    <Compile Include="Models\AnnounceResult.cs" />
     <Compile Include="Models\NewsResult.cs" />
     <Compile Include="Models\Pager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

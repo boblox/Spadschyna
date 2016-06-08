@@ -28,7 +28,7 @@
                 @{
                     var dict = new ViewDataDictionary(ViewData);
                     dict["menuItem"] = item;
-                    Html.RenderPartial("TopNavigationList", dict);
+                    Html.RenderPartial("~/Views/Partials/Navigation/TopNavigationList.cshtml", dict);
                 }
             </ul>
         </li>

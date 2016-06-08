@@ -1,27 +1,9 @@
 ﻿@inherits UmbracoTemplatePage
 @{
-    Layout = "ContentBase.cshtml";
+    Layout = "LayoutBase.cshtml";
 }
-@section FeaturedArticlesCarousel
-{
-    @{Html.RenderPartial("FeaturedArticlesCarousel");}
-}
-@section Header
-{
-    @CurrentPage.Title
-}
-@section LeftSidebar
-{
-    @{Html.RenderPartial("NewsLeftSidebar");}
-}
-
-@section RightSidebar
-{
-    @*@{Html.RenderPartial("Calendar");}*@
-}
-
-@section Body
-{
-    <div id="news-list" class="news-list"></div>
-    <div id="loading-overlay"></div>
-}
+@{Html.RenderPartial("~/Views/Partials/Home/BannerCarousel.cshtml");}
+@{Html.RenderPartial("~/Views/Partials/Home/Info.cshtml");}
+@{Html.RenderPartial("~/Views/Partials/Home/Announces.cshtml");}
+@{Html.RenderPartial("~/Views/Partials/Home/News.cshtml");}
+@{Html.RenderPartial("~/Views/Partials/Home/Gallery.cshtml");}

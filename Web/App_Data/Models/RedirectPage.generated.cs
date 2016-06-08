@@ -20,7 +20,7 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>Redirect Page</summary>
+	/// <summary>Redirect page</summary>
 	[PublishedContentModel("redirectPage")]
 	public partial class RedirectPage : PublishedContentModel, INavigationComponent, ITitleComponent
 	{

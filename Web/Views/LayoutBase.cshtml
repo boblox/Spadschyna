@@ -32,15 +32,11 @@
 </head>
 <body>
     <!-- /Header -->
-    @{ Html.RenderPartial("ScrollToTop"); }
-    @{ Html.RenderPartial("LoadingSpinner"); }
-    @{ Html.RenderPartial("Header"); }
-    @if (IsSectionDefined("FeaturedArticlesCarousel"))
-    {
-        @RenderSection("FeaturedArticlesCarousel")
-    }
+    @{ Html.RenderPartial("~/Views/Partials/Common/ScrollToTop.cshtml"); }
+    @{ Html.RenderPartial("~/Views/Partials/Common/LoadingSpinner.cshtml"); }
+    @{ Html.RenderPartial("~/Views/Partials/Common/Header.cshtml"); }
     @RenderBody()
-    @{ Html.RenderPartial("Footer"); }
+    @{ Html.RenderPartial("~/Views/Partials/Common/Footer.cshtml"); }
     <script id="dsq-count-scr" src="//spadschyna.disqus.com/count.js" async></script>
 </body>
 </html>

@@ -1,0 +1,48 @@
+﻿@inherits UmbracoTemplatePage
+@{
+    var page = (Home)Model.Content;
+    var site = page.AncestorOrSelf(1);
+    var overview = site.FirstChild<NewsOverview>();
+    var items = ContentManager.GetNewsItems(0, 0, 1, Consts.NewsConfig.ItemsOnFrontPage).Items;
+}
+
+<article class="home-news-wrapper">
+    <div class="container">
+        <header class="home-news-header">
+            <h2>@page.NewsTitle</h2>
+        </header>
+        <section class="home-news">
+            <div class="row no-gutters">
+                @foreach (var item in items)
+                {
+                    var image = item.Image;
+                    var subHeader = item.Subheader;
+                    var content = new HtmlString(string.Empty); // can't parse content as we are now using Grid Layout
+
+                    <div class="col-sm-12 col-md-8">
+                        <article class="home-news-item">
+                            <a href="@item.Url">
+                                @if (image != null)
+                                {
+                                    var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
+                                    <img class="home-news-item-image" src="@imageUrl" alt="">
+                                }
+                                <header>
+                                    <h3>@item.Title</h3>
+                                </header>
+                                <span class="home-news-item-byline">
+                                    @Html.GetInnerText(string.IsNullOrWhiteSpace(subHeader) ?
+                                        content : new HtmlString(subHeader), 140)
+                                    @*<a href="@item.Url">@Localization.ItemReadMore</a>*@
+                                </span>
+                            </a>
+                        </article>
+                    </div>
+                }
+            </div>
+        </section>
+        <section class="home-news-read-more">
+            <a href="@overview.Url" class="btn btn-default">@page.NewsReadMore</a>
+        </section>
+    </div>
+</article>

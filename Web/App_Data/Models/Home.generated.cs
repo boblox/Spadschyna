@@ -46,6 +46,96 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
+		/// Description
+		///</summary>
+		[ImplementPropertyType("aboutDescription")]
+		public string AboutDescription
+		{
+			get { return this.GetPropertyValue<string>("aboutDescription"); }
+		}
+
+		///<summary>
+		/// About link
+		///</summary>
+		[ImplementPropertyType("aboutLink")]
+		public object AboutLink
+		{
+			get { return this.GetPropertyValue("aboutLink"); }
+		}
+
+		///<summary>
+		/// Read more
+		///</summary>
+		[ImplementPropertyType("aboutReadMore")]
+		public string AboutReadMore
+		{
+			get { return this.GetPropertyValue<string>("aboutReadMore"); }
+		}
+
+		///<summary>
+		/// Title
+		///</summary>
+		[ImplementPropertyType("aboutTitle")]
+		public string AboutTitle
+		{
+			get { return this.GetPropertyValue<string>("aboutTitle"); }
+		}
+
+		///<summary>
+		/// Read more
+		///</summary>
+		[ImplementPropertyType("announcesReadMore")]
+		public string AnnouncesReadMore
+		{
+			get { return this.GetPropertyValue<string>("announcesReadMore"); }
+		}
+
+		///<summary>
+		/// Title
+		///</summary>
+		[ImplementPropertyType("announcesTitle")]
+		public string AnnouncesTitle
+		{
+			get { return this.GetPropertyValue<string>("announcesTitle"); }
+		}
+
+		///<summary>
+		/// Read more
+		///</summary>
+		[ImplementPropertyType("galleryReadMore")]
+		public string GalleryReadMore
+		{
+			get { return this.GetPropertyValue<string>("galleryReadMore"); }
+		}
+
+		///<summary>
+		/// Title
+		///</summary>
+		[ImplementPropertyType("galleryTitle")]
+		public string GalleryTitle
+		{
+			get { return this.GetPropertyValue<string>("galleryTitle"); }
+		}
+
+		///<summary>
+		/// Read more
+		///</summary>
+		[ImplementPropertyType("newsReadMore")]
+		public string NewsReadMore
+		{
+			get { return this.GetPropertyValue<string>("newsReadMore"); }
+		}
+
+		///<summary>
+		/// Title
+		///</summary>
+		[ImplementPropertyType("newsTitle")]
+		public string NewsTitle
+		{
+			get { return this.GetPropertyValue<string>("newsTitle"); }
+		}
+
+		///<summary>
 		/// #PropertyHideInNavigation: #PropertyHideInNavigationDesc
 		///</summary>
 		[ImplementPropertyType("umbracoNaviHide")]

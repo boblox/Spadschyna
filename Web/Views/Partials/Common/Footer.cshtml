@@ -3,23 +3,24 @@
     var homePage = Model.Content.AncestorOrSelf(1);
 }
 
+<section class="fiction-footer"></section>@*Used just for making a proper padding*@
 <footer class="footer-wrapper">
     <div class="container">
         <div class="footer-inner">
             <div class="">
-                @{Html.RenderPartial("Logo");}
+                @{Html.RenderPartial("~/Views/Partials/Common/Logo.cshtml");}
+            </div>
+            <div class="footer-contacts">
+                @{Html.RenderPartial("~/Views/Partials/Common/Social.cshtml");}
             </div>
             <nav class="footer-nav hidden-xs">
                 <ul>
                     @{
                         var dict = new ViewDataDictionary(ViewData) { { "menuItem", homePage } };
-                        Html.RenderPartial("TopNavigationList", dict);
+                        Html.RenderPartial("~/Views/Partials/Navigation/TopNavigationList.cshtml", dict);
                     }
                 </ul>
             </nav>
-            <div class="footer-contacts">
-                @{Html.RenderPartial("Social");}
-            </div>
         </div>
     </div>
 </footer>

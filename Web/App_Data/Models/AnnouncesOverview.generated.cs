@@ -20,16 +20,16 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>News by year</summary>
-	[PublishedContentModel("NewsByYear")]
-	public partial class NewsByYear : PublishedContentModel
+	/// <summary>Announces overview</summary>
+	[PublishedContentModel("announcesOverview")]
+	public partial class AnnouncesOverview : PublishedContentModel, INavigationComponent, ITitleComponent
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "NewsByYear";
+		public new const string ModelTypeAlias = "announcesOverview";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
-		public NewsByYear(IPublishedContent content)
+		public AnnouncesOverview(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -40,9 +40,36 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 #pragma warning restore 0109
 
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<NewsByYear, TValue>> selector)
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<AnnouncesOverview, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
+		}
+
+		///<summary>
+		/// Announces
+		///</summary>
+		[ImplementPropertyType("announcesList")]
+		public object AnnouncesList
+		{
+			get { return this.GetPropertyValue("announcesList"); }
+		}
+
+		///<summary>
+		/// #PropertyHideInNavigation: #PropertyHideInNavigationDesc
+		///</summary>
+		[ImplementPropertyType("umbracoNaviHide")]
+		public bool UmbracoNaviHide
+		{
+			get { return NavigationComponent.GetUmbracoNaviHide(this); }
+		}
+
+		///<summary>
+		/// #PropertyTitle: #PropertyTitleDesc
+		///</summary>
+		[ImplementPropertyType("title")]
+		public string Title
+		{
+			get { return TitleComponent.GetTitle(this); }
 		}
 	}
 }
