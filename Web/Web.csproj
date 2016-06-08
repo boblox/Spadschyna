@@ -678,7 +678,6 @@
     <Content Include="Views\Partials\GalleryList.cshtml" />
     <Content Include="Views\Partials\GalleryPager.cshtml" />
     <Content Include="Views\Partials\Common\LoadingSpinner.cshtml" />
-    <Content Include="Views\Shared\_Layout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
