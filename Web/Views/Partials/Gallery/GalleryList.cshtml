@@ -1,0 +1,46 @@
+﻿@inherits UmbracoViewPage<GalleryResult>
+@{
+    var items = Model.Items;
+}
+
+<header class="gallery-overview-title">
+    <h2>
+        @Model.Title
+    </h2>
+</header>
+<div class="row">
+    @foreach (var item in items)
+    {
+        var title = item.GetTitle();
+        var image = item.Image;
+        var subtitle = item.Subtitle;
+        var content = new HtmlString(string.Empty); // can't parse content as we are now using Grid Layout
+        var photoCount = item.Images.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries).Length;
+        var photoStr = string.Format("{0} {1}", photoCount, Localization.Photos);
+        <div class="col-sm-8">
+            <article class="gallery-overview-item">
+                @if (image != null)
+                {
+                    var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
+                    <a href="@item.Url" class="gallery-item-image">
+                        <img src="@imageUrl" alt=""/>
+                        <div class="gallery-item-info">
+                            <header>
+                                <h3>@title</h3>
+                            </header>
+                            <div class="gallery-item-byline">
+                                <span>@Html.GetInnerText(string.IsNullOrWhiteSpace(subtitle) ?
+                                    content : new HtmlString(subtitle), 50)</span>
+                                <span>@photoStr</span>
+                            </div>
+                        </div>
+                    </a>
+                }
+            </article>
+        </div>
+    }
+</div>
+@{
+    var dict = new ViewDataDictionary { { "DataAttr", "data-gallery-link" } };
+    Html.RenderPartial("~/Views/Partials/Common/ArticlesPager.cshtml", Model, dict);
+}

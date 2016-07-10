@@ -138,6 +138,9 @@
   <data name="NewsCategoryAnnounce" xml:space="preserve">
     <value>Актуальні події</value>
   </data>
+  <data name="Photos" xml:space="preserve">
+    <value>Фото</value>
+  </data>
   <data name="RelatedNewsNext" xml:space="preserve">
     <value>Наступна стаття</value>
   </data>

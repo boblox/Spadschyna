@@ -22,7 +22,7 @@ namespace Umbraco.Web.PublishedContentModels
 {
 	/// <summary>Announce item</summary>
 	[PublishedContentModel("announceItem")]
-	public partial class AnnounceItem : PublishedContentModel, ITitleComponent
+	public partial class AnnounceItem : PublishedContentModel, ILocationComponent, ISubtitleComponent, ITitleComponent
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "announceItem";
@@ -78,16 +78,16 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("place")]
 		public string Place
 		{
-			get { return this.GetPropertyValue<string>("place"); }
+			get { return LocationComponent.GetPlace(this); }
 		}
 
 		///<summary>
-		/// Subheader
+		/// #PropertySubtitle: #PropertySubtitleDesc
 		///</summary>
-		[ImplementPropertyType("subheader")]
-		public string Subheader
+		[ImplementPropertyType("subtitle")]
+		public string Subtitle
 		{
-			get { return this.GetPropertyValue<string>("subheader"); }
+			get { return SubtitleComponent.GetSubtitle(this); }
 		}
 
 		///<summary>

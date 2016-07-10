@@ -5,12 +5,7 @@
     var page = Model.Content;
     var siteName = site.SiteName;
     var siteDescription = site.SiteDescription;
-    var pageTitle = page.Name;
-    if (page is ITitleComponent)
-    {
-        var title = ((ITitleComponent)page).Title;
-        pageTitle = !string.IsNullOrEmpty(title) ? title : pageTitle;
-    }
+    var pageTitle = page.GetTitle();
 }
 <!DOCTYPE html>
 <html>

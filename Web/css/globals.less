@@ -8,12 +8,13 @@
 
 /*Buttons**********************************************************/
 .btn {
-    .transition(all 0.4s);
+    .transition(all 0.5s);
     border-radius: 0;
     text-transform: uppercase;
     padding-left: 25px;
     padding-right: 25px;
-    font-size: @font-size-3;
+    font-size: @font-size-large;
+    font-weight: bold;
 
     &.btn-default {
         color: @orange-color-a;
@@ -22,7 +23,7 @@
 
         &:focus, &:hover, &:active,
         &.focus, &.hover, &.active {
-            color: @gray-color-3;
+            color: white;
             background-color: @orange-color-b;
             border-color: @orange-color-b;
             outline: none;
@@ -30,7 +31,7 @@
     }
     //"primary" - class for Umbraco Forms buttons
     &.btn-primary, &.primary {
-        color: white;
+        color: @white-color;
         background-color: @orange-color-a;
         border-color: @orange-color-a;
 
@@ -144,16 +145,8 @@ textarea, input {
     .owl-carousel.owl-theme {
         .owl-pagination .owl-page {
             & span {
-                background-color: transparent;
-                border: 1px solid @white-color;
-                opacity: 1;
                 height: 14px;
                 width: 14px;
-            }
-
-            &.active span,
-            &:hover span {
-                background-color: @white-color;
             }
         }
 
@@ -182,7 +175,7 @@ textarea, input {
 //Carousel with preview. "Gallery" grid editor
 .gallery-widget {
     margin-bottom: 20px;
-    background-color: @black-color;
+    background-color: @white-color;
     // Used in gallery. Slide part
     & .slide {
         .owl-carousel {

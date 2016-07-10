@@ -13,11 +13,11 @@ namespace Web.Controllers
     public class GalleryController : SurfaceController
     {
         [HttpPost]
-        public ActionResult Index(int year, int page)
+        public ActionResult Index(int year, int page, int itemsPerPage)
         {
             //System.Threading.Thread.Sleep(1000);
-            var model = ContentManager.GetGalleryItems(year, page, Consts.GalleryConfig.ItemsPerPageOnOverviewPage);
-            return PartialView("GalleryList", model);
+            var model = ContentManager.GetGalleryItems(year, page, itemsPerPage);
+            return PartialView("~/Views/Partials/Gallery/GalleryList.cshtml", model);
         }
     }
 }

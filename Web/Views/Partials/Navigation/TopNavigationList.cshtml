@@ -7,12 +7,7 @@
 
 @foreach (var item in items)
 {
-    var itemTitle = item.Name;
-    if (item is ITitleComponent)
-    {
-        var title = ((ITitleComponent)item).Title;
-        itemTitle = !string.IsNullOrEmpty(title) ? title : itemTitle;
-    }
+    var title = item.GetTitle();
 
     var children = item.Children<INavigationComponent>()
         .Where(i => !i.UmbracoNaviHide);
@@ -21,7 +16,7 @@
         <li class="dropdown @(CurrentPage.Id == item.Id ? "active" : null)">
             <a href="@item.Url">
                 @*class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"*@
-                @itemTitle
+                @title
             </a>
             <!--Show second level-->
             <ul class="dropdown-menu" role="menu">
@@ -35,6 +30,8 @@
     }
     else
     {
-        @CommonHelpers.SimpleMenuItem(item, CurrentPage)
+        <li class="@(CurrentPage.Id == item.Id ? "active" : null)">
+            <a href="@item.Url">@title</a>
+        </li>
     }
 }

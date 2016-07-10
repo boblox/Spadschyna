@@ -48,7 +48,7 @@ namespace Web.Helpers
             };
         }
 
-        public static NewsResult GetNewsItems(int year, int category, int page, int itemsPerPage)
+        public static NewsResult GetNewsItems(int year, int page, int itemsPerPage)
         {
             var home = UmbracoHelper.TypedContentAtRoot().First();
             var overview = home.FirstChild<NewsOverview>();
@@ -68,20 +68,6 @@ namespace Web.Helpers
                     {
                         items = newsByYear.Children<NewsItem>().ToList();
                     }
-                }
-
-                //Filter by category
-                if (category == Consts.NewsConfig.NewsCategoryAnnounceInt)
-                {
-                    items = items.Where(i => i.IsAnnounce).ToList();
-                }
-                else if (category != Consts.NewsConfig.NewsCategoryAllInt)
-                {
-                    var newsCategories = Utils.GetDataTypePreValues(NewsItem.GetModelPropertyType(i => i.Category).DataTypeId).ToList();
-                    var categoryStr = newsCategories.First(i => i.Id == category).Value;
-                    items = items.Where(i =>
-                        ((string)i.Category).Equals(categoryStr, StringComparison.InvariantCultureIgnoreCase))
-                        .ToList();
                 }
 
                 //Sort items
@@ -144,6 +130,7 @@ namespace Web.Helpers
 
             return new GalleryResult
             {
+                Title = overview.GetTitle(),
                 Items = items,
                 Page = page,
                 TotalPages = totalPagesCount

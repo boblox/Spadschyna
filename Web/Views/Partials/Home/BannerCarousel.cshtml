@@ -8,7 +8,9 @@
 @helper ArticleItem(string imageUrl, string title, string subtitle, string buttonText, string redirectLink)
 {
     <article>
-        <img class="lazyOwl img-responsive" data-src="@imageUrl" />
+        <div class="banner-carousel-item-image">
+            <img class="lazyOwl img-responsive" data-src="@imageUrl" /> 
+        </div>
         <div class="banner-carousel-item-info">
             <div class="container">
                 <div>
@@ -16,7 +18,7 @@
                         <h1>@title</h1>
                     </header>
                     <span>@subtitle</span>
-                    @if (!string.IsNullOrEmpty(buttonText) && !string.IsNullOrEmpty(redirectLink))
+                    @if (!string.IsNullOrEmpty(buttonText))
                     {
                         <a href="@redirectLink" class="btn btn-primary">@buttonText</a>
                     }
@@ -40,7 +42,7 @@
                     {
                         var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
                         var redirectPageId = ((int?)article.PageToOpen).GetValueOrDefault();
-                        var redirectLink = redirectPageId != 0 ? Umbraco.NiceUrl(redirectPageId) : string.Empty;
+                        var redirectLink = redirectPageId != 0 ? Umbraco.NiceUrl(redirectPageId) : "#";
                         var title = article.Name;
                         var subTitle = article.Subtitle;
                         var buttonText = article.ButtonText;
@@ -66,7 +68,7 @@
 
     <script type="text/javascript">
         $(function () {
-            InitFeaturedArticlesCarousel('@id');
+            InitBannerCarousel('@id');
         });
     </script>
 }

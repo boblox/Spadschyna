@@ -3,31 +3,37 @@
     Layout = "ContentBase.cshtml";
 
     var item = Model.Content;
-    var newsOverviewTitle = ((GalleryOverview)Model.Content.Parent.Parent).Title;
-
-    // If the editor has not explicitly provided the "Page title" property page
-    // then just show the name of the page otherwise show the provided title
-    var pageTitle = string.IsNullOrWhiteSpace(item.Title) ? item.Name : item.Title;
+    var title = item.GetTitle();
+    var imageIds = item.Images.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse);
+    var images = Umbraco.TypedMedia(imageIds);
 }
-@section Header
-{
-    @newsOverviewTitle
-}
-
-@section LeftSidebar
-{
-    @{Html.RenderPartial("GalleryLeftSidebar");}
-}
-
 @section Body
 {
-    <div class="content-wrapper">
-        <header class="content-title">
-            <h2>@pageTitle</h2>
+    <div class="gallery-item" id="gallery-item">
+        <header>
+            <h3>
+                @title
+            </h3>
         </header>
-        <div class="grid-content">
-            @Html.GetGridHtml(item, GalleryItem.GetModelPropertyType(i => i.Content).PropertyTypeAlias, "Custom")
+        <span>@item.Subtitle</span>
+        <div class="images">
+            <div class="row">
+                @foreach (var image in images)
+                {
+                    var url = image.Url;
+                    <div class="col-sm-6">
+                        <a href="@url" class="image">
+                            <img src="@Html.GetThumbnailUrl(url, 300, 300)" alt=""/>
+                        </a>
+                    </div>
+                }
+            </div>
         </div>
-        @{Html.RenderPartial("Comments");}
     </div>
+
+    <script type="text/javascript">
+        $(function () {
+            InitGalleryItem();
+        });
+    </script>
 }

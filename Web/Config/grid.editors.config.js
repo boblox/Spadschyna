@@ -5,16 +5,16 @@
         "view": "rte",
         "icon": "icon-article"
     },
-    {
-        "name": "Редактор тексту, який вміє складатись",
-        "alias": "collapsible-rte",
-        "render": "/App_Plugins/Grid/Editors/Render/collapsible-rte.cshtml",
-        "view": "/App_Plugins/Grid/Editors/Views/collapsible-rte.html",
-        "icon": "icon-article",
-        "config": {
-            "style": "font-size: 25px; line-height: 35px; font-weight: normal; color: white;"
-        }
-    },
+    //{
+    //    "name": "Редактор тексту, який вміє складатись",
+    //    "alias": "collapsible-rte",
+    //    "render": "/App_Plugins/Grid/Editors/Render/collapsible-rte.cshtml",
+    //    "view": "/App_Plugins/Grid/Editors/Views/collapsible-rte.html",
+    //    "icon": "icon-article",
+    //    "config": {
+    //        "style": "font-size: 25px; line-height: 35px; font-weight: normal; color: white;"
+    //    }
+    //},
     {
         "name": "Світлина",
         "alias": "media",
@@ -39,7 +39,7 @@
         "view": "textstring",
         "icon": "icon-forms-paypal",
         "config": {
-            "style": "font-size: 18px; line-height: 22px; font-weight:bold;",
+            "style": "font-size: 18px; line-height: 1.1; font-weight:bold;",
             "markup": "<h4>#value#</h4>"
         }
     },
@@ -49,7 +49,7 @@
         "view": "textstring",
         "icon": "icon-forms-paypal",
         "config": {
-            "style": "font-size: 22px; line-height: 27px; font-weight:bold;",
+            "style": "font-size: 22px; line-height: 1.1; font-weight:bold;",
             "markup": "<h3>#value#</h3>"
         }
     },
@@ -59,20 +59,20 @@
         "view": "textstring",
         "icon": "icon-forms-paypal",
         "config": {
-            "style": "font-size: 30px; line-height: 37px; font-weight:bold;",
+            "style": "font-size: 35px; color:#f6ab32; line-height: 1.1; font-weight:bold;",
             "markup": "<h2>#value#</h2>"
         }
     },
-    {
-        "name": "Кольоровий заголовок",
-        "alias": "coloured-header",
-        "render": "/App_Plugins/Grid/Editors/Render/coloured-header.cshtml",
-        "view": "/App_Plugins/Grid/Editors/Views/coloured-header.html",
-        "icon": "icon-forms-paypal",
-        "config": {
-            "style": "font-size: 25px; line-height: 35px; font-weight: normal; color: white;"
-        }
-    },
+    //{
+    //    "name": "Кольоровий заголовок",
+    //    "alias": "coloured-header",
+    //    "render": "/App_Plugins/Grid/Editors/Render/coloured-header.cshtml",
+    //    "view": "/App_Plugins/Grid/Editors/Views/coloured-header.html",
+    //    "icon": "icon-forms-paypal",
+    //    "config": {
+    //        "style": "font-size: 25px; line-height: 35px; font-weight: normal; color: white;"
+    //    }
+    //},
     {
         "name": "Цитата",
         "alias": "quote",

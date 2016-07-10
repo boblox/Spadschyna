@@ -44,7 +44,7 @@ namespace Web.Controllers
         [ChildActionOnly]
         public ActionResult Index(string emailFrom, string emailTo)
         {
-            return PartialView("ContactForm", new ContactForm { EmailFrom = emailFrom, EmailTo = emailTo });
+            return PartialView("~/Views/Partials/Common/ContactForm.cshtml", new ContactForm { EmailFrom = emailFrom, EmailTo = emailTo });
         }
 
         #endregion

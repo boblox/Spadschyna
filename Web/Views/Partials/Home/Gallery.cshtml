@@ -24,7 +24,9 @@
                                 @if (image != null)
                                 {
                                     var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
-                                    <img class="home-gallery-item-image" src="@imageUrl" alt="">
+                                    <div class="home-gallery-item-image">
+                                        <img src="@imageUrl" alt="">
+                                    </div>
                                 }
                             </a>
                         </article>

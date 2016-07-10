@@ -30,6 +30,7 @@ namespace Web.Helpers
                 .Include("~/js/jquery/jquery.validate.min.js")//JQuery validation
                 .Include("~/js/jquery/jquery.validate.unobtrusive.min.js")//MVC client validation with html attributes
                 .Include("~/js/jquery/jquery.unobtrusive-ajax.min.js")//Added support for ajax forms...
+                .Include("~/js/jquery/datepicker-uk.js")//Localization for date picker
 
                 .Include("~/js/imagesloaded.pkgd.min.js")
                 .Include("~/js/masonry.pkgd.min.js")

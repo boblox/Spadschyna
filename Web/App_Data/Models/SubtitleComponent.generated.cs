@@ -20,16 +20,24 @@ using Umbraco.ModelsBuilder.Umbraco;
 
 namespace Umbraco.Web.PublishedContentModels
 {
-	/// <summary>Gallery item</summary>
-	[PublishedContentModel("GalleryItem")]
-	public partial class GalleryItem : PublishedContentModel, ISubtitleComponent, ITitleComponent
+	// Mixin content Type 1225 with alias "subtitleComponent"
+	/// <summary>Subtitle</summary>
+	public partial interface ISubtitleComponent : IPublishedContent
+	{
+		/// <summary>#PropertySubtitle</summary>
+		string Subtitle { get; }
+	}
+
+	/// <summary>Subtitle</summary>
+	[PublishedContentModel("subtitleComponent")]
+	public partial class SubtitleComponent : PublishedContentModel, ISubtitleComponent
 	{
 #pragma warning disable 0109 // new is redundant
-		public new const string ModelTypeAlias = "GalleryItem";
+		public new const string ModelTypeAlias = "subtitleComponent";
 		public new const PublishedItemType ModelItemType = PublishedItemType.Content;
 #pragma warning restore 0109
 
-		public GalleryItem(IPublishedContent content)
+		public SubtitleComponent(IPublishedContent content)
 			: base(content)
 		{ }
 
@@ -40,27 +48,9 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 #pragma warning restore 0109
 
-		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<GalleryItem, TValue>> selector)
+		public static PublishedPropertyType GetModelPropertyType<TValue>(Expression<Func<SubtitleComponent, TValue>> selector)
 		{
 			return PublishedContentModelUtility.GetModelPropertyType(GetModelContentType(), selector);
-		}
-
-		///<summary>
-		/// Image
-		///</summary>
-		[ImplementPropertyType("image")]
-		public Umbraco.Web.Models.ImageCropDataSet Image
-		{
-			get { return this.GetPropertyValue<Umbraco.Web.Models.ImageCropDataSet>("image"); }
-		}
-
-		///<summary>
-		/// Images
-		///</summary>
-		[ImplementPropertyType("images")]
-		public string Images
-		{
-			get { return this.GetPropertyValue<string>("images"); }
 		}
 
 		///<summary>
@@ -69,16 +59,10 @@ namespace Umbraco.Web.PublishedContentModels
 		[ImplementPropertyType("subtitle")]
 		public string Subtitle
 		{
-			get { return SubtitleComponent.GetSubtitle(this); }
+			get { return GetSubtitle(this); }
 		}
 
-		///<summary>
-		/// #PropertyTitle: #PropertyTitleDesc
-		///</summary>
-		[ImplementPropertyType("title")]
-		public string Title
-		{
-			get { return TitleComponent.GetTitle(this); }
-		}
+		/// <summary>Static getter for #PropertySubtitle</summary>
+		public static string GetSubtitle(ISubtitleComponent that) { return that.GetPropertyValue<string>("subtitle"); }
 	}
 }

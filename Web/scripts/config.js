@@ -1,5 +1,4 @@
 ﻿/*********************************************=ImagesCarousel=****************************************************************/
-
 function InitImagesCarousel(carouselWrapperId) {
     var carouselWrapper = $("#" + carouselWrapperId);
     var carousel = carouselWrapper.find('.owl-carousel');
@@ -20,7 +19,6 @@ function InitImagesCarousel(carouselWrapperId) {
 }
 
 /*********************************************=ImagesGallery=****************************************************************/
-
 function InitImagesGallery(carouselWrapperId1, carouselWrapperId2) {
     var carouselWrapper1 = $("#" + carouselWrapperId1);
     var carouselWrapper2 = $("#" + carouselWrapperId2);
@@ -104,9 +102,8 @@ function InitImagesGallery(carouselWrapperId1, carouselWrapperId2) {
     });
 }
 
-/*********************************************=Featured Articles Carousel=***************************************************/
-
-function InitFeaturedArticlesCarousel(carouselWrapperId) {
+/*********************************************=Banner Carousel=***********************************************************/
+function InitBannerCarousel(carouselWrapperId) {
     var carouselWrapper = $("#" + carouselWrapperId);
     var carousel = carouselWrapper.find('.owl-carousel');
     carousel.owlCarousel({
@@ -127,17 +124,14 @@ function InitFeaturedArticlesCarousel(carouselWrapperId) {
     //});
 }
 
-/*********************************************=News Left Sidebar=***************************************************/
-
-function InitNewsLeftSidebar(newsCategoryAllInt, yearAllInt, weAreOnTheNewsOverview, newsOverviewUrl) {
+/*********************************************=News Overview Routing=*****************************************************/
+function InitNewsRouting(yearAllInt, itemsPerPage) {
     function updateRoute(route, el) {
-        var year = $(el).attr('year');
-        var category = $(el).attr('category');
-        var page = $(el).attr('page');
+        var year = $(el).data('year');
+        var page = $(el).data('page');
         route.year = year === undefined ? route.year : year;
-        route.category = category === undefined ? route.category : category;
 
-        if (year !== undefined || category != undefined) {
+        if (year !== undefined) {
             //reset news feed page if we clicked on category or year
             route.page = config.newsStartPage;
         }
@@ -149,73 +143,64 @@ function InitNewsLeftSidebar(newsCategoryAllInt, yearAllInt, weAreOnTheNewsOverv
     function getInitRoute() {
         var route = {
             year: yearAllInt,
-            category: newsCategoryAllInt,
-            page: config.newsStartPage
+            page: config.newsStartPage,
+            itemsPerPage: itemsPerPage
         };
-        $("a.news-link.active").each(function () {
+        $("a[data-news-link]active").each(function () {
             updateRoute(route, $(this));
         });
         return route;
     }
 
     function bindControllers(route, router) {
-        $("a.news-link").off('click');
+        $("a[data-news-link]").off('click');
 
-        $("a.news-link").on('click', function (e) {
+        $("a[data-news-link]").on('click', function (e) {
             e.preventDefault();
             updateRoute(route, this);
 
             var hash = 'year/' + encodeURIComponent(route.year) +
-                '/category/' + encodeURIComponent(route.category) +
                 '/page/' + encodeURIComponent(route.page);
-            if (weAreOnTheNewsOverview) {
-                router.setRoute(hash);
-            } else {
-                location.href = newsOverviewUrl + "#/" + hash;
-            }
+            router.setRoute(hash);
         });
     }
 
     function dealWithRoute(route, router) {
-        //If it's NewsItem page then it is set on server side
-        if (weAreOnTheNewsOverview) {
-            $("a.news-link").removeClass('active');
-            $("a.news-link[year=" + route.year + "]").addClass('active');
-            $("a.news-link[category=" + route.category + "]").addClass('active');
-            $("a.news-link[page=" + route.page + "]").addClass('active');
+        $("a[data-news-link]").removeClass('active');
+        $("a[data-news-link][data-year=" + route.year + "]").addClass('active');
+        $("a[data-news-link][data-page=" + route.page + "]").addClass('active');
 
-            var list = $("#news-list");
-            //overlay shown over list of items when news are loaded
-            var loadingOverlay = list.siblings("#loading-overlay").show();
-            $.ajax({
-                url: '/umbraco/surface/News/Index/',
-                type: 'POST',
-                dataType: 'html',
-                data: JSON.stringify(route),
-                contentType: 'application/json; charset=utf-8',
-                success: function (data) {
-                    list.fadeOut("fast", function () {
-                        loadingOverlay.hide();
-                        list.html(data).fadeIn("fast");
-                        bindControllers(route, router);
-                        reloadDisqusCommentsCounter();
-                    });
-                },
-                error: function (request, status) {
+        var list = $("#news-list");
+        //overlay shown over list of items when news are loaded
+        var loadingOverlay = list.siblings("#loading-overlay").show();
+        $.ajax({
+            url: '/umbraco/surface/News/Index/',
+            type: 'POST',
+            dataType: 'html',
+            data: JSON.stringify(route),
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                list.fadeOut("fast", function () {
                     loadingOverlay.hide();
-                    showDialog("Вибачте, неможливо завантажити новини");
-                }
-            });
-        }
+                    list.html(data).fadeIn("fast");
+                    bindControllers(route, router);
+                    reloadDisqusCommentsCounter();
+                });
+            },
+            error: function (request, status) {
+                loadingOverlay.hide();
+                showDialog("Вибачте, неможливо завантажити новини");
+            }
+        });
     }
 
     var routes = {
-        '/year/:year/category/:category/page/:page':
-            function (year, category, page) {
+        '/year/:year/page/:page':
+            function (year, page) {
                 currentRoute = {
                     year: decodeURIComponent(year),
-                    category: decodeURIComponent(category),
-                    page: decodeURIComponent(page)
+                    page: decodeURIComponent(page),
+                    itemsPerPage: itemsPerPage
                 };
                 dealWithRoute(currentRoute, router);
             },
@@ -228,10 +213,7 @@ function InitNewsLeftSidebar(newsCategoryAllInt, yearAllInt, weAreOnTheNewsOverv
     var router = Router(routes);
 
     //Routing should work only on NewsOverview page
-    if (weAreOnTheNewsOverview) {
-        router.init('/');
-    }
-
+    router.init('/');
     //var hash = window.location.hash.slice(2);
     //router.setRoute('/');
     //router.setRoute(hash);
@@ -239,12 +221,11 @@ function InitNewsLeftSidebar(newsCategoryAllInt, yearAllInt, weAreOnTheNewsOverv
     bindControllers(currentRoute, router);
 }
 
-/*********************************************=Gallery Left Sidebar=***************************************************/
-
-function InitGalleryLeftSidebar(yearAllInt, weAreOnTheGalleryOverview, galleryOverviewUrl) {
+/*********************************************=Gallery Overview routing=***************************************************/
+function InitGalleryRouting(yearAllInt, itemsPerPage) {
     function updateRoute(route, el) {
-        var year = $(el).attr('year');
-        var page = $(el).attr('page');
+        var year = $(el).data('year');
+        var page = $(el).data('page');
         route.year = year === undefined ? route.year : year;
 
         if (year !== undefined) {
@@ -259,61 +240,56 @@ function InitGalleryLeftSidebar(yearAllInt, weAreOnTheGalleryOverview, galleryOv
     function getInitRoute() {
         var route = {
             year: yearAllInt,
-            page: config.galleryStartPage
+            page: config.galleryStartPage,
+            itemsPerPage: itemsPerPage
         };
-        $("a.gallery-link.active").each(function () {
+        $("a[data-gallery-link].active").each(function () {
             updateRoute(route, $(this));
         });
         return route;
     }
 
     function bindControllers(route, router) {
-        $("a.gallery-link").off('click');
+        $("a[data-gallery-link]").off('click');
 
-        $("a.gallery-link").on('click', function (e) {
+        $("a[data-gallery-link]").on('click', function (e) {
             e.preventDefault();
             updateRoute(route, this);
 
             var hash = 'year/' + encodeURIComponent(route.year) +
                 '/page/' + encodeURIComponent(route.page);
-            if (weAreOnTheGalleryOverview) {
-                router.setRoute(hash);
-            } else {
-                location.href = galleryOverviewUrl + "#/" + hash;
-            }
+            router.setRoute(hash);
         });
     }
 
     function dealWithRoute(route, router) {
         //If it's NewsItem page then it is set on server side
-        if (weAreOnTheGalleryOverview) {
-            $("a.gallery-link").removeClass('active');
-            $("a.gallery-link[year=" + route.year + "]").addClass('active');
-            $("a.gallery-link[page=" + route.page + "]").addClass('active');
+        $("a[data-gallery-link]").removeClass('active');
+        $("a[data-gallery-link][year=" + route.year + "]").addClass('active');
+        $("a[data-gallery-link][page=" + route.page + "]").addClass('active');
 
-            var list = $("#gallery-list");
-            //overlay shown over list of items when news are loaded
-            var loadingOverlay = list.siblings("#loading-overlay").show();
-            $.ajax({
-                url: '/umbraco/surface/Gallery/Index/',
-                type: 'POST',
-                dataType: 'html',
-                data: JSON.stringify(route),
-                contentType: 'application/json; charset=utf-8',
-                success: function (data) {
-                    list.fadeOut("fast", function () {
-                        loadingOverlay.hide();
-                        list.html(data).fadeIn("fast");
-                        bindControllers(route, router);
-                        reloadDisqusCommentsCounter();
-                    });
-                },
-                error: function (request, status) {
+        var list = $("#gallery-list");
+        //overlay shown over list of items when news are loaded
+        var loadingOverlay = list.siblings("#loading-overlay").show();
+        $.ajax({
+            url: '/umbraco/surface/Gallery/Index/',
+            type: 'POST',
+            dataType: 'html',
+            data: JSON.stringify(route),
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                list.fadeOut("fast", function () {
                     loadingOverlay.hide();
-                    showDialog("Вибачте, неможливо завантажити галерею");
-                }
-            });
-        }
+                    list.html(data).fadeIn("fast");
+                    bindControllers(route, router);
+                    //reloadDisqusCommentsCounter();
+                });
+            },
+            error: function (request, status) {
+                loadingOverlay.hide();
+                showDialog("Вибачте, неможливо завантажити галерею");
+            }
+        });
     }
 
     var routes = {
@@ -321,7 +297,8 @@ function InitGalleryLeftSidebar(yearAllInt, weAreOnTheGalleryOverview, galleryOv
             function (year, page) {
                 currentRoute = {
                     year: decodeURIComponent(year),
-                    page: decodeURIComponent(page)
+                    page: decodeURIComponent(page),
+                    itemsPerPage: itemsPerPage
                 };
                 dealWithRoute(currentRoute, router);
             },
@@ -334,10 +311,7 @@ function InitGalleryLeftSidebar(yearAllInt, weAreOnTheGalleryOverview, galleryOv
     var router = Router(routes);
 
     //Routing should work only on NewsOverview page
-    if (weAreOnTheGalleryOverview) {
-        router.init('/');
-    }
-
+    router.init('/');
     //var hash = window.location.hash.slice(2);
     //router.setRoute('/');
     //router.setRoute(hash);
@@ -345,8 +319,37 @@ function InitGalleryLeftSidebar(yearAllInt, weAreOnTheGalleryOverview, galleryOv
     bindControllers(currentRoute, router);
 }
 
-/***************************************************=Disqus=******************************************************************/
+/*********************************************=Gallery Overview routing=***************************************************/
+function InitGalleryItem() {
+    $("#gallery-item .image").magnificPopup({
+        type: 'image',
+        //delegate: 'img',
+        image: {
+            titleSrc: null,
+            cursor: null
+        },
+        gallery: {
+            enabled: true,
+            preload: [0, 1],
+            arrowMarkup: '<button title="%title%" type="button" class="mfp-custom-arrow arrow-%dir%">' +
+                            '<div class="mfp-prevent-close"></div>' +
+                         '</button>'
+        },
+        tLoading: '',
+        closeMarkup: '<button title="%title%" class="mfp-close">' +
+                    '</button>',
+        mainClass: 'mfp-fade',
+        removalDelay: 300,
+        callbacks: {
+            buildControls: function () {
+                // re-appends controls inside the main container
+                this.contentContainer.append(this.arrowLeft.add(this.arrowRight));
+            }
+        }
+    });
+}
 
+/***************************************************=Disqus=******************************************************************/
 function InitDisqus(identifier) {
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     window.disqus_shortname = config.disqusShortName; // required: replace example with your forum shortname
@@ -359,8 +362,25 @@ function InitDisqus(identifier) {
     })();
 }
 
-/**********************************************=Scroll to top=***************************************************************/
+/***************************************************=Google Map=**************************************************************/
+function InitGoogleMap(settings) {
+    var position = { lat: settings.latitude, lng: settings.longitude };
+    var el = $("#"+settings.id).get(0);
+    var map = new google.maps.Map(el, {
+        zoom: settings.zoom,
+        center: position
+        //scrollwheel: false,
+    });
 
+    // Create a marker and set its position.
+    new google.maps.Marker({
+        map: map,
+        position: position,
+        title: settings.title
+    });
+}
+
+/**********************************************=Scroll to top=***************************************************************/
 function InitScrollToTop(identifier) {
     $(window).scroll(function () {
         if ($(this).scrollTop() > 150) {
@@ -378,7 +398,6 @@ function InitScrollToTop(identifier) {
 }
 
 /**********************************************=Loading spinner=***************************************************************/
-
 function InitLoadingSpinner(identifier) {
     var $loading = $(identifier).hide();
     $(document)
@@ -391,7 +410,6 @@ function InitLoadingSpinner(identifier) {
 }
 
 /**********************************************=Collapsible header=***********************************************************/
-
 function InitCollapsibleHeader(linkId, rteId) {
     var rte = $("#" + rteId);
     var link = $("#" + linkId);

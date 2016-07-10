@@ -6,7 +6,10 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Html;
 using Logic.Resources;
+using Umbraco.Core.Models;
 using Umbraco.Web;
+using Umbraco.Web.Models;
+using Umbraco.Web.PublishedContentModels;
 
 namespace Web.Helpers
 {
@@ -60,11 +63,9 @@ namespace Web.Helpers
             return new MvcHtmlString(string.Format(format, args));
         }
 
-        public static MvcHtmlString GetThumbnailUrl(this HtmlHelper html, string url, int width)
+        public static MvcHtmlString GetThumbnailUrl(this HtmlHelper html, string url, int? width = null, int? height = null, ImageCropMode? cropMode = null)
         {
-            return new MvcHtmlString(url.GetCropUrl(width));
-            //return new MvcHtmlString($"{url}?width={width}");
-            //return new MvcHtmlString($"/ImageGen.ashx?image={HttpUtility.UrlEncode(url)}&Width={400}");
+            return new MvcHtmlString(url.GetCropUrl(width, height, imageCropMode: ImageCropMode.Crop, furtherOptions: "&bgcolor=fff"));
         }
     }
 }

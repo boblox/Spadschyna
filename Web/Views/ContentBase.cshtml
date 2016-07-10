@@ -4,8 +4,8 @@
     var leftSidebarDefined = IsSectionDefined("LeftSidebar");
     var rightSidebarDefined = IsSectionDefined("RightSidebar");
 
-    var leftSidebarWidth = 5;
-    var rightSidebarWidth = 5;
+    var leftSidebarWidth = 6;
+    var rightSidebarWidth = 6;
     var allWidth = 24;
     var contentWidth = allWidth;
     string cssClass = "no-sidebars-defined";
@@ -32,17 +32,13 @@
     }
 }
 
-@if (IsSectionDefined("FeaturedArticlesCarousel"))
-{
-    @RenderSection("FeaturedArticlesCarousel")
-}
 <section class="main-wrapper">
     <div class="container">
-        <header class="header-coloured orange">
+        @*<header class="header-coloured orange">
             <h3>
                 @RenderSection("Header")
             </h3>
-        </header>
+        </header>*@
         <div class="row">
             @if (leftSidebarDefined)
             {

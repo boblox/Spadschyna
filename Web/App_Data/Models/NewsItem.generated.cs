@@ -22,7 +22,7 @@ namespace Umbraco.Web.PublishedContentModels
 {
 	/// <summary>News item</summary>
 	[PublishedContentModel("NewsItem")]
-	public partial class NewsItem : PublishedContentModel, ITitleComponent
+	public partial class NewsItem : PublishedContentModel, ILocationComponent, ISubtitleComponent, ITitleComponent
 	{
 #pragma warning disable 0109 // new is redundant
 		public new const string ModelTypeAlias = "NewsItem";
@@ -46,15 +46,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Category
-		///</summary>
-		[ImplementPropertyType("category")]
-		public object Category
-		{
-			get { return this.GetPropertyValue("category"); }
-		}
-
-		///<summary>
 		/// Content
 		///</summary>
 		[ImplementPropertyType("content")]
@@ -73,15 +64,6 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Це анонс?
-		///</summary>
-		[ImplementPropertyType("isAnnounce")]
-		public bool IsAnnounce
-		{
-			get { return this.GetPropertyValue<bool>("isAnnounce"); }
-		}
-
-		///<summary>
 		/// Publish date: You can overrule the date shown on the site by changing it here. If you don't set a date explicitly here then the news item's create date will be shown.
 		///</summary>
 		[ImplementPropertyType("publishDate")]
@@ -91,21 +73,30 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Subheader
-		///</summary>
-		[ImplementPropertyType("subheader")]
-		public string Subheader
-		{
-			get { return this.GetPropertyValue<string>("subheader"); }
-		}
-
-		///<summary>
 		/// Tags
 		///</summary>
 		[ImplementPropertyType("tags")]
 		public object Tags
 		{
 			get { return this.GetPropertyValue("tags"); }
+		}
+
+		///<summary>
+		/// Place
+		///</summary>
+		[ImplementPropertyType("place")]
+		public string Place
+		{
+			get { return LocationComponent.GetPlace(this); }
+		}
+
+		///<summary>
+		/// #PropertySubtitle: #PropertySubtitleDesc
+		///</summary>
+		[ImplementPropertyType("subtitle")]
+		public string Subtitle
+		{
+			get { return SubtitleComponent.GetSubtitle(this); }
 		}
 
 		///<summary>

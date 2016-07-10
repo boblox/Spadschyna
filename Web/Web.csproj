@@ -445,9 +445,9 @@
     </Content>
     <Content Include="Email\ContactForm.html" />
     <Content Include="favicon.ico" />
-    <Content Include="js\bootstrap.min.js" />
     <Content Include="js\bootstrap\bootstrap.js" />
     <Content Include="js\bootstrap\bootstrap.min.js" />
+    <Content Include="js\jquery\datepicker-uk.js" />
     <Content Include="scripts\config.js" />
     <Content Include="js\director.min.js" />
     <Content Include="js\imagesloaded.pkgd.min.js" />
@@ -537,7 +537,9 @@
     <Content Include="css\rte.less" />
     <Content Include="css\rte-base.less" />
     <Content Include="Config\UrlRewriting.config" />
-    <Content Include="Config\umbracoSettings.config" />
+    <Content Include="Config\umbracoSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\tinyMceConfig.config">
       <SubType>Designer</SubType>
     </Content>
@@ -551,8 +553,6 @@
     <Content Include="Config\EmbeddedMedia.config" />
     <Content Include="Config\BaseRestExtensions.config" />
     <Content Include="Config\404handlers.config" />
-    <Content Include="Fonts\KelsonSansBold.woff" />
-    <Content Include="Fonts\KelsonSansRegular.woff" />
     <None Include="js\jquery\jquery.validate-vsdoc.js" />
     <Content Include="js\jquery\jquery.validate.js" />
     <Content Include="js\jquery\jquery.validate.min.js" />
@@ -597,16 +597,15 @@
     <Content Include="css\mixins.less" />
     <Content Include="css\styles.less" />
     <Content Include="css\variables.less" />
-    <Content Include="Views\Partials\Breadcrumb.cshtml" />
-    <Content Include="Views\Partials\Calendar.cshtml" />
-    <Content Include="Views\Partials\Comments.cshtml" />
-    <Content Include="Views\Partials\ContactForm.cshtml" />
+    <Content Include="Views\Partials\Common\Breadcrumb.cshtml" />
+    <Content Include="Views\Partials\Common\Calendar.cshtml" />
+    <Content Include="Views\Partials\Common\Comments.cshtml" />
+    <Content Include="Views\Partials\Common\ContactForm.cshtml" />
     <Content Include="Views\Partials\Home\BannerCarousel.cshtml" />
     <Content Include="Views\Partials\Common\Footer.cshtml" />
     <Content Include="Views\Partials\Common\Header.cshtml" />
-    <Content Include="Views\Partials\ImagesCarousel.cshtml" />
+    <Content Include="Views\Partials\Common\ImagesCarousel.cshtml" />
     <Content Include="Views\Partials\Common\Logo.cshtml" />
-    <Content Include="Views\Partials\NewsLeftSidebar.cshtml" />
     <Content Include="Views\Partials\Common\ScrollToTop.cshtml" />
     <Content Include="Views\Partials\Common\Social.cshtml" />
     <Content Include="Views\Partials\Navigation\TopNavigation.cshtml" />
@@ -629,10 +628,10 @@
     <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
     <Content Include="Views\MacroPartials\ContactForm.cshtml" />
     <Content Include="Views\MacroPartials\ImagesCarousel.cshtml" />
-    <Content Include="Views\Partials\NewsList.cshtml" />
-    <Content Include="Views\Partials\NewsPager.cshtml" />
-    <Content Include="Views\Partials\NewsItemInfo.cshtml" />
-    <Content Include="Views\Partials\NewsItemTags.cshtml" />
+    <Content Include="Views\Partials\News\NewsList.cshtml" />
+    <Content Include="Views\Partials\Common\ArticlesPager.cshtml" />
+    <Content Include="Views\Partials\News\NewsItemInfo.cshtml" />
+    <Content Include="Views\Partials\News\NewsItemTags.cshtml" />
     <Content Include="Views\Partials\Forms\Export\csv.cshtml" />
     <Content Include="Views\Partials\Forms\Export\html.cshtml" />
     <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.CheckBox.cshtml" />
@@ -660,7 +659,6 @@
     <Content Include="js\jquery\jquery-2.2.1.min.map" />
     <Content Include="Views\GalleryItem.cshtml" />
     <Content Include="Views\GalleryOverview.cshtml" />
-    <Content Include="Views\Partials\RelatedNews.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Media.cshtml" />
@@ -671,16 +669,14 @@
     <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="Views\Partials\Home\Info.cshtml" />
     <Content Include="Views\Partials\Home\Announces.cshtml" />
-    <Content Include="Views\Announce.cshtml" />
     <Content Include="Views\AnnounceOverview.cshtml" />
     <Content Include="Views\AnnounceItem.cshtml" />
     <Content Include="Views\Partials\Home\News.cshtml" />
     <Content Include="Views\Partials\Home\Gallery.cshtml" />
-    <None Include="Views\Partials\ImagesGallery.cshtml" />
+    <Content Include="Views\MacroPartials\GoogleMap.cshtml" />
+    <None Include="Views\Partials\Common\ImagesGallery.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Gallery.cshtml" />
-    <Content Include="Views\Partials\GalleryLeftSidebar.cshtml" />
-    <Content Include="Views\Partials\GalleryList.cshtml" />
-    <Content Include="Views\Partials\GalleryPager.cshtml" />
+    <Content Include="Views\Partials\Gallery\GalleryList.cshtml" />
     <Content Include="Views\Partials\Common\LoadingSpinner.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -711,6 +707,7 @@
     <Compile Include="App_Data\Models\GalleryOverview.generated.cs" />
     <Compile Include="App_Data\Models\Home.generated.cs" />
     <Compile Include="App_Data\Models\Image.generated.cs" />
+    <Compile Include="App_Data\Models\LocationComponent.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
     <Compile Include="App_Data\Models\NavigationComponent.generated.cs" />
     <Compile Include="App_Data\Models\NewsByYear.generated.cs" />
@@ -721,6 +718,7 @@
     <Compile Include="App_Data\Models\RedirectPage.generated.cs" />
     <Compile Include="App_Data\Models\Site.generated.cs" />
     <Compile Include="App_Data\Models\Sitemap.generated.cs" />
+    <Compile Include="App_Data\Models\SubtitleComponent.generated.cs" />
     <Compile Include="App_Data\Models\TextPage.generated.cs" />
     <Compile Include="App_Data\Models\TitleComponent.generated.cs" />
     <Compile Include="Controllers\ContactFormController.cs" />

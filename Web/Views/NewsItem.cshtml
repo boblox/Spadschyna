@@ -3,42 +3,26 @@
     Layout = "ContentBase.cshtml";
 
     var item = Model.Content;
-    var newsOverviewTitle = Model.Content.Ancestor<NewsOverview>().Title;
-
-    // If the editor has not explicitly provided the "Page title" property page
-    // then just show the name of the page otherwise show the provided title
-    var pageTitle = string.IsNullOrWhiteSpace(item.Title)
-        ? item.Name
-        : item.Title;
+    //var newsOverviewTitle = Model.Content.Ancestor<NewsOverview>().Title;
+    var title = item.GetTitle();
 }
 
-@section Header
+@section RightSidebar
 {
-    @newsOverviewTitle
+    @{Html.RenderPartial("~/Views/Partials/Common/Calendar.cshtml");}
 }
-
-@section LeftSidebar
-{
-    @{Html.RenderPartial("NewsLeftSidebar");}
-}
-
-@*@section RightSidebar
-{
-    @{Html.RenderPartial("Calendar");}
-}*@
 
 @section Body
 {
     <div class="content-wrapper">
         <header class="content-title">
-            <h2>@pageTitle</h2>
+            <h3>@title</h3>
         </header>
-        @{ Html.RenderPartial("/Views/Partials/NewsItemInfo.cshtml", item);}
-        @{ Html.RenderPartial("/Views/Partials/NewsItemTags.cshtml", item);}
+        @{ Html.RenderPartial("/Views/Partials/News/NewsItemInfo.cshtml", item);}
+        @{ Html.RenderPartial("/Views/Partials/News/NewsItemTags.cshtml", item);}
         <div class="grid-content">
             @Html.GetGridHtml(item, NewsItem.GetModelPropertyType(i => i.Content).PropertyTypeAlias, "Custom")
         </div>
-        @{Html.RenderPartial("Comments");}
-        @Html.Action("GetRelatedNews", "News", new { item.Id })
+        @{Html.RenderPartial("~/Views/Partials/Common/Comments.cshtml");}
     </div>
 }
