@@ -1,7 +1,36 @@
-﻿@model ContactForm
+﻿@using System.Linq.Expressions
+@model ContactForm
 @{
     var formGroupClass = (string)null;//"form-group-sm";
     var cssClass = "input-sm";
+}
+
+@functions
+{
+    public delegate MvcHtmlString EditorDelegate<TModel, TValue>(Expression<Func<TModel, TValue>> expression, object additionalViewData);
+
+    public HelperResult ContactFormEditor<TModel, TValue>(
+        HtmlHelper<TModel> html,
+        Expression<Func<TModel, TValue>> expression,
+        EditorDelegate<TModel, TValue> editor,
+        string formGroupClass = null,
+        string cssClass = null)
+    {
+        var metadata = ModelMetadata.FromLambdaExpression(expression, html.ViewData);
+        var labelString = metadata.DisplayName ?? metadata.PropertyName ?? string.Empty;
+        //var labelString = html.LabelFor(expression, new { @class = "col-sm-9 control-label" });
+        var editorString = editor(expression, new { placeholder = labelString, @class = cssClass });
+        var validationString = html.ValidationMessageFor(expression, null, new { @class = "" });
+        return ContactFormEditorHelper(editorString, validationString, formGroupClass);
+    }
+}
+
+@helper ContactFormEditorHelper(MvcHtmlString editorString, MvcHtmlString validationString, string formGroupClass)
+{
+    <div class="form-group @formGroupClass">
+        @editorString
+        @validationString
+    </div>
 }
 
 <div id="ContactFormContainer" class="contact-form-container">
@@ -18,9 +47,9 @@
                         new { @class = "contact-form", role = "form" }))
     {
         @*<p>Зворотній зв'язок</p>*@
-        @CommonHelpers.ContactFormEditor(Html, model => model.NameSurname, Html.EditorFor, formGroupClass, cssClass)
-        @CommonHelpers.ContactFormEditor(Html, model => model.ClientEmail, Html.EditorFor, formGroupClass, cssClass)
-        @CommonHelpers.ContactFormEditor(Html, model => model.Description, Html.EditorFor, formGroupClass, cssClass)
+        @ContactFormEditor(Html, model => model.NameSurname, Html.EditorFor, formGroupClass, cssClass)
+        @ContactFormEditor(Html, model => model.ClientEmail, Html.EditorFor, formGroupClass, cssClass)
+        @ContactFormEditor(Html, model => model.Description, Html.EditorFor, formGroupClass, cssClass)
         @Html.HiddenFor(model => model.EmailFrom)
         @Html.HiddenFor(model => model.EmailTo)
 

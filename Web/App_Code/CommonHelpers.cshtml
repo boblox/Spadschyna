@@ -2,30 +2,4 @@
 @using System.Web.Mvc
 @using System.Web.Mvc.Html
 
-@functions
-{
-    public delegate MvcHtmlString EditorDelegate<TModel, TValue>(Expression<Func<TModel, TValue>> expression, object additionalViewData);
-
-    public static HelperResult ContactFormEditor<TModel, TValue>(
-        HtmlHelper<TModel> html,
-        Expression<Func<TModel, TValue>> expression,
-        EditorDelegate<TModel, TValue> editor,
-        string formGroupClass = null,
-        string cssClass = null)
-    {
-        var metadata = ModelMetadata.FromLambdaExpression(expression, html.ViewData);
-        var labelString = metadata.DisplayName ?? metadata.PropertyName ?? string.Empty;
-        //var labelString = html.LabelFor(expression, new { @class = "col-sm-9 control-label" });
-        var editorString = editor(expression, new { placeholder = labelString, @class = cssClass });
-        var validationString = html.ValidationMessageFor(expression, null, new { @class = "" });
-        return ContactFormEditorHelper(editorString, validationString, formGroupClass);
-    }
-}
-
-@helper ContactFormEditorHelper(MvcHtmlString editorString, MvcHtmlString validationString, string formGroupClass)
-{
-    <div class="form-group @formGroupClass">
-        @editorString
-        @validationString
-    </div>
-}
+@* Use this file for common helpers and functions *@
