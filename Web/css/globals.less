@@ -1,51 +1,13 @@
-﻿/*!Globals - styling for JS plugins and global things which don't directly
-   belong to site design*/
+﻿/*!Globals - styling for global things which don't directly
+   belong to site design(bootstrap, umbraco packages, js plugins, grid editors etc)*/
 @import (reference) "Bootstrap/mixins.less";
 @import (reference) "Bootstrap/variables.less";
 /*@import (reference) "Bootstrap/labels.less";*/
 @import (reference) "variables.less";
 @import (reference) "mixins.less";
 
-/*Buttons**********************************************************/
-.btn {
-    .transition(all 0.5s);
-    border-radius: 0;
-    text-transform: uppercase;
-    padding-left: 25px;
-    padding-right: 25px;
-    font-size: @font-size-large;
-    font-weight: bold;
-
-    &.btn-default {
-        color: @orange-color-a;
-        background-color: @white-color;
-        border-color: @orange-color-a;
-
-        &:focus, &:hover, &:active,
-        &.focus, &.hover, &.active {
-            color: white;
-            background-color: @orange-color-b;
-            border-color: @orange-color-b;
-            outline: none;
-        }
-    }
-    //"primary" - class for Umbraco Forms buttons
-    &.btn-primary, &.primary {
-        color: @white-color;
-        background-color: @orange-color-a;
-        border-color: @orange-color-a;
-
-        &:focus, &:hover, &:active,
-        &.focus, &.hover, &.active {
-            color: white;
-            background-color: @orange-color-b;
-            border-color: @orange-color-b;
-            outline: none;
-        }
-    }
-}
-
-/*Headers************************************************************/
+/*Internal Components(Macro and plugins)*********************************************/
+/*Coloured-headers*********************************************/
 .header-coloured {
     color: white;
     padding: 5px 20px 5px 20px;
@@ -87,60 +49,66 @@
     }
 }
 
-/*Form-controls*****************************************************/
+/*Contact Form*************************************************/
+.contact-form-container {
+    .contact-form {
+        max-width: 265px;
 
-/*Contour forms*/
-.contour, #contour {
-    padding: 0 !important;
-
-    .contourPage {
-        .contourField {
-            margin-bottom: 25px;
-        }
-
-        input, textarea {
-            &.contourError, &.input-validation-error {
-                background: white;
-                border: 1px solid @orange-color;
+        & > .form-group {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+            /*button send*/
+            &:last-child {
+                justify-content: flex-start;
             }
         }
 
-        input.text, input.title, input.datepickerfield, textarea, select {
-            border: 1px solid @orange-color;
-            padding: 5px;
-            margin: 0.5em 0;
-            .form-control-focus(@orange-color-2);
+        .btn-send-form {
+            margin-right: 10px;
+            width: auto;
         }
 
-        .contourIndicator {
-            color: @orange-color;
+        .field-validation-error {
+            margin-left: 3px;
+            font-size: @font-size-small;
         }
 
-        #recaptcha_widget_div {
-            margin-left: 0;
+        textarea {
+            resize: vertical;
+            height: auto;
+        }
+
+        input, textarea {
+            width: 95%;
+        }
+    }
+
+    @media(max-width:@screen-xs-max) {
+        flex-basis: 100%;
+
+        .contact-form {
+            width: auto;
+            //button send
+            & > .form-group:last-child {
+                justify-content: unset;
+            }
+
+            .btn-send-form {
+                margin-right: unset;
+                width: 95%;
+            }
         }
     }
 }
 
-/*Default form validation*/
-.field-validation-error {
-    color: @state-danger-text;
-    display: inline-block;
-
-    @media(min-width:@screen-sm-min) {
-        margin-left: 10px;
-    }
+/*Google map***************************************************/
+.google-map {
+    width: 100%;
 }
 
-textarea, input {
-    &.input-validation-error {
-        border-color: @state-danger-border;
-    }
-}
-
-/*Owl Carousel *******************************************************/
-
-//Carousel with paging dots
+/*Customization of OWL Carousel********************************/
+/*Carousel with paging dots*/
 .pagination-carousel {
     .owl-carousel.owl-theme {
         .owl-pagination .owl-page {
@@ -159,7 +127,8 @@ textarea, input {
     }
 }
 
-//Carousel with paging dots. "Carousel" grid editor (and also macro)
+/*Carousel with paging dots. 
+ "Carousel" grid editor (and also macro)*/
 .pagination-carousel.carousel-widget {
     margin-bottom: 20px;
 
@@ -172,7 +141,8 @@ textarea, input {
     }
 }
 
-//Carousel with preview. "Gallery" grid editor
+/*Carousel with preview. 
+ "Gallery" grid editor*/
 .gallery-widget {
     margin-bottom: 20px;
     background-color: @white-color;
@@ -260,8 +230,97 @@ textarea, input {
     }
 }
 
-/*Magnific PopUp******************************************************/
+/*External Components(Bootstrap, JS plugins)******************************************/
+/*JQuery unobtrusive validation********************************/
+.field-validation-error {
+    color: @state-danger-text;
+    display: inline-block;
 
+    @media(min-width:@screen-sm-min) {
+        margin-left: 10px;
+    }
+}
+
+textarea, input {
+    &.input-validation-error {
+        border-color: @state-danger-border;
+    }
+}
+
+/*Bootstrap****************************************************/
+/*Buttons***************/
+.btn {
+    .transition(all 0.5s);
+    border-radius: 0;
+    text-transform: uppercase;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: @font-size-large;
+    font-weight: bold;
+
+    &.btn-default {
+        color: @orange-color-a;
+        background-color: @white-color;
+        border-color: @orange-color-a;
+
+        &:focus, &:hover, &:active,
+        &.focus, &.hover, &.active {
+            color: white;
+            background-color: @orange-color-b;
+            border-color: @orange-color-b;
+            outline: none;
+        }
+    }
+    //"primary" - class for Umbraco Forms buttons
+    &.btn-primary, &.primary {
+        color: @white-color;
+        background-color: @orange-color-a;
+        border-color: @orange-color-a;
+
+        &:focus, &:hover, &:active,
+        &.focus, &.hover, &.active {
+            color: white;
+            background-color: @orange-color-b;
+            border-color: @orange-color-b;
+            outline: none;
+        }
+    }
+}
+
+/*Contour forms************************************************/
+.contour, #contour {
+    padding: 0 !important;
+
+    .contourPage {
+        .contourField {
+            margin-bottom: 25px;
+        }
+
+        input, textarea {
+            &.contourError, &.input-validation-error {
+                background: white;
+                border: 1px solid @orange-color;
+            }
+        }
+
+        input.text, input.title, input.datepickerfield, textarea, select {
+            border: 1px solid @orange-color;
+            padding: 5px;
+            margin: 0.5em 0;
+            .form-control-focus(@orange-color-2);
+        }
+
+        .contourIndicator {
+            color: @orange-color;
+        }
+
+        #recaptcha_widget_div {
+            margin-left: 0;
+        }
+    }
+}
+
+/*Magnific PopUp***********************************************/
 .mfp-container {
     @close-button-height: 44px;
     @share-button-width: 30px;
@@ -351,7 +410,7 @@ textarea, input {
     }
 }
 
-/*Loading spinner for images*********************/
+/*Loading spinner for images*******/
 .mfp-preloader {
     width: 40px;
     height: 40px;
@@ -383,7 +442,7 @@ textarea, input {
     }
 }
 
-/*Animation at open*************************/
+/*Animation at open****************/
 
 /* overlay at start */
 .mfp-fade {
@@ -421,7 +480,7 @@ textarea, input {
     }
 }
 
-/*Animation when switching images*************/
+/*Animation when switching images**/
 @-webkit-keyframes fadeIn {
     0% {
         opacity: 0;

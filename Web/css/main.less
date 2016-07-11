@@ -1,4 +1,5 @@
 ﻿/*!Main.css*/
+/*Styles that are applied to web site pages*/
 
 @import (reference) "Bootstrap/mixins.less";
 @import (reference) "Bootstrap/variables.less";
@@ -259,64 +260,6 @@ a:focus {
             }
         }
     }
-}
-
-/*Contact Form*****************************************************/
-.contact-form-container {
-    .contact-form {
-        max-width: 265px;
-
-        & > .form-group {
-            display: flex;
-            flex-wrap: wrap;
-            margin-bottom: 10px;
-            /*button send*/
-            &:last-child {
-                justify-content: flex-start;
-            }
-        }
-
-        .btn-send-form {
-            margin-right: 10px;
-            width: auto;
-        }
-
-        .field-validation-error {
-            margin-left: 3px;
-            font-size: @font-size-small;
-        }
-
-        textarea {
-            resize: vertical;
-            height: auto;
-        }
-
-        input, textarea {
-            width: 95%;
-        }
-    }
-
-    @media(max-width:@screen-xs-max) {
-        flex-basis: 100%;
-
-        .contact-form {
-            width: auto;
-            //button send
-            & > .form-group:last-child {
-                justify-content: unset;
-            }
-
-            .btn-send-form {
-                margin-right: unset;
-                width: 95%;
-            }
-        }
-    }
-}
-
-/*Google map*******************************************************/
-.google-map {
-    width: 100%;
 }
 
 /*Articles pager******************************************************/

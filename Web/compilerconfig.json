@@ -1,12 +1,4 @@
 ﻿[
-    //{
-    //  "outputFile": "css/main.css",
-    //  "inputFile": "css/main.less"
-    //},
-    //{
-    //  "outputFile": "css/mixins.css",
-    //  "inputFile": "css/mixins.less"
-    //},
     {
         "outputFile": "css/styles.css",
         "inputFile": "css/styles.less"
@@ -15,16 +7,4 @@
         "outputFile": "css/rte.css",
         "inputFile": "css/rte.less"
     }
-    //{
-    //  "outputFile": "css/variables.css",
-    //  "inputFile": "css/variables.less"
-    //},
-    //{
-    //  "outputFile": "css/globals.css",
-    //  "inputFile": "css/globals.less"
-    //},
-    //{
-    //  "outputFile": "css/bootstrap-n-column.css",
-    //  "inputFile": "css/bootstrap-n-column.less"
-    //}
 ]

@@ -7302,6 +7302,7 @@ button.close {
 }
 /*!Variables*/
 /*!Main.css*/
+/*Styles that are applied to web site pages*/
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!BASIC STYLES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 html {
   height: 100%;
@@ -7561,54 +7562,6 @@ a:focus {
 .footer-inner .footer-contacts ul.contacts li a:hover,
 .footer-inner .footer-contacts ul.contacts li a:focus {
   opacity: 1;
-}
-/*Contact Form*****************************************************/
-.contact-form-container .contact-form {
-  max-width: 265px;
-}
-.contact-form-container .contact-form > .form-group {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: 10px;
-  /*button send*/
-}
-.contact-form-container .contact-form > .form-group:last-child {
-  justify-content: flex-start;
-}
-.contact-form-container .contact-form .btn-send-form {
-  margin-right: 10px;
-  width: auto;
-}
-.contact-form-container .contact-form .field-validation-error {
-  margin-left: 3px;
-  font-size: 12px;
-}
-.contact-form-container .contact-form textarea {
-  resize: vertical;
-  height: auto;
-}
-.contact-form-container .contact-form input,
-.contact-form-container .contact-form textarea {
-  width: 95%;
-}
-@media (max-width: 767px) {
-  .contact-form-container {
-    flex-basis: 100%;
-  }
-  .contact-form-container .contact-form {
-    width: auto;
-  }
-  .contact-form-container .contact-form > .form-group:last-child {
-    justify-content: unset;
-  }
-  .contact-form-container .contact-form .btn-send-form {
-    margin-right: unset;
-    width: 95%;
-  }
-}
-/*Google map*******************************************************/
-.google-map {
-  width: 100%;
 }
 /*Articles pager******************************************************/
 ul.articles-pager {
@@ -8197,61 +8150,11 @@ ul.news-item-info li span {
 }
 /*Create custom 15 column layout for bootstrap*/
 /*.col-set(15);*/
-/*!Globals - styling for JS plugins and global things which don't directly
-   belong to site design*/
+/*!Globals - styling for global things which don't directly
+   belong to site design(bootstrap, umbraco packages, js plugins, grid editors etc)*/
 /*@import (reference) "Bootstrap/labels.less";*/
-/*Buttons**********************************************************/
-.btn {
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-  border-radius: 0;
-  text-transform: uppercase;
-  padding-left: 25px;
-  padding-right: 25px;
-  font-size: 18px;
-  font-weight: bold;
-}
-.btn.btn-default {
-  color: #f6ab32;
-  background-color: #ffffff;
-  border-color: #f6ab32;
-}
-.btn.btn-default:focus,
-.btn.btn-default:hover,
-.btn.btn-default:active,
-.btn.btn-default.focus,
-.btn.btn-default.hover,
-.btn.btn-default.active {
-  color: white;
-  background-color: #ffbd51;
-  border-color: #ffbd51;
-  outline: none;
-}
-.btn.btn-primary,
-.btn.primary {
-  color: #ffffff;
-  background-color: #f6ab32;
-  border-color: #f6ab32;
-}
-.btn.btn-primary:focus,
-.btn.primary:focus,
-.btn.btn-primary:hover,
-.btn.primary:hover,
-.btn.btn-primary:active,
-.btn.primary:active,
-.btn.btn-primary.focus,
-.btn.primary.focus,
-.btn.btn-primary.hover,
-.btn.primary.hover,
-.btn.btn-primary.active,
-.btn.primary.active {
-  color: white;
-  background-color: #ffbd51;
-  border-color: #ffbd51;
-  outline: none;
-}
-/*Headers************************************************************/
+/*Internal Components(Macro and plugins)*********************************************/
+/*Coloured-headers*********************************************/
 .header-coloured {
   color: white;
   padding: 5px 20px 5px 20px;
@@ -8283,79 +8186,56 @@ ul.news-item-info li span {
   text-decoration: none;
   outline: none;
 }
-/*Form-controls*****************************************************/
-/*Contour forms*/
-.contour,
-#contour {
-  padding: 0 !important;
+/*Contact Form*************************************************/
+.contact-form-container .contact-form {
+  max-width: 265px;
 }
-.contour .contourPage .contourField,
-#contour .contourPage .contourField {
-  margin-bottom: 25px;
+.contact-form-container .contact-form > .form-group {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+  /*button send*/
 }
-.contour .contourPage input.contourError,
-#contour .contourPage input.contourError,
-.contour .contourPage textarea.contourError,
-#contour .contourPage textarea.contourError,
-.contour .contourPage input.input-validation-error,
-#contour .contourPage input.input-validation-error,
-.contour .contourPage textarea.input-validation-error,
-#contour .contourPage textarea.input-validation-error {
-  background: white;
-  border: 1px solid #e25900;
+.contact-form-container .contact-form > .form-group:last-child {
+  justify-content: flex-start;
 }
-.contour .contourPage input.text,
-#contour .contourPage input.text,
-.contour .contourPage input.title,
-#contour .contourPage input.title,
-.contour .contourPage input.datepickerfield,
-#contour .contourPage input.datepickerfield,
-.contour .contourPage textarea,
-#contour .contourPage textarea,
-.contour .contourPage select,
-#contour .contourPage select {
-  border: 1px solid #e25900;
-  padding: 5px;
-  margin: 0.5em 0;
+.contact-form-container .contact-form .btn-send-form {
+  margin-right: 10px;
+  width: auto;
 }
-.contour .contourPage input.text:focus,
-#contour .contourPage input.text:focus,
-.contour .contourPage input.title:focus,
-#contour .contourPage input.title:focus,
-.contour .contourPage input.datepickerfield:focus,
-#contour .contourPage input.datepickerfield:focus,
-.contour .contourPage textarea:focus,
-#contour .contourPage textarea:focus,
-.contour .contourPage select:focus,
-#contour .contourPage select:focus {
-  border-color: #fe8435;
-  outline: 0;
-  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(254, 132, 53, 0.6);
-  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(254, 132, 53, 0.6);
+.contact-form-container .contact-form .field-validation-error {
+  margin-left: 3px;
+  font-size: 12px;
 }
-.contour .contourPage .contourIndicator,
-#contour .contourPage .contourIndicator {
-  color: #e25900;
+.contact-form-container .contact-form textarea {
+  resize: vertical;
+  height: auto;
 }
-.contour .contourPage #recaptcha_widget_div,
-#contour .contourPage #recaptcha_widget_div {
-  margin-left: 0;
+.contact-form-container .contact-form input,
+.contact-form-container .contact-form textarea {
+  width: 95%;
 }
-/*Default form validation*/
-.field-validation-error {
-  color: #e25900;
-  display: inline-block;
-}
-@media (min-width: 768px) {
-  .field-validation-error {
-    margin-left: 10px;
+@media (max-width: 767px) {
+  .contact-form-container {
+    flex-basis: 100%;
+  }
+  .contact-form-container .contact-form {
+    width: auto;
+  }
+  .contact-form-container .contact-form > .form-group:last-child {
+    justify-content: unset;
+  }
+  .contact-form-container .contact-form .btn-send-form {
+    margin-right: unset;
+    width: 95%;
   }
 }
-textarea.input-validation-error,
-input.input-validation-error {
-  border-color: #e25900;
+/*Google map***************************************************/
+.google-map {
+  width: 100%;
 }
-/*Owl Carousel *******************************************************/
+/*Customization of OWL Carousel********************************/
+/*Carousel with paging dots*/
 .pagination-carousel .owl-carousel.owl-theme .owl-pagination .owl-page span {
   height: 14px;
   width: 14px;
@@ -8364,6 +8244,8 @@ input.input-validation-error {
   margin: 0 auto;
   max-height: 700px;
 }
+/*Carousel with paging dots. 
+ "Carousel" grid editor (and also macro)*/
 .pagination-carousel.carousel-widget {
   margin-bottom: 20px;
 }
@@ -8371,6 +8253,8 @@ input.input-validation-error {
   padding: 1px;
   /*fix for intersection of neighbor images!*/
 }
+/*Carousel with preview. 
+ "Gallery" grid editor*/
 .gallery-widget {
   margin-bottom: 20px;
   background-color: #ffffff;
@@ -8446,7 +8330,131 @@ input.input-validation-error {
   max-height: 100%;
   margin: 0 auto;
 }
-/*Magnific PopUp******************************************************/
+/*External Components(Bootstrap, JS plugins)******************************************/
+/*JQuery unobtrusive validation********************************/
+.field-validation-error {
+  color: #e25900;
+  display: inline-block;
+}
+@media (min-width: 768px) {
+  .field-validation-error {
+    margin-left: 10px;
+  }
+}
+textarea.input-validation-error,
+input.input-validation-error {
+  border-color: #e25900;
+}
+/*Bootstrap****************************************************/
+/*Buttons***************/
+.btn {
+  -webkit-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  border-radius: 0;
+  text-transform: uppercase;
+  padding-left: 25px;
+  padding-right: 25px;
+  font-size: 18px;
+  font-weight: bold;
+}
+.btn.btn-default {
+  color: #f6ab32;
+  background-color: #ffffff;
+  border-color: #f6ab32;
+}
+.btn.btn-default:focus,
+.btn.btn-default:hover,
+.btn.btn-default:active,
+.btn.btn-default.focus,
+.btn.btn-default.hover,
+.btn.btn-default.active {
+  color: white;
+  background-color: #ffbd51;
+  border-color: #ffbd51;
+  outline: none;
+}
+.btn.btn-primary,
+.btn.primary {
+  color: #ffffff;
+  background-color: #f6ab32;
+  border-color: #f6ab32;
+}
+.btn.btn-primary:focus,
+.btn.primary:focus,
+.btn.btn-primary:hover,
+.btn.primary:hover,
+.btn.btn-primary:active,
+.btn.primary:active,
+.btn.btn-primary.focus,
+.btn.primary.focus,
+.btn.btn-primary.hover,
+.btn.primary.hover,
+.btn.btn-primary.active,
+.btn.primary.active {
+  color: white;
+  background-color: #ffbd51;
+  border-color: #ffbd51;
+  outline: none;
+}
+/*Contour forms************************************************/
+.contour,
+#contour {
+  padding: 0 !important;
+}
+.contour .contourPage .contourField,
+#contour .contourPage .contourField {
+  margin-bottom: 25px;
+}
+.contour .contourPage input.contourError,
+#contour .contourPage input.contourError,
+.contour .contourPage textarea.contourError,
+#contour .contourPage textarea.contourError,
+.contour .contourPage input.input-validation-error,
+#contour .contourPage input.input-validation-error,
+.contour .contourPage textarea.input-validation-error,
+#contour .contourPage textarea.input-validation-error {
+  background: white;
+  border: 1px solid #e25900;
+}
+.contour .contourPage input.text,
+#contour .contourPage input.text,
+.contour .contourPage input.title,
+#contour .contourPage input.title,
+.contour .contourPage input.datepickerfield,
+#contour .contourPage input.datepickerfield,
+.contour .contourPage textarea,
+#contour .contourPage textarea,
+.contour .contourPage select,
+#contour .contourPage select {
+  border: 1px solid #e25900;
+  padding: 5px;
+  margin: 0.5em 0;
+}
+.contour .contourPage input.text:focus,
+#contour .contourPage input.text:focus,
+.contour .contourPage input.title:focus,
+#contour .contourPage input.title:focus,
+.contour .contourPage input.datepickerfield:focus,
+#contour .contourPage input.datepickerfield:focus,
+.contour .contourPage textarea:focus,
+#contour .contourPage textarea:focus,
+.contour .contourPage select:focus,
+#contour .contourPage select:focus {
+  border-color: #fe8435;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(254, 132, 53, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(254, 132, 53, 0.6);
+}
+.contour .contourPage .contourIndicator,
+#contour .contourPage .contourIndicator {
+  color: #e25900;
+}
+.contour .contourPage #recaptcha_widget_div,
+#contour .contourPage #recaptcha_widget_div {
+  margin-left: 0;
+}
+/*Magnific PopUp***********************************************/
 .mfp-container .mfp-close {
   right: 0;
   background: transparent url('images/magnific-popup-close.png') no-repeat right center;
@@ -8560,7 +8568,7 @@ input.input-validation-error {
 .mfp-container .mfp-custom-arrow.arrow-right div {
   background-position: right center;
 }
-/*Loading spinner for images*********************/
+/*Loading spinner for images*******/
 .mfp-preloader {
   width: 40px;
   height: 40px;
@@ -8601,7 +8609,7 @@ input.input-validation-error {
     opacity: 0;
   }
 }
-/*Animation at open*************************/
+/*Animation at open****************/
 /* overlay at start */
 .mfp-fade.mfp-bg {
   opacity: 0;
@@ -8632,7 +8640,7 @@ input.input-validation-error {
   /* content animate out */
   opacity: 0;
 }
-/*Animation when switching images*************/
+/*Animation when switching images**/
 @-webkit-keyframes fadeIn {
   0% {
     opacity: 0;

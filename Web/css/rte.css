@@ -7352,18 +7352,9 @@ body.mce-content-body {
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  -webkit-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
-  border-radius: 0;
-  text-transform: uppercase;
-  padding-left: 25px;
-  padding-right: 25px;
-  font-size: 18px;
-  font-weight: bold;
-  color: #f6ab32;
-  background-color: #ffffff;
-  border-color: #f6ab32;
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
 }
 .rte-button a:focus,
 .rte-button a:active:focus,
@@ -7401,55 +7392,57 @@ a.rte-button a.disabled,
 fieldset[disabled] a.rte-button a {
   pointer-events: none;
 }
-.rte-button a.btn-default {
-  color: #f6ab32;
-  background-color: #ffffff;
-  border-color: #f6ab32;
-}
-.rte-button a.btn-default:focus,
-.rte-button a.btn-default:hover,
-.rte-button a.btn-default:active,
-.rte-button a.btn-default.focus,
-.rte-button a.btn-default.hover,
-.rte-button a.btn-default.active {
-  color: white;
-  background-color: #ffbd51;
-  border-color: #ffbd51;
-  outline: none;
-}
-.rte-button a.btn-primary,
-.rte-button a.primary {
-  color: #ffffff;
-  background-color: #f6ab32;
-  border-color: #f6ab32;
-}
-.rte-button a.btn-primary:focus,
-.rte-button a.primary:focus,
-.rte-button a.btn-primary:hover,
-.rte-button a.primary:hover,
-.rte-button a.btn-primary:active,
-.rte-button a.primary:active,
-.rte-button a.btn-primary.focus,
-.rte-button a.primary.focus,
-.rte-button a.btn-primary.hover,
-.rte-button a.primary.hover,
-.rte-button a.btn-primary.active,
-.rte-button a.primary.active {
-  color: white;
-  background-color: #ffbd51;
-  border-color: #ffbd51;
-  outline: none;
-}
 .rte-button a:focus,
-.rte-button a:hover,
+.rte-button a.focus {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #8c8c8c;
+}
+.rte-button a:hover {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
 .rte-button a:active,
-.rte-button a.focus,
-.rte-button a.hover,
-.rte-button a.active {
-  color: white;
-  background-color: #ffbd51;
-  border-color: #ffbd51;
-  outline: none;
+.rte-button a.active,
+.open > .dropdown-toggle.rte-button a {
+  color: #333;
+  background-color: #e6e6e6;
+  border-color: #adadad;
+}
+.rte-button a:active:hover,
+.rte-button a.active:hover,
+.open > .dropdown-toggle.rte-button a:hover,
+.rte-button a:active:focus,
+.rte-button a.active:focus,
+.open > .dropdown-toggle.rte-button a:focus,
+.rte-button a:active.focus,
+.rte-button a.active.focus,
+.open > .dropdown-toggle.rte-button a.focus {
+  color: #333;
+  background-color: #d4d4d4;
+  border-color: #8c8c8c;
+}
+.rte-button a:active,
+.rte-button a.active,
+.open > .dropdown-toggle.rte-button a {
+  background-image: none;
+}
+.rte-button a.disabled:hover,
+.rte-button a[disabled]:hover,
+fieldset[disabled] .rte-button a:hover,
+.rte-button a.disabled:focus,
+.rte-button a[disabled]:focus,
+fieldset[disabled] .rte-button a:focus,
+.rte-button a.disabled.focus,
+.rte-button a[disabled].focus,
+fieldset[disabled] .rte-button a.focus {
+  background-color: #fff;
+  border-color: #ccc;
+}
+.rte-button a .badge {
+  color: #fff;
+  background-color: #333;
 }
 .rte-big-text {
   font-size: 18px;
