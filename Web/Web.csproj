@@ -662,6 +662,7 @@
     <Content Include="Views\MacroPartials\GoogleMap.cshtml" />
     <Content Include="Views\MacroPartials\RenderUmbracoFormScripts.cshtml" />
     <Content Include="Views\MacroPartials\InsertUmbracoForm.cshtml" />
+    <Content Include="Views\MacroPartials\BoardMembers.cshtml" />
     <None Include="Views\Partials\Common\ImagesGallery.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Gallery.cshtml" />
     <Content Include="Views\Partials\Gallery\GalleryList.cshtml" />
@@ -701,6 +702,8 @@
     </Compile>
     <Compile Include="App_Data\Models\AnnounceItem.generated.cs" />
     <Compile Include="App_Data\Models\AnnouncesOverview.generated.cs" />
+    <Compile Include="App_Data\Models\BoardContainer.generated.cs" />
+    <Compile Include="App_Data\Models\BoardMember.generated.cs" />
     <Compile Include="App_Data\Models\File.generated.cs" />
     <Compile Include="App_Data\Models\Folder.generated.cs" />
     <Compile Include="App_Data\Models\FrontPageBanner.generated.cs" />

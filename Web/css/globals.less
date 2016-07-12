@@ -16,29 +16,24 @@
         margin-bottom: 20px;
     }
 
-    h3 {
-        font-size: @font-size-h3-alternate;
-        margin-top: (@line-height-computed / 2);
-    }
-
     span.glyphicon {
         vertical-align: top;
     }
 
     &.orange {
-        background-color: @orange-color;
+        background-color: #e25900;
     }
 
     &.orange-light {
-        background-color: @orange-color-2;
+        background-color: #fe8435;
     }
 
     &.ochre {
-        background-color: @category-camps-color;
+        background-color: #ef9f05;
     }
 
     &.yellow {
-        background-color: @category-other-color;
+        background-color: #efb005;
     }
 }
 
@@ -107,6 +102,28 @@
     width: 100%;
 }
 
+/*Board members***************************************************/
+.board-members {
+    text-align: center;
+    margin: 70px 0;
+
+    .board-member {
+        margin: 0 0px 70px 0px;
+        font-size: @font-size-middle-large;
+        text-align: center;
+
+        h3 {
+            font-weight: bold;
+        }
+
+        img {
+            padding: 40px 40px 20px 40px;
+            .img-responsive;
+            border-radius: 50%;
+        }
+    }
+}
+
 /*Customization of OWL Carousel********************************/
 /*Carousel with paging dots*/
 .pagination-carousel {
@@ -127,8 +144,8 @@
     }
 }
 
-/*Carousel with paging dots. 
- "Carousel" grid editor (and also macro)*/
+/*Carousel with paging dots.*/
+/*"Carousel" grid editor (and also macro)*/
 .pagination-carousel.carousel-widget {
     margin-bottom: 20px;
 
@@ -141,15 +158,15 @@
     }
 }
 
-/*Carousel with preview. 
- "Gallery" grid editor*/
+/*Carousel with preview.*/
+/*"Gallery" grid editor*/
 .gallery-widget {
     margin-bottom: 20px;
     background-color: @white-color;
     // Used in gallery. Slide part
     & .slide {
         .owl-carousel {
-            border: solid @orange-color-3;
+            border: solid @orange-color-a;
             /*background-color: @black-color;*/
             border-width: 8px 8px 0 8px;
 
@@ -175,7 +192,7 @@
             top: 0;
             z-index: 10;
             cursor: pointer;
-            background-color: @orange-color-3;
+            background-color: @orange-color-a;
             opacity: 0.5;
             .transition(all 0.4s);
             display: flex;
@@ -201,20 +218,20 @@
         }
 
         .owl-carousel {
-            border: solid @orange-color-3;
+            border: solid @orange-color-a;
             border-width: 8px 3px 8px 3px;
 
             .owl-wrapper-outer {
                 .owl-item {
                     height: 150px;
                     /*background-color: @black-color;*/
-                    border: solid @orange-color-3;
+                    border: solid @orange-color-a;
                     border-width: 5px;
                     overflow: hidden;
                     cursor: pointer;
 
                     &.selected {
-                        border-color: @orange-color-2;
+                        border-color: @orange-color-b;
                     }
 
                     img {
@@ -299,23 +316,27 @@ textarea, input {
         input, textarea {
             &.contourError, &.input-validation-error {
                 background: white;
-                border: 1px solid @orange-color;
+                border: 1px solid @orange-color-a;
             }
         }
 
         input.text, input.title, input.datepickerfield, textarea, select {
-            border: 1px solid @orange-color;
+            border: 1px solid @orange-color-a;
             padding: 5px;
             margin: 0.5em 0;
-            .form-control-focus(@orange-color-2);
+            .form-control-focus(@orange-color-b);
         }
 
         .contourIndicator {
-            color: @orange-color;
+            color: @orange-color-a;
         }
 
         #recaptcha_widget_div {
             margin-left: 0;
+        }
+
+        span.field-validation-error {
+            color: @orange-color-a !important;
         }
     }
 }
