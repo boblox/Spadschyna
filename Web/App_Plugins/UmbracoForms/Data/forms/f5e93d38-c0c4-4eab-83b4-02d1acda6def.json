@@ -51,7 +51,8 @@
                   "invalidErrorMessage": null,
                   "condition": null,
                   "settings": {
-                    "DefaultValue": ""
+                    "DefaultValue": "",
+                    "Placeholder": ""
                   },
                   "preValues": []
                 },
@@ -71,7 +72,8 @@
                   "invalidErrorMessage": null,
                   "condition": null,
                   "settings": {
-                    "DefaultValue": ""
+                    "DefaultValue": "",
+                    "Placeholder": ""
                   },
                   "preValues": []
                 },
@@ -89,7 +91,13 @@
                   "regex": null,
                   "requiredErrorMessage": null,
                   "invalidErrorMessage": null,
-                  "condition": null,
+                  "condition": {
+                    "id": "00000000-0000-0000-0000-000000000000",
+                    "enabled": false,
+                    "actionType": "Show",
+                    "logicType": "All",
+                    "rules": []
+                  },
                   "settings": {},
                   "preValues": []
                 },
@@ -109,7 +117,8 @@
                   "invalidErrorMessage": null,
                   "condition": null,
                   "settings": {
-                    "DefaultValue": ""
+                    "DefaultValue": "",
+                    "Placeholder": ""
                   },
                   "preValues": []
                 },
@@ -135,7 +144,8 @@
                     "rules": []
                   },
                   "settings": {
-                    "DefaultValue": ""
+                    "DefaultValue": "",
+                    "Placeholder": ""
                   },
                   "preValues": []
                 },
@@ -161,7 +171,8 @@
                     "rules": []
                   },
                   "settings": {
-                    "DefaultValue": ""
+                    "DefaultValue": "",
+                    "Placeholder": ""
                   },
                   "preValues": []
                 },

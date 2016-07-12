@@ -7,8 +7,10 @@
   "executesOn": "Submitted",
   "settings": {
     "Email": "oum.lviv@gmail.com",
+    "SenderEmail": null,
     "Subject": "Завка на вступ в організацію",
-    "Message": "Заявка"
+    "Message": "Заявка",
+    "Attachment": null
   },
   "sortOrder": 0
 }
