@@ -3,14 +3,14 @@
     var homePage = Model.Content.AncestorOrSelf(1);
 }
 
-<section class="fiction-footer"></section>@*Used just for making a proper padding*@
+<div class="fiction-footer-wrapper"></div>@*Used just for making a proper padding*@
 <footer class="footer-wrapper">
     <div class="container">
-        <div class="footer-inner">
+        <div class="footer-container">
             <div class="">
                 @{Html.RenderPartial("~/Views/Partials/Common/Logo.cshtml");}
             </div>
-            <div class="footer-contacts">
+            <div class="contacts">
                 @{Html.RenderPartial("~/Views/Partials/Common/Social.cshtml");}
             </div>
             <nav class="footer-nav hidden-xs">

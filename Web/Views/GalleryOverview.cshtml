@@ -1,16 +1,22 @@
 ﻿@inherits UmbracoTemplatePage<GalleryOverview>
 @{
     Layout = "ContentBase.cshtml";
+    var containerId = "gallery-list";
+    var overlayId = "loading-overlay";
 }
 
 @section Body
 {
-    <article id="gallery-list" class="gallery-overview"></article>
-    <div id="loading-overlay"></div>
+    <section id="@containerId" class="gallery-overview-container"></section>
+    <div id="@overlayId" class="loading-overlay"></div>
 
     <script type="text/javascript">
         $(function () {
-            InitGalleryRouting(@Consts.GalleryConfig.YearAllInt, @Consts.GalleryConfig.ItemsPerPageOnOverviewPage);
+            InitGalleryRouting(
+                '@containerId',
+                '@overlayId',
+                @Consts.GalleryConfig.YearAllInt,
+                @Consts.GalleryConfig.ItemsPerPageOnOverviewPage);
         });
     </script>
 }

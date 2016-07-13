@@ -33,7 +33,7 @@
     </div>
 }
 
-<div id="ContactFormContainer" class="contact-form-container">
+<article id="ContactFormContainer" class="contact-form-container">
     @using (Ajax.BeginForm("Send", "ContactForm", null,
                         new AjaxOptions
                         {
@@ -57,7 +57,7 @@
             <input type="submit" class="btn btn-default btn-send-form" value="@Localization.ContactFormSend" />
         </div>
     }
-</div>
+</article>
 
 <script type="text/javascript">
     var contactForm = function () {

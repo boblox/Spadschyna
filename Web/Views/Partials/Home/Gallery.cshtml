@@ -7,35 +7,37 @@
        .GetRandom(Consts.GalleryConfig.ItemsOnFrontPage);
 }
 
-<article class="home-gallery-wrapper">
+<div class="home-gallery-wrapper">
     <div class="container">
-        <header class="home-gallery-header">
-            <h2>@page.GalleryTitle</h2>
-        </header>
-        <section class="home-gallery">
-            <div class="row no-gutters">
-                @foreach (var item in items)
-                {
-                    var image = item.Image;
+        <section class="home-gallery-container">
+            <header class="title">
+                <h2>@page.GalleryTitle</h2>
+            </header>
+            <section class="content">
+                <div class="row no-gutters">
+                    @foreach (var item in items)
+                    {
+                        var image = item.Image;
 
-                    <div class="col-sm-8 col-md-6">
-                        <article class="home-gallery-item">
-                            <a href="@item.Url">
-                                @if (image != null)
-                                {
-                                    var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
-                                    <div class="home-gallery-item-image">
-                                        <img src="@imageUrl" alt="">
-                                    </div>
-                                }
-                            </a>
-                        </article>
-                    </div>
-                }
-            </div>
-        </section>
-        <section class="home-gallery-read-more">
-            <a href="@overview.Url" class="btn btn-default">@page.GalleryReadMore</a>
+                        <div class="col-sm-8 col-md-6">
+                            <article class="gallery-item">
+                                <a href="@item.Url">
+                                    @if (image != null)
+                                    {
+                                        var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
+                                        <div class="image">
+                                            <img class="img-responsive center-block" src="@imageUrl" alt="">
+                                        </div>
+                                    }
+                                </a>
+                            </article>
+                        </div>
+                    }
+                </div>
+            </section>
+            <section class="read-more">
+                <a href="@overview.Url" class="btn btn-default">@page.GalleryReadMore</a>
+            </section>
         </section>
     </div>
-</article>
+</div>

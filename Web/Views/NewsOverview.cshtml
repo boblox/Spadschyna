@@ -1,6 +1,8 @@
 ﻿@inherits UmbracoTemplatePage<NewsOverview>
 @{
     Layout = "ContentBase.cshtml";
+    var containerId = "news-list";
+    var overlayId = "loading-overlay";
 }
 
 @section RightSidebar
@@ -10,12 +12,16 @@
 
 @section Body
 {
-    <article id="news-list" class="news-overview"></article>
-    <div id="loading-overlay"></div>
+    <section id="@containerId" class="news-overview-container"></section>
+    <div id="@overlayId" class="loading-overlay"></div>
 
     <script type="text/javascript">
         $(function () {
-            InitNewsRouting(@Consts.NewsConfig.YearAllInt, @Consts.NewsConfig.ItemsPerPageOnOverviewPage);
+            InitNewsRouting(
+                '@containerId',
+                '@overlayId',
+                @Consts.NewsConfig.YearAllInt,
+                @Consts.NewsConfig.ItemsPerPageOnOverviewPage);
         });
     </script>
 }

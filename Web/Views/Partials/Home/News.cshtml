@@ -6,45 +6,47 @@
     var items = ContentManager.GetNewsItems(0, 1, Consts.NewsConfig.ItemsOnFrontPage).Items;
 }
 
-<article class="home-news-wrapper">
+<div class="home-news-wrapper">
     <div class="container">
-        <header class="home-news-header">
-            <h2>@page.NewsTitle</h2>
-        </header>
-        <section class="home-news">
-            <div class="row">
-                @foreach (var item in items)
-                {
-                    var title = item.GetTitle();
-                    var image = item.Image;
-                    var subHeader = item.Subtitle;
-                    var content = new HtmlString(string.Empty); // can't parse content as we are now using Grid Layout
+        <section class="home-news-container">
+            <header class="title">
+                <h2>@page.NewsTitle</h2>
+            </header>
+            <div class="content">
+                <div class="row">
+                    @foreach (var item in items)
+                    {
+                        var title = item.GetTitle();
+                        var image = item.Image;
+                        var subHeader = item.Subtitle;
+                        var content = new HtmlString(string.Empty); // can't parse content as we are now using Grid Layout
 
-                    <div class="col-sm-12 col-md-8">
-                        <article class="home-news-item">
-                            <a href="@item.Url">
-                                @if (image != null)
-                                {
-                                    var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
-                                    <div class="home-news-item-image">
-                                        <img src="@imageUrl" alt="">
-                                    </div>
-                                }
-                                <header>
-                                    <h3>@title</h3>
-                                </header>
-                                <span class="home-news-item-byline">
-                                    @Html.GetInnerText(string.IsNullOrWhiteSpace(subHeader) ?
+                        <div class="col-sm-12 col-md-8">
+                            <article class="news-item">
+                                <a href="@item.Url">
+                                    @if (image != null)
+                                    {
+                                        var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
+                                        <div class="image">
+                                            <img class="img-responsive" src="@imageUrl" alt="">
+                                        </div>
+                                    }
+                                    <header>
+                                        <h3>@title</h3>
+                                    </header>
+                                    <p class="byline">
+                                        @Html.GetInnerText(string.IsNullOrWhiteSpace(subHeader) ?
                                         content : new HtmlString(subHeader), 140)
-                                </span>
-                            </a>
-                        </article>
-                    </div>
-                }
+                                    </p>
+                                </a>
+                            </article>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="read-more">
+                <a href="@overview.Url" class="btn btn-default">@page.NewsReadMore</a>
             </div>
         </section>
-        <section class="home-news-read-more">
-            <a href="@overview.Url" class="btn btn-default">@page.NewsReadMore</a>
-        </section>
     </div>
-</article>
+</div>

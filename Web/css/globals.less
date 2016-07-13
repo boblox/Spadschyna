@@ -83,7 +83,7 @@
         flex-basis: 100%;
 
         .contact-form {
-            width: auto;
+            max-width: none;
             //button send
             & > .form-group:last-child {
                 justify-content: unset;
@@ -98,12 +98,12 @@
 }
 
 /*Google map***************************************************/
-.google-map {
+.google-map-container {
     width: 100%;
 }
 
 /*Board members***************************************************/
-.board-members {
+.board-members-container {
     text-align: center;
     margin: 70px 0;
 
@@ -118,8 +118,6 @@
 
         img {
             padding: 40px 40px 20px 40px;
-            .img-responsive;
-            border-radius: 50%;
         }
     }
 }
@@ -146,7 +144,7 @@
 
 /*Carousel with paging dots.*/
 /*"Carousel" grid editor (and also macro)*/
-.pagination-carousel.carousel-widget {
+.carousel-widget-container.pagination-carousel {
     margin-bottom: 20px;
 
     .owl-carousel.owl-theme {
@@ -160,7 +158,7 @@
 
 /*Carousel with preview.*/
 /*"Gallery" grid editor*/
-.gallery-widget {
+.gallery-widget-container {
     margin-bottom: 20px;
     background-color: @white-color;
     // Used in gallery. Slide part

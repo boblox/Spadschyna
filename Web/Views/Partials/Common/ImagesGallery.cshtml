@@ -11,7 +11,7 @@
 @if (carouselImages.Count > 0)
 {
     //Gallery which consists of 2 synchronized carousel parts - slide and preview-list
-    <div class="gallery-widget">
+    <article class="gallery-widget-container">
         <div id="@id1" class="slide">
             @*<div class="owl-carousel-prev not-mobile"></div>*@
             <div class="owl-carousel">
@@ -37,7 +37,7 @@
                 <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
             </div>
         </div>
-    </div>
+    </article>
 
     <script type="text/javascript">
         $(function () {

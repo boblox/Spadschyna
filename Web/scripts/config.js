@@ -125,7 +125,7 @@ function InitBannerCarousel(carouselWrapperId) {
 }
 
 /*********************************************=News Overview Routing=*****************************************************/
-function InitNewsRouting(yearAllInt, itemsPerPage) {
+function InitNewsRouting(containerId, overlayId, yearAllInt, itemsPerPage) {
     function updateRoute(route, el) {
         var year = $(el).data('year');
         var page = $(el).data('page');
@@ -170,9 +170,9 @@ function InitNewsRouting(yearAllInt, itemsPerPage) {
         $("a[data-news-link][data-year=" + route.year + "]").addClass('active');
         $("a[data-news-link][data-page=" + route.page + "]").addClass('active');
 
-        var list = $("#news-list");
+        var list = $("#" + containerId);
         //overlay shown over list of items when news are loaded
-        var loadingOverlay = list.siblings("#loading-overlay").show();
+        var loadingOverlay = list.siblings("#" + overlayId).show();
         $.ajax({
             url: '/umbraco/surface/News/Index/',
             type: 'POST',
@@ -222,7 +222,7 @@ function InitNewsRouting(yearAllInt, itemsPerPage) {
 }
 
 /*********************************************=Gallery Overview routing=***************************************************/
-function InitGalleryRouting(yearAllInt, itemsPerPage) {
+function InitGalleryRouting(containerId, overlayId, yearAllInt, itemsPerPage) {
     function updateRoute(route, el) {
         var year = $(el).data('year');
         var page = $(el).data('page');
@@ -268,9 +268,9 @@ function InitGalleryRouting(yearAllInt, itemsPerPage) {
         $("a[data-gallery-link][year=" + route.year + "]").addClass('active');
         $("a[data-gallery-link][page=" + route.page + "]").addClass('active');
 
-        var list = $("#gallery-list");
+        var list = $("#" + containerId);
         //overlay shown over list of items when news are loaded
-        var loadingOverlay = list.siblings("#loading-overlay").show();
+        var loadingOverlay = list.siblings("#" + overlayId).show();
         $.ajax({
             url: '/umbraco/surface/Gallery/Index/',
             type: 'POST',
@@ -320,8 +320,8 @@ function InitGalleryRouting(yearAllInt, itemsPerPage) {
 }
 
 /*********************************************=Gallery Overview routing=***************************************************/
-function InitGalleryItem() {
-    $("#gallery-item .image").magnificPopup({
+function InitGalleryItem(id) {
+    $("#" + id + " .image").magnificPopup({
         type: 'image',
         //delegate: 'img',
         image: {
@@ -365,7 +365,7 @@ function InitDisqus(identifier) {
 /***************************************************=Google Map=**************************************************************/
 function InitGoogleMap(settings) {
     var position = { lat: settings.latitude, lng: settings.longitude };
-    var el = $("#"+settings.id).get(0);
+    var el = $("#" + settings.id).get(0);
     var map = new google.maps.Map(el, {
         zoom: settings.zoom,
         center: position

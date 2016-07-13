@@ -6,40 +6,45 @@
     var items = ContentManager.GetAnnounceItems(1, Consts.AnnouncesConfig.ItemsOnFrontPage).Items;
 }
 
-<article class="home-announces-wrapper">
+<div class="home-announces-wrapper">
     <div class="container">
-        <header class="home-announces-header">
-            <h2>@page.AnnouncesTitle</h2>
-        </header>
-        <section class="home-announces">
-            <div class="row no-gutters">
-                @foreach (var item in items)
-                {
-                    <div class="col-sm-12 col-md-8">
-                        <article class="home-announce">
-                            <a href="@item.Url">
-                                <div class="home-announce-date">
-                                    <time class="home-announce-day">@item.DateOfHappening.Day.ToString().PadLeft(2, '0')</time>
-                                    <time class="home-announce-month">@item.DateOfHappening.ToString("MMM")</time>
-                                </div>
-                                <div class="home-announce-details">
+        <section class="home-announces-container">
+            <header class="title">
+                <h2>@page.AnnouncesTitle</h2>
+            </header>
+            <div class="content">
+                <div class="row no-gutters">
+                    @foreach (var item in items)
+                    {
+                        <div class="col-sm-12 col-md-8">
+                            <article class="announce">
+                                <a href="@item.Url">
                                     <header>
-                                        <h3>@item.GetTitle()</h3>
+                                        <div class="date">
+                                            <time class="day">@item.DateOfHappening.Day.ToString().PadLeft(2, '0')</time>
+                                            <time class="month">@item.DateOfHappening.ToString("MMM")</time>
+                                        </div>
+                                        <div class="details">
+                                            <h3>@item.GetTitle()</h3>
+                                            <p>
+                                                <span class="calendar-icon"></span>
+                                                <span class="time">@item.DateOfHappening.ToString("HH:mm")</span>
+                                            </p>
+                                            <p>
+                                                <span class="calendar-icon"></span>
+                                                <span class="location">@item.Place</span>
+                                            </p>
+                                        </div>
                                     </header>
-                                    <span class="calendar-icon"></span>
-                                    <span class="home-announce-time">@item.DateOfHappening.ToString("HH:mm")</span>
-                                    <br />
-                                    <span class="calendar-icon"></span>
-                                    <span class="home-announce-location">@item.Place</span>
-                                </div>
-                            </a>
-                        </article>
-                    </div>
-                }
+                                </a>
+                            </article>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="read-more">
+                <a href="@overview.Url" class="btn btn-default">@page.AnnouncesReadMore</a>
             </div>
         </section>
-        <section class="home-announces-read-more">
-            <a href="@overview.Url" class="btn btn-default">@page.AnnouncesReadMore</a>
-        </section>
     </div>
-</article>
+</div>

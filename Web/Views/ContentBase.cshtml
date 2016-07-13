@@ -34,26 +34,21 @@
 
 <section class="main-wrapper">
     <div class="container">
-        @*<header class="header-coloured orange">
-            <h3>
-                @RenderSection("Header")
-            </h3>
-        </header>*@
         <div class="row">
             @if (leftSidebarDefined)
             {
-                <div class="col-sm-@leftSidebarWidth">
+                <section class="col-sm-@leftSidebarWidth">
                     @RenderSection("LeftSidebar")
-                </div>
+                </section>
             }
-            <div class="col-sm-@contentWidth @cssClass">
+            <section class="col-sm-@contentWidth @cssClass">
                 @RenderSection("Body")
-            </div>
+            </section>
             @if (rightSidebarDefined)
             {
-                <div class="col-sm-@rightSidebarWidth">
+                <section class="col-sm-@rightSidebarWidth">
                     @RenderSection("RightSidebar")
-                </div>
+                </section>
             }
         </div>
     </div>

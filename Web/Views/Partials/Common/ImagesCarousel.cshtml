@@ -9,7 +9,7 @@
 
 @if (carouselImages.Count > 0)
 {
-    <div id="@id" class="pagination-carousel carousel-widget">
+    <article id="@id" class="carousel-widget-container pagination-carousel">
         @*<div class="owl-carousel-prev not-mobile"></div>*@
         <div class="owl-carousel">
             @foreach (var image in carouselImages)
@@ -18,7 +18,7 @@
             }
         </div>
         @*<div class="owl-carousel-next not-mobile"></div>*@
-    </div>
+    </article>
 
     <script type="text/javascript">
         $(function () {

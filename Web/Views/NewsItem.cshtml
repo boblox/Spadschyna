@@ -14,15 +14,15 @@
 
 @section Body
 {
-    <div class="content-wrapper">
-        <header class="content-title">
+    <article class="news-item-container">
+        <header class="title">
             <h3>@title</h3>
+            @{ Html.RenderPartial("/Views/Partials/News/NewsItemInfo.cshtml", item);}
+            @{ Html.RenderPartial("/Views/Partials/News/NewsItemTags.cshtml", item);}
         </header>
-        @{ Html.RenderPartial("/Views/Partials/News/NewsItemInfo.cshtml", item);}
-        @{ Html.RenderPartial("/Views/Partials/News/NewsItemTags.cshtml", item);}
-        <div class="grid-content">
+        <section class="grid-content">
             @Html.GetGridHtml(item, NewsItem.GetModelPropertyType(i => i.Content).PropertyTypeAlias, "Custom")
-        </div>
+        </section>
         @{Html.RenderPartial("~/Views/Partials/Common/Comments.cshtml");}
-    </div>
+    </article>
 }
