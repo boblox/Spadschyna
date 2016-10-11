@@ -3,20 +3,42 @@
     Layout = "ContentBase.cshtml";
     var containerId = "gallery-list";
     var overlayId = "loading-overlay";
+    var galleryYears = ContentManager.GetGalleryYears();
+    var dict = new ViewDataDictionary
+    {
+        { "DataAttr", "data-gallery-link" },
+        { "RoutingObj", "galleryRouting" }
+    };
 }
 
 @section Body
 {
-    <section id="@containerId" class="gallery-overview-container"></section>
-    <div id="@overlayId" class="loading-overlay"></div>
+    <section class="gallery-overview-container">
+        <div class="header">
+            <div class="row">
+                <div class="col-sm-18">
+                    <header>
+                        <h2>
+                            @Model.Content.GetTitle()
+                        </h2>
+                    </header>
+                </div>
+                <div class="col-sm-6">
+                    @{Html.RenderPartial("~/Views/Partials/Common/YearsList.cshtml", galleryYears, dict);}
+                </div>
+            </div>
+        </div>
+        <div class="list" id="@containerId"></div>
+        <div id="@overlayId" class="loading-overlay"></div>
+    </section>
 
     <script type="text/javascript">
         $(function () {
-            InitGalleryRouting(
-                '@containerId',
-                '@overlayId',
-                @Consts.GalleryConfig.YearAllInt,
-                @Consts.GalleryConfig.ItemsPerPageOnOverviewPage);
+            galleryRouting.init({
+                containerId: '@containerId',
+                overlayId: '@overlayId',
+                yearAllInt: @Consts.GalleryConfig.YearAllInt,
+                itemsPerPage: @Consts.GalleryConfig.ItemsPerPageOnOverviewPage});
         });
     </script>
 }

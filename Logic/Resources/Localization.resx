@@ -118,19 +118,19 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ContactFormClientEmail" xml:space="preserve">
-    <value>E-mail</value>
+    <value>Ваш e-mail</value>
   </data>
   <data name="ContactFormClientEmailInvalid" xml:space="preserve">
     <value>Неправильний формат електронної пошти</value>
   </data>
   <data name="ContactFormDescription" xml:space="preserve">
-    <value>Ваше запитання...</value>
+    <value>Ваше повідомлення</value>
   </data>
   <data name="ContactFormEmailSubject" xml:space="preserve">
     <value>Зворотній зв'язок</value>
   </data>
   <data name="ContactFormNameSurname" xml:space="preserve">
-    <value>Ім'я</value>
+    <value>Ваше ім'я</value>
   </data>
   <data name="RequiredField" xml:space="preserve">
     <value>*</value>

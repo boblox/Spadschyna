@@ -124,21 +124,44 @@ function InitBannerCarousel(carouselWrapperId) {
     //});
 }
 
-/*********************************************=News Overview Routing=*****************************************************/
-function InitNewsRouting(containerId, overlayId, yearAllInt, itemsPerPage) {
-    function updateRoute(route, el) {
-        var year = $(el).data('year');
-        var page = $(el).data('page');
-        route.year = year === undefined ? route.year : year;
+/*********************************************=Articles Pager=***********************************************************/
+function InitArticlesPager(dataAttr, routingObj) {
+    var links = $(".articles-pager a[" + dataAttr + "]");
 
-        if (year !== undefined) {
-            //reset news feed page if we clicked on category or year
-            route.page = config.newsStartPage;
-        }
-        else {
-            route.page = page === undefined ? route.page : page;
-        }
-    }
+    routingObj.addRouteChangeCallback(function (route) {
+        links.removeClass('active');
+        links.filter("[data-page=" + route.page + "]").addClass('active');
+    });
+
+    links.each(function (index, element) {
+        $(element).off('click');
+        $(element).on('click', function (e) {
+            e.preventDefault();
+            routingObj.updateRouteAndHash({ page: $(this).data('page') });
+        });
+    });
+}
+
+/*********************************************=Years List=***********************************************************/
+function InitYearsList(dataAttr, routingObj) {
+    var select = $("select.years-list[" + dataAttr + "]");
+
+    routingObj.addRouteChangeCallback(function (route) {
+        select.find("option[data-year=" + route.year + "]").attr("selected", "true");
+        select.selectpicker("refresh");
+    });
+
+    select.on('change', function (e) {
+        var selected = $(this).find("option:selected");
+        routingObj.updateRouteAndHash({ year: selected.data('year') });
+    });
+}
+
+/*********************************************=News Overview Routing=*****************************************************/
+var newsRouting = (function () {
+    var callbacks = [];
+    var containerId, overlayId, itemsPerPage, yearAllInt;
+    var currentRoute, routes, router;
 
     function getInitRoute() {
         var route = {
@@ -146,29 +169,31 @@ function InitNewsRouting(containerId, overlayId, yearAllInt, itemsPerPage) {
             page: config.newsStartPage,
             itemsPerPage: itemsPerPage
         };
-        $("a[data-news-link]active").each(function () {
-            updateRoute(route, $(this));
-        });
         return route;
     }
 
-    function bindControllers(route, router) {
-        $("a[data-news-link]").off('click');
+    function updateRouteAndHash(newRouteData) {
+        var year = newRouteData.year;
+        var page = newRouteData.page;
+        currentRoute.year = year === undefined ? currentRoute.year : year;
 
-        $("a[data-news-link]").on('click', function (e) {
-            e.preventDefault();
-            updateRoute(route, this);
+        if (year !== undefined) {
+            //reset news feed page if we clicked on category or year
+            currentRoute.page = config.newsStartPage;
+        }
+        else {
+            currentRoute.page = page === undefined ? currentRoute.page : page;
+        }
 
-            var hash = 'year/' + encodeURIComponent(route.year) +
-                '/page/' + encodeURIComponent(route.page);
-            router.setRoute(hash);
-        });
+        var hash = 'year/' + encodeURIComponent(currentRoute.year) +
+            '/page/' + encodeURIComponent(currentRoute.page);
+        router.setRoute(hash);
     }
 
-    function dealWithRoute(route, router) {
-        $("a[data-news-link]").removeClass('active');
-        $("a[data-news-link][data-year=" + route.year + "]").addClass('active');
-        $("a[data-news-link][data-page=" + route.page + "]").addClass('active');
+    function dealWithRoute(route) {
+        $(callbacks).each(function (index, element) {
+            element(route);
+        });
 
         var list = $("#" + containerId);
         //overlay shown over list of items when news are loaded
@@ -183,7 +208,6 @@ function InitNewsRouting(containerId, overlayId, yearAllInt, itemsPerPage) {
                 list.fadeOut("fast", function () {
                     loadingOverlay.hide();
                     list.html(data).fadeIn("fast");
-                    bindControllers(route, router);
                     reloadDisqusCommentsCounter();
                 });
             },
@@ -194,7 +218,28 @@ function InitNewsRouting(containerId, overlayId, yearAllInt, itemsPerPage) {
         });
     }
 
-    var routes = {
+    function addRouteChangeCallback(callback) {
+        callbacks.push(callback);
+        if (currentRoute !== undefined) {
+            callback(currentRoute);
+        }
+    }
+
+    function init(data) {
+        containerId = data.containerId;
+        overlayId = data.overlayId;
+        itemsPerPage = data.itemsPerPage || 1;
+        yearAllInt = data.yearAllInt || 0;
+        router.init("/");
+
+        //Routing should work only on NewsOverview page
+        //router.init('/');
+        //var hash = window.location.hash.slice(2);
+        //router.setRoute('/');
+        //router.setRoute(hash);
+    }
+
+    routes = {
         '/year/:year/page/:page':
             function (year, page) {
                 currentRoute = {
@@ -202,40 +247,27 @@ function InitNewsRouting(containerId, overlayId, yearAllInt, itemsPerPage) {
                     page: decodeURIComponent(page),
                     itemsPerPage: itemsPerPage
                 };
-                dealWithRoute(currentRoute, router);
+                dealWithRoute(currentRoute);
             },
         '/': function () {
             currentRoute = getInitRoute();
-            dealWithRoute(currentRoute, router);
+            dealWithRoute(currentRoute);
         }
     };
-    var currentRoute = getInitRoute();
-    var router = Router(routes);
+    router = Router(routes);
 
-    //Routing should work only on NewsOverview page
-    router.init('/');
-    //var hash = window.location.hash.slice(2);
-    //router.setRoute('/');
-    //router.setRoute(hash);
-
-    bindControllers(currentRoute, router);
-}
+    return {
+        updateRouteAndHash: updateRouteAndHash,
+        init: init,
+        addRouteChangeCallback: addRouteChangeCallback
+    }
+})();
 
 /*********************************************=Gallery Overview routing=***************************************************/
-function InitGalleryRouting(containerId, overlayId, yearAllInt, itemsPerPage) {
-    function updateRoute(route, el) {
-        var year = $(el).data('year');
-        var page = $(el).data('page');
-        route.year = year === undefined ? route.year : year;
-
-        if (year !== undefined) {
-            //reset gallery feed page if we clicked on category or year
-            route.page = config.galleryStartPage;
-        }
-        else {
-            route.page = page === undefined ? route.page : page;
-        }
-    }
+var galleryRouting = (function () {
+    var callbacks = [];
+    var containerId, overlayId, itemsPerPage, yearAllInt;
+    var currentRoute, routes, router;
 
     function getInitRoute() {
         var route = {
@@ -243,30 +275,31 @@ function InitGalleryRouting(containerId, overlayId, yearAllInt, itemsPerPage) {
             page: config.galleryStartPage,
             itemsPerPage: itemsPerPage
         };
-        $("a[data-gallery-link].active").each(function () {
-            updateRoute(route, $(this));
-        });
         return route;
     }
 
-    function bindControllers(route, router) {
-        $("a[data-gallery-link]").off('click');
+    function updateRouteAndHash(newRouteData) {
+        var year = newRouteData.year;
+        var page = newRouteData.page;
+        currentRoute.year = year === undefined ? currentRoute.year : year;
 
-        $("a[data-gallery-link]").on('click', function (e) {
-            e.preventDefault();
-            updateRoute(route, this);
+        if (year !== undefined) {
+            //reset gallery feed page if we clicked on category or year
+            currentRoute.page = config.galleryStartPage;
+        }
+        else {
+            currentRoute.page = page === undefined ? currentRoute.page : page;
+        }
 
-            var hash = 'year/' + encodeURIComponent(route.year) +
-                '/page/' + encodeURIComponent(route.page);
-            router.setRoute(hash);
-        });
+        var hash = 'year/' + encodeURIComponent(currentRoute.year) +
+            '/page/' + encodeURIComponent(currentRoute.page);
+        router.setRoute(hash);
     }
 
-    function dealWithRoute(route, router) {
-        //If it's NewsItem page then it is set on server side
-        $("a[data-gallery-link]").removeClass('active');
-        $("a[data-gallery-link][year=" + route.year + "]").addClass('active');
-        $("a[data-gallery-link][page=" + route.page + "]").addClass('active');
+    function dealWithRoute(route) {
+        $(callbacks).each(function (index, element) {
+            element(route);
+        });
 
         var list = $("#" + containerId);
         //overlay shown over list of items when news are loaded
@@ -281,7 +314,6 @@ function InitGalleryRouting(containerId, overlayId, yearAllInt, itemsPerPage) {
                 list.fadeOut("fast", function () {
                     loadingOverlay.hide();
                     list.html(data).fadeIn("fast");
-                    bindControllers(route, router);
                     //reloadDisqusCommentsCounter();
                 });
             },
@@ -292,7 +324,28 @@ function InitGalleryRouting(containerId, overlayId, yearAllInt, itemsPerPage) {
         });
     }
 
-    var routes = {
+    function addRouteChangeCallback(callback) {
+        callbacks.push(callback);
+        if (currentRoute !== undefined) {
+            callback(currentRoute);
+        }
+    }
+
+    function init(data) {
+        containerId = data.containerId;
+        overlayId = data.overlayId;
+        itemsPerPage = data.itemsPerPage || 1;
+        yearAllInt = data.yearAllInt || 0;
+        router.init("/");
+
+        //Routing should work only on NewsOverview page
+        //router.init('/');
+        //var hash = window.location.hash.slice(2);
+        //router.setRoute('/');
+        //router.setRoute(hash);
+    }
+
+    routes = {
         '/year/:year/page/:page':
             function (year, page) {
                 currentRoute = {
@@ -300,24 +353,21 @@ function InitGalleryRouting(containerId, overlayId, yearAllInt, itemsPerPage) {
                     page: decodeURIComponent(page),
                     itemsPerPage: itemsPerPage
                 };
-                dealWithRoute(currentRoute, router);
+                dealWithRoute(currentRoute);
             },
         '/': function () {
             currentRoute = getInitRoute();
-            dealWithRoute(currentRoute, router);
+            dealWithRoute(currentRoute);
         }
     };
-    var currentRoute = getInitRoute();
-    var router = Router(routes);
+    router = Router(routes);
 
-    //Routing should work only on NewsOverview page
-    router.init('/');
-    //var hash = window.location.hash.slice(2);
-    //router.setRoute('/');
-    //router.setRoute(hash);
-
-    bindControllers(currentRoute, router);
-}
+    return {
+        updateRouteAndHash: updateRouteAndHash,
+        init: init,
+        addRouteChangeCallback: addRouteChangeCallback
+    }
+})();
 
 /*********************************************=Gallery Overview routing=***************************************************/
 function InitGalleryItem(id) {

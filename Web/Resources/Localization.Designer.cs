@@ -106,20 +106,11 @@ namespace Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Всі.
+        ///   Looks up a localized string similar to Останні.
         /// </summary>
-        public static string NewsCategoryAll {
+        public static string LatestNews {
             get {
-                return ResourceManager.GetString("NewsCategoryAll", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Актуальні події.
-        /// </summary>
-        public static string NewsCategoryAnnounce {
-            get {
-                return ResourceManager.GetString("NewsCategoryAnnounce", resourceCulture);
+                return ResourceManager.GetString("LatestNews", resourceCulture);
             }
         }
         
@@ -160,7 +151,16 @@ namespace Web.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Всі.
+        ///   Looks up a localized string similar to рік.
+        /// </summary>
+        public static string Year {
+            get {
+                return ResourceManager.GetString("Year", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Всі роки.
         /// </summary>
         public static string YearAll {
             get {

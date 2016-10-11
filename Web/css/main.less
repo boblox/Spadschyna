@@ -31,6 +31,12 @@ h3 {
     font-weight: normal;
 }
 
+h4 {
+    text-transform: uppercase;
+    color: @gray-color-2;
+    font-weight: normal;
+}
+
 ul, ol {
     padding-left: @list-default-padding;
 }
@@ -103,7 +109,7 @@ a:focus {
     background-color: @orange-color-a;
 }
 
-/*Top navigation******************************************************/
+/*Top navigation***************************************************/
 .header-nav.navbar {
     border: 0;
 
@@ -137,8 +143,15 @@ a:focus {
 
         .navbar-nav {
             > li {
+                &.active, &:hover {
+                    a {
+                        border-top-color: @white-color;
+                    }
+                }
+
                 a {
-                    padding: (@navbar-height - @line-height-computed)/2 25px;
+                    border-top: solid 5px transparent;
+                    padding: (@navbar-height - @line-height-computed)/2-5px 25px (@navbar-height - @line-height-computed)/2;
                     .transition(all 0.4s);
                 }
                 //Multi-level menu
@@ -163,7 +176,7 @@ a:focus {
     }
 }
 
-/*Footer *********************************************************/
+/*Footer **********************************************************/
 .fiction-footer-wrapper {
     padding-top: 140px;
 
@@ -238,7 +251,7 @@ a:focus {
 
     .contacts {
         margin: 0 auto 0 40px; /*set to auto to float this element to left!*/
-        .social-icons(@orange-color-a);
+        .social-icons(@gray-color-4);
 
         ul.contacts {
             li {
@@ -302,16 +315,39 @@ ul.articles-pager {
     }
 }
 
+/*Years list*******************************************************/
+.years-list {
+    height: 50px;
+
+    .btn {
+        font-size: @font-size-h3;
+    }
+
+    .dropdown-toggle {
+        padding-left: 20px;
+        text-transform: none;
+        font-weight: normal;
+    }
+}
+
 /*Disqus***********************************************************/
 .disqus-container {
     margin-top: 30px;
     margin-bottom: 70px;
 }
 
+/*Disqus***********************************************************/
+.latest-news-container {
+    .item {
+        display: block;
+        color: @gray-color-3;
+        font-size: @font-size-middle-large;
+        margin-top: 20px;
+    }
+}
+
 /*Events-calendar***************************************************/
 .events-calendar-container {
-    /*background-color: @gray-color-6;*/
-    margin-top: 70px;
 }
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!HOME PAGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
@@ -480,7 +516,7 @@ ul.articles-pager {
                 font-size: @font-size-small;
                 color: @gray-color-3;
 
-                h3 {
+                h4 {
                     margin-top: 0;
                 }
 
@@ -533,7 +569,7 @@ ul.articles-pager {
                 /*display: flex;
                 flex-direction: column;*/
                 /*color: @orange-color-a;*/ //@gray-color-2;
-                h3 {
+                h4 {
                     .transition(all 0.4s);
                     border-bottom: 1px solid transparent;
                     display: inline-block;
@@ -542,7 +578,7 @@ ul.articles-pager {
                 &:hover, &:focus {
                     text-decoration: none;
 
-                    h3 {
+                    h4 {
                         color: @orange-color-a;
                         border-bottom: 1px solid @orange-color-a;
                     }
@@ -621,6 +657,22 @@ ul.articles-pager {
 .main-wrapper {
 }
 
+.standart-right-sidebar {
+    margin-top: 70px;
+
+    .years-list {
+        margin-bottom: 20px;
+    }
+
+    .events-calendar-container {
+        margin-bottom: 50px;
+    }
+
+    .latest-news-container {
+        margin-bottom: 50px;
+    }
+}
+
 /*News Overview****************************************************/
 .news-overview-container {
     margin: 70px 0 70px 0;
@@ -634,7 +686,7 @@ ul.articles-pager {
                 color: @gray-color-2;
             }
 
-            h3 {
+            h4 {
                 margin-top: 0;
             }
         }
@@ -658,19 +710,23 @@ ul.articles-pager {
     }
 }
 
+.news-overview-years {
+    margin-bottom: 20px;
+}
+
 /*News item info*****************************/
 ul.news-item-info {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
+    flex-wrap: wrap;
     justify-content: flex-start;
     font-size: @font-size-small;
 
     li {
         margin-right: 25px;
         display: inline-block;
-        line-height: 1;
 
         &:last-child {
             margin-right: 0;
@@ -681,12 +737,12 @@ ul.news-item-info {
         }
 
         span:first-child {
-            margin-right: 6px;
+            margin-right: 3px;
         }
 
         span {
             display: inline-block;
-            vertical-align: middle;
+            vertical-align: top;
         }
     }
 }
@@ -708,8 +764,14 @@ ul.news-item-info {
 .gallery-overview-container {
     margin: 70px 0 70px 0;
 
-    .title {
-        margin-bottom: 40px;
+    .header {
+        .years-list {
+            margin-top: 20px;
+        }
+    }
+
+    .list {
+        margin-top: 25px;
     }
 
     .gallery-item {
@@ -758,7 +820,7 @@ ul.news-item-info {
                     top: 0;
                 }
 
-                h3 {
+                h4 {
                     color: @white-color;
                     position: relative;
                 }
@@ -802,13 +864,9 @@ ul.news-item-info {
 
 /*News Item********************************************************/
 .news-item-container {
-    .title {
-        margin-bottom: 35px;
-        margin-top: 70px;
+    margin-top: 70px;
 
-        h3 {
-            margin-top: 0;
-        }
+    .title {
     }
 
     .news-item-info {
@@ -834,17 +892,16 @@ ul.news-item-info {
 
 /*Text Page ****** ************************************************/
 .text-page-container {
-    .title {
+    /*.title {
         margin-bottom: 35px;
         margin-top: 70px;
 
-        h3 {
+        h4 {
             margin-top: 0;
         }
-    }
-
+    }*/
     .grid-content {
-        margin: 50px 0 70px 0;
+        margin: 10px 0 70px 0;
 
         .gray-bg {
             background-color: @gray-color-5;

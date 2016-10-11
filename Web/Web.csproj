@@ -399,6 +399,7 @@
     <Content Include="Config\Lang\ru-RU.user.xml" />
     <Content Include="Config\Lang\sv-SE.user.xml" />
     <Content Include="Config\Lang\zh-CN.user.xml" />
+    <Content Include="css\bootstrap-select.min.css" />
     <Content Include="css\fonts.css" />
     <Content Include="css\images\loading-spinner.gif" />
     <Content Include="css\images\logo-2.png" />
@@ -452,6 +453,7 @@
     <Content Include="js\bootstrap\bootstrap.js" />
     <Content Include="js\bootstrap\bootstrap.min.js" />
     <Content Include="js\jquery\datepicker-uk.js" />
+    <Content Include="js\bootstrap\bootstrap-select.min.js" />
     <Content Include="scripts\config.js" />
     <Content Include="js\director.min.js" />
     <Content Include="js\imagesloaded.pkgd.min.js" />
@@ -663,6 +665,8 @@
     <Content Include="Views\MacroPartials\RenderUmbracoFormScripts.cshtml" />
     <Content Include="Views\MacroPartials\InsertUmbracoForm.cshtml" />
     <Content Include="Views\MacroPartials\BoardMembers.cshtml" />
+    <Content Include="Views\Partials\Common\YearsList.cshtml" />
+    <Content Include="Views\Partials\Common\LatestNews.cshtml" />
     <None Include="Views\Partials\Common\ImagesGallery.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Gallery.cshtml" />
     <Content Include="Views\Partials\Gallery\GalleryList.cshtml" />
@@ -682,6 +686,7 @@
     <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.CheckBoxList.cshtml" />
     <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.CheckBox.cshtml" />
     <Content Include="Views\Partials\Forms\Export\csv.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\TabbedRte.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -814,7 +819,7 @@
     <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
   </Target>
   <PropertyGroup>
-    <PostBuildEvent>xcopy /D $(SolutionDir)libs\* $(targetDir)</PostBuildEvent>
+    <PostBuildEvent>REM xcopy /D $(SolutionDir)libs\* $(targetDir)</PostBuildEvent>
   </PropertyGroup>
   <Import Project="..\packages\UmbracoCms.7.4.3\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.7.4.3\build\UmbracoCms.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

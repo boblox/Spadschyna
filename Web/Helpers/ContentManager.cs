@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using umbraco;
+using Web.Resources;
 using Umbraco.Web;
 using Umbraco.Web.PublishedContentModels;
 using Web.Models;
@@ -16,6 +17,13 @@ namespace Web.Helpers
         private static readonly UmbracoHelper UmbracoHelper = new UmbracoHelper(UmbracoContext.Current);
 
         #region Helpers
+
+        private static IEnumerable<NewsItem> SortNews(this IEnumerable<NewsItem> items)
+        {
+            return items
+                //.OrderByDescending(i => i.Parent<NewsByYear>().Name)
+                .OrderByDescending(i => i.PublishDate != default(DateTime) ? i.PublishDate : i.CreateDate);
+        }
 
         #endregion
 
@@ -71,10 +79,7 @@ namespace Web.Helpers
                 }
 
                 //Sort items
-                items = items
-                    //.OrderByDescending(i => i.Parent<NewsByYear>().Name)
-                    .OrderByDescending(i => i.PublishDate != default(DateTime) ? i.PublishDate : i.CreateDate)
-                    .ToList();
+                items = items.SortNews().ToList();
 
                 //Filter by page 
                 totalPagesCount = (int)Math.Ceiling(((double)items.Count / itemsPerPage));
@@ -90,6 +95,22 @@ namespace Web.Helpers
                 Page = page,
                 TotalPages = totalPagesCount
             };
+        }
+
+        public static List<NewsItem> GetLatestNews(int count)
+        {
+            var home = UmbracoHelper.TypedContentAtRoot().First();
+            var overview = home.FirstChild<NewsOverview>();
+            var items = new List<NewsItem>();
+            if (overview != null)
+            {
+                //Sort items
+                items = overview.Children
+                    .SelectMany(i => i.Children<NewsItem>())
+                    .SortNews().Take(count).ToList();
+            }
+
+            return items;
         }
 
         public static GalleryResult GetGalleryItems(int year, int page, int itemsPerPage)
@@ -135,6 +156,32 @@ namespace Web.Helpers
                 Page = page,
                 TotalPages = totalPagesCount
             };
+        }
+
+        public static List<Tuple<int, string>> GetNewsYears()
+        {
+            var home = UmbracoHelper.TypedContentAtRoot().First();
+            var overview = home.FirstChild<NewsOverview>();
+            var years = overview.Children<NewsByYear>()
+                .Select(i => i.Name)
+                .OrderByDescending(i => i)
+                .Distinct().Select(i => Tuple.Create(Convert.ToInt32(i), $"{i} {Localization.Year}"))
+                .ToList();
+            years.Insert(0, Tuple.Create(Consts.NewsConfig.YearAllInt, Localization.YearAll));
+            return years;
+        }
+
+        public static List<Tuple<int, string>> GetGalleryYears()
+        {
+            var home = UmbracoHelper.TypedContentAtRoot().First();
+            var overview = home.FirstChild<GalleryOverview>();
+            var years = overview.Children<GalleryByYear>()
+                .Select(i => i.Name)
+                .OrderByDescending(i => i)
+                .Distinct().Select(i => Tuple.Create(Convert.ToInt32(i), $"{i} {Localization.Year}"))
+                .ToList();
+            years.Insert(0, Tuple.Create(Consts.GalleryConfig.YearAllInt, Localization.YearAll));
+            return years;
         }
     }
 }

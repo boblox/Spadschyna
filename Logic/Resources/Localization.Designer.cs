@@ -61,7 +61,7 @@ namespace Logic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to E-mail.
+        ///   Looks up a localized string similar to Ваш e-mail.
         /// </summary>
         public static string ContactFormClientEmail {
             get {
@@ -79,7 +79,7 @@ namespace Logic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ваше запитання....
+        ///   Looks up a localized string similar to Ваше повідомлення.
         /// </summary>
         public static string ContactFormDescription {
             get {
@@ -97,7 +97,7 @@ namespace Logic.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Ім&apos;я.
+        ///   Looks up a localized string similar to Ваше ім&apos;я.
         /// </summary>
         public static string ContactFormNameSurname {
             get {

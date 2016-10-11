@@ -3,20 +3,20 @@
     var page = Model.Page;
     var totalPages = Model.TotalPages;
     var dataAttr = (string)ViewData["DataAttr"];
+    var routingObj = (string)ViewData["RoutingObj"];
     Func<dynamic, HelperResult> leftTriangle = @<span class="glyphicon glyphicon-chevron-left"></span>;
     Func<dynamic, HelperResult> rightTriangle = @<span class="glyphicon glyphicon-chevron-right"></span>;
 }
 
 @helper RenderPage(
-    int currentPageNumber, 
-    int renderPageNumber, 
+    int currentPageNumber,
+    int renderPageNumber,
     IHtmlString template,
     string dataAttr,
     string @class = null)
 {
     <li class="@(@class)">
-        <a class="@Umbraco.If(currentPageNumber == renderPageNumber, "active")" 
-           @dataAttr data-page="@renderPageNumber" href="#">
+        <a @dataAttr data-page="@renderPageNumber" href="#">
             @template
         </a>
     </li>
@@ -56,3 +56,9 @@
         </ul>
     </div>
 }
+
+<script type="text/javascript">
+    $(function () {
+        InitArticlesPager('@dataAttr', @routingObj);
+    });
+</script>

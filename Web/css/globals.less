@@ -47,21 +47,20 @@
 /*Contact Form*************************************************/
 .contact-form-container {
     .contact-form {
-        max-width: 265px;
+        max-width: 365px;
 
         & > .form-group {
             display: flex;
             flex-wrap: wrap;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             /*button send*/
             &:last-child {
                 justify-content: flex-start;
             }
         }
 
-        .btn-send-form {
-            margin-right: 10px;
-            width: auto;
+        .control-label {
+            font-weight: normal;
         }
 
         .field-validation-error {
@@ -100,25 +99,69 @@
 /*Google map***************************************************/
 .google-map-container {
     width: 100%;
+    margin-top: 40px;
 }
 
-/*Board members***************************************************/
+/*Board members************************************************/
 .board-members-container {
-    text-align: center;
-    margin: 70px 0;
+    margin: 50px 0 0px;
+
+    .title {
+        text-align: center;
+    }
 
     .board-member {
-        margin: 0 0px 70px 0px;
+        margin-bottom: 30px;
         font-size: @font-size-middle-large;
         text-align: center;
+        max-width: 300px;
 
-        h3 {
+        h4 {
             font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 5px;
         }
 
         img {
-            padding: 40px 40px 20px 40px;
+            padding: 40px 0;
         }
+    }
+}
+
+/*Tabbed rte***************************************************/
+.tabbed-rte {
+    .nav {
+        border-bottom: solid 1px @gray-color-5;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        font-size: @font-size-extra-large;
+
+        &:before, &:after {
+            content: none; /*Do this because  otherwise justify-content: space-between not work*/
+        }
+
+        li {
+            @media(max-width: @screen-xs-max) {
+                flex-basis: 100%;
+            }
+
+            a {
+                opacity: 0.5;
+                padding: 20px 5px 20px 5px;
+                .transition(all 0.2s);
+                border-bottom: 5px solid transparent;
+            }
+
+            &.active a, & a:hover, & a:focus {
+                opacity: 1;
+                border-bottom-color: @orange-color-a;
+            }
+        }
+    }
+
+    .tab-content {
+        margin-top: 50px;
     }
 }
 

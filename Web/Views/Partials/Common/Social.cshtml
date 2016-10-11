@@ -5,21 +5,20 @@
     // (1) means: go up to level 1 and stop looking for more ancestors when you get there
     // First() gets the first ancestor found (the home page, on level 1)
     var homePage = Model.Content.AncestorOrSelf<Site>();
-    var rssLink = homePage.RssLink; 
+    //var rssLink = homePage.RssLink; 
+    var vkLink = homePage.VkLink;
     var facebookLink = homePage.FacebookLink;
-    var instagramLink = homePage.InstagramLink;
-    var donateLink = homePage.DonateLink;
+    //var instagramLink = homePage.InstagramLink;
+    //var donateLink = homePage.DonateLink;
 }
 
 <!-- Contact -->
 <ul class="contacts">
-    @RenderLinkIfNotEmpty(rssLink, "rss", "Підписатись на новини")
+    @*@RenderLinkIfNotEmpty(rssLink, "rss", "Підписатись на новини")*@
+    @RenderLinkIfNotEmpty(vkLink, "vk", "Vk")
     @RenderLinkIfNotEmpty(facebookLink, "facebook", "Facebook")
-    @RenderLinkIfNotEmpty(instagramLink, "instagram", "Instagram")
-    @RenderLinkIfNotEmpty(donateLink, "donate", "Долучитись коштами")
-    @*@RenderLinkIfNotEmpty(homePage.GoogleLink, "googleplus", "Google+")
-        @RenderLinkIfNotEmpty(homePage.DribbbleLink, "dribbble", "Dribbble")
-        @RenderLinkIfNotEmpty(homePage.LinkedinLink, "linkedin", "Linked In")*@
+    @*@RenderLinkIfNotEmpty(instagramLink, "instagram", "Instagram")*@
+    @*@RenderLinkIfNotEmpty(donateLink, "donate", "Долучитись коштами")*@
 </ul>
 <!-- /Contact -->
 @helper RenderLinkIfNotEmpty(dynamic link, string cssClass, string linkName, string title = "")

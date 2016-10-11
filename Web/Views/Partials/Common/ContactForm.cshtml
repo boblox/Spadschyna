@@ -2,7 +2,7 @@
 @model ContactForm
 @{
     var formGroupClass = (string)null;//"form-group-sm";
-    var cssClass = "input-sm";
+    var cssClass = "input-lg";
 }
 
 @functions
@@ -17,17 +17,19 @@
         string cssClass = null)
     {
         var metadata = ModelMetadata.FromLambdaExpression(expression, html.ViewData);
-        var labelString = metadata.DisplayName ?? metadata.PropertyName ?? string.Empty;
+        //var labelString = metadata.DisplayName ?? metadata.PropertyName ?? string.Empty;
+        var labelString = html.LabelFor(expression, new { @class = "control-label" });
         //var labelString = html.LabelFor(expression, new { @class = "col-sm-9 control-label" });
-        var editorString = editor(expression, new { placeholder = labelString, @class = cssClass });
+        var editorString = editor(expression, new { @class = cssClass });
         var validationString = html.ValidationMessageFor(expression, null, new { @class = "" });
-        return ContactFormEditorHelper(editorString, validationString, formGroupClass);
+        return ContactFormEditorHelper(editorString, labelString, validationString, formGroupClass);
     }
 }
 
-@helper ContactFormEditorHelper(MvcHtmlString editorString, MvcHtmlString validationString, string formGroupClass)
+@helper ContactFormEditorHelper(MvcHtmlString editorString, MvcHtmlString labelString, MvcHtmlString validationString, string formGroupClass)
 {
     <div class="form-group @formGroupClass">
+        @labelString
         @editorString
         @validationString
     </div>
@@ -54,7 +56,7 @@
         @Html.HiddenFor(model => model.EmailTo)
 
         <div class="form-group">
-            <input type="submit" class="btn btn-default btn-send-form" value="@Localization.ContactFormSend" />
+            <input type="submit" class="btn btn-primary btn-send-form" value="@Localization.ContactFormSend" />
         </div>
     }
 </article>

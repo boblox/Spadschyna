@@ -6,7 +6,7 @@
 
 .social-icon(@x, @width) {
     span {
-        @height: 19px;
+        @height: 23px;
         display: block;
         background: url('images/icons-contact.png') no-repeat;
         width: @width;
@@ -28,31 +28,43 @@
                 display: block;
                 background-color: @background-color;
 
-                &.rss {
+                /*&.rss {
                     .social-icon(0, 18px);
+                }*/
+
+                &.vk {
+                    .social-icon(0, 23px);
                 }
 
                 &.facebook {
-                    .social-icon(-18px, 8px);
+                    .social-icon(-23px, 12px);
                 }
 
-                &.instagram {
+                /*&.instagram {
                     .social-icon(-26px, 14px);
                 }
 
                 &.donate {
                     .social-icon(-40px, 14px);
-                }
+                }*/
             }
         }
     }
 }
 
 .calendar-icon {
-    .news-icon(0, 14px);
+    .news-icon(0, 18px);
 }
 
-.comments-icon {
+.time-icon {
+    .news-icon(-18px, 14px);
+}
+
+.location-icon {
+    .news-icon(-32px, 13px);
+}
+
+/*.comments-icon {
     .news-icon(-14px, 15px);
 }
 
@@ -62,10 +74,10 @@
 
 .category-icon {
     .news-icon(-43px, 12px);
-}
+}*/
 
 .news-icon(@x, @width) {
-    @height: 14px;
+    @height: 18px;
     display: inline-block;
     background-image: url('images/news-icons.png');
     width: @width;

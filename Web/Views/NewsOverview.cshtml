@@ -3,25 +3,36 @@
     Layout = "ContentBase.cshtml";
     var containerId = "news-list";
     var overlayId = "loading-overlay";
+    var newsYears = ContentManager.GetNewsYears();
+    var dict = new ViewDataDictionary
+    {
+        { "DataAttr", "data-news-link" },
+        { "RoutingObj", "newsRouting" }
+    };
 }
 
 @section RightSidebar
 {
-    @{Html.RenderPartial("~/Views/Partials/Common/Calendar.cshtml");}
+    <div class="standart-right-sidebar">
+        @{Html.RenderPartial("~/Views/Partials/Common/YearsList.cshtml", newsYears, dict);}
+        @{Html.RenderPartial("~/Views/Partials/Common/Calendar.cshtml");}
+    </div>
 }
 
 @section Body
 {
-    <section id="@containerId" class="news-overview-container"></section>
-    <div id="@overlayId" class="loading-overlay"></div>
+    <section class="news-overview-container">
+        <div id="@containerId" class="list"></div>
+        <div id="@overlayId" class="loading-overlay"></div>
+    </section>
 
     <script type="text/javascript">
         $(function () {
-            InitNewsRouting(
-                '@containerId',
-                '@overlayId',
-                @Consts.NewsConfig.YearAllInt,
-                @Consts.NewsConfig.ItemsPerPageOnOverviewPage);
+            newsRouting.init({
+                containerId: '@containerId',
+                overlayId: '@overlayId',
+                yearAllInt: @Consts.NewsConfig.YearAllInt,
+                itemsPerPage: @Consts.NewsConfig.ItemsPerPageOnOverviewPage});
         });
     </script>
 }

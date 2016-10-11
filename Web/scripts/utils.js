@@ -17,5 +17,6 @@ function reloadDisqusCommentsCounter() {
 var config = {
     disqusShortName: "spadschyna",
     newsStartPage: 1,
-    galleryStartPage: 1
+    galleryStartPage: 1,
+    yearAllInt: 0
 }

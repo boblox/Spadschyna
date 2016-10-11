@@ -132,11 +132,8 @@
   <data name="ItemReadMore" xml:space="preserve">
     <value>Далі</value>
   </data>
-  <data name="NewsCategoryAll" xml:space="preserve">
-    <value>Всі</value>
-  </data>
-  <data name="NewsCategoryAnnounce" xml:space="preserve">
-    <value>Актуальні події</value>
+  <data name="LatestNews" xml:space="preserve">
+    <value>Останні</value>
   </data>
   <data name="Photos" xml:space="preserve">
     <value>Фото</value>
@@ -150,7 +147,10 @@
   <data name="True" xml:space="preserve">
     <value>Так</value>
   </data>
+  <data name="Year" xml:space="preserve">
+    <value>рік</value>
+  </data>
   <data name="YearAll" xml:space="preserve">
-    <value>Всі</value>
+    <value>Всі роки</value>
   </data>
 </root>

@@ -116,5 +116,14 @@ namespace Umbraco.Web.PublishedContentModels
 		{
 			get { return this.GetPropertyValue("umbracoInternalRedirectId"); }
 		}
+
+		///<summary>
+		/// VkLink
+		///</summary>
+		[ImplementPropertyType("vkLink")]
+		public string VkLink
+		{
+			get { return this.GetPropertyValue<string>("vkLink"); }
+		}
 	}
 }

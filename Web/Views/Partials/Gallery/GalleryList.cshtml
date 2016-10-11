@@ -3,11 +3,6 @@
     var items = Model.Items;
 }
 
-<header class="title">
-    <h2>
-        @Model.Title
-    </h2>
-</header>
 <div class="row">
     @foreach (var item in items)
     {
@@ -23,24 +18,30 @@
                 {
                     var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
                     <a href="@item.Url" class="image">
-                        <img class="img-responsive" src="@imageUrl" alt=""/>
+                        <img class="img-responsive" src="@imageUrl" alt="" />
                         <div class="info">
                             <header>
-                                <h3>@title</h3>
+                                <h4>@title</h4>
                             </header>
                             <div class="byline">
-                                <span>@Html.GetInnerText(string.IsNullOrWhiteSpace(subtitle) ?
-                                    content : new HtmlString(subtitle), 50)</span>
-                                <span>@photoStr</span>
-                            </div>
+                                <span>
+                                    @Html.GetInnerText(string.IsNullOrWhiteSpace(subtitle) ?
+                                    content : new HtmlString(subtitle), 50)
+                            </span>
+                            <span>@photoStr</span>
                         </div>
-                    </a>
+                    </div>
+                </a>
                 }
             </article>
         </div>
     }
 </div>
 @{
-    var dict = new ViewDataDictionary { { "DataAttr", "data-gallery-link" } };
+    var dict = new ViewDataDictionary
+    {
+        { "DataAttr", "data-gallery-link" },
+        { "RoutingObj", "galleryRouting" }
+    };
     Html.RenderPartial("~/Views/Partials/Common/ArticlesPager.cshtml", Model, dict);
 }
