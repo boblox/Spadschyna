@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\UmbracoCms.7.4.3\build\UmbracoCms.props" Condition="Exists('..\packages\UmbracoCms.7.4.3\build\UmbracoCms.props')" />
+  <Import Project="..\packages\UmbracoCms.7.5.4\build\UmbracoCms.props" Condition="Exists('..\packages\UmbracoCms.7.5.4\build\UmbracoCms.props')" />
   <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
   <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
@@ -49,32 +49,32 @@
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="AutoMapper, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="AutoMapper.Net4, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.3.0.0\lib\net40\AutoMapper.Net4.dll</HintPath>
+    <Reference Include="AutoMapper.Net4, Version=3.3.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.3.3.1\lib\net40\AutoMapper.Net4.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="businesslogic, Version=1.0.5948.18144, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\businesslogic.dll</HintPath>
+    <Reference Include="businesslogic, Version=1.0.6136.27244, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\businesslogic.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ClientDependency.Core, Version=1.8.4.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ClientDependency.1.8.4\lib\net45\ClientDependency.Core.dll</HintPath>
+    <Reference Include="ClientDependency.Core, Version=1.9.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClientDependency.1.9.1\lib\net45\ClientDependency.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="ClientDependency.Core.Mvc, Version=1.8.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClientDependency-Mvc5.1.8.0.0\lib\net45\ClientDependency.Core.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="cms, Version=1.0.5948.18144, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\cms.dll</HintPath>
+    <Reference Include="cms, Version=1.0.6136.27244, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\cms.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="controls, Version=1.0.5948.18145, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\controls.dll</HintPath>
+    <Reference Include="controls, Version=1.0.6136.27246, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\controls.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CookComputing.XmlRpcV2, Version=2.5.0.0, Culture=neutral, PublicKeyToken=a7d6e17aa302004d, processorArchitecture=MSIL">
@@ -97,8 +97,8 @@
       <HintPath>..\packages\UmbracoForms.Core.4.3.2\lib\EPPlus.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Examine, Version=0.1.68.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Examine.0.1.68.0\lib\Examine.dll</HintPath>
+    <Reference Include="Examine, Version=0.1.70.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Examine.0.1.70.0\lib\Examine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="HtmlAgilityPack, Version=1.4.9.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
@@ -109,16 +109,16 @@
       <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ImageProcessor, Version=2.3.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ImageProcessor.2.3.3.0\lib\net45\ImageProcessor.dll</HintPath>
+    <Reference Include="ImageProcessor, Version=2.4.5.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.2.4.5.0\lib\net45\ImageProcessor.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="ImageProcessor.Web, Version=4.5.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\ImageProcessor.Web.4.5.3.0\lib\net45\ImageProcessor.Web.dll</HintPath>
+    <Reference Include="ImageProcessor.Web, Version=4.6.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ImageProcessor.Web.4.6.6.0\lib\net45\ImageProcessor.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="interfaces, Version=1.0.5948.18141, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\interfaces.dll</HintPath>
+    <Reference Include="interfaces, Version=1.0.6136.27240, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\interfaces.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Lecoati.LeBlender.Extension, Version=1.0.8.4, Culture=neutral, processorArchitecture=MSIL">
@@ -126,7 +126,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="log4net, Version=1.2.11.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\log4net.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\log4net.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Lucene.Net, Version=2.9.4.1, Culture=neutral, PublicKeyToken=85089178b9ac3181, processorArchitecture=MSIL">
@@ -138,7 +138,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.ApplicationBlocks.Data, Version=1.0.1559.20655, Culture=neutral">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\Microsoft.ApplicationBlocks.Data.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\Microsoft.ApplicationBlocks.Data.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -214,8 +214,8 @@
       <HintPath>..\packages\semver.1.1.2\lib\net451\Semver.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="SQLCE4Umbraco, Version=1.0.5948.18145, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\SQLCE4Umbraco.dll</HintPath>
+    <Reference Include="SQLCE4Umbraco, Version=1.0.6136.27245, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\SQLCE4Umbraco.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Collections.Immutable, Version=1.1.36.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -223,11 +223,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.SqlServerCe, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\System.Data.SqlServerCe.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\System.Data.SqlServerCe.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Data.SqlServerCe.Entity, Version=4.0.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\System.Data.SqlServerCe.Entity.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\System.Data.SqlServerCe.Entity.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Net.Http" />
@@ -301,23 +301,23 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="TidyNet, Version=1.0.0.0, Culture=neutral">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\TidyNet.dll</HintPath>
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\TidyNet.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="umbraco, Version=1.0.5948.18146, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\umbraco.dll</HintPath>
+    <Reference Include="umbraco, Version=1.0.6136.27248, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\umbraco.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Umbraco.Core, Version=1.0.5948.18141, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\Umbraco.Core.dll</HintPath>
+    <Reference Include="Umbraco.Core, Version=1.0.6136.27241, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\Umbraco.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="umbraco.DataLayer, Version=1.0.5948.18143, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\umbraco.DataLayer.dll</HintPath>
+    <Reference Include="umbraco.DataLayer, Version=1.0.6136.27243, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\umbraco.DataLayer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="umbraco.editorControls, Version=1.0.5948.18148, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\umbraco.editorControls.dll</HintPath>
+    <Reference Include="umbraco.editorControls, Version=1.0.6136.27251, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\umbraco.editorControls.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Umbraco.Forms.Core, Version=4.3.2.0, Culture=neutral, processorArchitecture=MSIL">
@@ -340,24 +340,24 @@
       <HintPath>..\packages\UmbracoForms.Core.4.3.2\lib\Umbraco.Licensing.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="umbraco.MacroEngines, Version=1.0.5948.18149, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\umbraco.MacroEngines.dll</HintPath>
+    <Reference Include="umbraco.MacroEngines, Version=1.0.6136.27252, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\umbraco.MacroEngines.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Umbraco.ModelsBuilder, Version=3.0.2.93, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Umbraco.ModelsBuilder.3.0.2\lib\Umbraco.ModelsBuilder.dll</HintPath>
+    <Reference Include="Umbraco.ModelsBuilder, Version=3.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Umbraco.ModelsBuilder.3.0.4\lib\Umbraco.ModelsBuilder.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="umbraco.providers, Version=1.0.5948.18146, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\umbraco.providers.dll</HintPath>
+    <Reference Include="umbraco.providers, Version=1.0.6136.27246, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\umbraco.providers.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Umbraco.Web.UI, Version=1.0.5948.18150, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\Umbraco.Web.UI.dll</HintPath>
+    <Reference Include="Umbraco.Web.UI, Version=1.0.6136.27253, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\Umbraco.Web.UI.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="UmbracoExamine, Version=0.7.0.18144, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\UmbracoCms.Core.7.4.3\lib\UmbracoExamine.dll</HintPath>
+    <Reference Include="UmbracoExamine, Version=0.7.0.27245, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\UmbracoCms.Core.7.5.4\lib\UmbracoExamine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="UrlRewritingNet.UrlRewriter, Version=2.0.7.0, Culture=neutral, processorArchitecture=MSIL">
@@ -454,6 +454,105 @@
     <Content Include="js\bootstrap\bootstrap.min.js" />
     <Content Include="js\jquery\datepicker-uk.js" />
     <Content Include="js\bootstrap\bootstrap-select.min.js" />
+    <Content Include="media\1001\олюня.jpg" />
+    <Content Include="media\3198\618px-cbc_logo_1966-1974svg.png" />
+    <Content Include="media\3403\13319976_1117162508325442_4996049634374899077_n.jpg" />
+    <Content Include="media\3407\13164490_1103475666360793_4929063512819816108_n.jpg" />
+    <Content Include="media\340\article-sample.jpg" />
+    <Content Include="media\340\article-sample_big-thumb.jpg" />
+    <Content Include="media\3411\13139363_1103475669694126_4237676416712940873_n.jpg" />
+    <Content Include="media\3439\13139363_1103475669694126_4237676416712940873_n.jpg" />
+    <Content Include="media\3443\13164490_1103475666360793_4929063512819816108_n.jpg" />
+    <Content Include="media\3447\13325740_1117162351658791_4932100370828269078_n.jpg" />
+    <Content Include="media\3451\13325740_1117162351658791_4932100370828269078_n.jpg" />
+    <Content Include="media\3475\13325740_1117162351658791_4932100370828269078_n.jpg" />
+    <Content Include="media\3479\13325740_1117162351658791_4932100370828269078_n.jpg" />
+    <Content Include="media\3483\13164490_1103475666360793_4929063512819816108_n.jpg" />
+    <Content Include="media\3487\13239417_1105764556131904_5186847308870465369_n.jpg" />
+    <Content Include="media\348\carousel-sample-thumb.jpg" />
+    <Content Include="media\348\carousel-sample-thumb_big-thumb.jpg" />
+    <Content Include="media\3511\13139363_1103475669694126_4237676416712940873_n.jpg" />
+    <Content Include="media\3515\13164490_1103475666360793_4929063512819816108_n.jpg" />
+    <Content Include="media\3519\13319976_1117162508325442_4996049634374899077_n.jpg" />
+    <Content Include="media\3523\13325740_1117162351658791_4932100370828269078_n.jpg" />
+    <Content Include="media\6041\untitled2.png" />
+    <Content Include="media\6050\тігра.png" />
+    <Content Include="media\6053\untitled2.png" />
+    <Content Include="media\6082\untitled2.png" />
+    <Content Include="media\9725\carousel-sample.jpg" />
+    <Content Include="media\9726\article-sample_thumb.jpg" />
+    <Content Include="media\9727\carousel-sample-thumb_thumb.jpg" />
+    <Content Include="media\9728\article-sample.jpg" />
+    <Content Include="media\9728\article-sample_big-thumb.jpg" />
+    <Content Include="media\9728\article-sample_thumb.jpg" />
+    <Content Include="media\9729\carousel-sample-thumb_big-thumb.jpg" />
+    <Content Include="media\9729\carousel-sample-thumb_thumb.jpg" />
+    <Content Include="media\9729\ovfz2d1j9ke.jpg" />
+    <Content Include="media\9729\ovfz2d1j9ke_big-thumb.jpg" />
+    <Content Include="media\9729\ovfz2d1j9ke_thumb.jpg" />
+    <Content Include="media\9730\afahza_jpi4.jpg" />
+    <Content Include="media\9730\afahza_jpi4_big-thumb.jpg" />
+    <Content Include="media\9730\afahza_jpi4_thumb.jpg" />
+    <Content Include="media\9731\carousel-sample.jpg" />
+    <Content Include="media\9731\carousel-sample_big-thumb.jpg" />
+    <Content Include="media\9731\carousel-sample_thumb.jpg" />
+    <Content Include="media\9732\article-sample.jpg" />
+    <Content Include="media\9732\article-sample_big-thumb.jpg" />
+    <Content Include="media\9732\article-sample_thumb.jpg" />
+    <Content Include="media\9733\lyeoypdpldo_thumb.jpg" />
+    <Content Include="media\9734\untitled_thumb.jpg" />
+    <Content Include="media\9734\untitled_thumb.png" />
+    <Content Include="media\9735\12111941_10153533879662746_5466920426348475361_n.jpg" />
+    <Content Include="media\9735\12111941_10153533879662746_5466920426348475361_n_big-thumb.jpg" />
+    <Content Include="media\9735\12111941_10153533879662746_5466920426348475361_n_thumb.jpg" />
+    <Content Include="media\9736\lyeoypdpldo.jpg" />
+    <Content Include="media\9736\lyeoypdpldo_thumb.jpg" />
+    <Content Include="media\9737\dsc01412.jpg" />
+    <Content Include="media\9737\dsc01412_big-thumb.jpg" />
+    <Content Include="media\9737\dsc01412_thumb.jpg" />
+    <Content Include="media\9738\afahza_jpi4_big-thumb.jpg" />
+    <Content Include="media\9738\afahza_jpi4_thumb.jpg" />
+    <Content Include="media\9739\lyeoypdpldo.jpg" />
+    <Content Include="media\9739\lyeoypdpldo_thumb.jpg" />
+    <Content Include="media\9740\0d5bxforrym.jpg" />
+    <Content Include="media\9740\0d5bxforrym_big-thumb.jpg" />
+    <Content Include="media\9740\0d5bxforrym_thumb.jpg" />
+    <Content Include="media\9741\bfncrihzwbq.jpg" />
+    <Content Include="media\9741\bfncrihzwbq_big-thumb.jpg" />
+    <Content Include="media\9741\bfncrihzwbq_thumb.jpg" />
+    <Content Include="media\9742\hxpoy1q-5ik.jpg" />
+    <Content Include="media\9742\hxpoy1q-5ik_big-thumb.jpg" />
+    <Content Include="media\9742\hxpoy1q-5ik_thumb.jpg" />
+    <Content Include="media\9743\kwbouwfa6xo.jpg" />
+    <Content Include="media\9743\kwbouwfa6xo_big-thumb.jpg" />
+    <Content Include="media\9743\kwbouwfa6xo_thumb.jpg" />
+    <Content Include="media\9744\ovfz2d1j9ke.jpg" />
+    <Content Include="media\9744\ovfz2d1j9ke_big-thumb.jpg" />
+    <Content Include="media\9744\ovfz2d1j9ke_thumb.jpg" />
+    <Content Include="media\9745\tfiqq54zwks.jpg" />
+    <Content Include="media\9745\tfiqq54zwks_big-thumb.jpg" />
+    <Content Include="media\9745\tfiqq54zwks_thumb.jpg" />
+    <Content Include="media\9746\unio3gqsg6e.jpg" />
+    <Content Include="media\9746\unio3gqsg6e_big-thumb.jpg" />
+    <Content Include="media\9746\unio3gqsg6e_thumb.jpg" />
+    <Content Include="media\9747\0d5bxforrym.jpg" />
+    <Content Include="media\9747\0d5bxforrym_big-thumb.jpg" />
+    <Content Include="media\9747\0d5bxforrym_thumb.jpg" />
+    <Content Include="media\9748\unio3gqsg6e.jpg" />
+    <Content Include="media\9748\unio3gqsg6e_big-thumb.jpg" />
+    <Content Include="media\9748\unio3gqsg6e_thumb.jpg" />
+    <Content Include="media\9749\bfncrihzwbq.jpg" />
+    <Content Include="media\9749\bfncrihzwbq_big-thumb.jpg" />
+    <Content Include="media\9749\bfncrihzwbq_thumb.jpg" />
+    <Content Include="media\9750\kwbouwfa6xo.jpg" />
+    <Content Include="media\9750\kwbouwfa6xo_big-thumb.jpg" />
+    <Content Include="media\9750\kwbouwfa6xo_thumb.jpg" />
+    <Content Include="media\9751\618px-cbc_logo_1966-1974svg.png" />
+    <Content Include="media\9752\ubuntu-logo32.png" />
+    <Content Include="media\9753\fishofish-logo_318-52716png.jpg" />
+    <Content Include="media\9754\13325740_1117162351658791_4932100370828269078_n.jpg" />
+    <Content Include="media\9755\letter.png" />
+    <Content Include="media\9756\тігра.png" />
     <Content Include="scripts\config.js" />
     <Content Include="js\director.min.js" />
     <Content Include="js\imagesloaded.pkgd.min.js" />
@@ -542,20 +641,24 @@
     <Content Include="css\bootstrap\alerts.less" />
     <Content Include="css\rte.less" />
     <Content Include="css\rte-base.less" />
-    <Content Include="Config\UrlRewriting.config" />
     <Content Include="Config\umbracoSettings.config">
       <SubType>Designer</SubType>
     </Content>
-    <Content Include="Config\tinyMceConfig.config">
+    <Content Include="Config\UrlRewriting.config">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\tinyMceConfig.config" />
     <Content Include="Config\scripting.config" />
     <Content Include="Config\metablogConfig.config" />
     <Content Include="Config\log4net.config" />
     <Content Include="Config\FileSystemProviders.config" />
     <Content Include="Config\feedProxy.config" />
-    <Content Include="Config\ExamineSettings.config" />
-    <Content Include="Config\ExamineIndex.config" />
+    <Content Include="Config\ExamineSettings.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\ExamineIndex.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\EmbeddedMedia.config" />
     <Content Include="Config\BaseRestExtensions.config" />
     <Content Include="Config\404handlers.config" />
@@ -647,14 +750,6 @@
     <Content Include="js\jquery\jquery-2.2.1.min.map" />
     <Content Include="Views\GalleryItem.cshtml" />
     <Content Include="Views\GalleryOverview.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Media.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Macro.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Embed.cshtml" />
-    <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
-    <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
-    <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <Content Include="Views\Partials\Home\Info.cshtml" />
     <Content Include="Views\Partials\Home\Announces.cshtml" />
     <Content Include="Views\AnnounceOverview.cshtml" />
@@ -667,6 +762,11 @@
     <Content Include="Views\MacroPartials\BoardMembers.cshtml" />
     <Content Include="Views\Partials\Common\YearsList.cshtml" />
     <Content Include="Views\Partials\Common\LatestNews.cshtml" />
+    <Content Include="media\created-packages\Bob2_2.0.zip" />
+    <Content Include="media\created-packages\Bobo_1.0.zip" />
+    <Content Include="media\created-packages\Bob_1.0.zip" />
+    <Content Include="media\created-packages\New_Doc_Types_1.0.zip" />
+    <Content Include="media\Web.config" />
     <None Include="Views\Partials\Common\ImagesGallery.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Gallery.cshtml" />
     <Content Include="Views\Partials\Gallery\GalleryList.cshtml" />
@@ -687,6 +787,14 @@
     <Content Include="Views\Partials\Forms\Fieldtypes\FieldType.CheckBox.cshtml" />
     <Content Include="Views\Partials\Forms\Export\csv.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\TabbedRte.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Textstring.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Rte.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Media.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Macro.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Embed.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Base.cshtml" />
+    <Content Include="Views\Partials\Grid\Bootstrap3.cshtml" />
+    <Content Include="Views\Partials\Grid\Bootstrap2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -810,8 +918,8 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
     <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
-    <Error Condition="!Exists('..\packages\UmbracoCms.7.4.3\build\UmbracoCms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.4.3\build\UmbracoCms.props'))" />
-    <Error Condition="!Exists('..\packages\UmbracoCms.7.4.3\build\UmbracoCms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.4.3\build\UmbracoCms.targets'))" />
+    <Error Condition="!Exists('..\packages\UmbracoCms.7.5.4\build\UmbracoCms.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.5.4\build\UmbracoCms.props'))" />
+    <Error Condition="!Exists('..\packages\UmbracoCms.7.5.4\build\UmbracoCms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\UmbracoCms.7.5.4\build\UmbracoCms.targets'))" />
   </Target>
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
   <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
@@ -821,7 +929,8 @@
   <PropertyGroup>
     <PostBuildEvent>REM xcopy /D $(SolutionDir)libs\* $(targetDir)</PostBuildEvent>
   </PropertyGroup>
-  <Import Project="..\packages\UmbracoCms.7.4.3\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.7.4.3\build\UmbracoCms.targets')" />
+  <Import Project="..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets" Condition="Exists('..\packages\AutoMapper.3.3.1\tools\AutoMapper.targets')" />
+  <Import Project="..\packages\UmbracoCms.7.5.4\build\UmbracoCms.targets" Condition="Exists('..\packages\UmbracoCms.7.5.4\build\UmbracoCms.targets')" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
