@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using umbraco;
+using Umbraco.Core;
 using Web.Resources;
 using Umbraco.Web;
 using Umbraco.Web.PublishedContentModels;
@@ -18,11 +19,16 @@ namespace Web.Helpers
 
         #region Helpers
 
+        private static DateTime GetNewsItemPublishDate(NewsItem item)
+        {
+            return item.PublishDate != default(DateTime) ? item.PublishDate : item.CreateDate;
+        }
+
         private static IEnumerable<NewsItem> SortNews(this IEnumerable<NewsItem> items)
         {
             return items
                 //.OrderByDescending(i => i.Parent<NewsByYear>().Name)
-                .OrderByDescending(i => i.PublishDate != default(DateTime) ? i.PublishDate : i.CreateDate);
+                .OrderByDescending(GetNewsItemPublishDate);
         }
 
         #endregion
@@ -67,15 +73,13 @@ namespace Web.Helpers
                 //Filter by year
                 if (year == Consts.NewsConfig.YearAllInt)
                 {
-                    items = overview.Children.SelectMany(i => i.Children<NewsItem>()).ToList();
+                    items = overview.Children<NewsItem>().ToList();
                 }
                 else
                 {
-                    var newsByYear = overview.Children.FirstOrDefault(i => i.Name == year.ToString());
-                    if (newsByYear != null)
-                    {
-                        items = newsByYear.Children<NewsItem>().ToList();
-                    }
+                    items = overview.Children<NewsItem>()
+                        .Where(i => GetNewsItemPublishDate(i).Year == year)
+                        .ToList();
                 }
 
                 //Sort items
@@ -99,18 +103,10 @@ namespace Web.Helpers
 
         public static List<NewsItem> GetLatestNews(int count)
         {
-            var home = UmbracoHelper.TypedContentAtRoot().First();
-            var overview = home.FirstChild<NewsOverview>();
-            var items = new List<NewsItem>();
-            if (overview != null)
-            {
-                //Sort items
-                items = overview.Children
-                    .SelectMany(i => i.Children<NewsItem>())
-                    .SortNews().Take(count).ToList();
-            }
-
-            return items;
+            return GetNewsItems(
+                Consts.NewsConfig.YearAllInt,
+                1,
+                count).Items;
         }
 
         public static GalleryResult GetGalleryItems(int year, int page, int itemsPerPage)
@@ -124,21 +120,16 @@ namespace Web.Helpers
                 //Filter by year
                 if (year == Consts.GalleryConfig.YearAllInt)
                 {
-                    items = overview.Children.SelectMany(i => i.Children<GalleryItem>()).ToList();
+                    items = overview.Children<GalleryItem>().ToList();
                 }
                 else
                 {
-                    var galleryByYear = overview.Children.FirstOrDefault(i => i.Name == year.ToString());
-                    if (galleryByYear != null)
-                    {
-                        items = galleryByYear.Children<GalleryItem>().ToList();
-                    }
+                    items = overview.Children<GalleryItem>().Where(i => i.Year == year).ToList();
                 }
 
-                //Order by GalleryByYear node, then by create date
                 items = items
-                    //.OrderByDescending(i => i.Parent<GalleryByYear>().Name)
-                    .OrderByDescending(i => i.CreateDate)
+                    .OrderByDescending(i => i.Year)
+                    .ThenByDescending(i => i.CreateDate)
                     .ToList();
 
                 //Filter by page 
@@ -162,10 +153,11 @@ namespace Web.Helpers
         {
             var home = UmbracoHelper.TypedContentAtRoot().First();
             var overview = home.FirstChild<NewsOverview>();
-            var years = overview.Children<NewsByYear>()
-                .Select(i => i.Name)
+            var years = overview.Children<NewsItem>()
+                .Select(GetNewsItemPublishDate)
+                .DistinctBy(i => i.Year)
                 .OrderByDescending(i => i)
-                .Distinct().Select(i => Tuple.Create(Convert.ToInt32(i), $"{i} {Localization.Year}"))
+                .Select(i => Tuple.Create(Convert.ToInt32(i.Year), $"{i.Year} {Localization.Year}"))
                 .ToList();
             years.Insert(0, Tuple.Create(Consts.NewsConfig.YearAllInt, Localization.YearAll));
             return years;
@@ -175,10 +167,11 @@ namespace Web.Helpers
         {
             var home = UmbracoHelper.TypedContentAtRoot().First();
             var overview = home.FirstChild<GalleryOverview>();
-            var years = overview.Children<GalleryByYear>()
-                .Select(i => i.Name)
+            var years = overview.Children<GalleryItem>()
+                .Select(i => i.Year)
+                .Distinct()
                 .OrderByDescending(i => i)
-                .Distinct().Select(i => Tuple.Create(Convert.ToInt32(i), $"{i} {Localization.Year}"))
+                .Select(i => Tuple.Create(Convert.ToInt32(i), $"{i} {Localization.Year}"))
                 .ToList();
             years.Insert(0, Tuple.Create(Consts.GalleryConfig.YearAllInt, Localization.YearAll));
             return years;

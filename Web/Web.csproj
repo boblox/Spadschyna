@@ -723,7 +723,6 @@
     <Compile Include="App_Data\Models\Folder.generated.cs" />
     <Compile Include="App_Data\Models\FrontPageBanner.generated.cs" />
     <Compile Include="App_Data\Models\FrontPageBannerContainer.generated.cs" />
-    <Compile Include="App_Data\Models\GalleryByYear.generated.cs" />
     <Compile Include="App_Data\Models\GalleryItem.generated.cs" />
     <Compile Include="App_Data\Models\GalleryOverview.generated.cs" />
     <Compile Include="App_Data\Models\Home.generated.cs" />
@@ -731,7 +730,6 @@
     <Compile Include="App_Data\Models\LocationComponent.generated.cs" />
     <Compile Include="App_Data\Models\Member.generated.cs" />
     <Compile Include="App_Data\Models\NavigationComponent.generated.cs" />
-    <Compile Include="App_Data\Models\NewsByYear.generated.cs" />
     <Compile Include="App_Data\Models\NewsItem.generated.cs" />
     <Compile Include="App_Data\Models\NewsOverview.generated.cs" />
     <Compile Include="App_Data\Models\PointOfInterest.generated.cs" />

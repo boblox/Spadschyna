@@ -3,7 +3,8 @@
     var page = (Home)Model.Content;
     var site = page.AncestorOrSelf(1);
     var overview = site.FirstChild<NewsOverview>();
-    var items = ContentManager.GetNewsItems(0, 1, Consts.NewsConfig.ItemsOnFrontPage).Items;
+    var items = ContentManager
+        .GetNewsItems(Consts.NewsConfig.YearAllInt, 1, Consts.NewsConfig.ItemsOnFrontPage).Items;
 }
 
 <div class="home-news-wrapper">
