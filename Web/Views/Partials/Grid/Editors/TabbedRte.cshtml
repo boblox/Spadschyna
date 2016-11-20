@@ -2,6 +2,7 @@
 @inherits UmbracoViewPage<Lecoati.LeBlender.Extension.Models.LeBlenderModel>
 @{
     var items = Model.Items.ToList();
+    const string tabId = "tabbed-rte-{0}";
 }
 
 @if (Request.RawUrl.Contains("GetPartialViewResultAsHtmlForEditor"))
@@ -17,7 +18,7 @@ else
             {
                 var item = items[i];
                 <li class="@Umbraco.If(i==0, "active")">
-                    <a href="#@item.GetValue("Title").Replace(" ", "_")" data-toggle="pill">@item.GetValue("Title")</a>
+                    <a href="#@string.Format(tabId, i)" data-toggle="pill">@item.GetValue("Title")</a>
                 </li>
             }
         </ul>
@@ -26,7 +27,7 @@ else
             @for (var i = 0; i < items.Count; i++)
             {
                 var item = items[i];
-                <div id="@item.GetValue("Title").Replace(" ", "_")" class="tab-pane fade @Umbraco.If(i == 0, "in active")">
+                <div id="@string.Format(tabId, i)" class="tab-pane fade @Umbraco.If(i == 0, "in active")">
                     @Html.Raw(TemplateUtilities.ParseInternalLinks(item.GetValue("Content")))
                 </div>
             }
