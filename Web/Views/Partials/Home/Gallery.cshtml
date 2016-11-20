@@ -17,20 +17,8 @@
                 <div class="row no-gutters">
                     @foreach (var item in items)
                     {
-                        var image = item.Image;
-
                         <div class="col-sm-8 col-md-6">
-                            <article class="gallery-item">
-                                <a href="@item.Url">
-                                    @if (image != null)
-                                    {
-                                        var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
-                                        <div class="image">
-                                            <img class="img-responsive center-block" src="@imageUrl" alt="">
-                                        </div>
-                                    }
-                                </a>
-                            </article>
+                            @{Html.RenderPartial("~/Views/Partials/Gallery/GalleryListItem.cshtml", item);}
                         </div>
                     }
                 </div>

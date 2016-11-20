@@ -1,0 +1,32 @@
+﻿@inherits UmbracoViewPage<GalleryItem>
+@{
+    var item = Model;
+    var title = item.GetTitle();
+    var image = item.Image;
+    var subtitle = item.Subtitle;
+    var content = new HtmlString(string.Empty); // can't parse content as we are now using Grid Layout
+    var photoCount = item.Images.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries).Length;
+    var photoStr = string.Format("{0} {1}", photoCount, Localization.Photos);
+}
+
+<article class="gallery-list-item">
+    <a href="@item.Url" class="image">
+        @if (image != null)
+        {
+            var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
+            <img class="img-responsive" src="@imageUrl" alt="" />
+            <div class="info">
+                <header>
+                    <h4>@title</h4>
+                </header>
+                <div class="byline">
+                    <span>
+                        @Html.GetInnerText(string.IsNullOrWhiteSpace(subtitle) ?
+                                    content : new HtmlString(subtitle), 50)
+                    </span>
+                    <span>@photoStr</span>
+                </div>
+            </div>
+        }
+    </a>
+</article>
