@@ -697,10 +697,6 @@ ul.articles-pager {
     }
 }
 
-.news-overview-years {
-    margin-bottom: 20px;
-}
-
 /*News item info*****************************/
 ul.news-item-info {
     list-style: none;
@@ -744,6 +740,43 @@ ul.news-item-info {
         display: inline-block;
         font-size: @font-size-small;
         color: @gray-color-2;
+    }
+}
+
+/*Announce Overview****************************************************/
+.announce-overview-container {
+    margin: 70px 0 70px 0;
+
+    .announce-item {
+        margin-bottom: 30px;
+
+        .title {
+            a {
+                display: inline-block;
+                color: @gray-color-2;
+            }
+
+            h4 {
+                margin-top: 0;
+            }
+        }
+
+        .image {
+            display: block;
+        }
+
+        /*.news-item-info {
+            margin: @news-item-sub-margin 0 @news-item-sub-margin;
+        }
+
+        .news-item-tags {
+            margin: @news-item-sub-margin 0 @news-item-sub-margin;
+        }*/
+
+        .byline {
+            /*letter-spacing: 0;*/
+            margin: @news-item-sub-margin 0;
+        }
     }
 }
 
@@ -830,6 +863,17 @@ ul.news-item-info {
     }
 }
 
+/*Grid content common********************************************/
+.grid-content {
+    img {
+        .img-responsive();
+    }
+
+    iframe {
+        max-width: 100%;
+    }
+}
+
 /*Gallery Item*****************************************************/
 .gallery-item-container {
     margin: 70px 0 70px 0;
@@ -870,18 +914,22 @@ ul.news-item-info {
 
     .grid-content {
         margin: 50px 0 70px 0;
-
-        img {
-            .img-responsive();
-        }
-
-        iframe {
-            max-width: 100%;
-        }
     }
 }
 
-/*Text Page ****** ************************************************/
+/*Announce Item********************************************************/
+.announce-item-container {
+    margin-top: 70px;
+
+    .title {
+    }
+
+    .grid-content {
+        margin: 50px 0 70px 0;
+    }
+}
+
+/*Text Page ******************************************************/
 .text-page-container {
     /*.title {
         margin-bottom: 35px;
@@ -893,17 +941,5 @@ ul.news-item-info {
     }*/
     .grid-content {
         margin: 10px 0 70px 0;
-
-        .gray-bg {
-            background-color: @gray-color-5;
-        }
-
-        img {
-            .img-responsive();
-        }
-
-        iframe {
-            max-width: 100%;
-        }
     }
 }

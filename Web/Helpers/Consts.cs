@@ -8,7 +8,7 @@
             /// How many pages to show on the pager on the left and right side from the current page
             /// </summary>
             public const int PagerInterval = 3; 
-            public const int ItemsPerPageOnOverviewPage = 3;
+            public const int ItemsPerPageOnOverviewPage = 5;
             public const int ItemsOnFrontPage = 3;
 
             public const int YearAllInt = 0;
@@ -21,7 +21,7 @@
             /// How many pages to show on the pager on the left and right side from the current page
             /// </summary>
             public const int PagerInterval = 3;
-            public const int ItemsPerPageOnOverviewPage = 3;
+            public const int ItemsPerPageOnOverviewPage = 5;
             public const int ItemsOnFrontPage = 6;
 
             public const int PageAllInt = 0;

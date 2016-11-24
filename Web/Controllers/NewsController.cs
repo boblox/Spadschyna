@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Mvc;
-using Umbraco.Web;
+﻿using System.Web.Mvc;
 using Umbraco.Web.Mvc;
-using Umbraco.Web.PublishedContentModels;
 using Web.Helpers;
-using NewsResult = Web.Models.NewsResult;
 
 namespace Web.Controllers
 {

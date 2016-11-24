@@ -665,6 +665,7 @@
     </None>
     <Content Include="Views\MacroPartials\RenderUmbracoFormScripts.cshtml" />
     <Content Include="Views\MacroPartials\InsertUmbracoForm.cshtml" />
+    <Content Include="Views\Partials\Announce\AnnouncesList.cshtml" />
     <None Include="Views\Partials\Common\ImagesGallery.cshtml" />
     <Content Include="Views\Partials\Grid\Editors\Gallery.cshtml" />
     <Content Include="Views\Partials\Gallery\GalleryList.cshtml" />

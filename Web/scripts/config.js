@@ -263,7 +263,100 @@ var newsRouting = (function () {
     }
 })();
 
-/*********************************************=Gallery Overview routing=***************************************************/
+/*********************************************=Articles Routing=**********************************************************/
+var announcesRouting = (function () {
+    var callbacks = [];
+    var containerId, overlayId, itemsPerPage;
+    var currentRoute, routes, router;
+
+    function getInitRoute() {
+        var route = {
+            page: config.newsStartPage,
+            itemsPerPage: itemsPerPage
+        };
+        return route;
+    }
+
+    function updateRouteAndHash(newRouteData) {
+        var page = newRouteData.page;
+        currentRoute.page = page === undefined ? currentRoute.page : page;
+
+        var hash = '/page/' + encodeURIComponent(currentRoute.page);
+        router.setRoute(hash);
+    }
+
+    function dealWithRoute(route) {
+        $(callbacks).each(function (index, element) {
+            element(route);
+        });
+
+        var list = $("#" + containerId);
+        //overlay shown over list of items when news are loaded
+        var loadingOverlay = list.siblings("#" + overlayId).show();
+        $.ajax({
+            url: '/umbraco/surface/Announce/Index/',
+            type: 'POST',
+            dataType: 'html',
+            data: JSON.stringify(route),
+            contentType: 'application/json; charset=utf-8',
+            success: function (data) {
+                list.fadeOut("fast", function () {
+                    loadingOverlay.hide();
+                    list.html(data).fadeIn("fast");
+                    reloadDisqusCommentsCounter();
+                });
+            },
+            error: function (request, status) {
+                loadingOverlay.hide();
+                showDialog("Вибачте, неможливо завантажити анонси");
+            }
+        });
+    }
+
+    function addRouteChangeCallback(callback) {
+        callbacks.push(callback);
+        if (currentRoute !== undefined) {
+            callback(currentRoute);
+        }
+    }
+
+    function init(data) {
+        containerId = data.containerId;
+        overlayId = data.overlayId;
+        itemsPerPage = data.itemsPerPage || 1;
+        router.init("/");
+
+        //Routing should work only on NewsOverview page
+        //router.init('/');
+        //var hash = window.location.hash.slice(2);
+        //router.setRoute('/');
+        //router.setRoute(hash);
+    }
+
+    routes = {
+        '/page/:page':
+            function (page) {
+                currentRoute = {
+                    page: decodeURIComponent(page),
+                    itemsPerPage: itemsPerPage
+                };
+                dealWithRoute(currentRoute);
+            },
+        '/': function () {
+            currentRoute = getInitRoute();
+            dealWithRoute(currentRoute);
+        }
+    };
+    router = Router(routes);
+
+    return {
+        updateRouteAndHash: updateRouteAndHash,
+        init: init,
+        addRouteChangeCallback: addRouteChangeCallback
+    }
+})();
+
+/*********************************************=Gallery Overview routing=**************************************************/
 var galleryRouting = (function () {
     var callbacks = [];
     var containerId, overlayId, itemsPerPage, yearAllInt;
@@ -369,7 +462,7 @@ var galleryRouting = (function () {
     }
 })();
 
-/*********************************************=Gallery Overview routing=***************************************************/
+/***********************************************=GalleryItem=*************************************************************/
 function InitGalleryItem(id) {
     $("#" + id + " .image").magnificPopup({
         type: 'image',

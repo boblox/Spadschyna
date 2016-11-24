@@ -1,8 +1,29 @@
-﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage
+﻿@inherits UmbracoTemplatePage<AnnouncesOverview>
 @{
-	Layout = "ContentBase.cshtml";
+    Layout = "ContentBase.cshtml";
+    var containerId = "announces-list";
+    var overlayId = "loading-overlay";
+}
+
+@section RightSidebar
+{
+    <div class="standart-right-sidebar">
+        @{Html.RenderPartial("~/Views/Partials/Common/Calendar.cshtml");}
+    </div>
 }
 
 @section Body{
-    
+    <section class="announce-overview-container">
+        <div id="@containerId" class="list"></div>
+        <div id="@overlayId" class="loading-overlay"></div>
+    </section>
+
+    <script type="text/javascript">
+        $(function () {
+            announcesRouting.init({
+                containerId: '@containerId',
+                overlayId: '@overlayId',
+                itemsPerPage: @Consts.AnnouncesConfig.ItemsPerPageOnOverviewPage});
+        });
+    </script>
 }

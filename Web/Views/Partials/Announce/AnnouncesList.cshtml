@@ -1,4 +1,4 @@
-﻿@inherits UmbracoViewPage<NewsResult>
+﻿@inherits UmbracoViewPage<AnnounceResult>
 @{
     var items = Model.Items;
 }
@@ -10,7 +10,7 @@
     var subHeader = item.Subtitle;
     var content = new HtmlString(string.Empty); // can't parse content as we are now using Grid Layout
 
-    <article class="news-item">
+    <article class="announce-item">
         <div class="row">
             <div class="col-xs-8">
                 @if (image != null)
@@ -26,8 +26,8 @@
                     <h4>
                         <a href="@item.Url">@title</a>
                     </h4>
-                    @{ Html.RenderPartial("~/Views/Partials/News/NewsItemInfo.cshtml", item);}
-                    @{ Html.RenderPartial("~/Views/Partials/News/NewsItemTags.cshtml", item);}
+                    @*@{ Html.RenderPartial("~/Views/Partials/News/NewsItemInfo.cshtml", item);}
+                    @{ Html.RenderPartial("~/Views/Partials/News/NewsItemTags.cshtml", item);}*@
                 </header>
                 @{
                     if (!string.IsNullOrEmpty(subHeader))
@@ -47,8 +47,8 @@
 @{
     var dict = new ViewDataDictionary
     {
-        { "DataAttr", "data-news-link" },
-        { "RoutingObj", "newsRouting" }
+        { "DataAttr", "data-announce-link" },
+        { "RoutingObj", "announcesRouting" }
     };
     Html.RenderPartial("~/Views/Partials/Common/ArticlesPager.cshtml", Model, dict);
 }

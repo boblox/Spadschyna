@@ -3,7 +3,7 @@
     Layout = "ContentBase.cshtml";
 
     var item = Model.Content;
-    //var newsOverviewTitle = Model.Content.Ancestor<NewsOverview>().Title;
+    //var overviewTitle = item.Ancestor<NewsOverview>().Title;
     var title = item.GetTitle();
 }
 
