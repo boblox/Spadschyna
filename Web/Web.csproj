@@ -460,9 +460,9 @@
     <Content Include="js\jquery.unveil.js" />
     <Content Include="js\magnific.popup.min.js" />
     <Content Include="js\masonry.pkgd.min.js" />
-    <Content Include="packages.config">
+    <None Include="packages.config">
       <SubType>Designer</SubType>
-    </Content>
+    </None>
     <Content Include="js\jquery\jquery-2.2.1.js" />
     <Content Include="js\jquery\jquery-2.2.1.min.js" />
     <Content Include="Fonts\glyphicons-halflings-regular.woff2" />
@@ -703,6 +703,7 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <None Include="Web.wpp.targets" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Config\grid.editors.config.js" />
