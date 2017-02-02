@@ -399,7 +399,6 @@
     <Content Include="Config\Lang\zh-CN.user.xml" />
     <Content Include="css\bootstrap-select.min.css" />
     <Content Include="css\fonts.css" />
-    <Content Include="css\images\loading-spinner.gif" />
     <Content Include="css\images\logo-2.png" />
     <Content Include="css\owl-carousel\owl.theme.css" />
     <Content Include="css\rte.css">
@@ -460,6 +459,9 @@
     <Content Include="js\jquery.unveil.js" />
     <Content Include="js\magnific.popup.min.js" />
     <Content Include="js\masonry.pkgd.min.js" />
+    <Content Include="Fonts\OSNOVAPRO.OTF" />
+    <Content Include="Fonts\OSNOVAPROMEDIUM.OTF" />
+    <Content Include="Fonts\OSNOVAPRO-BOLD.OTF" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -697,6 +699,8 @@
     <Content Include="Views\Partials\Forms\Export\html.cshtml" />
     <Content Include="Views\Partials\Forms\Export\csv.cshtml" />
     <Content Include="Views\Partials\Gallery\GalleryListItem.cshtml" />
+    <Content Include="Views\TabbedPage.cshtml" />
+    <Content Include="Views\Partials\TabbedPage\TabContent.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -738,11 +742,13 @@
     <Compile Include="App_Data\Models\Site.generated.cs" />
     <Compile Include="App_Data\Models\Sitemap.generated.cs" />
     <Compile Include="App_Data\Models\SubtitleComponent.generated.cs" />
+    <Compile Include="App_Data\Models\TabbedPage.generated.cs" />
     <Compile Include="App_Data\Models\TextPage.generated.cs" />
     <Compile Include="App_Data\Models\TitleComponent.generated.cs" />
     <Compile Include="Controllers\ContactFormController.cs" />
     <Compile Include="Controllers\GalleryController.cs" />
     <Compile Include="Controllers\AnnounceController.cs" />
+    <Compile Include="Controllers\TabbedPageController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Helpers\BundleConfig.cs" />
     <Compile Include="Helpers\Consts.cs" />

@@ -157,6 +157,61 @@ function InitYearsList(dataAttr, routingObj) {
     });
 }
 
+/*********************************************=Years List=***********************************************************/
+function InitTabbedPage(containerId, dataAttr, routingObj) {
+    var $container = $("#" + containerId);
+
+    routingObj.init({});
+
+    routingObj.addRouteChangeCallback(function (route) {
+        //link in nav section...
+        var $link = $container.find(".nav a[data-tab=" + route.tab + "]");
+        $link.tab('show');
+
+        var $tabItem = $container.find(".tab-pane[data-tab=" + route.tab + "]");
+        //If tab content isn't empty...
+        if (!$.trim($tabItem.html())) {
+            //var data = {
+            //    pageId: $link.data("page-id")
+            //};
+            //$.ajax({
+            //    url: '/umbraco/surface/TabbedPage/GetTabContent/',
+            //    type: 'POST',
+            //    dataType: 'html',
+            //    data: JSON.stringify(data),
+            //    contentType: 'application/json; charset=utf-8',
+            //    success: function (data) {
+            //        $tabItem.html(data);
+            //    },
+            //    error: function (request, status) {
+            //        showDialog("Вибачте, неможливо завантажити сторінку");
+            //    }
+            //});
+
+            var url = $link.data("page-url");
+            $.ajax({
+                url: url,
+                type: 'GET',
+                dataType: 'html',
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    //fill tab content
+                    $tabItem.html($(data).find(".grid-content"));
+                },
+                error: function (request, status) {
+                    showDialog("Вибачте, неможливо завантажити сторінку");
+                }
+            });
+        }
+    });
+
+    $container.find(".nav a[" + dataAttr + "]").each(function (index, element) {
+        $(element).on('show.bs.tab', function (e) {
+            routingObj.updateRouteAndHash({ tab: $(this).data('tab') });
+        });
+    });
+}
+
 /*********************************************=News Overview Routing=*****************************************************/
 var newsRouting = (function () {
     var callbacks = [];
@@ -462,6 +517,65 @@ var galleryRouting = (function () {
     }
 })();
 
+/*********************************************=Tabbed Text Page routing=**************************************************/
+var tabbedPageRouting = (function () {
+    var callbacks = [];
+    var currentRoute, routes, router;
+
+    function getInitRoute() {
+        var route = {
+            tab: 0
+        };
+        return route;
+    }
+
+    function updateRouteAndHash(newRouteData) {
+        var tab = newRouteData.tab;
+        currentRoute.tab = tab === undefined ? currentRoute.tab : tab;
+
+        var hash = 'tab/' + encodeURIComponent(currentRoute.tab);
+        router.setRoute(hash);
+    }
+
+    function dealWithRoute(route) {
+        $(callbacks).each(function (index, element) {
+            element(route);
+        });
+    }
+
+    function addRouteChangeCallback(callback) {
+        callbacks.push(callback);
+        if (currentRoute !== undefined) {
+            callback(currentRoute);
+        }
+    }
+
+    function init(data) {
+        router.init("/");
+    }
+
+    routes = {
+        '/tab/:tab':
+            function (tab) {
+                currentRoute = {
+                    tab: decodeURIComponent(tab)
+                };
+                dealWithRoute(currentRoute);
+            },
+        '/': function () {
+            currentRoute = getInitRoute();
+            dealWithRoute(currentRoute);
+        }
+    };
+    router = Router(routes);
+
+    return {
+        updateRouteAndHash: updateRouteAndHash,
+        init: init,
+        addRouteChangeCallback: addRouteChangeCallback
+    }
+})();
+
 /***********************************************=GalleryItem=*************************************************************/
 function InitGalleryItem(id) {
     $("#" + id + " .image").magnificPopup({
@@ -542,14 +656,22 @@ function InitScrollToTop(identifier) {
 
 /**********************************************=Loading spinner=***************************************************************/
 function InitLoadingSpinner(identifier) {
-    var $loading = $(identifier).hide();
+    var $loading = $(identifier).fadeIn();
+    var pageIsLoading = true;
     $(document)
       .ajaxStart(function () {
           $loading.fadeIn();
       })
       .ajaxStop(function () {
-          $loading.fadeOut();
+          if (!pageIsLoading) {
+              $loading.fadeOut();
+          }
       });
+
+    $(window).load(function () {
+        $loading.fadeOut();
+        pageIsLoading = false;
+    });
 }
 
 /**********************************************=Collapsible header=***********************************************************/

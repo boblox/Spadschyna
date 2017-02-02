@@ -87,9 +87,106 @@ a:focus {
     position: fixed;
     left: 50%;
     top: 30%;
-    width: 64px;
-    height: 64px;
-    background: url('images/loading-spinner.gif');
+
+    .windows8 {
+        position: relative;
+        width: 54px;
+        height: 54px;
+        margin: auto;
+
+        .wBall {
+            position: absolute;
+            width: 51px;
+            height: 51px;
+            opacity: 0;
+            transform: rotate(225deg);
+            animation: orbit 3.0225s infinite;
+
+            .wInnerBall {
+                position: absolute;
+                width: 7px;
+                height: 7px;
+                background: @orange-color-a;
+                left: 0px;
+                top: 0px;
+                border-radius: 7px;
+            }
+        }
+
+        #wBall_1 {
+            animation-delay: 0.656s;
+        }
+
+        #wBall_2 {
+            animation-delay: 0.133s;
+        }
+
+        #wBall_3 {
+            animation-delay: 0.2665s;
+        }
+
+        #wBall_4 {
+            animation-delay: 0.3995s;
+        }
+
+        #wBall_5 {
+            animation-delay: 0.533s;
+        }
+    }
+
+    @keyframes orbit {
+        0% {
+            opacity: 1;
+            z-index: 99;
+            transform: rotate(180deg);
+            animation-timing-function: ease-out;
+        }
+
+        7% {
+            opacity: 1;
+            transform: rotate(300deg);
+            animation-timing-function: linear;
+            origin: 0%;
+        }
+
+        30% {
+            opacity: 1;
+            transform: rotate(410deg);
+            animation-timing-function: ease-in-out;
+            origin: 7%;
+        }
+
+        39% {
+            opacity: 1;
+            transform: rotate(645deg);
+            animation-timing-function: linear;
+            origin: 30%;
+        }
+
+        70% {
+            opacity: 1;
+            transform: rotate(770deg);
+            animation-timing-function: ease-out;
+            origin: 39%;
+        }
+
+        75% {
+            opacity: 1;
+            transform: rotate(900deg);
+            animation-timing-function: ease-out;
+            origin: 70%;
+        }
+
+        76% {
+            opacity: 0;
+            transform: rotate(900deg);
+        }
+
+        100% {
+            opacity: 0;
+            transform: rotate(900deg);
+        }
+    }
 }
 
 /*Loading overlay**************************************************/
@@ -764,7 +861,6 @@ ul.news-item-info {
         .image {
             display: block;
         }
-
         /*.news-item-info {
             margin: @news-item-sub-margin 0 @news-item-sub-margin;
         }
@@ -772,7 +868,6 @@ ul.news-item-info {
         .news-item-tags {
             margin: @news-item-sub-margin 0 @news-item-sub-margin;
         }*/
-
         .byline {
             /*letter-spacing: 0;*/
             margin: @news-item-sub-margin 0;

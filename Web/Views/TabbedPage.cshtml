@@ -1,0 +1,51 @@
+﻿@inherits UmbracoTemplatePage<TabbedPage>
+@{
+    Layout = "ContentBase.cshtml";
+
+    var container = Model.Content;
+    var items = container.Children<TextPage>().ToList();
+    var title = container.GetTitle();
+
+    const string containerId = "tabbed-rte";
+    const string tabId = "tabbed-rte-{0}";
+    const string dataAttr = "data-tabbed-page-link";
+}
+
+@section Body
+{
+    <div class="text-page-container">
+        <div class="grid-content">
+            <div id="@containerId" class="tabbed-rte">
+                <ul class="nav nav-pills">
+                    @for (var i = 0; i < items.Count; i++)
+                    {
+                        var item = items[i];
+                        <li>
+                            <a href="#@string.Format(tabId, i)" @dataAttr 
+                               data-tab="@i" data-page-url="@item.Url" data-page-id="@item.Id" data-toggle="pill">
+                                @item.GetTitle()
+                            </a>
+                        </li>
+                    }
+                </ul>
+
+                <div class="tab-content">
+                    @for (var i = 0; i < items.Count; i++)
+                    {
+                        var item = items[i];
+                        <div id="@string.Format(tabId, i)" data-tab="@i" class="tab-pane fade @Umbraco.If(i == 0, "in active")">
+                            @*We are using Ajax calls to load content*@ 
+                            @*@Html.GetGridHtml(item, TextPage.GetModelPropertyType(t => t.Content).PropertyTypeAlias, "Custom")*@
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            InitTabbedPage("@containerId", "@dataAttr", tabbedPageRouting);
+        });
+    </script>
+}

@@ -64,7 +64,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Publish date: You can overrule the date shown on the site by changing it here. If you don't set a date explicitly here then the news item's create date will be shown.
+		/// Publish date: Ви можете перевизначити дату, яка буде показуватись на сайті. В іншому разі буде показуватись дата створення
 		///</summary>
 		[ImplementPropertyType("publishDate")]
 		public DateTime PublishDate

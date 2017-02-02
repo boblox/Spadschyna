@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
 using umbraco;
 using Umbraco.Core;
+using Umbraco.Core.Models;
 using Web.Resources;
 using Umbraco.Web;
 using Umbraco.Web.PublishedContentModels;
@@ -175,6 +177,11 @@ namespace Web.Helpers
                 .ToList();
             years.Insert(0, Tuple.Create(Consts.GalleryConfig.YearAllInt, Localization.YearAll));
             return years;
+        }
+
+        public static IPublishedContent GetPage(int pageId)
+        {
+            return UmbracoHelper.TypedContent(pageId);
         }
     }
 }

@@ -1,0 +1,6 @@
+﻿@*@inherits UmbracoViewPage<TextPage>
+@{
+    var item = Model;
+}
+
+@Html.GetGridHtml(item, TextPage.GetModelPropertyType(t => t.Content).PropertyTypeAlias, "Custom")*@

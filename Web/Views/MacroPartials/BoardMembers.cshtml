@@ -15,17 +15,20 @@
 else
 {
     <article class="board-members-container">
-        <header class="title">
+        @*<header class="title">
             <h2>@container.GetTitle()</h2>
-        </header>
+        </header>*@
         <div class="row">
             @foreach (var item in items)
             {
                 var image = item.Image;
-                var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
                 <div class="col-sm-8">
                     <article class="board-member center-block">
-                        <img class="img-responsive img-circle" src="@imageUrl" alt="" />
+                        @if (image != null)
+                        {
+                            var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
+                            <img class="img-responsive img-circle" src="@imageUrl" alt=""/>
+                        }
                         <header class="title">
                             <h4>@item.GetTitle()</h4>
                         </header>

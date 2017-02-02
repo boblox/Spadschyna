@@ -55,7 +55,7 @@ namespace Umbraco.Web.PublishedContentModels
 		}
 
 		///<summary>
-		/// Date of happening
+		/// Date of happening: Дата, коли відбувається подія
 		///</summary>
 		[ImplementPropertyType("dateOfHappening")]
 		public DateTime DateOfHappening

@@ -1071,7 +1071,7 @@ html {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 body {
-  font-family: "Roboto", "Open Sans", sans-serif;
+  font-family: "Fira Sans", "PT Sans", sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #888;
@@ -1173,7 +1173,7 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: "Roboto", "Open Sans", sans-serif;
+  font-family: "Fira Sans", "PT Sans", sans-serif;
   font-weight: bold;
   line-height: 1.1;
   color: inherit;
@@ -6539,7 +6539,7 @@ button.close {
   position: absolute;
   z-index: 1070;
   display: block;
-  font-family: "Roboto", "Open Sans", sans-serif;
+  font-family: "Fira Sans", "PT Sans", sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -6657,7 +6657,7 @@ button.close {
   display: none;
   max-width: 276px;
   padding: 1px;
-  font-family: "Roboto", "Open Sans", sans-serif;
+  font-family: "Fira Sans", "PT Sans", sans-serif;
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
@@ -7301,6 +7301,7 @@ button.close {
   }
 }
 /*!Variables*/
+/*@font-family-base: "PT Sans", "Osnova Pro", "Roboto", "Arimo", "Open Sans", sans-serif;*/
 /*!Main.css*/
 /*Styles that are applied to web site pages*/
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!BASIC STYLES!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
@@ -7370,9 +7371,90 @@ a:focus {
   position: fixed;
   left: 50%;
   top: 30%;
-  width: 64px;
-  height: 64px;
-  background: url('images/loading-spinner.gif');
+}
+.loading-spinner .windows8 {
+  position: relative;
+  width: 54px;
+  height: 54px;
+  margin: auto;
+}
+.loading-spinner .windows8 .wBall {
+  position: absolute;
+  width: 51px;
+  height: 51px;
+  opacity: 0;
+  transform: rotate(225deg);
+  animation: orbit 3.0225s infinite;
+}
+.loading-spinner .windows8 .wBall .wInnerBall {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  background: #f6ab32;
+  left: 0px;
+  top: 0px;
+  border-radius: 7px;
+}
+.loading-spinner .windows8 #wBall_1 {
+  animation-delay: 0.656s;
+}
+.loading-spinner .windows8 #wBall_2 {
+  animation-delay: 0.133s;
+}
+.loading-spinner .windows8 #wBall_3 {
+  animation-delay: 0.2665s;
+}
+.loading-spinner .windows8 #wBall_4 {
+  animation-delay: 0.3995s;
+}
+.loading-spinner .windows8 #wBall_5 {
+  animation-delay: 0.533s;
+}
+@keyframes orbit {
+  0% {
+    opacity: 1;
+    z-index: 99;
+    transform: rotate(180deg);
+    animation-timing-function: ease-out;
+  }
+  7% {
+    opacity: 1;
+    transform: rotate(300deg);
+    animation-timing-function: linear;
+    origin: 0%;
+  }
+  30% {
+    opacity: 1;
+    transform: rotate(410deg);
+    animation-timing-function: ease-in-out;
+    origin: 7%;
+  }
+  39% {
+    opacity: 1;
+    transform: rotate(645deg);
+    animation-timing-function: linear;
+    origin: 30%;
+  }
+  70% {
+    opacity: 1;
+    transform: rotate(770deg);
+    animation-timing-function: ease-out;
+    origin: 39%;
+  }
+  75% {
+    opacity: 1;
+    transform: rotate(900deg);
+    animation-timing-function: ease-out;
+    origin: 70%;
+  }
+  76% {
+    opacity: 0;
+    transform: rotate(900deg);
+  }
+  100% {
+    opacity: 0;
+    transform: rotate(900deg);
+  }
 }
 /*Loading overlay**************************************************/
 .loading-overlay {
@@ -8237,9 +8319,6 @@ ul.news-item-info li span {
   margin-top: 40px;
 }
 /*Board members************************************************/
-.board-members-container {
-  margin: 50px 0 0px;
-}
 .board-members-container .title {
   text-align: center;
 }
@@ -8747,7 +8826,7 @@ input.input-validation-error {
 /*!Styling for Rich text editor*/
 /*Back office styling*/
 body.mce-content-body {
-  font-family: "Roboto", "Open Sans", sans-serif;
+  font-family: "Fira Sans", "PT Sans", sans-serif;
   font-size: 14px;
 }
 .mce-content-body img {
