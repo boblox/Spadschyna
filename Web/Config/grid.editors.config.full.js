@@ -54,6 +54,16 @@
         }
     },
     {
+        "name": "Цитата",
+        "alias": "quote",
+        "view": "textstring",
+        "icon": "icon-quote",
+        "config": {
+            "style": "border-left: 3px solid #ccc; padding: 10px; color: #ccc; font-family: serif; font-variant: italic; font-size: 18px",
+            "markup": "<blockquote>#value#</blockquote>"
+        }
+    },
+    {
         "name": "Карусель світлин",
         "alias": "Carousel",
         "view": "/App_Plugins/LeBlender/editors/leblendereditor/LeBlendereditor.html",
@@ -91,6 +101,32 @@
             "renderInGrid": "1",
             "frontView": "",
             "max": null
+        }
+    },
+    {
+        "name": "Текст з вкладками",
+        "alias": "tabbedRte",
+        "view": "/App_Plugins/LeBlender/editors/leblendereditor/LeBlendereditor.html",
+        "icon": "icon-article",
+        "render": "/App_Plugins/LeBlender/editors/leblendereditor/views/Base.cshtml",
+        "config": {
+            "editors": [
+                {
+                    "name": "Title",
+                    "alias": "title",
+                    "propretyType": {},
+                    "dataType": "0cc0eba1-9960-42c9-bf9b-60e150b429ae"
+                },
+                {
+                    "name": "Content",
+                    "alias": "content",
+                    "propretyType": {},
+                    "dataType": "ca90c950-0aff-4e72-b976-a30b1ac57dad"
+                }
+            ],
+            "renderInGrid": "0",
+            "frontView": "",
+            "max": 5
         }
     },
     {

@@ -8336,6 +8336,9 @@ ul.news-item-info li span {
 .board-members-container .board-member img {
   padding: 40px 0;
 }
+.board-members-container .board-member .pseudo {
+  font-weight: bold;
+}
 /*Tabbed rte***************************************************/
 .tabbed-rte .nav {
   border-bottom: solid 1px #ededed;

@@ -1,0 +1,45 @@
+﻿@using Umbraco.Web.Templates
+@inherits UmbracoViewPage<Lecoati.LeBlender.Extension.Models.LeBlenderModel>
+@{
+    var value = Model.Items.First();
+    var title = value.GetValue("Title");
+    var carouselImagesStr = value.GetValue("Images");
+    var imageIds = carouselImagesStr.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse);
+    var images = Umbraco.TypedMedia(imageIds).ToList();
+}
+
+@if (Request.RawUrl.Contains("GetPartialViewResultAsHtmlForEditor"))
+{
+    /*Render differently in backoffice*/
+    <header>
+        <h3>@title</h3>
+    </header>
+    <div class="row no-gutters">
+        @if (images.Count > 0)
+        {
+            var item = images[0];
+            <div class="col-xs-12">
+                <img class="img-responsive" src="@Html.GetThumbnailUrl(item.Url, 400)" />
+            </div>
+        }
+    </div>
+}
+else
+{
+    <header>
+        <h3>@title</h3>
+    </header>
+    <div class="row no-gutters">
+        @for (int i = 0; i < images.Count; i++)
+        {
+            var item = images[i];
+            <div class="col-xs-12">
+                <img class="img-responsive" src="@Html.GetThumbnailUrl(item.Url, 400)" />
+            </div>
+            if ((i + 1) % 2 == 0)
+            {
+                <div class="clearfix"></div>
+            }
+        }
+    </div>
+}

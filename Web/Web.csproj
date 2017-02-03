@@ -379,6 +379,9 @@
     <Content Include="App_Plugins\GridEditors\Controllers\coloured-header.controller.js" />
     <Content Include="App_Plugins\GridEditors\Views\collapsible-rte.html" />
     <Content Include="App_Plugins\GridEditors\Views\coloured-header.html" />
+    <Content Include="Config\grid.editors.config.full.js">
+      <DependentUpon>grid.editors.config.js</DependentUpon>
+    </Content>
     <Content Include="Config\Lang\cs-CZ.user.xml" />
     <Content Include="Config\Lang\da-DK.user.xml" />
     <Content Include="Config\Lang\de-DE.user.xml" />
@@ -701,6 +704,7 @@
     <Content Include="Views\Partials\Gallery\GalleryListItem.cshtml" />
     <Content Include="Views\TabbedPage.cshtml" />
     <Content Include="Views\Partials\TabbedPage\TabContent.cshtml" />
+    <Content Include="Views\Partials\Grid\Editors\Collage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

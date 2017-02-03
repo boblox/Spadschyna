@@ -1,4 +1,4 @@
-﻿{
+﻿<!--{
     "gridEditors": [
         {
             "name": "Редактор тексту, який вміє складатись",
@@ -27,4 +27,4 @@
     "javascript": [
         "/App_Plugins/GridEditors/Controllers/coloured-header.controller.js"
     ]
-}
+}-->
