@@ -402,6 +402,7 @@
     <Content Include="Config\Lang\zh-CN.user.xml" />
     <Content Include="css\bootstrap-select.min.css" />
     <Content Include="css\fonts.css" />
+    <Content Include="css\images\icons-contact.png" />
     <Content Include="css\images\logo-2.png" />
     <Content Include="css\owl-carousel\owl.theme.css" />
     <Content Include="css\rte.css">
@@ -434,7 +435,6 @@
     <Content Include="css\owl-carousel\owl.transitions.css" />
     <Content Include="css\animate.css" />
     <Content Include="css\images\animated-overlay.gif" />
-    <Content Include="css\images\icons-contact.png" />
     <Content Include="css\images\logo.png" />
     <Content Include="css\images\magnific-popup-arrow.png" />
     <Content Include="css\images\magnific-popup-close.png" />
