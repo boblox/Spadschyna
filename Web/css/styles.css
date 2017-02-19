@@ -7495,6 +7495,9 @@ a:focus {
 .header-nav.navbar .navbar-header .main-logo {
   display: block;
 }
+.header-nav.navbar .navbar-header .main-logo img {
+  height: 65px;
+}
 .header-nav.navbar .navbar-collapse {
   font-weight: bold;
   font-size: 16px;
@@ -7562,6 +7565,9 @@ a:focus {
   -webkit-transition: all 0.4s;
   -o-transition: all 0.4s;
   transition: all 0.4s;
+}
+.footer-container .main-logo img {
+  height: 65px;
 }
 .footer-container .main-logo:hover {
   opacity: 1;
