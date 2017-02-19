@@ -3,6 +3,7 @@
     Layout = "ContentBase.cshtml";
 
     var item = Model.Content;
+    var parent = item.Parent;
     //var overviewTitle = item.Ancestor<NewsOverview>().Title;
     var title = item.GetTitle();
 }
@@ -19,6 +20,7 @@
 {
     <article class="news-item-container">
         <header class="title">
+            <a class="btn-back" href='@(parent.Url+"#/")'></a>
             <h4>@title</h4>
             @{ Html.RenderPartial("/Views/Partials/News/NewsItemInfo.cshtml", item);}
             @{ Html.RenderPartial("/Views/Partials/News/NewsItemTags.cshtml", item);}

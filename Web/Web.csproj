@@ -402,7 +402,9 @@
     <Content Include="Config\Lang\zh-CN.user.xml" />
     <Content Include="css\bootstrap-select.min.css" />
     <Content Include="css\fonts.css" />
+    <Content Include="css\images\back.png" />
     <Content Include="css\images\icons-contact.png" />
+    <Content Include="css\images\img-not-found.png" />
     <Content Include="css\images\logo-2.png" />
     <Content Include="css\owl-carousel\owl.theme.css" />
     <Content Include="css\rte.css">

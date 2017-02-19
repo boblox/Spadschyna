@@ -19,19 +19,17 @@
                     {
                         var title = item.GetTitle();
                         var image = item.Image;
+                        var imageUrl = image != null ? image.Src + image.GetCropUrl(image.Crops.First().Alias) :
+                            Utils.GetImageNotFoundUrl(Consts.NewsConfig.ThumbImgWidth, Consts.NewsConfig.ThumbImgHeight);
                         var subHeader = item.Subtitle;
                         var content = new HtmlString(string.Empty); // can't parse content as we are now using Grid Layout
 
                         <div class="col-sm-12 col-md-8">
                             <article class="news-item">
                                 <a href="@item.Url">
-                                    @if (image != null)
-                                    {
-                                        var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
-                                        <div class="image">
-                                            <img class="img-responsive" src="@imageUrl" alt="">
-                                        </div>
-                                    }
+                                    <div class="image">
+                                        <img class="img-responsive" src="@imageUrl" alt="">
+                                    </div>
                                     <header>
                                         <h4>@title</h4>
                                     </header>

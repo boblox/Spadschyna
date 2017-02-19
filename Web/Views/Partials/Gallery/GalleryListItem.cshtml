@@ -3,6 +3,8 @@
     var item = Model;
     var title = item.GetTitle();
     var image = item.Image;
+    var imageUrl = image != null ? image.Src + image.GetCropUrl(image.Crops.First().Alias) :
+        Utils.GetImageNotFoundUrl(Consts.GalleryConfig.ThumbImgWidth, Consts.GalleryConfig.ThumbImgHeight);
     var subtitle = item.Subtitle;
     var content = new HtmlString(string.Empty); // can't parse content as we are now using Grid Layout
     var photoCount = item.Images.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries).Length;
@@ -11,22 +13,18 @@
 
 <article class="gallery-list-item">
     <a href="@item.Url" class="image">
-        @if (image != null)
-        {
-            var imageUrl = image.Src + image.GetCropUrl(image.Crops.First().Alias);
-            <img class="img-responsive" src="@imageUrl" alt="" />
-            <div class="info">
-                <header>
-                    <h4>@title</h4>
-                </header>
-                <div class="byline">
-                    <span>
-                        @Html.GetInnerText(string.IsNullOrWhiteSpace(subtitle) ?
+        <img class="img-responsive" src="@imageUrl" alt="" />
+        <div class="info">
+            <header>
+                <h4>@title</h4>
+            </header>
+            <div class="byline">
+                <span>
+                    @Html.GetInnerText(string.IsNullOrWhiteSpace(subtitle) ?
                                     content : new HtmlString(subtitle), 50)
-                    </span>
-                    <span>@photoStr</span>
-                </div>
+                </span>
+                <span>@photoStr</span>
             </div>
-        }
+        </div>
     </a>
 </article>

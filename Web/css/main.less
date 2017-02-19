@@ -51,33 +51,22 @@ a:focus {
 .scroll-to-top {
     z-index: 10;
     position: fixed;
-    bottom: 17%;
-    right: 20%;
-    display: none;
-    border-bottom: 37px solid;
-    border-left: 25px solid transparent;
-    border-right: 25px solid transparent;
-    border-image: url('images/scroll-to-top.png') 0 50% 100% 50%;
+    bottom: 15px;
+    right: 10px;
+    height: 50px;
+    width: 50px;
+    background: url(images/back.png);
+    background-size: contain;
+    transform: rotate(90deg) translate(80px, 0);
+    .transition(all 0.4s ease-in-out);
 
-    &:focus {
+    &.active {
+        transform: rotate(90deg) translate(0, 0);
+    }
+
+    &:focus, &:hover, &:active {
         outline: none;
-    }
-
-    &:hover {
-        &:before {
-            border-bottom-color: rgba(255, 255, 255, 0);
-        }
-    }
-
-    &:before {
-        top: 0px;
-        left: -30px;
-        position: absolute;
-        content: "";
-        border-bottom: 37px solid rgba(255, 255, 255, 0.2);
-        border-left: 30px solid transparent;
-        border-right: 30px solid transparent;
-        .transition(border-color .4s);
+        opacity: 0.5;
     }
 }
 
@@ -591,7 +580,7 @@ ul.articles-pager {
             text-align: center;
 
             img {
-                border-radius: 50%;
+                /*border-radius: 50%;*/
                 padding: 40px;
             }
 
@@ -853,7 +842,7 @@ ul.news-item-info {
     font-size: @font-size-small;
 
     li {
-        margin-right: 25px;
+        margin: 5px 25px 5px 0;
         display: inline-block;
 
         &:last-child {
@@ -1021,6 +1010,28 @@ ul.news-item-info {
 .gallery-item-container {
     margin: 70px 0 70px 0;
 
+    .title {
+        .btn-back {
+            height: 40px;
+            width: 40px;
+            background: url(images/back.png);
+            background-size: contain;
+            display: inline-block;
+            .transition(all 0.3s ease-in-out);
+
+            &:hover, &:focus, &:active {
+                opacity: 0.5;
+                .rotate(90deg);
+            }
+        }
+
+        .text {
+            display: inline-block;
+            vertical-align: top;
+            margin-left: 15px;
+        }
+    }
+
     .images {
         margin-top: 20px;
 
@@ -1045,6 +1056,25 @@ ul.news-item-info {
     margin-top: 70px;
 
     .title {
+        .btn-back {
+            height: 40px;
+            width: 40px;
+            background: url(images/back.png);
+            background-size: contain;
+            display: inline-block;
+            .transition(all 0.3s ease-in-out);
+
+            &:hover, &:focus, &:active {
+                opacity: 0.5;
+                .rotate(90deg);
+            }
+        }
+
+        h4 {
+            display: inline-block;
+            margin-left: 15px;
+            vertical-align: top;
+        }
     }
 
     .news-item-info {

@@ -641,9 +641,9 @@ function InitGoogleMap(settings) {
 function InitScrollToTop(identifier) {
     $(window).scroll(function () {
         if ($(this).scrollTop() > 150) {
-            $(identifier).fadeIn("slow");
+            $(identifier).addClass('active');
         } else {
-            $(identifier).fadeOut("slow");
+            $(identifier).removeClass('active');
         }
     });
 

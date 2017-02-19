@@ -13,6 +13,9 @@
 
             public const int YearAllInt = 0;
             public const int PageAllInt = 0;
+
+            public const int ThumbImgWidth = 400;
+            public const int ThumbImgHeight = 300;
         }
 
         public static class AnnouncesConfig
@@ -25,6 +28,9 @@
             public const int ItemsOnFrontPage = 6;
 
             public const int PageAllInt = 0;
+
+            public const int ThumbImgWidth = 400;
+            public const int ThumbImgHeight = 300;
         }
 
         public static class GalleryConfig
@@ -38,6 +44,9 @@
 
             public const int YearAllInt = 0;
             public const int PageAllInt = 0;
+
+            public const int ThumbImgWidth = 400;
+            public const int ThumbImgHeight = 400;
         }
     }
 }

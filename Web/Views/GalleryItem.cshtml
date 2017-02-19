@@ -3,6 +3,7 @@
     Layout = "ContentBase.cshtml";
 
     var item = Model.Content;
+    var parent = item.Parent;
     var title = item.GetTitle();
     var imageIds = item.Images.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse);
     var images = Umbraco.TypedMedia(imageIds);
@@ -11,11 +12,14 @@
 @section Body
 {
     <article class="gallery-item-container" id="@id">
-        <header>
-            <h4>
-                @title
-            </h4>
-            <span>@item.Subtitle</span>
+        <header class="title">
+            <a class="btn-back" href='@(parent.Url+"#/")'></a>
+            <div class="text">
+                <h4>
+                    @title
+                </h4>
+                <span>@item.Subtitle</span>
+            </div>
         </header>
         <section class="images">
             <div class="row">
@@ -24,7 +28,7 @@
                     var url = image.Url;
                     <div class="col-sm-6">
                         <a href="@url" class="image">
-                            <img class="img-responsive" src="@Html.GetThumbnailUrl(url, 300, 300)" alt=""/>
+                            <img class="img-responsive" src="@Html.GetThumbnailUrl(url, 300, 300)" alt="" />
                         </a>
                     </div>
                 }

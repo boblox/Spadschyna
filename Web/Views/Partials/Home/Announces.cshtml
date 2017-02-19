@@ -32,10 +32,13 @@
                                                     <span class="time-icon"></span>
                                                     <span class="time">@item.DateOfHappening.ToString("HH:mm")</span>
                                                 </p>
-                                                <p>
-                                                    <span class="location-icon"></span>
-                                                    <span class="location">@item.Place</span>
-                                                </p>
+                                                @if (!string.IsNullOrEmpty(item.Place))
+                                                {
+                                                    <p>
+                                                        <span class="location-icon"></span>
+                                                        <span class="location">@item.Place</span>
+                                                    </p>
+                                                }
                                             </div>
                                         </header>
                                     </a>

@@ -7340,31 +7340,25 @@ a:focus {
 .scroll-to-top {
   z-index: 10;
   position: fixed;
-  bottom: 17%;
-  right: 20%;
-  display: none;
-  border-bottom: 37px solid;
-  border-left: 25px solid transparent;
-  border-right: 25px solid transparent;
-  border-image: url('images/scroll-to-top.png') 0 50% 100% 50%;
+  bottom: 15px;
+  right: 10px;
+  height: 50px;
+  width: 50px;
+  background: url(images/back.png);
+  background-size: contain;
+  transform: rotate(90deg) translate(80px, 0);
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
-.scroll-to-top:focus {
+.scroll-to-top.active {
+  transform: rotate(90deg) translate(0, 0);
+}
+.scroll-to-top:focus,
+.scroll-to-top:hover,
+.scroll-to-top:active {
   outline: none;
-}
-.scroll-to-top:hover:before {
-  border-bottom-color: rgba(255, 255, 255, 0);
-}
-.scroll-to-top:before {
-  top: 0px;
-  left: -30px;
-  position: absolute;
-  content: "";
-  border-bottom: 37px solid rgba(255, 255, 255, 0.2);
-  border-left: 30px solid transparent;
-  border-right: 30px solid transparent;
-  -webkit-transition: border-color 0.4s;
-  -o-transition: border-color 0.4s;
-  transition: border-color 0.4s;
+  opacity: 0.5;
 }
 /*Loading spinner**************************************************/
 .loading-spinner {
@@ -7837,7 +7831,7 @@ ul.articles-pager > li a.active {
   text-align: center;
 }
 .home-info-container .points-of-interest .point-of-interest img {
-  border-radius: 50%;
+  /*border-radius: 50%;*/
   padding: 40px;
 }
 .home-info-container .points-of-interest .point-of-interest header {
@@ -8024,14 +8018,14 @@ ul.articles-pager > li a.active {
   display: block;
 }
 .news-overview-container .news-item .news-item-info {
-  margin: 20px 0 20px;
+  margin: 15px 0 15px;
 }
 .news-overview-container .news-item .news-item-tags {
-  margin: 20px 0 20px;
+  margin: 15px 0 15px;
 }
 .news-overview-container .news-item .byline {
   /*letter-spacing: 0;*/
-  margin: 20px 0;
+  margin: 15px 0;
 }
 /*News item info*****************************/
 ul.news-item-info {
@@ -8044,7 +8038,7 @@ ul.news-item-info {
   font-size: 12px;
 }
 ul.news-item-info li {
-  margin-right: 25px;
+  margin: 5px 25px 5px 0;
   display: inline-block;
 }
 ul.news-item-info li:last-child {
@@ -8097,7 +8091,7 @@ ul.news-item-info li span {
 }
 .announce-overview-container .announce-item .byline {
   /*letter-spacing: 0;*/
-  margin: 20px 0;
+  margin: 15px 0;
 }
 /*Gallery Overview*************************************************/
 .gallery-overview-container {
@@ -8185,6 +8179,30 @@ ul.news-item-info li span {
 .gallery-item-container {
   margin: 70px 0 70px 0;
 }
+.gallery-item-container .title .btn-back {
+  height: 40px;
+  width: 40px;
+  background: url(images/back.png);
+  background-size: contain;
+  display: inline-block;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.gallery-item-container .title .btn-back:hover,
+.gallery-item-container .title .btn-back:focus,
+.gallery-item-container .title .btn-back:active {
+  opacity: 0.5;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.gallery-item-container .title .text {
+  display: inline-block;
+  vertical-align: top;
+  margin-left: 15px;
+}
 .gallery-item-container .images {
   margin-top: 20px;
 }
@@ -8209,11 +8227,35 @@ ul.news-item-info li span {
 .news-item-container {
   margin-top: 70px;
 }
+.news-item-container .title .btn-back {
+  height: 40px;
+  width: 40px;
+  background: url(images/back.png);
+  background-size: contain;
+  display: inline-block;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.news-item-container .title .btn-back:hover,
+.news-item-container .title .btn-back:focus,
+.news-item-container .title .btn-back:active {
+  opacity: 0.5;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+.news-item-container .title h4 {
+  display: inline-block;
+  margin-left: 15px;
+  vertical-align: top;
+}
 .news-item-container .news-item-info {
-  margin: 20px 0px 20px;
+  margin: 15px 0px 15px;
 }
 .news-item-container .news-item-tags {
-  margin: 20px 0px 20px;
+  margin: 15px 0px 15px;
 }
 .news-item-container .grid-content {
   margin: 50px 0 70px 0;
