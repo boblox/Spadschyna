@@ -24,23 +24,23 @@
                     <h4>
                         <a href="@item.Url">@title</a>
                     </h4>
-                    @{ Html.RenderPartial("~/Views/Partials/News/NewsItemInfo.cshtml", item);}
-                    @{ Html.RenderPartial("~/Views/Partials/News/NewsItemTags.cshtml", item);}
+
                 </header>
-                @{
-                    if (!string.IsNullOrEmpty(subHeader))
-                    {
-                        <div class="byline">
-                            @Html.GetInnerText(string.IsNullOrWhiteSpace(subHeader) ?
+
+                @if (!string.IsNullOrEmpty(subHeader))
+                {
+                    <div class="byline">
+                        @Html.GetInnerText(string.IsNullOrWhiteSpace(subHeader) ?
                                 content : new HtmlString(subHeader), 200)
-                            <a href="@item.Url">@Localization.ItemReadMore</a>
-                        </div>
-                    }
+                        <a href="@item.Url">@Localization.ItemReadMore</a>
+                    </div>
                 }
+                @{ Html.RenderPartial("~/Views/Partials/News/NewsItemTags.cshtml", item);}
+                @{ Html.RenderPartial("~/Views/Partials/News/NewsItemInfo.cshtml", item);}
             </div>
         </div>
     </article>
-                    }
+}
 
 @{
     var dict = new ViewDataDictionary

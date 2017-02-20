@@ -11,10 +11,10 @@
         <span class="calendar-icon"></span>
         <span>@date</span>
     </li>
-    <li>
-        <span class="time-icon"></span>
-        <span>@time</span>
-    </li>
+    @*<li>
+            <span class="time-icon"></span>
+            <span>@time</span>
+        </li>*@
     @if (!string.IsNullOrEmpty(location))
     {
         <li>
@@ -24,10 +24,12 @@
     }
     <li>
         <span class="time-icon"></span>
-        <a href="@disqusUrl" data-disqus-identifier="@Model.Id"></a>
+        <span>
+            <a href="@disqusUrl" data-disqus-identifier="@Model.Id"></a>
+        </span>
     </li>
-    <li>
-        <span class="time-icon"></span>
-        <a href="#">Поділитись</a>
-    </li>
+    @*<li>
+            <span class="time-icon"></span>
+            <a href="#">Поділитись</a>
+        </li>*@
 </ul>

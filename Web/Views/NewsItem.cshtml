@@ -11,7 +11,7 @@
 @section RightSidebar
 {
     <div class="standart-right-sidebar">
-        @{Html.RenderPartial("~/Views/Partials/Common/Calendar.cshtml");}
+        @*@{Html.RenderPartial("~/Views/Partials/Common/Calendar.cshtml");}*@
         @{Html.RenderPartial("~/Views/Partials/Common/LatestNews.cshtml");}
     </div>
 }
@@ -21,9 +21,11 @@
     <article class="news-item-container">
         <header class="title">
             <a class="btn-back" href='@(parent.Url+"#/")'></a>
-            <h4>@title</h4>
-            @{ Html.RenderPartial("/Views/Partials/News/NewsItemInfo.cshtml", item);}
-            @{ Html.RenderPartial("/Views/Partials/News/NewsItemTags.cshtml", item);}
+            <div class="text">
+                <h3>@title</h3>
+                @{ Html.RenderPartial("/Views/Partials/News/NewsItemInfo.cshtml", item);}
+                @{ Html.RenderPartial("/Views/Partials/News/NewsItemTags.cshtml", item);}
+            </div>
         </header>
         <div class="grid-content">
             @Html.GetGridHtml(item, NewsItem.GetModelPropertyType(i => i.Content).PropertyTypeAlias, "Custom")

@@ -13,18 +13,18 @@
         </div>
         <div class="info">
             <div class="container">
-                <div>
+                @*<div>*@
                     <header class="title">
                         <h1>@title</h1>
                         <p>@subtitle</p>
                     </header>
                     @if (!string.IsNullOrEmpty(buttonText))
                     {
-                        <div>
+                        <div class="btn-action">
                             <a href="@redirectLink" class="btn btn-primary">@buttonText</a>
                         </div>
                     }
-                </div>
+                @*</div>*@
             </div>
         </div>
     </article>

@@ -7,13 +7,13 @@
 <footer class="footer-wrapper">
     <div class="container">
         <div class="footer-container">
-            <div class="">
+            <div class="visible-lg">
                 @{Html.RenderPartial("~/Views/Partials/Common/Logo.cshtml");}
             </div>
             <div class="contacts">
                 @{Html.RenderPartial("~/Views/Partials/Common/Social.cshtml");}
             </div>
-            <nav class="footer-nav hidden-xs">
+            <nav class="footer-nav visible-lg">
                 <ul>
                     @{
                         var dict = new ViewDataDictionary(ViewData) { { "menuItem", homePage } };
