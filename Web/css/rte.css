@@ -7333,139 +7333,22 @@ body.mce-content-body {
   outline: none;
 }
 /*Styling for both back-office and front-end*/
-.rte-button a {
-  display: inline-block;
-  margin-bottom: 0;
-  font-weight: normal;
-  text-align: center;
-  vertical-align: middle;
-  touch-action: manipulation;
-  cursor: pointer;
-  background-image: none;
-  border: 1px solid transparent;
-  white-space: nowrap;
-  padding: 6px 12px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  border-radius: 4px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
-}
-.rte-button a:focus,
-.rte-button a:active:focus,
-.rte-button a.active:focus,
-.rte-button a.focus,
-.rte-button a:active.focus,
-.rte-button a.active.focus {
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
-.rte-button a:hover,
-.rte-button a:focus,
-.rte-button a.focus {
-  color: #333;
-  text-decoration: none;
-}
-.rte-button a:active,
-.rte-button a.active {
-  outline: 0;
-  background-image: none;
-  -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-  box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
-}
-.rte-button a.disabled,
-.rte-button a[disabled],
-fieldset[disabled] .rte-button a {
-  cursor: not-allowed;
-  opacity: 0.65;
-  filter: alpha(opacity=65);
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-a.rte-button a.disabled,
-fieldset[disabled] a.rte-button a {
-  pointer-events: none;
-}
-.rte-button a:focus,
-.rte-button a.focus {
-  color: #333;
-  background-color: #e6e6e6;
-  border-color: #8c8c8c;
-}
-.rte-button a:hover {
-  color: #333;
-  background-color: #e6e6e6;
-  border-color: #adadad;
-}
-.rte-button a:active,
-.rte-button a.active,
-.open > .dropdown-toggle.rte-button a {
-  color: #333;
-  background-color: #e6e6e6;
-  border-color: #adadad;
-}
-.rte-button a:active:hover,
-.rte-button a.active:hover,
-.open > .dropdown-toggle.rte-button a:hover,
-.rte-button a:active:focus,
-.rte-button a.active:focus,
-.open > .dropdown-toggle.rte-button a:focus,
-.rte-button a:active.focus,
-.rte-button a.active.focus,
-.open > .dropdown-toggle.rte-button a.focus {
-  color: #333;
-  background-color: #d4d4d4;
-  border-color: #8c8c8c;
-}
-.rte-button a:active,
-.rte-button a.active,
-.open > .dropdown-toggle.rte-button a {
-  background-image: none;
-}
-.rte-button a.disabled:hover,
-.rte-button a[disabled]:hover,
-fieldset[disabled] .rte-button a:hover,
-.rte-button a.disabled:focus,
-.rte-button a[disabled]:focus,
-fieldset[disabled] .rte-button a:focus,
-.rte-button a.disabled.focus,
-.rte-button a[disabled].focus,
-fieldset[disabled] .rte-button a.focus {
-  background-color: #fff;
-  border-color: #ccc;
-}
-.rte-button a .badge {
-  color: #fff;
-  background-color: #333;
-}
+/*.rte-button {
+    a {
+        .btn;
+        .btn-default;
+    }
+}*/
 .rte-big-text {
   font-size: 18px;
 }
 /* EDITOR PROPERTIES - PLEASE DON'T DELETE THIS LINE TO AVOID DUPLICATE PROPERTIES */
-/**umb_name:Великий заголовок*/
-h2 {
-  /**/
-}
-/**umb_name:Нормальний заголовок*/
-h3 {
-  /**/
-}
 /**umb_name:Маленький заголовок*/
 h4 {
   /**/
 }
 /**umb_name:Цитата*/
 blockquote {
-  /**/
-}
-/**umb_name:Кнопка(діє на посилання!)*/
-.rte-button {
   /**/
 }
 /**umb_name:Більший текст*/

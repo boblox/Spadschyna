@@ -176,6 +176,11 @@
                 height: 14px;
                 width: 14px;
             }
+
+            &.active span,
+            &:hover span {
+                background-color: @orange-color-a;
+            }
         }
 
         .owl-item {
@@ -209,9 +214,9 @@
     // Used in gallery. Slide part
     & .slide {
         .owl-carousel {
-            border: solid @orange-color-a;
+            border: solid @gray-color-4;
             /*background-color: @black-color;*/
-            border-width: 8px 8px 0 8px;
+            border-width: 4px 4px 0 4px;
 
             .owl-item {
                 height: 600px;
@@ -261,17 +266,18 @@
         }
 
         .owl-carousel {
-            border: solid @orange-color-a;
-            border-width: 8px 3px 8px 3px;
+            border: solid @gray-color-4;
+            border-width: 0px 0px 0px 0px;
 
             .owl-wrapper-outer {
                 .owl-item {
                     height: 150px;
                     /*background-color: @black-color;*/
-                    border: solid @orange-color-a;
-                    border-width: 5px;
+                    border: solid @gray-color-4;
+                    border-width: 4px;
                     overflow: hidden;
                     cursor: pointer;
+                    .transition(.3s all);
 
                     &.selected {
                         border-color: @orange-color-b;
