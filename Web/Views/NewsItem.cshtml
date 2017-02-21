@@ -23,8 +23,8 @@
             <a class="btn-back" href='@(parent.Url+"#/")'></a>
             <div class="text">
                 <h3>@title</h3>
-                @{ Html.RenderPartial("/Views/Partials/News/NewsItemInfo.cshtml", item);}
-                @{ Html.RenderPartial("/Views/Partials/News/NewsItemTags.cshtml", item);}
+                @{ Html.RenderPartial("/Views/Partials/Common/ArticleInfo.cshtml", item);}
+                @{ Html.RenderPartial("/Views/Partials/Common/ArticleTags.cshtml", item);}
             </div>
         </header>
         <div class="grid-content">

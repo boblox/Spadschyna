@@ -9,23 +9,19 @@
 {
     <article class="banner-item">
         <div class="image">
-            <img class="lazyOwl img-responsive" data-src="@imageUrl" />
+            <img class="lazyOwl" data-src="@imageUrl" />
         </div>
         <div class="info">
-            <div class="container">
-                @*<div>*@
-                    <header class="title">
-                        <h1>@title</h1>
-                        <p>@subtitle</p>
-                    </header>
-                    @if (!string.IsNullOrEmpty(buttonText))
-                    {
-                        <div class="btn-action">
-                            <a href="@redirectLink" class="btn btn-primary">@buttonText</a>
-                        </div>
-                    }
-                @*</div>*@
-            </div>
+            <header class="title">
+                <h1>@title</h1>
+                <p>@subtitle</p>
+            </header>
+            @if (!string.IsNullOrEmpty(buttonText))
+            {
+                <div class="btn-action">
+                    <a href="@redirectLink" class="btn btn-primary">@buttonText</a>
+                </div>
+            }
         </div>
     </article>
 }

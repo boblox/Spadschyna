@@ -647,8 +647,8 @@
     <Content Include="Views\MacroPartials\ImagesCarousel.cshtml" />
     <Content Include="Views\Partials\News\NewsList.cshtml" />
     <Content Include="Views\Partials\Common\ArticlesPager.cshtml" />
-    <Content Include="Views\Partials\News\NewsItemInfo.cshtml" />
-    <Content Include="Views\Partials\News\NewsItemTags.cshtml" />
+    <Content Include="Views\Partials\Common\ArticleInfo.cshtml" />
+    <Content Include="Views\Partials\Common\ArticleTags.cshtml" />
     <Content Include="Views\Partials\Grid\Custom.cshtml" />
     <Content Include="Config\applications.config">
       <SubType>Designer</SubType>
@@ -725,6 +725,10 @@
     <Compile Include="..\SharedAssemblyInfo.cs">
       <Link>Properties\SharedAssemblyInfo.cs</Link>
     </Compile>
+    <Compile Include="App_Data\ExtModels\IArticleTags.cs" />
+    <Compile Include="App_Data\ExtModels\IArticleInfo.cs" />
+    <Compile Include="App_Data\ExtModels\AnnounceItem.cs" />
+    <Compile Include="App_Data\ExtModels\NewsItem.cs" />
     <Compile Include="App_Data\Models\AnnounceItem.generated.cs" />
     <Compile Include="App_Data\Models\AnnouncesOverview.generated.cs" />
     <Compile Include="App_Data\Models\BoardContainer.generated.cs" />

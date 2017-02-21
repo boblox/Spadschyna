@@ -144,7 +144,7 @@ function InitArticlesPager(dataAttr, routingObj) {
 
 /*********************************************=Years List=***********************************************************/
 function InitYearsList(dataAttr, routingObj) {
-    var select = $("select.years-list[" + dataAttr + "]");
+    var select = $("#years-list[" + dataAttr + "]");
 
     routingObj.addRouteChangeCallback(function (route) {
         select.find("option[data-year=" + route.year + "]").attr("selected", "true");

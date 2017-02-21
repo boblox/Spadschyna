@@ -2,23 +2,27 @@
 @{
     Layout = "ContentBase.cshtml";
     var item = Model.Content;
+    var parent = item.Parent;
     //var overviewTitle = item.Ancestor<AnnounceOverview>().Title;
     var title = item.GetTitle();
+    var dict = new ViewDataDictionary { { "showTime", true } };
 }
 
 @section RightSidebar
 {
-    <div class="standart-right-sidebar">
+    @*<div class="standart-right-sidebar">
         @{Html.RenderPartial("~/Views/Partials/Common/Calendar.cshtml");}
-    </div>
+    </div>*@
 }
 
 @section Body{
     <article class="announce-item-container">
         <header class="title">
-            <h4>@title</h4>
-            @*@{ Html.RenderPartial("/Views/Partials/News/NewsItemInfo.cshtml", item);}
-            @{ Html.RenderPartial("/Views/Partials/News/NewsItemTags.cshtml", item);}*@
+            <a class="btn-back" href='@(parent.Url+"#/")'></a>
+            <div class="text">
+                <h3>@title</h3>
+                @{ Html.RenderPartial("/Views/Partials/Common/ArticleInfo.cshtml", item, dict);}
+            </div>
         </header>
         <div class="grid-content">
             @Html.GetGridHtml(item, AnnounceItem.GetModelPropertyType(i => i.Content).PropertyTypeAlias, "Custom")

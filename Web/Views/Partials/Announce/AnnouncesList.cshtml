@@ -11,21 +11,20 @@
         Utils.GetImageNotFoundUrl(Consts.AnnouncesConfig.ThumbImgWidth, Consts.AnnouncesConfig.ThumbImgHeight);
     var subHeader = item.Subtitle;
     var content = new HtmlString(string.Empty); // can't parse content as we are now using Grid Layout
+    var dict2 = new ViewDataDictionary { { "showTime", true } };
 
     <article class="announce-item">
         <div class="row">
-            <div class="col-xs-8">
+            <div class="col-sm-8">
                 <a href="@item.Url" class="image">
                     <img class="img-responsive" src="@imageUrl" alt="" />
                 </a>
             </div>
-            <div class="col-xs-16">
+            <div class="col-sm-16">
                 <header class="title">
                     <h4>
                         <a href="@item.Url">@title</a>
                     </h4>
-                    @*@{ Html.RenderPartial("~/Views/Partials/News/NewsItemInfo.cshtml", item);}
-                        @{ Html.RenderPartial("~/Views/Partials/News/NewsItemTags.cshtml", item);}*@
                 </header>
                 @{
                     if (!string.IsNullOrEmpty(subHeader))
@@ -37,10 +36,12 @@
                         </div>
                     }
                 }
+                @{ Html.RenderPartial("/Views/Partials/Common/ArticleInfo.cshtml", item, dict2);}
+                <hr class="break-line visible-xs" />
             </div>
         </div>
     </article>
-                    }
+}
 
 @{
     var dict = new ViewDataDictionary

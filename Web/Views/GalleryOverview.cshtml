@@ -14,20 +14,16 @@
 @section Body
 {
     <section class="gallery-overview-container">
-        <div class="header">
+        <header class="header">
             <div class="row">
                 <div class="col-sm-18">
-                    <header>
-                        <h2>
-                            @Model.Content.GetTitle()
-                        </h2>
-                    </header>
+                    <h2>@Model.Content.GetTitle()</h2>
                 </div>
                 <div class="col-sm-6">
                     @{Html.RenderPartial("~/Views/Partials/Common/YearsList.cshtml", galleryYears, dict);}
                 </div>
             </div>
-        </div>
+        </header>
         <div class="list" id="@containerId"></div>
         <div id="@overlayId" class="loading-overlay"></div>
     </section>

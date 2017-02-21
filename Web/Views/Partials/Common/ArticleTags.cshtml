@@ -1,4 +1,4 @@
-﻿@model NewsItem
+﻿@model IArticleTags
 @{
     var tagsStr = (string)Model.Tags;
     var tags = !string.IsNullOrEmpty(tagsStr) ? tagsStr.Split(',') : new string[] { };

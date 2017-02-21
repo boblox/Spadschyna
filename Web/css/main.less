@@ -199,14 +199,14 @@ a:focus {
 .header-nav.navbar {
     border: 0;
 
-    @media (min-width : @screen-sm-min) {
+    @media (min-width : @screen-md-min) {
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
 
-    &:before, &:after {
-        content: none; /*Do this because  otherwise justify-content: space-between not work*/
+        &:before, &:after {
+            content: none; /*Do this because  otherwise justify-content: space-between not work*/
+        }
     }
 
     .navbar-header {
@@ -221,15 +221,27 @@ a:focus {
         .main-logo {
             display: block;
 
+            @media (max-width : @screen-sm-max) {
+                margin: 0 auto;
+            }
+
+
             img {
-                height: @navbar-height - 5px;
+                height: @navbar-height - 10px;
+
+                @media (min-width : @screen-lg-min) {
+                    height: @navbar-height - 5px;
+                }
             }
         }
     }
 
     .navbar-collapse {
-        /*font-weight: @headings-font-weight;*/
-        font-size: 15px;
+        font-size: @font-size-middle-large;
+
+        @media (min-width : @screen-md-min) {
+            font-size: @font-size-base;
+        }
 
         @media (min-width : @screen-lg-min) {
             font-size: @font-size-middle-large;
@@ -245,7 +257,11 @@ a:focus {
 
                 a {
                     border-top: solid 5px transparent;
-                    padding: (@navbar-height - @line-height-computed)/2-5px 20px (@navbar-height - @line-height-computed)/2;
+                    padding: 15px 15px 10px;
+
+                    @media(min-width:@screen-md-min) {
+                        padding: (@navbar-height - @line-height-computed)/2-5px 20px (@navbar-height - @line-height-computed)/2;
+                    }
 
                     @media(min-width:@screen-lg-min) {
                         padding-left: 25px;
@@ -278,9 +294,9 @@ a:focus {
 
 /*Footer **********************************************************/
 .fiction-footer-wrapper {
-    padding-top: 140px;
+    padding-top: 85px;
 
-    @media(min-width:@screen-sm-min) {
+    @media(min-width:@screen-md-min) {
         padding-top: 140px;
     }
 }
@@ -297,7 +313,7 @@ a:focus {
 .footer-container {
     height: 85px;
 
-    @media(min-width:@screen-lg-min) {
+    @media(min-width:@screen-md-min) {
         height: 140px;
     }
 
@@ -430,16 +446,23 @@ ul.articles-pager {
 
 /*Years list*******************************************************/
 .years-list {
-    height: 50px;
+    width: 250px;
 
-    .btn {
-        font-size: @font-size-h3;
+    @media(max-width:@screen-xs-max) {
+        width: 100%;
+        max-width: 400px;
     }
 
-    .dropdown-toggle {
-        padding-left: 20px;
-        text-transform: none;
-        font-weight: normal;
+    .years-list-inner {
+        .btn {
+            font-size: @font-size-h3;
+        }
+
+        .dropdown-toggle {
+            padding-left: 20px;
+            text-transform: none;
+            font-weight: normal;
+        }
     }
 }
 
@@ -489,31 +512,46 @@ ul.articles-pager {
 
         .owl-controls {
             position: absolute;
-            bottom: 5px;
+            bottom: 10px;
             width: 100%;
         }
 
         .owl-item {
-            img {
-                width: 100%;
-                max-height: none;
-                position: relative;
-            }
         }
 
         .banner-item {
             .image {
-                position: relative;
+                height: 370px;
+                overflow: hidden;
 
-                &:after {
-                    content: '';
-                    position: absolute;
-                    background-color: #333;
-                    opacity: 0.2;
-                    width: 100%;
-                    height: 100%;
-                    left: 0;
-                    top: 0;
+                img {
+                    max-height: none;
+                    position: relative;
+                    width: auto;
+                    transform-origin: top left;
+                    transform: translate(-15%, 0%) scale(0.6, 0.6);
+                    //.transform-origin(top, left, 10);
+                }
+
+                @media(min-width:@screen-sm-min) {
+                    img {
+                        transform: translate(-18%, -15%) scale(0.7, 0.7);
+                    }
+                }
+
+                @media(min-width:@screen-md-min) {
+                    height: auto;
+                    min-height: 350px;
+
+                    img {
+                        width: 100%;
+                        transform: none;
+                        //.img-responsive();
+                    }
+                }
+
+                @media(min-width:@screen-lg-min) {
+                    min-height: 420px;
                 }
             }
 
@@ -521,66 +559,68 @@ ul.articles-pager {
                 position: absolute;
                 width: 100%;
                 color: @white-color;
-                background-color: #636363;
-                opacity: 0.5;
-                left: 0;
-                bottom: 50px;
-                /*top: 0;*/
+                bottom: 55px;
                 text-align: center;
 
+                &:before {
+                    opacity: 0.5;
+                    content: '';
+                    position: absolute;
+                    background-color: @gray-color-2;
+                    opacity: 0.5;
+                    width: 100%;
+                    height: 100%;
+                    left: 0;
+                    top: 0;
+                }
+
                 @media(min-width:@screen-sm-min) {
-                    /*top: 10%;*/
-                    bottom: 50px;
                 }
 
                 @media(min-width:@screen-lg-min) {
-                    /*top: 15%;*/
-                    bottom: 50px;
-                    /*left: 30%;*/
                 }
-                /*.container > div {*/
-                .container {
-                    /*max-width: 700px;*/
-                    .title {
-                        h1 {
-                            font-size: 30px;
 
-                            @media(min-width:@screen-sm-min) {
-                                font-size: 35px;
-                            }
+                .title {
+                    position: relative; /*This makes it non-hided by BG and clickable*/
+                    margin: 30px 10px 25px;
 
-                            @media(min-width:@screen-lg-min) {
-                                font-size: 45px;
-                            }
+                    h1 {
+                        font-size: 30px;
+
+                        @media(min-width:@screen-sm-min) {
+                            font-size: 35px;
                         }
 
-                        p {
-                            font-size: @font-size-middle-large;
-
-                            @media(min-width:@screen-sm-min) {
-                                font-size: @font-size-large;
-                            }
-
-                            @media(min-width:@screen-lg-min) {
-                                font-size: @font-size-extra-large;
-                            }
+                        @media(min-width:@screen-lg-min) {
+                            font-size: 45px;
                         }
                     }
 
-                    .btn-action {
-                        .btn {
-                            margin-top: 0px;
-                            margin-bottom: 35px;
-                            font-size: @font-size-base;
+                    p {
+                        font-size: @font-size-middle-large;
 
-                            @media(min-width:@screen-sm-min) {
-                                margin-top: 10px;
-                                font-size: @font-size-large;
-                            }
+                        @media(min-width:@screen-sm-min) {
+                            font-size: @font-size-large;
+                        }
 
-                            @media(min-width:@screen-lg-min) {
-                                margin-top: 20px;
-                            }
+                        @media(min-width:@screen-lg-min) {
+                            font-size: @font-size-extra-large;
+                        }
+                    }
+                }
+
+                .btn-action {
+                    position: relative; /*This makes it non-hided by BG and clickable*/
+                    margin: 25px 0 30px;
+
+                    .btn {
+                        font-size: @font-size-base;
+
+                        @media(min-width:@screen-sm-min) {
+                        }
+
+                        @media(min-width:@screen-lg-min) {
+                            font-size: @font-size-middle-large;
                         }
                     }
                 }
@@ -635,7 +675,7 @@ ul.articles-pager {
 
     .title {
         color: @orange-color-a;
-        margin: 50px 0 25px 0;
+        margin: 60px 0 25px 0;
         text-align: center;
     }
 
@@ -646,7 +686,7 @@ ul.articles-pager {
                 display: block;
                 .transition(all 0.4s);
 
-                &:hover {
+                &:hover, &:focus, &:active {
                     text-decoration: none;
                     background-color: @gray-color-5;
                 }
@@ -678,16 +718,19 @@ ul.articles-pager {
             }
 
             .details {
-                padding: 0 20px 0 20px;
+                padding: 0 0 0 20px;
                 font-size: @font-size-small;
                 color: @gray-color-3;
 
                 h4 {
                     margin-top: 0;
                     text-transform: none;
+                    line-height: 1.3;
                 }
 
                 p {
+                    margin: 6px 0 0;
+
                     span:first-child {
                         margin-right: 5px;
                     }
@@ -702,7 +745,7 @@ ul.articles-pager {
 
     .read-more {
         text-align: center;
-        margin: 15px 0 50px 0;
+        margin: 25px 0 70px 0;
     }
 }
 
@@ -730,6 +773,11 @@ ul.articles-pager {
             &:last-child {
                 margin-right: 0;
             }*/
+            @media(max-width:@screen-xs-max) {
+                max-width: 420px;
+                margin: 0 auto 30px;
+            }
+
             & > a {
                 padding: 10px;
                 display: block;
@@ -742,7 +790,7 @@ ul.articles-pager {
                     display: inline-block;
                 }
 
-                &:hover, &:focus {
+                &:hover, &:focus, &:active {
                     text-decoration: none;
 
                     h4 {
@@ -753,9 +801,6 @@ ul.articles-pager {
                     img {
                         .scale(1.1, 1.1);
                     }
-                    /*.byline {
-                        border-bottom: 1px solid @orange-color-a;
-                    }*/
                 }
             }
 
@@ -775,6 +820,14 @@ ul.articles-pager {
                 margin: 0 15px 20px 15px;
                 color: @gray-color-3;
                 height: 80px;
+
+                @media(max-width:@screen-xs-max) {
+                    //border-bottom: 1px solid @gray-color-3;
+                }
+            }
+
+            .break-line {
+                border-color: @gray-color-4;
             }
         }
     }
@@ -802,7 +855,7 @@ ul.articles-pager {
 
     .read-more {
         text-align: center;
-        margin: 50px 0 100px 0;
+        margin: 50px 0 90px 0;
     }
 }
 
@@ -831,17 +884,54 @@ ul.articles-pager {
 .news-overview-container {
     margin: 70px 0 70px 0;
 
+    .header {
+        .years-list {
+            margin-top: 20px;
+            display: inline-block;
+            float: right;
+        }
+
+        @media(max-width:@screen-xs-max) {
+            text-align: center;
+
+            .years-list {
+                float: none;
+            }
+        }
+    }
+
+    .list {
+        margin-top: 25px;
+    }
+
     .news-item {
         margin-bottom: 30px;
+
+        @media(max-width:@screen-xs-max) {
+            max-width: 400px;
+            margin: 0 auto 40px;
+        }
 
         .title {
             a {
                 display: inline-block;
                 color: @gray-color-2;
+                border-bottom: 1px solid transparent;
+                .transition(all 0.4s);
             }
 
             h4 {
-                margin-top: 0;
+                @media(min-width:@screen-sm-min) {
+                    margin-top: 0;
+                }
+            }
+
+            &:hover, &:focus, &:active {
+                a {
+                    text-decoration: none;
+                    color: @orange-color-a;
+                    border-bottom: 1px solid @orange-color-a;
+                }
             }
         }
 
@@ -854,12 +944,16 @@ ul.articles-pager {
         }
 
         .news-item-tags {
-            margin: 10px 0 @news-item-sub-margin;
+            margin: @news-item-sub-margin 0 @news-item-sub-margin;
         }
 
         .byline {
             /*letter-spacing: 0;*/
-            margin: @news-item-sub-margin 0 10px 0;
+            margin: @news-item-sub-margin 0 @news-item-sub-margin 0;
+        }
+
+        .break-line {
+            border-color: @gray-color-4;
         }
     }
 }
@@ -923,33 +1017,62 @@ ul.news-item-info {
 .announce-overview-container {
     margin: 70px 0 70px 0;
 
+    .header {
+        @media(max-width:@screen-xs-max) {
+            text-align: center;
+        }
+    }
+
+    .list {
+        margin-top: 25px;
+    }
+
     .announce-item {
         margin-bottom: 30px;
+
+        @media(max-width:@screen-xs-max) {
+            max-width: 400px;
+            margin: 0 auto 40px;
+        }
 
         .title {
             a {
                 display: inline-block;
                 color: @gray-color-2;
+                border-bottom: 1px solid transparent;
+                .transition(all 0.4s);
             }
 
             h4 {
-                margin-top: 0;
+                @media(min-width:@screen-sm-min) {
+                    margin-top: 0;
+                }
+            }
+
+            &:hover, &:focus, &:active {
+                a {
+                    text-decoration: none;
+                    color: @orange-color-a;
+                    border-bottom: 1px solid @orange-color-a;
+                }
             }
         }
 
         .image {
             display: block;
         }
-        /*.news-item-info {
+
+        .news-item-info {
             margin: @news-item-sub-margin 0 @news-item-sub-margin;
         }
 
-        .news-item-tags {
-            margin: @news-item-sub-margin 0 @news-item-sub-margin;
-        }*/
         .byline {
             /*letter-spacing: 0;*/
-            margin: @news-item-sub-margin 0;
+            margin: @news-item-sub-margin 0 @news-item-sub-margin 0;
+        }
+
+        .break-line {
+            border-color: @gray-color-4;
         }
     }
 }
@@ -961,6 +1084,16 @@ ul.news-item-info {
     .header {
         .years-list {
             margin-top: 20px;
+            display: inline-block;
+            float: right;
+        }
+
+        @media(max-width:@screen-xs-max) {
+            text-align: center;
+
+            .years-list {
+                float: none;
+            }
         }
     }
 
@@ -983,7 +1116,7 @@ ul.news-item-info {
         vertical-align: top;
         overflow: hidden;
 
-        &:hover, &:focus {
+        &:hover, &:focus, &:active {
             img {
                 .scale(1.1, 1.1);
             }
@@ -1033,6 +1166,10 @@ ul.news-item-info {
                 .transition(all 0.5s ease-in-out);
                 height: 0;
                 opacity: 0;
+
+                .photos-count {
+                    white-space: nowrap;
+                }
             }
         }
     }
@@ -1142,10 +1279,37 @@ ul.news-item-info {
     margin-top: 70px;
 
     .title {
+        .btn-back {
+            height: 40px;
+            width: 40px;
+            background: url(images/back.png);
+            background-size: contain;
+            display: inline-block;
+            .transition(all 0.3s ease-in-out);
+
+            &:hover, &:focus, &:active {
+                opacity: 0.5;
+                .rotate(90deg);
+            }
+        }
+
+        .text {
+            display: inline-block;
+            margin-left: 15px;
+            vertical-align: top;
+
+            h3 {
+                margin-top: 8px;
+            }
+        }
+    }
+
+    .news-item-info {
+        margin: @news-item-sub-margin 0px @news-item-sub-margin - 5px;
     }
 
     .grid-content {
-        margin: 50px 0 70px 0;
+        margin: 35px 0 70px 0;
     }
 }
 
