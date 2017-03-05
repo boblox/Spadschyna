@@ -65,18 +65,6 @@
     .news-icon(-54px, 17px);
 }
 
-/*.comments-icon {
-    .news-icon(-14px, 15px);
-}
-
-.share-icon {
-    .news-icon(-29px, 14px);
-}
-
-.category-icon {
-    .news-icon(-43px, 12px);
-}*/
-
 .news-icon(@x, @width) {
     @height: 18px;
     display: inline-block;
@@ -85,20 +73,6 @@
     height: @height;
     background-position: @x 0;
     opacity: 1;
-}
-
-.news-category-color(@color) {
-    background-color: white;
-    color: @color;
-
-    span {
-        border-left: 2px solid @color;
-    }
-
-    &.active, &:hover {
-        color: white;
-        background-color: @color;
-    }
 }
 
 .vertical-align-middle {

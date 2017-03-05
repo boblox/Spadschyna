@@ -218,13 +218,20 @@ a:focus {
             content: none; /*Do this because  otherwise justify-content: space-between not work*/
         }
 
+        .navbar-toggle {
+            .transition(all 0.4s ease-in-out);
+
+            &:not(.collapsed) {
+                .rotate(90deg);
+            }
+        }
+
         .main-logo {
             display: block;
 
             @media (max-width : @screen-sm-max) {
                 margin: 0 auto;
             }
-
 
             img {
                 height: @navbar-height - 10px;
@@ -484,6 +491,23 @@ ul.articles-pager {
 
 /*Events-calendar***************************************************/
 .events-calendar-container {
+}
+
+/*Button back*******************************************************/
+.btn-back {
+    height: 40px;
+    width: 40px;
+    background: url(images/back.png);
+    background-size: contain;
+    display: inline-block;
+    flex-shrink: 0;
+    opacity: 0.4;
+    .transition(all 0.3s ease-in-out);
+
+    &:hover, &:focus, &:active {
+        opacity: 1;
+        .rotate(90deg);
+    }
 }
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!HOME PAGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
@@ -917,7 +941,7 @@ ul.articles-pager {
                 display: inline-block;
                 color: @gray-color-2;
                 border-bottom: 1px solid transparent;
-                .transition(all 0.4s);
+                .transition(all 0.3s);
             }
 
             h4 {
@@ -940,11 +964,11 @@ ul.articles-pager {
         }
 
         .news-item-info {
-            margin: @news-item-sub-margin 0 @news-item-sub-margin;
+            margin: @news-item-sub-margin 0 @news-item-sub-margin - 10px;
         }
 
         .news-item-tags {
-            margin: @news-item-sub-margin 0 @news-item-sub-margin;
+            margin: @news-item-sub-margin - 10px 0 @news-item-sub-margin;
         }
 
         .byline {
@@ -971,6 +995,8 @@ ul.news-item-info {
     li {
         margin: 5px 25px 5px 0;
         display: inline-block;
+        display: flex;
+        flex-wrap: nowrap;
 
         &:last-child {
             margin-right: 0;
@@ -986,7 +1012,7 @@ ul.news-item-info {
         }
 
         span:first-child {
-            margin-right: 2px;
+            margin-right: 5px;
         }
 
         span {
@@ -999,10 +1025,11 @@ ul.news-item-info {
 /*News item tags*****************************/
 .news-item-tags {
     display: flex;
+    flex-wrap: wrap;
     line-height: 1;
 
     a {
-        margin-right: 5px;
+        margin: 5px 5px 5px 0;
         display: inline-block;
         font-size: @font-size-small;
         color: @gray-color-3;
@@ -1193,19 +1220,7 @@ ul.news-item-info {
     margin: 70px 0 70px 0;
 
     .title {
-        .btn-back {
-            height: 40px;
-            width: 40px;
-            background: url(images/back.png);
-            background-size: contain;
-            display: inline-block;
-            .transition(all 0.3s ease-in-out);
-
-            &:hover, &:focus, &:active {
-                opacity: 0.5;
-                .rotate(90deg);
-            }
-        }
+        display: flex;
 
         .text {
             display: inline-block;
@@ -1242,19 +1257,7 @@ ul.news-item-info {
     margin-top: 70px;
 
     .title {
-        .btn-back {
-            height: 40px;
-            width: 40px;
-            background: url(images/back.png);
-            background-size: contain;
-            display: inline-block;
-            .transition(all 0.3s ease-in-out);
-
-            &:hover, &:focus, &:active {
-                opacity: 0.5;
-                .rotate(90deg);
-            }
-        }
+        display: flex;
 
         .text {
             display: inline-block;
@@ -1268,11 +1271,11 @@ ul.news-item-info {
     }
 
     .news-item-info {
-        margin: @news-item-sub-margin 0px @news-item-sub-margin - 5px;
+        margin: @news-item-sub-margin 0px @news-item-sub-margin - 10px;
     }
 
     .news-item-tags {
-        margin: @news-item-sub-margin - 5px 0px @news-item-sub-margin;
+        margin: @news-item-sub-margin - 10px 0px @news-item-sub-margin - 5px;
     }
 
     .grid-content {
@@ -1285,19 +1288,7 @@ ul.news-item-info {
     margin-top: 70px;
 
     .title {
-        .btn-back {
-            height: 40px;
-            width: 40px;
-            background: url(images/back.png);
-            background-size: contain;
-            display: inline-block;
-            .transition(all 0.3s ease-in-out);
-
-            &:hover, &:focus, &:active {
-                opacity: 0.5;
-                .rotate(90deg);
-            }
-        }
+        display: flex;
 
         .text {
             display: inline-block;

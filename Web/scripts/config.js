@@ -637,6 +637,19 @@ function InitGoogleMap(settings) {
     });
 }
 
+/**************************************************=Back button=**************************************************************/
+function InitBackButton(id, fallbackUrl) {
+    $("#" + id).on("click",
+        function (e) {
+            e.preventDefault();
+            if (document.referrer) {
+                history.back();
+            } else {
+                location.href = fallbackUrl;
+            }
+        });
+}
+
 /**********************************************=Scroll to top=***************************************************************/
 function InitScrollToTop(identifier) {
     $(window).scroll(function () {

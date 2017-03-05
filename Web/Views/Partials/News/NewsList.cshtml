@@ -14,29 +14,33 @@
 
     <article class="news-item">
         <div class="row">
-            <div class="col-sm-8">
-                <a href="@item.Url" class="image">
-                    <img class="img-responsive" src="@imageUrl" alt=""/>
-                </a>
-            </div>
-            <div class="col-sm-16">
-                <header class="title">
-                    <h4>
-                        <a href="@item.Url">@title</a>
-                    </h4>
-                </header>
-
-                @if (!string.IsNullOrEmpty(subHeader))
-                {
-                    <div class="byline">
-                        @Html.GetInnerText(string.IsNullOrWhiteSpace(subHeader) ?
-                            content : new HtmlString(subHeader), 200)
-                        <a href="@item.Url">@Localization.ItemReadMore</a>
+            <div class="col-md-20 col-lg-18">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <a href="@item.Url" class="image">
+                            <img class="img-responsive" src="@imageUrl" alt="" />
+                        </a>
                     </div>
-                }
-                @{ Html.RenderPartial("/Views/Partials/Common/ArticleInfo.cshtml", item);}
-                @{ Html.RenderPartial("/Views/Partials/Common/ArticleTags.cshtml", item);}
-                <hr class="break-line visible-xs"/>
+                    <div class="col-sm-16">
+                        <header class="title">
+                            <h4>
+                                <a href="@item.Url">@title</a>
+                            </h4>
+                        </header>
+
+                        @if (!string.IsNullOrEmpty(subHeader))
+                        {
+                            <div class="byline">
+                                @Html.GetInnerText(string.IsNullOrWhiteSpace(subHeader) ?
+                                    content : new HtmlString(subHeader), 200)
+                                <a href="@item.Url">@Localization.ItemReadMore</a>
+                            </div>
+                        }
+                        @{ Html.RenderPartial("/Views/Partials/Common/ArticleInfo.cshtml", item);}
+                        @{ Html.RenderPartial("/Views/Partials/Common/ArticleTags.cshtml", item);}
+                        <hr class="break-line visible-xs" />
+                    </div>
+                </div>
             </div>
         </div>
     </article>

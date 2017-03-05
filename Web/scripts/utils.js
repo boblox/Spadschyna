@@ -11,7 +11,7 @@
 
 function reloadDisqusCommentsCounter() {
     window.DISQUSWIDGETS = undefined;
-    $.getScript("http://" + disqus_shortname + ".disqus.com/count.js");
+    $.getScript("http://" + config.disqusShortName + ".disqus.com/count.js");
 }
 
 var config = {

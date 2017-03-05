@@ -8,12 +8,14 @@
     var imageIds = item.Images.Split(new[] { "," }, StringSplitOptions.RemoveEmptyEntries).Select(int.Parse);
     var images = Umbraco.TypedMedia(imageIds);
     var id = "gallery-item";
+    var btnBackId = "btn-back";
+    var fallbackUrl = parent.Url + "#/";
 }
 @section Body
 {
     <article class="gallery-item-container" id="@id">
         <header class="title">
-            <a class="btn-back" href='@(parent.Url+"#/")'></a>
+            <a id="@btnBackId" class="btn-back" href="#"></a>
             <div class="text">
                 <h3>
                     @title
@@ -39,6 +41,7 @@
     <script type="text/javascript">
         $(function () {
             InitGalleryItem('@id');
+            InitBackButton('@btnBackId', '@fallbackUrl');
         });
     </script>
 }

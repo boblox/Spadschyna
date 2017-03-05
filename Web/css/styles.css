@@ -7492,6 +7492,17 @@ a:focus {
   content: none;
   /*Do this because  otherwise justify-content: space-between not work*/
 }
+.header-nav.navbar .navbar-header .navbar-toggle {
+  -webkit-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+.header-nav.navbar .navbar-header .navbar-toggle:not(.collapsed) {
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
 .header-nav.navbar .navbar-header .main-logo {
   display: block;
 }
@@ -7759,6 +7770,28 @@ ul.articles-pager > li a.active {
   margin-top: 20px;
 }
 /*Events-calendar***************************************************/
+/*Button back*******************************************************/
+.btn-back {
+  height: 40px;
+  width: 40px;
+  background: url(images/back.png);
+  background-size: contain;
+  display: inline-block;
+  flex-shrink: 0;
+  opacity: 0.4;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+.btn-back:hover,
+.btn-back:focus,
+.btn-back:active {
+  opacity: 1;
+  -webkit-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!HOME PAGE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*Banner carousel***************************************/
 .pagination-carousel.banner-carousel-container {
@@ -8110,9 +8143,9 @@ ul.articles-pager > li a.active {
   display: inline-block;
   color: #555;
   border-bottom: 1px solid transparent;
-  -webkit-transition: all 0.4s;
-  -o-transition: all 0.4s;
-  transition: all 0.4s;
+  -webkit-transition: all 0.3s;
+  -o-transition: all 0.3s;
+  transition: all 0.3s;
 }
 @media (min-width: 768px) {
   .news-overview-container .news-item .title h4 {
@@ -8130,10 +8163,10 @@ ul.articles-pager > li a.active {
   display: block;
 }
 .news-overview-container .news-item .news-item-info {
-  margin: 15px 0 15px;
+  margin: 15px 0 5px;
 }
 .news-overview-container .news-item .news-item-tags {
-  margin: 15px 0 15px;
+  margin: 5px 0 15px;
 }
 .news-overview-container .news-item .byline {
   /*letter-spacing: 0;*/
@@ -8155,6 +8188,8 @@ ul.news-item-info {
 ul.news-item-info li {
   margin: 5px 25px 5px 0;
   display: inline-block;
+  display: flex;
+  flex-wrap: nowrap;
 }
 ul.news-item-info li:last-child {
   margin-right: 0;
@@ -8169,7 +8204,7 @@ ul.news-item-info li a:focus {
   color: #555;
 }
 ul.news-item-info li span:first-child {
-  margin-right: 2px;
+  margin-right: 5px;
 }
 ul.news-item-info li span {
   display: inline-block;
@@ -8178,10 +8213,11 @@ ul.news-item-info li span {
 /*News item tags*****************************/
 .news-item-tags {
   display: flex;
+  flex-wrap: wrap;
   line-height: 1;
 }
 .news-item-tags a {
-  margin-right: 5px;
+  margin: 5px 5px 5px 0;
   display: inline-block;
   font-size: 12px;
   color: #888;
@@ -8350,24 +8386,8 @@ ul.news-item-info li span {
 .gallery-item-container {
   margin: 70px 0 70px 0;
 }
-.gallery-item-container .title .btn-back {
-  height: 40px;
-  width: 40px;
-  background: url(images/back.png);
-  background-size: contain;
-  display: inline-block;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-.gallery-item-container .title .btn-back:hover,
-.gallery-item-container .title .btn-back:focus,
-.gallery-item-container .title .btn-back:active {
-  opacity: 0.5;
-  -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
+.gallery-item-container .title {
+  display: flex;
 }
 .gallery-item-container .title .text {
   display: inline-block;
@@ -8401,24 +8421,8 @@ ul.news-item-info li span {
 .news-item-container {
   margin-top: 70px;
 }
-.news-item-container .title .btn-back {
-  height: 40px;
-  width: 40px;
-  background: url(images/back.png);
-  background-size: contain;
-  display: inline-block;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-.news-item-container .title .btn-back:hover,
-.news-item-container .title .btn-back:focus,
-.news-item-container .title .btn-back:active {
-  opacity: 0.5;
-  -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
+.news-item-container .title {
+  display: flex;
 }
 .news-item-container .title .text {
   display: inline-block;
@@ -8429,10 +8433,10 @@ ul.news-item-info li span {
   margin-top: 8px;
 }
 .news-item-container .news-item-info {
-  margin: 15px 0px 10px;
+  margin: 15px 0px 5px;
 }
 .news-item-container .news-item-tags {
-  margin: 10px 0px 15px;
+  margin: 5px 0px 10px;
 }
 .news-item-container .grid-content {
   margin: 35px 0 70px 0;
@@ -8441,24 +8445,8 @@ ul.news-item-info li span {
 .announce-item-container {
   margin-top: 70px;
 }
-.announce-item-container .title .btn-back {
-  height: 40px;
-  width: 40px;
-  background: url(images/back.png);
-  background-size: contain;
-  display: inline-block;
-  -webkit-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  transition: all 0.3s ease-in-out;
-}
-.announce-item-container .title .btn-back:hover,
-.announce-item-container .title .btn-back:focus,
-.announce-item-container .title .btn-back:active {
-  opacity: 0.5;
-  -webkit-transform: rotate(90deg);
-  -ms-transform: rotate(90deg);
-  -o-transform: rotate(90deg);
-  transform: rotate(90deg);
+.announce-item-container .title {
+  display: flex;
 }
 .announce-item-container .title .text {
   display: inline-block;
@@ -8522,17 +8510,6 @@ ul.news-item-info li span {
   background-position: -54px 0;
   opacity: 1;
 }
-/*.comments-icon {
-    .news-icon(-14px, 15px);
-}
-
-.share-icon {
-    .news-icon(-29px, 14px);
-}
-
-.category-icon {
-    .news-icon(-43px, 12px);
-}*/
 .vertical-align-middle {
   position: relative;
   top: 50%;
@@ -9153,7 +9130,7 @@ input.input-validation-error {
 /*Back office styling*/
 body.mce-content-body {
   font-family: "Fira Sans", "PT Sans", sans-serif;
-  font-size: 14px;
+  font-size: 16px;
 }
 .mce-content-body img {
   display: block;

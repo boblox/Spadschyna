@@ -6,6 +6,8 @@
     var parent = item.Parent;
     //var overviewTitle = item.Ancestor<NewsOverview>().Title;
     var title = item.GetTitle();
+    var btnBackId = "btn-back";
+    var fallbackUrl = parent.Url + "#/";
 }
 
 @section RightSidebar
@@ -20,7 +22,7 @@
 {
     <article class="news-item-container">
         <header class="title">
-            <a class="btn-back" href='@(parent.Url+"#/")'></a>
+            <a id="@btnBackId" class="btn-back" href="#"></a>
             <div class="text">
                 <h3>@title</h3>
                 @{ Html.RenderPartial("/Views/Partials/Common/ArticleInfo.cshtml", item);}
@@ -32,4 +34,10 @@
         </div>
         @{Html.RenderPartial("~/Views/Partials/Common/Comments.cshtml");}
     </article>
+
+    <script type="text/javascript">
+        $(function () {
+            InitBackButton('@btnBackId', '@fallbackUrl');
+        });
+    </script>
 }
