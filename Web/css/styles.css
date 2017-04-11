@@ -7909,13 +7909,28 @@ ul.articles-pager > li a.active {
   background-color: #f9f9f9;
 }
 .home-info-container .about {
-  margin: 70px 0 50px 0;
+  margin: 70px 0 40px 0;
+}
+.home-info-container .about img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 180px;
 }
 .home-info-container .about .description {
   margin-top: 25px;
 }
+@media (max-width: 767px) {
+  .home-info-container .about .title {
+    text-align: center;
+  }
+  .home-info-container .about img {
+    /*margin: 0 auto 40px;*/
+    margin-bottom: 40px;
+  }
+}
 .home-info-container .points-of-interest {
-  margin: 50px 0 70px 0;
+  margin: 50px 0 40px 0;
 }
 .home-info-container .points-of-interest .point-of-interest {
   text-align: center;
@@ -8864,7 +8879,7 @@ input.input-validation-error {
 #contour .contourPage textarea,
 .contour .contourPage select,
 #contour .contourPage select {
-  border: 1px solid #f6ab32;
+  border: 1px solid #c8c8c8;
   padding: 5px;
   margin: 0.5em 0;
 }

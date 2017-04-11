@@ -34,6 +34,26 @@
         }
     },
     {
+        "name": "Заголовок: стандартний",
+        "alias": "headline-normal",
+        "view": "textstring",
+        "icon": "icon-forms-paypal",
+        "config": {
+            "style": "font-size: 22px; line-height: 1.1; font-weight:bold;",
+            "markup": "<h3>#value#</h3>"
+        }
+    },
+    {
+        "name": "Заголовок: великий",
+        "alias": "headline-big",
+        "view": "textstring",
+        "icon": "icon-forms-paypal",
+        "config": {
+            "style": "font-size: 35px; color:#f6ab32; line-height: 1.1; font-weight:bold;",
+            "markup": "<h2>#value#</h2>"
+        }
+    },
+    {
         "name": "Карусель світлин",
         "alias": "Carousel",
         "view": "/App_Plugins/LeBlender/editors/leblendereditor/LeBlendereditor.html",
