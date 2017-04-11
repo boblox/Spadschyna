@@ -10,6 +10,9 @@
 }
 
 function reloadDisqusCommentsCounter() {
+    //if (window.DISQUSWIDGETS) {
+    //    window.DISQUSWIDGETS.getCount({ reset: true });
+    //}
     window.DISQUSWIDGETS = undefined;
     $.getScript("http://" + config.disqusShortName + ".disqus.com/count.js");
 }
